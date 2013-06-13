@@ -1,0 +1,65 @@
+<% @accounting_purchase_balance_detail = accounting_purchase_balance_detail %>
+<%#= hidden_field_tag "count_edit", "", :value => 0%>
+<tr class="accounting_purchase_balance_detail grid_2">
+  <td>
+    <label><%= multi_text_field_with_auto_complete :accounting_purchase_balance_detail_product, :name, index, { :size => 27 }, :skip_style => true, :indicator => "indicator-product-name-#{index}" -%>
+      <%= hidden_field_tag "accounting_purchase_balance_detail_item_id_#{index}", "", :id => "accounting_purchase_balance_detail_product_name_#{index}_id" %>
+      <span id="indicator-product-name-<%=index%>" style="display:none;"><%= image_tag "ajax-loader.gif" %></span></label>
+  </td>
+  <td>
+    <%= text_field_tag "accounting_purchase_balance_detail_qty_#{index}", 0, :size => 3 ,:style => 'text-align:right;',
+      :onkeyup => "sum_product(this.value, $('accounting_purchase_balance_detail_price_#{index}').value,#{index},'purchase');
+$('purchase_balance_transaction_value_#{index}').value = $('accounting_purchase_balance_detail_subtotal_#{index}').value;
+sum_total_all(parseInt($('count').value) + parseInt(#{size}),'purchase');
+ppn('purchase',#{ppn_rate});
+disc($('purchase_balance_subtotal').value,$('purchase_balance_disc_percentage').value,'purchase');
+calculate_total_transaction('purchase');" %>
+  </td>
+  <td>
+    <%= text_field_tag "accounting_purchase_balance_detail_price_#{index}", 0, :size => 8 , :style => 'text-align:right;',
+      :onkeyup => "sum_product(this.value, $('accounting_purchase_balance_detail_qty_#{index}').value,#{index},'purchase');
+$('purchase_balance_transaction_value_#{index}').value = $('accounting_purchase_balance_detail_subtotal_#{index}').value;
+sum_total_all(parseInt($('count').value) + parseInt(#{size}),'purchase');
+ppn('purchase',#{ppn_rate});
+disc($('purchase_balance_subtotal').value,$('purchase_balance_disc_percentage').value,'purchase');
+calculate_total_transaction('purchase');" %>
+  </td>
+<%#*<td>%>
+  <%= hidden_field_tag "accounting_purchase_balance_detail_subtotal_#{index}", 0, :size => 10, :style => 'text-align:right;',:readonly => true %>
+<%#*</td>%>
+<%#*<td>%>
+  <%= hidden_field_tag("purchase_balance_disc_percentage_#{index}", 0, :style => 'text-align:right;',:size => 2,
+    :onkeyup => "disc_purchase($('accounting_purchase_balance_detail_subtotal_#{index}').value,$('purchase_balance_disc_percentage_#{index}').value,#{index});
+  sum_total_all(parseInt($('count').value) + parseInt(#{size}),'purchase');
+  ppn('purchase',#{ppn_rate});
+  disc($('purchase_balance_subtotal').value,$('purchase_balance_disc_percentage').value,'purchase');
+  calculate_total_transaction('purchase');") %>
+<%#*</td>%>
+  <td>
+    <%= hidden_field_tag("purchase_balance_discount_#{index}", 0) %>
+    <%= text_field_tag("purchase_balance_transaction_value_#{index}", 0,:size => 20, :readonly => true, :style => 'text-align:right;') %>
+  </td>
+<%#*<td>%>
+<%#= text_field_tag("purchase_valuable_age_#{index}", "",{ :value => 0,:size => 2, :style => 'text-align:right;'})%>
+<%#*</td>%>
+  <td>
+<%#= link_to_function "", "$(this).up('.accounting_purchase_balance_detail').remove(); setIndex(-1,'count'); sum_total_all(parseInt($('count').value) + parseInt(#{size}),'purchase');", :class => "a_delete" %>
+    <%= link_to_function "", "$(this).up('.accounting_purchase_balance_detail').remove();
+sum_total_all(parseInt($('count').value) + parseInt(#{size}),'purchase');
+ppn('purchase',#{ppn_rate});
+disc($('purchase_balance_subtotal').value,$('purchase_balance_disc_percentage').value,'purchase');
+calculate_total_transaction('purchase');", :class => "a_delete" %>
+  </td>
+</tr>
+<script type="text/javascript">
+<%#*var validate_qty = new LiveValidation('accounting_purchase_balance_detail_qty_<%=index% >',{onlyOnSubmit: true });%>
+<%#*var validate_price = new LiveValidation('accounting_purchase_balance_detail_price_<%=index% >',{onlyOnSubmit: true });%>
+<%#*var validate_discount = new LiveValidation('accounting_purchase_balance_detail_price_<%=index% >',{onlyOnSubmit: true });%>
+<%#*var validate_age = new LiveValidation('purchase_valuable_age_<%=index% >',{onlyOnSubmit: true });% >
+<%#*var validate_discount = new LiveValidation('purchase_balance_disc_percentage_<%=index% >',{onlyOnSubmit: true });%>
+<%#*validate_qty.add(Validate.Numericality);validate_price.add(Validate.Numericality);validate_discount.add(Validate.Numericality);%>
+<%#*validate_age.add(Validate.Numericality);validate_discount.add(Validate.Numericality, {maximum : 99});%>
+<%# if index.to_i >=0 %>
+
+<%# end %>
+</script> 

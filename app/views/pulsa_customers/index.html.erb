@@ -1,0 +1,81 @@
+<script type="text/javascript">
+  jQuery(function($){
+    if(typeof($.fn.fixedHeader)=='function'){
+      $("#data").fixedHeader({width: 1000,height: 400});
+    }
+  })
+</script>
+
+<div id="search">
+  <% form_tag(:action => :index) do %>
+    <table width="220" class="search_table" cellpadding="5" cellspacing="0" style="margin: 8px 6px;">
+      <tr><th>Cari</th><th><%= text_field_tag "search", "" %></th></tr>
+      <tr><th colspan="2" align="right"><%= submit_tag "Proses", :class => "btn-submit" %></th></tr>
+    </table>
+  <% end %>
+</div>
+
+<div class="div_top_btn">
+    <%=  link_to("Setting Pulsa",pulsa_settings_path, {:class => "a_top_btn"})  %>
+</div>
+<div style="clear: both"></div>
+<div class="wrap_table_data" style="width: 1200px;">
+<table id="data" class="main_table" cellpadding="0" cellspacing="0" width="1300px">
+  <thead>
+    <tr class="grid_1">
+      <th>No</th>
+      <th width="130px">Tanggal Install</th>
+      <th width="200px">Nama Customer</th>
+      <th width="50px">SN</th>
+      <th width="150px">SimCard</th>
+      <th width="100px">Mobil</th>
+      <th width="100px">No Polisi</th>
+      <%#*<th width="100px">Paket</th>%>
+      <%#*<th width="100px">Layanan</th>%>
+      <%#*<th width="100px">Angsuran</th>%>
+      <%#*<th width="100px">Total Pemakain Saldo</th>%>
+      <%#*<th width="100px">Last Saldo</th>%>
+      <%#*<th width="100px">Masa Aktif SIM Card</th>%>
+      <th width="130px">Sales</th>
+      <th width="200px">Contact Person</th>
+      <th colspan="5">&nbsp;</th>
+      <th colspan="5">&nbsp;</th>
+  </thead>
+  <% @pulsa_customers.each_with_index do |pulsa_customer,index| %>
+    <tr class=<%= cycle("grid_2","grid_3") %>>
+      <td><%= index + 1 %></td>
+      <td><%= pulsa_customer.date_install %></td>
+      <td><%= pulsa_customer.customer.name %></td>
+      <td><%= pulsa_customer.sn %></td>
+      <td><%= pulsa_customer.simcard %></td>
+      <td><%= pulsa_customer.car.name rescue nil %></td>
+      <td><%= pulsa_customer.nopol %></td>
+      <%#*<td>paket</td>%>
+      <%#*<td>layanan</td>%>
+      <%#*<td>Angsuran</td>%>
+      <%#*<td><%= pulsa_customer.detail_pulsa_customers.sum("pulsa") % ></td>%>
+      <%#*<td><%= link_to_remote_redbox("#{pulsa_customer.last_saldo}", {:url => "/pulsa_customers/edit_saldo/#{pulsa_customer.id}"}, {:class => "a_edit"})  % ></td>%>
+      <%#*<td><%= link_to_remote_redbox("#{pulsa_customer.aktif}", {:url => "/pulsa_customers/edit/#{pulsa_customer.id}"}, {:class => "a_edit"}) % ></td>%>
+      <td>Sales</td>
+      <td><%= "#{pulsa_customer.customer.phone} | #{pulsa_customer.customer.contact }"  %></td>
+      <%#*<td><%= link_to_remote_redbox("Isi Pulsa", {:url => add_pulsa_pulsa_customers_path(:id=>pulsa_customer.id)}, {:class => "a_add"}) % ></td>%>
+      <td><%= link_to 'Hapus', pulsa_customer, :confirm => "Apakah anda yakin akan menghapus data '#{pulsa_customer.customer.name}' ?", :method => :delete, :class => "a_delete" %></td>
+      <td   width="120px" id="show-hide-pulsa-detail-<%=  pulsa_customer.id%>"><%= render :partial => "pulsa_detail_trigger", :locals => {:pulsa_customer => pulsa_customer, :show => true} %></td>
+      <td   width="120px" id="show-hide-payment-detail-<%=  pulsa_customer.id%>"><%= render :partial => "payment_detail_trigger", :locals => {:pulsa_customer => pulsa_customer, :show => true} %></td>
+    </tr>
+    <tr class="grid_3" id="pulsa-detail-<%=  pulsa_customer.id%>"></tr>
+  <% end %>
+</table>
+</div>
+<table class="table_footer" cellpadding="0" cellspacing="0" width="1200px">
+  <tr class="grid_footer">
+    <td colspan="8" valign="center">
+      <%=!@setting.nil? ? link_to_remote_redbox("Tambah Pengguna Alat",
+        {:url => new_pulsa_customer_path},
+        {:class => "a_add"}) : "Setting Pulsa Terlabih Dahulu"%>
+    </td>
+    <td colspan="2">
+      <%= will_paginate @pulsa_customers %>
+    </td>
+  </tr>
+</table>

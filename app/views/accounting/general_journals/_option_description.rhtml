@@ -1,0 +1,6 @@
+<span id="option_description">
+  <%= select("journal","description", option_select_description_filter(result), {:selected => $SELECTED_DESCRIPTION}, 
+  {:onchange => remote_function(
+                   :url => {:action => 'filter_description'}, 
+                   :with => "'value='+this.value+'&type=description&month='+#{date[:month]}+'&year='+#{date[:year]}")})%>
+</span>

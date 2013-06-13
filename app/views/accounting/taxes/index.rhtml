@@ -1,0 +1,26 @@
+<table class="main_table" cellpadding="0" cellspacing="0" width="600">
+  <tr class="grid_1">
+    <td style="width :200px; text-align :center;">Keterangan</td>
+    <td style="width :100px; text-align :center;">No Rekening</td>
+    <td style="width :200px; text-align :center;">Akun</td>
+    <td style="width :60px;   text-align :center;">Rate (%)</td>
+    <td>&nbsp;</td>
+    <td>&nbsp;</td>
+  </tr>
+
+  <div class="clear_right"></div>
+
+  <% @taxes.each do |key, value| %>
+    <%= display_single_tax value[0], value[1], key.to_s %>
+  <% end %>
+
+  <% @other_taxes.each do |tax| %>
+    <%= display_single_tax tax.description, tax, tax.account_type %>
+  <% end %>
+  
+  <tr class="grid_footer">
+    <td colspan="6" valign="center">
+      <%= link_to_remote_redbox("Input Pajak Lainnya", {:url => {:action => :new}}, {:class => "a_add"}) %>
+    </td>
+  </tr>
+</table>

@@ -1,0 +1,15 @@
+<tr class="debit-account-detail grid_2">
+  <td>
+    <label><%= multi_text_field_with_auto_complete :account, :debit, index, { :size => 27 }, :skip_style => true, :indicator => "indicator-account-debit-#{index}" -%>
+      <%= hidden_field_tag "debit_account_id_#{index}", "", :id => "account_debit_#{index}_id" %>
+      <span id="indicator-account-debit-<%=index%>" style="display:none;"><%= image_tag "ajax-loader.gif" %></span>
+    </label>
+  </td>
+  <td><%= text_field_tag "value_debit_#{index}", 0, :size => 10, :style => "text-align: right;", :onkeyup => "sum_total_manual_journal('debit',$('debit_count').value);" %></td>
+  <td><%= link_to_function "", 
+      "$(this).up('tr.debit-account-detail').hide();
+$('account_debit_#{index}').value='xs-x';
+$('account_debit_#{index}_id').value='';
+$('value_debit_#{index}').value=0;
+sum_total_manual_journal('debit',$('debit_count').value);", :class => 'a_delete' %></td>
+</tr>

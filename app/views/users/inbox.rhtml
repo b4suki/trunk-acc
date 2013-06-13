@@ -1,0 +1,24 @@
+
+<%= link_to "Kirim Pesan", {:action => "compose_message"}, :class => 'a_compose' %>
+<div id="compose_message"></div>
+<table width="500" class="main_table" cellpadding="0" cellspacing="0">
+  <tr>
+    <th> Status</th>
+    <th> Judul </th>
+    <th colspan="2" width="5%"> Pilihan</th>
+  </tr>
+  <% if @mail.size > 0  %>
+    <% @mail.each do |mail| %>
+      <tr class=<%= cycle("grid_2","grid_3") %>>
+        <td><%= link_to mail.read == true ? "Terbaca" : "Belum Terbaca", :action => :show_message , :id => mail %></td>
+        <td><%= mail.message.subject %></td>
+        <td><%= link_to "Hapus", {:action => :delete_message , :id => mail}, :confirm => "Apakah anda yakin akan menghapus pesan '#{mail.message.subject}' ?", :class => "a_delete" %></td>
+        <td><%= link_to "Balas", {:action => :replay_message , :id => mail}, :class => 'a_reply' %></td>
+      </tr>
+    <% end %>
+  <% else %>
+    <tr class="grid_2">
+      <td colspan="4"> Tidak Ada Pesan</td>
+    </tr>
+  <% end %>
+</table>

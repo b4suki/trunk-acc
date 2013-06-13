@@ -1,0 +1,59 @@
+<h3>COST EVALUATIONS</h3>
+<h3>Bulan <%= selected_month %>  Tahun <%= selected_year %> </h3>
+
+<table style="border: 1" id="t1" class="main_table" cellpadding="0" cellspacing="0"">
+<tr class="grid_1">
+    <th  style="width:40px;text-align:center; padding:5px 0px;">
+      No     
+    </th>
+    <th  colspan="2" style="width:700px;text-align:center;padding:5px 0px;">
+      No And Description      
+    </th>
+    <th style="width:200px;text-align:center;padding:5px 0px;">
+      Januari      
+    </th>
+    <th  style="width:200px;text-align:center;padding:5px 0px;">
+      Februari      
+    </th>
+    <th  style="width:200px;text-align:center;padding:5px 0px;">
+      Maret      
+    </th>
+    <th  style="width:200px;text-align:center;padding:5px 0px;">
+      April      
+    </th>
+    <th  style="width:200px;text-align:center;padding:5px 0px;">
+      Mei      
+    </th>
+    <th  style="width:200px;text-align:center;padding:5px 0px;">
+      Juni      
+    </th>
+    <th style="width:200px;text-align:center;padding:5px 0px;">
+      Juli      
+    </th>
+    <th style="width:200px;text-align:center;padding:5px 0px;">
+      Agustus      
+    </th>
+    <th style="width:200px;text-align:center;padding:5px 0px;">
+      September      
+    </th>
+    <th style="width:200px;text-align:center;padding:5px 0px;">
+      Oktober      
+    </th>
+    <th style="width:200px;text-align:center;padding:5px 0px;">
+      November      
+    </th>
+    <th style="width:200px;text-align:center;padding:5px 0px;">
+      Desember      
+    </th>
+    <th style="width:200px;text-align:center;padding:5px 0px;">
+     <%= $year%>     
+   </th>
+     <th style="width:200px;text-align:center;padding:5px 0px;">
+      Common      
+    </th>
+  </tr>
+    <!--<td style="font-weight:bold;"></td>-->
+ <%= render :partial => 'content_cost_evaluations_for_report', :locals => {:cost_evaluations => @cost_evaluations, :date => @date}%>
+</table> 
+
+

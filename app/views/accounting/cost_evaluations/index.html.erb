@@ -1,0 +1,111 @@
+<%#= initial_table_freeze(:freeze_size => 3, :stop_cell =>1, :stop_vertical => 3) %>
+<%#= javascript_include_tag 'table_freeze' %>
+<div id="search">
+  <table class="search_table" cellpadding="2" cellspacing="0" width="200">
+    <% form_tag(:action => :index) do %>
+      <tr>
+        <th colspan="2">Filter Cost Evaluations </th>
+      </tr>
+      <tr><td>Tahun</td><td><%= select_year(default_filter_year, :start_year => 2000, :end_year => 2030) %></td></tr>
+      <tr><td colspan="2" align="right"><%= submit_tag "Proses", :class => "btn-submit" %></td></tr>
+    </table>
+  <% end %>
+</div>
+
+
+<div class="div_freezepanes_wrapper" style="height:100%;">
+  <div class="clear_right"></div>
+<%#*<div class="div_verticalscroll" onmouseover="this.style.cursor='pointer'">%>
+<%#*<div style="height:50%;" onmousedown="upp();" onmouseup="upp(1);"><img class="buttonUp" src="/images/uF035.png"></div>%>
+<%#*<div style="height:50%;" onmousedown="downn();" onmouseup="downn(1);"><img class="buttonDn" src="/images/uF036.png"></div>%>
+<%#*</div>%>
+
+<%#*<div class="div_horizontalscroll" onmouseover="this.style.cursor='pointer'">%>
+<%#*<div style="float:left;width:50%;height:100%;" onmousedown="right();" onmouseup="right(1);"><img class="buttonRight" src="/images/uF033.png"></div>%>
+<%#*<div style="float:right;width:50%;height:100%;" onmousedown="left();" onmouseup="left(1);"><img class="buttonLeft" src="/images/uF034.png"></div>%>
+<%#*</div>%>
+
+  <table id="t1" class="main_table" cellpadding="0" cellspacing="0" width="1000px">
+    
+      <tr class="grid_1">
+        <th  style="width:40px;text-align:center; padding:5px 0px;">
+          No
+        </th>
+        <th style="width:100px;text-align:center;padding:5px 0px;">
+          No Rek
+        </th>
+
+        <th style="width:600px;text-align:center;padding:5px 0px;">
+          Description
+        </th>
+
+<%#*<th  colspan="2" style="width:700px;text-align:center;padding:5px 0px;">%>
+<%#*No And Description%>      
+<%#*</th>%>
+        <th style="width:200px;text-align:center;padding:5px 0px;">
+          Januari
+        </th>
+        <th  style="width:200px;text-align:center;padding:5px 0px;">
+          Februari
+        </th>
+        <th  style="width:200px;text-align:center;padding:5px 0px;">
+          Maret
+        </th>
+        <th  style="width:200px;text-align:center;padding:5px 0px;">
+          April
+        </th>
+        <th  style="width:200px;text-align:center;padding:5px 0px;">
+          Mei
+        </th>
+        <th  style="width:200px;text-align:center;padding:5px 0px;">
+          Juni
+        </th>
+        <th style="width:200px;text-align:center;padding:5px 0px;">
+          Juli
+        </th>
+        <th style="width:200px;text-align:center;padding:5px 0px;">
+          Agustus
+        </th>
+        <th style="width:200px;text-align:center;padding:5px 0px;">
+          September
+        </th>
+        <th style="width:200px;text-align:center;padding:5px 0px;">
+          Oktober
+        </th>
+        <th style="width:200px;text-align:center;padding:5px 0px;">
+          November
+        </th>
+        <th style="width:200px;text-align:center;padding:5px 0px;">
+          Desember
+        </th>
+        <th style="width:200px;text-align:center;padding:5px 0px;">
+          <%= $year%>
+        </th>
+        <th style="width:200px;text-align:center;padding:5px 0px;">
+          Common
+        </th>
+
+      </tr>
+    <!--<td style="font-weight:bold;"></td>-->
+    <%= render :partial => 'content_cost_evaluations_for_report', :locals => {:cost_evaluations => @cost_evaluations, :date => @date}%>
+  </table>
+</div>
+
+<table class="table_footer" cellpadding="0" cellspacing="0" width="1000px;">
+  <tr class="grid_footer">
+    <td colspan="25" valign="center">       
+<%#= link_to "Export PDF",:action => 'pdf' %><span class="blue_split">&nbsp;</span>
+      <%= link_to "Export PDF", formatted_accounting_cost_evaluations_path(:pdf),:class => "a_pdf" %><span class="blue_split">&nbsp;</span>
+      <%= link_to "Export EXCEL", formatted_accounting_cost_evaluations_path(:xls), :class => "a_xls" %>
+    </td>
+    <td align="right">
+<%#= link_to "Bantuan", formatted_accounting_cash_balances_path(:xls), :class => "a_help", :title => "Bantuan" %>
+<%#= render(:partial => "accounting/help/cash_balances", :locals => {:collection => @customers }) -%>
+<%#= link_to_remote_redbox("Bantuan",:url => "/accounting/cash_balances/help/",:class => 'a_help', :title => 'Bantuan'%>
+<%#= link_to_remote_redbox("Bantuan",{:url => {:action => :cash_help}},{:class => "a_help", :title => "Bantuan"})  %>
+    </td>
+  </tr>
+</table>
+
+
+

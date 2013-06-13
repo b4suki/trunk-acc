@@ -1,0 +1,28 @@
+<p>
+  <b>User:</b>
+  <%=h @trans_item.user_id %>
+</p>
+
+<p>
+  <b>Item:</b>
+  <%=h @trans_item.item_id %>
+</p>
+
+<p>
+  <b>Qty:</b>
+  <%=h @trans_item.qty %>
+</p>
+
+<p>
+  <b>Status:</b>
+  <%=h @trans_item.status %>
+</p>
+
+<p>
+  <b>Description:</b>
+  <%=h @trans_item.description %>
+</p>
+
+
+<%= link_to 'Edit', edit_trans_item_path(@trans_item) %> |
+<%= link_to 'Back', trans_items_path %>

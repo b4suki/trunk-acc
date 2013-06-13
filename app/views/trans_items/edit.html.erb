@@ -1,0 +1,37 @@
+<%= popup_title("Edit Transaksi Item") %>
+
+<div id="RB_body" style="width: 250px;">
+  <% form_for(@trans_item) do |f| %>
+    <%= f.error_messages %>
+
+    <%= f.hidden_field :user_id %>
+    <p>
+      Tanggal Transaksi<br />
+      <%= f.date_splicer :created_at, :default_to_now => true %>
+    </p>
+    <p>
+      Item<br />
+      <%= f.hidden_field :item_id %>
+      <%= text_field_tag :item, @trans_item.item.name, :readonly => true %>
+    </p>
+    <p>
+      Transaksi : <%= @trans_item.is_addition ? "Penambahan" : "Pengambilan" %>
+    </p>
+    <p>
+      Jumlah<br />
+      <%= f.text_field :qty, :size => 5 %>
+    </p>
+    <%#*<p>%>
+      <%#*Status<br />%>
+      <%#= f.hidden_field :status %>
+      <%#= text_field_tag :status, @trans_item.status.name, :readonly => true %>
+    <%#*</p>%>
+    <p>
+      <%= f.label :description %><br />
+      <%= f.text_area :description, :cols => 30, :rows => 3 %>
+    </p>
+    <p>
+      <%= f.submit "Update" %>
+    </p>
+  <% end %>
+</div>

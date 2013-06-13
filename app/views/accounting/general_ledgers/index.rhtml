@@ -1,0 +1,52 @@
+<div id="search">
+  <% form_tag(:action => :index) do %>
+    <table width="200" class="search_table" cellpadding="5" cellspacing="0">
+      <tr><th colspan="2">Filter Bulan Transaksi</th></tr>
+      <tr><td>Bulan</td><td>&nbsp;&nbsp;<%= select_month(default_filter_month, :use_month_names => indonesian_month_names ) %></td></tr>
+      <tr><td>Tahun</td><td>&nbsp;&nbsp;<%= select_year(default_filter_year, :start_year => 2000, :end_year => 2030) %></td></tr>
+      <tr><td>Account <span id="indicator-account-code" style="display:none;"><%= image_tag "ajax-loader.gif" %></span></td>
+        <td><%= text_field_with_auto_complete :account, :code, { :size => 30, :value => "#{@selected_account.code}   #{@selected_account.description}" }, :skip_style => true, :indicator => "indicator-account-code" -%>
+          <%= hidden_field_tag :account_id, @selected_account.id, :id => "account_code_id" %></td>
+      </tr>
+      <script type="text/javascript">
+        var accounts = new Array();
+  <% validate_account.each_with_index  do |x, i| %>
+    accounts[<%=i%>]='<%= x %>';
+  <% end %>
+
+  var val_account_code = new LiveValidation('account_code');
+  val_account_code.add(Validate.Inclusion,{ within: accounts});
+  val_account_code.add(Validate.Presence)
+      </script>
+      <tr><td colspan="2" align="right"><%= submit_tag "Proses", :class => "btn-submit" %></td></tr>
+    </table>
+  <% end %>
+</div>
+<br />
+<table class="main_table" cellpadding="0" cellspacing="0"  id="target_journal" width="1050">
+  <tr>
+    <th colspan="5"><%= "#{@selected_account.code}  #{@selected_account.description}" %></th>
+  </tr>
+  <tr>
+    <th align="center">Tanggal</th>
+    <th align="center">Account</th>
+    <th align="center">Keterangan</th>
+    <th align="center">Debit</th>
+    <th align="center">Kredit</th>
+    <th align="center">Saldo</th>
+  </tr>
+    <%= create_general_ledger(@result, @selected_account, @date) %>
+</table>
+<table width="1050px;" class='main_table' cellpadding='0' cellspacing='0'>
+  <tr class="grid_footer">
+    <td colspan="14" valign="center">
+      <%#= link_to "Export PDF", formatted_accounting_general_ledgers_path(:pdf),:date => @date, :class => "a_pdf" %><span class="blue_split">&nbsp;</span>
+      <%= link_to "Export PDF", {"format"=>"pdf", "action"=>"index", "controller"=>"accounting/general_ledgers",
+        "account_id"=>@selected_account.id, :date => @date}, :class => "a_pdf"
+ %><span class="blue_split">&nbsp;</span>
+      <%= link_to "Export EXCEL", {"format"=>"xls", "action"=>"index", "controller"=>"accounting/general_ledgers",
+        "account_id"=>@selected_account.id, :date => @date}, :class => "a_xls" %><span class="blue_split">&nbsp;</span>
+      <%#= link_to "Export EXCEL", formatted_accounting_general_ledgers_path(:xls), :date => @date, :class => "a_xls" %>
+    </td>
+  </tr>
+</table>

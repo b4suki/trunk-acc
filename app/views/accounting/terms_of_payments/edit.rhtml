@@ -1,0 +1,11 @@
+<%=  popup_title "Edit Tipe Debit Credit Penjualan" %>
+
+<div id="RB_body" style="width: 300px;">
+<% form_for(:terms_of_payment, @terms_of_payment, :url => accounting_terms_of_payment_path(@terms_of_payment), :html=> {:method=>'put'})  do |f| %>
+  <%= f.error_messages %>
+  <%= render :partial => 'form', :locals => { :f => f } %>
+  <p>
+    <%= f.submit "Update" %>  
+  </p>
+<% end %>
+</div>

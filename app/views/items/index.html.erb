@@ -1,0 +1,80 @@
+<script type="text/javascript">
+  jQuery(document).ready(function(){
+    jQuery("#data").fixedHeader({width: 1000,height: 400});
+  })
+</script>
+
+<div id="search">
+  <% form_tag(:action => :index) do %>
+    <table width="220" class="search_table" cellpadding="5" cellspacing="0" style="margin: 8px 6px;">
+      <tr><th>Cari</th><th><%= text_field_tag "search", "" %></th></tr>
+      <tr><th colspan="2" align="right"><%= submit_tag "Proses", :class => "btn-submit" %></th></tr>
+    </table>
+  <% end %>
+</div>
+
+<div style="float: left;">
+<%= link_to("Items ",items_path,{:class => "a_top_btn"}) %>
+<%= link_to("Barang Setengah Jadi ",products_path,{:class => "a_top_btn"}) %>
+<%= link_to("Barang Jadi",items_path(:completed => true),{:class => "a_top_btn"}) %>
+</div>
+<table id="data" class="main_table" cellpadding="0" cellspacing="0" width="1000px">
+
+  <thead>
+    <tr class="grid_1">
+      <th>No</th>
+      <th><%= link_to "Tipe", :action => :index, :sort => "types.name" %></th>
+      <th>Kode Item</th>
+      <th><%= link_to "Name", :action => :index, :sort => "name" %></th>
+      <th>Satuan</th>
+      <th>Stock</th>
+      <th>Total Nilai</th>
+      <th>Keterangan</th>
+      <th>Aktif</th>
+      <th colspan="5">&nbsp;</th>
+    </tr>
+  </thead>
+  <div class="div_top_btn">
+    <%= link_to("Lihat Transaksi Barang",trans_items_path,{:class => "a_top_btn"}) %>
+    <%= link_to("Tipe barang",types_path,{:class => "a_top_btn"}) %>
+    <%= link_to("Satuan barang",units_path,{:class => "a_top_btn"}) %>
+  </div>
+  <div class="clear_right"></div>
+  <% unless @items.empty? %>
+    <% @items.each_with_index do |item, index| %>
+      <tr class=<%= cycle("grid_2","grid_3") %>>
+        <td><%= index + 1 %></td>
+        <td><%=h item.type.name rescue nil %></td>
+        <td><%=h item.nil? || item.item_code.nil? ? "" : item.item_code %></td>
+        <td><%=h item.name rescue nil %></td>
+        <td><%=h item.nil? || item.unit.nil? ? "" : item.unit.name %></td>
+        <td align="right"><%= item.stock %></td>
+        <td align="right"><%= format_currency(item.item_details.sum('total')) %></td>
+        <td><%=h item.nil? ? "" : item.description %></td>
+        <td align="center"><%= check_box_tag 'Aktif',:value_credit ,item.active,:disabled => true %></td>
+        <td><%= link_to_remote_redbox("Edit", {:url => "/items/edit/#{item.id}"}, {:class => "a_edit"})  %></td>
+        <td><%= link_to 'Hapus', item, :confirm => "Apakah anda yakin akan menghapus data '#{item.name}' ?", :method => :delete, :class => "a_delete" %></td>
+        <td><%= link_to_remote_redbox 'Transaksi Item',{:url => "/trans_items/new/#{item.id}"} if item.active == true %></td>
+        <td id="show-hide-item-detail-<%=item.id%>"><%= render :partial => "item_detail_trigger", :locals => {:item => item, :show => true} %></td>
+        <td><%= link_to("Lihat Keluar Masuk Barang",item_path(item.id)) %></td>
+      </tr>
+      <tr class="grid_3" id="item-detail-<%=item.id%>"></tr>
+    <% end %>
+  <% else %>
+    <tr class="grid_2"><td align="center" colspan="13">TIDAK ADA DATA</td></tr>
+  <% end %>
+</table>
+
+
+<table class="table_footer" cellpadding="0" cellspacing="0" width="1000px">
+  <tr class="grid_footer">
+    <td colspan="8" valign="center">
+      <%= link_to_remote_redbox("Tambah Barang", {:url => new_item_path(:completed => @completed)}, {:class => "a_add"}) %><span class="blue_split">&nbsp;</span>
+      <%= link_to "Export PDF", items_path(:format => :pdf, :report => "list"), :class => "a_pdf" %><span class="blue_split">&nbsp;</span>
+      <%= link_to "Export EXCEL", formatted_items_path(:xls), :class => "a_xls" %><span class="blue_split">&nbsp;</span>
+    </td>
+    <td colspan="2">
+      <%= will_paginate @items %>
+    </td>
+  </tr>
+</table>

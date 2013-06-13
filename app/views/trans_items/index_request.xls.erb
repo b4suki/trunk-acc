@@ -1,0 +1,28 @@
+<h2 align="cente">PURCHASE REQUEST</h2><br /> <br />
+Nama     : <%= current_user.login %><br />
+Tanggal  : <%= selected_month %> - <%= selected_year %><br />
+
+
+<table border="1" width="700px">
+  <tr>
+    <th>No</th>
+    <th>Barang yang dikehendaki</th>
+    <th>Stock</th>
+    <th>Order</th>
+    <th>Harga</th>
+    <th>Keterangan</th>
+  </tr>
+
+  <% unless @purchase_requests.empty?  %>
+    <% @purchase_requests.each_with_index do |request, index| %>
+      <tr>
+        <td><%= index + 1 %></td>
+        <td align="center"><%= request.item.nil? ? "" : request.item.name %></td>
+        <td align="right"><%= request.item.nil? ? "" : request.item.stock %></td>
+        <td align="right"><%= request.qty %></td>
+        <td align="right"><%= format_currency(request.item.price) %></td>
+        <td align="right"><%= request.description %></td>
+      </tr>
+    <% end %>
+  <% end %>
+</table>

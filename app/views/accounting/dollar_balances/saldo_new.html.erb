@@ -1,0 +1,15 @@
+<%=  popup_title "Input Data Saldo" %>
+
+<div id="RB_body" style="width: 300px;">
+<% form_for(:dollar_balance, @dollar_balance, :url => {:action => 'create_new_saldo'}, :html => {:class => "validated"})  do |f| %>
+  <table width="230" cellpadding="5" cellspacing="5">
+    <tr><td style="width: 80px;">Bulan</td><td><%= select_month(default_filter_month, :use_month_names => indonesian_month_names ) %></td></tr>
+    <tr><td style="width: 80px;">Tahun</td><td><%= select_year(default_filter_year, :start_year => 2000, :end_year => 2030) %></td></tr>
+    <tr><td style="width: 80px;">Jumlah($)</td><td><%= text_field_tag "saldo" %></td></tr>
+    <tr><td style="width: 80px;">Kurs(Rp)</td><td><%= text_field_tag "kurs" %></td></tr>
+  </table>
+  <div style="clear: both;"></div>
+  <br/>
+  <%= f.submit "Simpan" %>
+<% end %>
+</div>

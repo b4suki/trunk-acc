@@ -1,0 +1,26 @@
+                     <h3>Daftar Pelanggan</h3>
+                     <table border='1' class="main_table" cellpadding="3" cellspacing="0" width="800px;">
+                       <tr class="grid_1">
+                         <td><b>Nama</b></td>
+                         <td><b>No rek</b></td>
+                         <td><b>Npwp</b></td>
+                         <td><b>Keterangan</b></td>
+                         <td><b>Alamat</b></td>
+                         <td><b>Telepon</b></td>
+                         <td><b>Fax</b></td>
+                         <td><b>Kontak</b></td>
+                       </tr>
+
+                     <% for customer in @customers %>
+                       <tr>
+                         <td><%=h customer.name %></td>
+                         <td><%=h customer.nil? ? "" : customer.rek_no %></td>
+                         <td><%=h customer.nil? ? "" : customer.npwp %></td>
+                         <td><%=h customer.description %></td>
+                         <td><%=h customer.address %></td>
+                         <td><%=h customer.phone %></td>
+                         <td><%=h customer.fax %></td>
+                         <td><%=h customer.contact %></td>
+                       </tr>
+                     <% end %>
+                     </table>

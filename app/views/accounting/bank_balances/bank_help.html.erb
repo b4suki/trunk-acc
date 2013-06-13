@@ -1,0 +1,10 @@
+<%=  popup_title_help "Bantuan Bank" %>
+<div style="max-height:400px; overflow-x:hidden;overflow-y:auto;">
+<div id="RB_body" style="width: 500px;">
+<% form_for(:bank_balance, @bank_balance, :url => {:action => 'bank_help'})  do |f| %>
+  <%= f.error_messages %>
+  <%= render :partial => '/accounting/help/bank_balances', :locals => { :f => f } %>
+  <div style="clear: both;"></div>
+<% end %>
+</div>
+</div>

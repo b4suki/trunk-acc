@@ -1,0 +1,62 @@
+<div style="float:left;margin: 5px 20px 5px 5px;">
+  <%= hidden_field_tag :purchase_balance_id, @purchase.id %>
+  <%= f.hidden_field :vendor_customer_id, :value => @purchase.vendor_id %>
+  <table class="search_table" cellpadding="5" cellspacing="0">
+    <tr>
+      <td>No Bukti</td>
+      <td> : </td>
+      <td align="right">
+        <%= f.text_field :evidence %>
+      </td>
+    </tr>
+    <tr>
+      <td>Tanggal Pembayaran</td>
+      <td> : </td>
+      <td>
+        <%= f.date_splicer :updated_at, :default_to_now => true %>
+      </td>
+    </tr>
+    <tr>
+      <td>Nama Perusahaan</td>
+      <td> : </td>
+      <td><%= @purchase.vendor.nil? ? "" :  @purchase.vendor.name %></td>
+    </tr>
+    <tr>
+      <td>Tanggal Transaksi</td>
+      <td> : </td>
+      <td><%= format_date(@purchase.created_at) %> <%= hidden_field_tag :from, params[:from] %></td>
+    </tr>
+    <tr>
+      <td>Tanggal Jatuh Tempo</td>
+      <td> : </td>
+      <td><%= format_date(@purchase.maturity_date) %></td>
+    </tr>
+    <tr>
+      <td>Total Transaksi</td>
+      <td> : </td>
+      <td align="right"><%= format_currency(@purchase.transaction_value) %></td>
+    </tr>
+    <tr>
+      <td>Telah Dibayar</td>
+      <td> : </td>
+      <td align="right"><%= format_currency(@purchase.paid) %></td>
+    </tr>
+    <tr>
+      <td>Sisa Utang</td>
+      <td> : </td>
+      <td align="right"><%= format_currency(@purchase.amount_account_receivable) %></td>
+    </tr>
+    <tr>
+      <td>Jumlah Pembayaran</td>
+      <td> : </td>
+      <td align="right">
+        <script type="text/javascript">
+          var v_paid = new LiveValidation('liability_payed_value');
+          v_paid.add(Validate.Numericality, { maximum: <%= @purchase.amount_account_receivable %> } );
+        </script>
+        <%= f.text_field :payed_value, :value => 0, :style => "text-align: right;" %>
+      </td>
+    </tr>
+  </table>
+</div>
+<br/>

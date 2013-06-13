@@ -1,0 +1,39 @@
+<td colspan="<%=19+7%>" align="right">
+  <table class="main_table" cellpadding="0" cellspacing="0" width="500px">
+    <tr class="grid_1">
+      <th colspan="2">Total Transaksi</th>
+      <th style="text-align: right !important;"><%= format_currency(purchase.transaction_value) %></th>
+      <th>&nbsp;</th>
+    </tr>
+    <tr class="grid_1">
+      <th>No Bukti</th>
+      <th>Tanggal Pembayaran</th>
+      <th>Jumlah Pembayaran</th>
+      <th>&nbsp;</th>
+    </tr>
+    <% total = 0 %>
+    <% if purchase.payment_value && purchase.payment_value > 0 %>
+      <tr class="grid_2">
+        <td><%= purchase.invoice_number rescue nil %></td>
+        <td><%= format_date(purchase.invoice_date) %></td>
+        <td align="right"><%= format_currency(purchase.payment_value) %></td>
+        <td><%= link_to_remote_redbox "Edit", {:url => "/accounting/purchase_balances/edit/#{purchase.id}"}, {:class => "a_edit"} %></td>
+        <% total += purchase.payment_value %>
+      </tr>
+    <% end %>
+    <% purchase.liabilities.each do |liability| %>
+      <tr class="grid_2">
+        <td><%= liability.evidence rescue nil %></td>
+        <td><%= format_date(liability.created_at) %></td>
+        <td align="right"><%= format_currency(liability.payed_value) %></td>
+        <td><%= link_to_remote_redbox "Edit", {:url => "/accounting/liability_maturities/edit/#{liability.id}?from=p"}, {:class => "a_edit"} %></td>
+        <% total += liability.payed_value %>
+      </tr>
+    <% end %>
+    <tr class="grid_footer">
+      <th colspan="2">Total pembayaran</th>
+      <th style="text-align: right !important;"><%= format_currency(total) %></th>
+      <th>&nbsp;</th>
+    </tr>
+  </table>
+</td>

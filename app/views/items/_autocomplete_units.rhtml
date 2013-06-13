@@ -1,0 +1,5 @@
+<ul class="autocomplete_list" >
+  <% for unit in @units -%>
+     <li id="<%= unit.id %>" style="width: 350;" class="autocomplete_item"><%="#{unit.name}" %></li>
+  <% end -%>
+</ul>

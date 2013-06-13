@@ -1,0 +1,18 @@
+<p>
+  <b>Company cash balance:</b>
+  <%#=h @bank_reconciliations.company_cash_balance %>
+</p>
+
+<p>
+  <b>Bank balance:</b>
+  <%=h @bank_reconciliations.bank_balance_id %>
+</p>
+
+<p>
+  <b>Reconciliation detail:</b>
+  <%=h @bank_reconciliations.reconciliation_detail_id %>
+</p>
+
+
+<%= link_to 'Edit', edit_accounting_bank_reconciliation_path(@bank_reconciliations) %> |
+<%= link_to 'Back', accounting_bank_reconciliations_path %>

@@ -1,0 +1,53 @@
+<%= popup_title "Transaksi Barang" %>
+
+<div id="RB_body" style="width: 300px;">
+<%= javascript_include_tag :defaults %>
+<% form_for(@trans_item) do |f| %>
+  <%= f.error_messages %>
+  <p>
+    Nama Barang<br />
+    <%= hidden_field :trans_item,:item_id,  :value => @item.id %>
+    <%= text_field_tag :name, @item.name, :readonly => true, :style => 'text-align:left'%>
+  </p>
+  <p>
+    Stock<br />
+    <%= text_field_tag :stock, @item.nil? || @item.stock.nil? ? 0 : @item.stock, :size => 4, :readonly => true,:style => 'text-align:right'%>
+  </p>
+
+  <p>
+    <%= f.label :qty %><br />
+    <%= f.text_field :qty, {:style => 'text-align:right;', :size => 10} %>
+  </p>
+  <p>
+    Status<span id="indicator-status" style="display:none;"><%= image_tag "ajax-loader.gif" %></span><br />
+    <%#= select(:trans_item,:status,options_for_item_transaction,{},{:onchange => "if(this.value == '6'){$('trans_item_role_id').hide();}else{$('trans_item_role_id').show();}"})%>
+    
+    <%= text_field_with_auto_complete :trans_item, :status_name, { :size => 20}, :skip_style => true, :indicator => "indicator-status" %>
+    <%#= text_field_with_auto_complete :trans_item, :status_name, {:size => 15}, {:url => formatted_trans_item_statuses(:js)} %>
+    <%= f.hidden_field :status,:id => "trans_item_status_name_id" %>
+    <%#= select(:trans_item,:role_id, Role.find(:all).collect { |tmp| [tmp.title, tmp.id]  },{},{} ) %>
+  </p>
+  <p>Transaksi
+    <%= select_tag "trans_item_type", "<option>Pengambilan</option><option>Penambahan</option>" %>
+  </p>
+  <p>
+    <%= f.label :description %><br />
+    <%= f.text_area :description, :cols => 30, :rows => 4 %>
+  </p>
+  <p>
+    <%= f.submit "Create" %>
+  </p>
+<% end %>
+</div>
+
+<script type="text/javascript">
+  function add_validate(){
+  var f8 = new LiveValidation('trans_item_qty');
+  if($('trans_item_status').value == "1"){
+    var stok = <%= @item.stock %>;
+    f8.add( Validate.Numericality, { minimum: 0, maximum:  stok} );
+  }else{
+    f8.add( Validate.Numericality,{minimun:0});
+  }
+  }
+</script>

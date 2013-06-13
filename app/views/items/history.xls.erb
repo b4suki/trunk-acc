@@ -1,0 +1,66 @@
+<h3><%= @title %></h3>
+<h3>Bulan <%= selected_month %>  Tahun <%= selected_year %> </h3><br/>
+<table border="1" id="data" class="main_table" cellpadding="0" cellspacing="0" width="100%">
+  <% if !@history_items.nil? %>
+    <% @history_items.each_with_index do |history, index|   %>
+      <thead>
+        <tr class="grid_1">
+          <th><%= index + 1 %></th>
+          <th><%= history.item.name %></th>
+          <th colspan="3" align="left">&nbsp;</th>
+          <th style="text-align: center"><%= history.last_stock%></th>
+        </tr>
+        <tr class="grid_1">
+          <th>Date</th>
+          <th>Qty</th>
+          <th>Penjualan</th>
+          <th>Pembelian</th>
+          <th colspan="2">&nbsp;</th>
+        </tr>
+        <% stock , pendapatan , sale, purchase = history.last_stock, 0 , 0, 0%>
+        <%@data[history.item.name].each do |info|  %>
+          <tr  class=<%= cycle("grid_2","grid_3") %>>
+            <td style="color: <%= 'blue'  if info[:sale] == true %>"><%=  info[:date]%></td>
+            <td align="center" style="color: <%= 'blue'  if info[:sale] == true %>"><%=  info[:qty] %></td>
+            <td align="right" style="color: <%= 'blue'  if info[:sale] == true %>"><%=  format_currency info[:price]* info[:qty] if info[:sale] == true%></td>
+            <td align="right" style="color: <%= 'blue'  if info[:sale] == true %>"><%=  format_currency info[:price] * info[:qty] if info[:sale] == false%></td>
+            <%  if info[:sale] == true
+              pendapatan += info[:price] * info[:qty]
+              sale += info[:price] * info[:qty]
+            else
+              pendapatan -= info[:price] * info[:qty]
+              purchase += info[:price] * info[:qty]
+            end
+          %>
+            <td align="right" ><%=  format_currency(pendapatan)%></td>
+            <td align="center"><%=  info[:sale] == true ? stock -= info[:qty]  : stock += info[:qty]%></td>
+          </tr>
+        <% end %>
+        <tr class="grid_1">
+          <th colspan="2">Total</th>
+          <th style="text-align: right"><%= format_currency sale %></th>
+          <th style="text-align: right"><%= format_currency purchase %></th>
+          <th style="text-align: right"><%= format_currency pendapatan  %> </th>
+          <th style="text-align: center"><%=  stock%></th>
+        </tr>
+      </thead>
+      <tr class=<%= cycle("grid_2","grid_3") %>>
+        <td colspan="6"></td>
+      </tr>
+    <% end %>
+  <%# end if !@history_items.nil?%>
+  </table>
+<% else %>
+  <table border="1" id="data" class="main_table" cellpadding="0" cellspacing="0" width="100%">
+    <tr class="grid_1">
+      <th>Date</th>
+      <th>Qty</th>
+      <th>Penjualan</th>
+      <th>Pembelian</th>
+      <th colspan="2">&nbsp;</th>
+    </tr>
+    <tr class="grid_2">
+      <td colspan="6" align="center">Tidak Ada Data</td>
+    </tr>
+  </table>
+<% end %>

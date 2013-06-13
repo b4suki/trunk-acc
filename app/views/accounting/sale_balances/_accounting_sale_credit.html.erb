@@ -1,0 +1,18 @@
+<div class="accounting_sale_credit">
+<br />
+  <% @accounting_sale_credit = accounting_sale_credit %>  
+    <% code_ppn1 = get_code_ppn_pph('15300','21503')[1].nil? ? "" : get_code_ppn_pph('15300','21503')[1] %>
+    <% code_ppn0 = get_code_ppn_pph('15300','21503')[0].nil? ? "" : get_code_ppn_pph('15300','21503')[0] %>
+    <% code_piut = get_code_ppn_pph('15300','11401')[1].nil? ? "" :get_code_ppn_pph('15300','11401')[1]%>
+     
+    <%= select "accounting_sale_credit_id_#{index}","", options_for_sale_debet("credit"), {},{
+               :onchange => "auto_calculate_debit_credit(#{code_ppn0},this.value,'PPN',#{index},'sale_credit');
+                             auto_calculate_debit_credit(#{code_ppn1},this.value,'PPN',#{index},'sale_credit');",:style => "width: 90px;"}%>
+    <%= text_field "accounting_sale_credit_value_#{index}","",:style => 'text-align:right;', :value => 0 , :size => 15 %>                      
+    <%= hidden_field("accounting_sale_credit_hide_#{index}","",:value => 'FALSE')%>          
+    <%= link_to_function "remove", "$(this).up('.accounting_sale_credit').remove(); setIndex(-1,'count_credit');" %>   
+    <script type="text/javascript">
+           var add_credit1 = new LiveValidation("accounting_sale_credit_value_<%=index%>_")
+           add_credit1.add(Validate.Numericality)
+    </script>
+</div>

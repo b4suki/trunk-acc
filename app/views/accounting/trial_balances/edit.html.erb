@@ -1,0 +1,15 @@
+<%=  popup_title "edit Saldo Awal (#{selected_month} #{selected_year})" %>
+<div style="max-height:410px; overflow:auto;">
+  <div id="RB_body" style="width: 300px;">
+    
+    <% form_for  @trial_balance, :url => { :action => "update", :method => :put} do |f| %>
+    <%=  @trial_balance.accounting_account.description %>
+    <br/>
+    <br/>
+    <%= f.text_field(:last_saldo,  :style => 'text-align:right;' ) %>
+    <br/>
+    <br/>
+    <%= submit_tag 'Update' %>
+    <% end %>
+  </div>
+</div>

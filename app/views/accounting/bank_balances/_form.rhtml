@@ -1,0 +1,62 @@
+<div id="account-validation-script">
+  <%= render :partial => "accounting/bank_balances/account_validation_script" %>
+</div>
+
+<div style="float:left;margin: 5px 20px 5px 5px;">
+  Tanggal Transaksi<br />
+  <%= f.date_splicer :created_at, :default_to_now => true %><br />
+  <%= check_box_tag "transaction_link", 1, false, :onclick => remote_function(
+          :url => {:controller => "accounting/bank_balances", :action => :remove_unnecessary_field},
+          :with => "'stat='+this.checked",
+          :loading => "$('transaction-link-indicator').show();",
+          :complete => "$('transaction-link-indicator').hide();"
+        ) %>
+  Hubungkan dengan transaksi penjualan/pembelian <span id="transaction-link-indicator" style="display:none;"><%= image_tag "ajax-loader.gif" %></span><br />
+  <span id="transaction-link-type" style="display: none;">
+    Jenis Transaksi
+    <%= select_tag "transaction_link_type", options_for_select([["Penjualan", "sale"],["Pembelian", "purchase"]]),
+      {:onchange => remote_function(
+        :url =>{:controller => "accounting/bank_balances", :action => :prepare_show_transaction_type},
+        :with =>"'type='+this.value",
+        :loading => "$('indicator-transaction-type').show();",
+        :complete => "$('indicator-transaction-type').hide();"
+      )}  %> <span id="indicator-transaction-type" style="display:none;"><%= image_tag "ajax-loader.gif" %></span><br />
+    <div id="invoice-input">
+      No Invoice Penjualan <%= text_field_with_auto_complete :invoice, :sale %><br/>
+      <%= hidden_field_tag :sale_id, nil, :id => "sale_id_from_invoice" %><br/>
+    </div>
+  </span><br />
+  <div class="to_remove">
+    Kode Rekening <span id="indicator-account-code" style="display:none;"><%= image_tag "ajax-loader.gif" %></span><br />
+    <%= text_field_with_auto_complete :account, :code, { :size => 30,  :value => selected_account(@bank_balance) }, :skip_style => true, :indicator => "indicator-account-code" -%>
+    <%= f.hidden_field :account_id, :value => selected_account_id(bank_balance) %><br/>
+    No. Bukti<br />
+    <%= f.text_field :evidence %>
+    <br />
+  </div>
+<%#*No. Job<br />%>
+<%#= f.text_field :job_id, :size => 8 %>
+<%#*<br/>%>
+  CG/GB No<br/>
+  <%= f.text_field :cg_gb_no %><br/>
+  <div class="to_remove">
+    Jenis Buku Kas<br />
+    <%= select_tag "bank_balance[cash_book]", options_for_select([["Buku Kas Masuk", "bkm"],["Buku Kas Keluar", "bkk"]], selected_cash_type(bank_balance)) %>
+    <br/>
+  </div>
+  Kas Bank<br />
+  <%= select_tag "bank_cash_type", options_for_select(options_for_bank_cash_type, selected_bank_cash_type(bank_balance)) %><br />
+  <% maturity_date_is_set = (bank_balance.maturity_date.nil? == false) %>
+  <%= check_box_tag "maturity_date_checkbox", 1, maturity_date_is_set, :onclick => "maturity_date_check(this.checked);" %>
+  Tanggal Jatuh Tempo <span id="indicator-maturity-date-code" style="display:none;"><%= image_tag "ajax-loader.gif" %></span><br />
+  <span id="maturity_date_holder" style="display: <%=h maturity_date_is_set ? "" : "none"%>;">
+    <%= f.date_splicer :maturity_date, :default_to_now => true %>
+  </span>
+</div>
+
+<div style="float:left;margin: 5px">
+  Jumlah<br/>
+  <%= f.text_field :transaction_value, :value => @bank_balance.transaction_value == 0 || @bank_balance.transaction_value == 0.0 ? "" :  @bank_balance.transaction_value %><br/>
+  Keterangan<br/>
+  <%= f.text_area :description, :cols => 26, :rows => 10, :live => false  %>
+</div>

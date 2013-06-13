@@ -1,0 +1,44 @@
+<%=  popup_title "Edit Data Pelanggan" %>
+
+<div id="RB_body" style="width: 500px;">
+<% form_for(@customer) do |f| %>
+  <%= f.error_messages %>
+
+  <p>
+    <%= f.label :nama %><br />
+    <%= f.text_field :name %>
+  </p>
+  <p>
+    <%= f.label :rek %><br />
+    <%= f.text_field :rek_no %>
+  </p>
+   <p>
+      <%= f.label :npwp %><br />
+      <%= f.text_field :npwp %>
+   </p>
+          
+  <p>
+    <%= f.label :keterangan %><br />
+    <%= f.text_area :description, :cols => 15, :rows => 4 %>
+  </p>
+  <p>
+    <%= f.label :alamat %><br />
+    <%= f.text_area :address, :cols => 15, :rows => 4 %>
+  </p>
+  <p>
+    <%= f.label :telepon %><br />
+    <%= f.text_field :phone %>
+  </p>
+  <p>
+    <%= f.label :fax %><br />
+    <%= f.text_field :fax %>
+  </p>
+  <p>
+    <%= f.label :kontak %><br />
+    <%= f.text_field :contact %>
+  </p>
+  <p>
+    <%= f.submit "Update" %>
+  </p>
+<% end %>
+</div>

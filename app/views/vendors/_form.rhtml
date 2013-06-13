@@ -1,0 +1,45 @@
+
+<p>Nama Vendor <br />
+<%= f.text_field(:name)%></p>
+<p>No Rek <br />
+<%= f.text_field(:rek_no)%></p>
+<p>Npwp <br />
+<%= f.text_field(:npwp)%></p>
+<p>Keterangan <br />
+<%= f.text_area(:description, :rows => 2, :cols => 30)%></p>
+<p>Alamat <br /> 
+<%= f.text_area(:address, :rows => 2, :cols => 30)%></p>
+<p>No Telp <br />
+<%= f.text_field(:phone)%></p>
+<p>Fax <br />
+<%= f.text_field(:fax)%> </p>
+<p>Contact Person <br />
+<%= f.text_field(:contact)%></p>
+
+        
+<%# validasi uniqueness dari data vendor%>        
+<% unless !a.nil? && a=='edit'%>  
+ <script type="text/javascript"> 
+     var temp_name = new Array();
+     <% validate_unique_vendors('name').each_with_index  do |x,i|%>
+     temp_name[<%=i %>]='<%= x %>';
+     <% end %>
+     var validate = new LiveValidation('vendor_name');    
+     validate.add(Validate.Exclusion,{ within: temp_name});
+
+     var temp_phone = new Array();
+     <% validate_unique_vendors('phone').each_with_index  do |x,i|%>
+      temp_phone[<%=i %>]='<%= x %>';
+     <% end %>
+     var validate_phone = new LiveValidation('vendor_phone');    
+     validate_phone.add(Validate.Exclusion,{ within: temp_phone}); 
+
+     var temp_fax = new Array();
+     <% validate_unique_vendors('phone').each_with_index  do |x,i|%>
+      temp_fax[<%=i %>]='<%= x %>';
+     <% end %>
+     var validate_fax = new LiveValidation('vendor_fax');    
+     validate_fax.add(Validate.Exclusion,{ within: temp_fax}); 
+ </script>  
+<% end %>
+          

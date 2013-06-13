@@ -1,0 +1,6 @@
+<span id="option_account">
+  <%= select("journal", "account", option_select_account_filter(result),{:selected => $SELECTED_ACCOUNT == "all" ? "all" : $SELECTED_ACCOUNT.to_i},     
+    {:onchange => remote_function(
+                  :url => {:action => 'filter_account'}, 
+                  :with => "'value='+this.value+'&type=job&month='+#{date[:month]}+'&year='+#{date[:year]}")})%>
+</span>

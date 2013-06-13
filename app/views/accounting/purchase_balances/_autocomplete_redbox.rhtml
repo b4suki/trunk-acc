@@ -1,0 +1,29 @@
+<div id="autocomplete_redbox" style="z-index:10;" class="autocomplete_redbox">
+  <%#= popup_title "Kode Rekening" %>
+  <div id="RB_body" style="width: 100px;height:50px;">
+      <p>  
+        Kode Rekening <span id="indicator-account-code" style="display:none;"><%= image_tag "ajax-loader.gif" %></span><br />  
+        <%= text_field_with_auto_complete :account, :code, { :size => 30, :value => @purchase_balance.nil? || @purchase_balance.accounting_account.nil? ? "" : @purchase_balance.accounting_account.code }, :skip_style => true, :indicator => "indicator-account-code" -%>  
+      </p>
+        <%= hidden_field :account_id,"", :id => 'account_code_id' %> 
+        <%= link_to_function "Pilih", "if(!#{contra}){
+                                    $('hide_account_code_#{index}').value = $('account_code_id').value;
+                                    $('account_code_#{index}').value = $('account_code').value;  
+                                    $(this).up('.autocomplete_redbox').remove();                                                    
+                                }else{                                    
+                                    $('hide_contra_account_code_#{index}').value = $('account_code_id').value;
+                                    $('account_contra_code_#{index}').value = $('account_code').value;  
+                                    $(this).up('.autocomplete_redbox').remove();                                                   
+                                }" %> 
+        <%= link_to_function "Batal","$('autocomplete_redbox').hide()" %>
+  </div>   
+</div>  
+
+ <script type="text/javascript">
+        var account_code = new Array();
+        <% validate_account.each_with_index  do |x,i|%>
+          account_code[<%=i%>]='<%= x %>';
+        <% end %>          
+        var validate = new LiveValidation('account_code');    
+        validate.add(Validate.Inclusion,{ within: account_code});          
+ </script> 

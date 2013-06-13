@@ -1,0 +1,281 @@
+<html>
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+    <title>SISTEM INFORMASI TERINTEGRASI - PT. TURBOMACHINERY PARTS MANUFACTURING INDONESIA</title>
+    <%= stylesheet_link_tag 'desktop/ext-all' %>
+    <%= javascript_include_tag :defaults %>
+    <%= javascript_include_tag "desktop/ext-base", "desktop/ext-all" %>
+    <%= javascript_include_tag 'desktop/StartMenu', 'desktop/TaskBar',
+                               'desktop/Desktop',  'desktop/App', 
+                               'desktop/Module', 'desktop/examples' %>
+    <%= stylesheet_link_tag 'desktop/desktop', 'desktop/dashboard' %>
+    <%= stylesheet_link_tag 'desktop/desktop', 'desktop/examples' %>
+    <%= render :partial => 'layouts/initialize_menu' %>    
+  </head>
+  <body scroll="no">
+    <%#= javascript_include_tag 'desktop' %>
+    <%= stylesheet_link_tag 'redbox_1' %>
+    <%= javascript_include_tag 'redbox'%>
+    <div id="x-desktop">
+      
+		<div id="main">
+			<div id="left_content">		
+				<div class="box_3a">
+					<div class="box_content_3">
+						<h1>News</h1>
+						<ul>
+							<li id="ul_news">Terpaan krisis ekonomi global ternyata belum ...(<a href="#">read more</a>)</li>
+							<li id="ul_news">Pembuatan NPWP melonjak selama 10 hari pertama....(<a href="#">read more</a>)</li>
+							<li id="ul_news">Presiden SBY menggelar rapat kerja dengan seluruh gubernur....(<a href="#">read more</a>)</li>
+						</ul>
+					</div>
+				</div>
+				<div class="box_1">
+					<div class="box_content_1">
+						<h1>Chat</h1>
+                        <table border="1">
+                          <tr><td width="100"><iframe FRAMEBORDER=0 style="height: 175px; width: 185px;"></iframe></td></tr>
+                          <tr><td width="100"><textarea style="width: 190px;"></textarea></td></tr>
+                          <tr><td width="100"><div class="box_button_1"><input type="button" value="Kirim"></div></td></tr>
+                        </table>
+					</div>
+				</div>
+			</div>
+			
+			<div id="center_content">
+				<div class="box_2a">
+					<div class="box_content_2">
+						<h1>Reminders</h1>
+						<div id="box_table_1" style="height:90px;">							                               
+                                                  <%= render :partial => 'remainder'%>
+                                 
+                                     				<!--<tr>-->
+									<!--<td>Checks to Print</td>-->
+									<!--<td>bla bla bla bla bla bla...</td>-->
+									<!--<td>11 Januari 2000</td>-->
+								<!--</tr>-->
+								<!--<tr>-->
+									<!--<td>Overdue Invoice</td>-->
+									<!--<td>bla bla bla bla bla bla...</td>-->
+									<!--<td>11 July 2000</td>-->
+								<!--</tr>-->
+					      	
+                                                    <%= periodically_call_remote(:url => {:controller => 'dashboard', :action => 'update_div_remainder'}, :frequency => '40') %>
+                                                    <%#= periodically_call_remote(:url => {:controller => 'dashboard', :action => "send_command_remainder"}, :frequency => '20') %>
+						</div>
+						<div class="box_button_1">
+                             <div id="reminder-shortcuts">
+                                <dt id="detail-remainder-shortcut"  style="margin:0px; font-size:7px;">
+                                    <%= button_to "add/remove", :action => 'show_detail_remainders', :style => 'font-size:7px'%>
+                                </dt>
+                            </div>
+                            <!--<input type="button" value="Add / Remove...">                            -->
+                        </div>
+						<div style="clear:right"></div>
+					</div>
+				</div>
+				<div class="box_2b">
+					<div class="box_content_2a">
+						<h1>Cash Flow</h1>
+						<div style="position:absolute;width:430px;height:120px;"></div>
+                          <%#= ziya_chart load_chart_accounting_reports_url, :size => "430x120" -%>                                                                              
+                        <script type="text/javascript" src="/javascripts/swfobject.js"></script>
+                        <%= @graph %>                        
+                        <div class="box_button_1"><div id="x-shortcuts">
+                                <dt id="detail-cash-flow"  style="margin:0px; font-size:9px;">
+                                    <%= button_to "Detail", :url => {:controller => 'dashboard',:action => 'show_detail_cash_flow'}%>
+                                </dt>
+                            </div></div>
+					</div>
+				</div>
+				<div class="box_2c">
+					<div class="box_content_2">
+						<h1>Bank Account Summary</h1>
+						<div class="box_table_1">
+							<table cellspacing="0" cellpadding="0" width="100%">
+								<tr>
+									<th width="26%">Account</th>
+									<th width="14%">New Items</th>
+									<th width="20%">Last Download</th>
+									<th width="20%">Bank Balance</th>
+									<th width="20%">local Balance</th>
+								</tr>
+								<tr>
+									<td>Checking Account</td>
+									<td>0</td>
+									<td></td>
+									<td></td>
+									<td></td>
+								</tr>
+								<tr>
+									<td>Savings</td>
+									<td>0</td>
+									<td></td>
+									<td></td>
+									<td></td>
+								</tr>
+								<tr>
+									<td>Payroll Liability - other</td>
+									<td>0</td>
+									<td></td>
+									<td></td>
+									<td></td>
+								</tr>
+								<tr>
+									<td>Other Credit card</td>
+									<td>0</td>
+									<td></td>
+									<td></td>
+									<td></td>
+								</tr>
+							</table>
+						</div>
+						<div class="box_button_1"><input type="button" value="Import Bank File"> <input type="button" value="Download Transactions"></div>
+						<div style="clear:right"></div>
+					</div>
+				</div>
+			</div>
+			
+			<div id="right_content">
+				<div class="box_3b">
+					<div class="box_content_3">
+						<h1>Report</h1>
+						<div class="box_table_2">                            
+							<table cellspacing="0" cellpadding="0" width="100%">
+								<tr>
+									<td>Select a report type :</td>
+								</tr>
+								<tr>
+									<td>
+										<select>
+											<option>Company and Financial</option>
+											<option>Company and Financial</option>
+											<option>Company and Financial</option>
+										</select>
+									</td>
+								</tr>
+								<tr>
+									<td>Select a report :</td>
+								</tr>
+								<tr>
+									<td>
+										<select>
+											<option>Chart of Accounts</option>
+											<option>Chart of Accounts</option>
+											<option>Chart of Accounts</option>
+										</select>
+									</td>
+								</tr>
+							</table>
+						</div>
+						<div class="box_button_3">
+                            <input type="button" value="Display"><input type="button" value="Print..">                                                                                    
+						</div>
+					</div>
+				</div>
+				<div class="box_3a">
+					<div class="box_content_3">
+						<h1>Vendor to Pay today</h1>
+						<div class="box_table_1" style="height: 90px;">
+							<table cellspacing="0" cellpadding="0" width="100%">
+								<tr>
+									<th width="45%">Vendors</th>
+									<th width="45%">Amount Owed</th>
+								</tr>
+                                <% vendors = AccountingPurchaseBalance.find(:all, :conditions => ["month(maturity_date) = month(current_date) and year(maturity_date)=year(current_date) and (status_id !=2 or status_id is null) "], :order => 'maturity_date desc', :limit => 2)%>
+                                <% vendors.each_with_index do |vendor, i| %>
+                                   <tr>
+                                       <td><%=vendor.vendor.nil? ? "" :vendor.vendor.name%></td>
+                                       <td><%=vendor.transaction_value%></td>
+                                   </tr>
+                                <% end %>
+								<!--<tr>-->
+									<!--<td>Exotic Bikes</td>-->
+									<!--<td align="right">$11520</td>-->
+								<!--</tr>-->
+								<!--<tr>-->
+									<!--<td>Tracy Tallman, CPA</td>-->
+									<!--<td align="right">$61520</td>-->
+								<!--</tr>-->
+								<!--<tr>-->
+									<!--<td>Bicycle Qutffiters</td>-->
+									<!--<td align="right">$12120</td>-->
+								<!--</tr>-->
+								<!--<tr>-->
+									<!--<td>ther Credit card</td>-->
+									<!--<td align="right">$31520</td>-->
+								<!--</tr>-->
+							</table>
+						</div>
+						<div class="box_button_1">
+                            <!--<input type="button" value="View list of all Account">                            -->
+                            <!--<%#= button_to "View Detail", :action => 'show_detail_vendors'%>-->
+                            <%#= link_to_redbox "View Detail", {:url => "/dashboard/show_detail_vendors"},{}  %>
+                            <div id="x-shortcuts">
+                                <dt id="detail-vendor-shortcut"  style="margin:0px; font-size:9px;">
+                                    <%= button_to "Detail", :action => 'show_detail_vendors'%>
+                                </dt>
+                            </div>
+                         </div>
+                    </div>
+				</div>
+				<div class="box_3a">
+					<div class="box_content_3">
+						<h1>Overdue Customer Accounts</h1>
+						<div class="box_table_1" style="height: 90px;">                                                    
+							<table cellspacing="0" cellpadding="0" width="100%">
+								<tr>
+									<th width="45%">Customer</th>
+									<th width="45%">Amount Owed</th>
+								</tr>
+                                <% vendors = AccountingSaleBalance.find(:all, :conditions => ["month(maturity_date) = month(current_date) and year(maturity_date)=year(current_date)  and (status_id !=2 or status_id is null)"], :order => 'maturity_date desc', :limit => 2)%>                                
+                                <% vendors.each_with_index do |vendor, i| %>
+                                   <tr>
+                                       <td><%=vendor.customer.nil? ? "" : vendor.customer.name%></td>
+                                       <td><%=vendor.nil? ? "" : vendor.transaction_value%></td>
+                                   </tr>
+                                <% end %>
+								<!--<tr>-->
+									<!--<td>Exotic Bikes</td>-->
+									<!--<td align="right">$11520</td>-->
+								<!--</tr>-->
+								<!--<tr>-->
+									<!--<td>Tracy Tallman, CPA</td>-->
+									<!--<td align="right">$61520</td>-->
+								<!--</tr>-->
+								<!--<tr>-->
+									<!--<td>Bicycle Qutffiters</td>-->
+									<!--<td align="right">$12120</td>-->
+								<!--</tr>-->
+								<!--<tr>-->
+									<!--<td>ther Credit card</td>-->
+									<!--<td align="right">$31520</td>-->
+								<!--</tr>-->
+							</table>
+						</div>
+						<div class="box_button_1">
+                            <!--<input type="button" value="View list of all Account">-->
+                            <div id="y-shortcuts">
+                                <dt id="detail-customer-shortcut"  style="margin:0px; font-size:9px;">
+                                    <%= button_to "Detail", :action => 'show_detail_customers'%>
+                                </dt>
+                            </div>
+						</div>
+					</div>
+				</div>
+			</div>
+			
+			<div style="clear:both;"></div>
+		</div>
+
+	  
+    </div>
+    
+    <div id="ux-taskbar">
+      <div id="ux-taskbar-start"></div>
+      <div id="ux-taskbuttons-panel"></div>
+      <div class="x-clear"></div>
+    </div>
+    <iframe style='display: none;' id="logOutFrame" src=""></iframe>
+  </body>
+</html>

@@ -1,0 +1,111 @@
+<% content_for(:head) do %>
+  <script>
+    function contra_account_check(checked) {
+      if (checked) {
+        $('contra_account_code').show();
+        $('contra_account_code').focus();
+      }else{
+        $('contra_account_code').hide();
+        $('contra_account_code').value = "";
+        $('bank_balance_contra_account_id').value = "";
+      }
+    }
+    function maturity_date_check(checked) {
+      if (checked) {
+        $('maturity_date_holder').show();
+      }else{
+        $('maturity_date_holder').hide();
+      }
+    }
+  </script>
+<% end %>
+
+<br/>
+<div id="search">
+  <% form_tag(:action => :index) do %>
+    <table width="200" class="search_table" cellpadding="5" cellspacing="0">
+      <tr><th colspan="2">Filter Bulan Transaksi</th></tr>
+      <tr><td>Bulan</td><td>&nbsp;&nbsp;<%= select_month(default_filter_month, :use_month_names => indonesian_month_names ) %></td></tr>
+      <tr><td>Tahun</td><td>&nbsp;&nbsp;<%= select_year(default_filter_year, :start_year => 2000, :end_year => 2030) %></td></tr>
+      <tr><td colspan="2" align="right"><%= submit_tag "Proses", :class => "btn-submit" %></td></tr>
+    </table>
+  <% end %>
+</div>
+
+<br/>
+
+
+<div class="div_top_btn">
+  <%= link_to("Input Tipe Kas Bank",accounting_bank_cashes_path,{:class => "a_top_btn"}) %>
+</div>
+<div style="overflow-y: auto; overflow-x: hidden; height: 350px; width: 1000px;">
+  <table class="main_table" cellpadding="0" cellspacing="0" width="1000">
+    <tr>
+      <th>Tanggal</th>
+      <th>BKK</th>
+      <th>BKM</th>
+      <th>No. Cek/Giro</th>
+      <th>Keterangan</th>
+      <th>Debit</th>
+      <th>Kredit</th>
+      <th>Saldo</th>
+      <th colspan='3'>&nbsp;</th>
+    </tr>
+
+    <%= bank_balance_saldo_row %>
+    <% if @bank_balances.size == 0 %>
+      <tr class="grid_2"><td colspan="11" align="center">&nbsp;Tidak Ada Data</td></tr>
+    <% else %>
+      <% @one_month_ago_cash_balance %>
+      <% for bank_balance in @bank_balances %>
+        <tr class=<%= cycle("grid_2","grid_3") %>>
+          <td><%=h format_date(bank_balance[:created_at]) %></td>
+          <td><%=h format_digit(bank_balance[:bkk]) %></td>
+          <td><%=h format_digit(bank_balance[:bkm]) %></td>
+          <td><%=h bank_balance[:cg_gb_no] %></td>
+          <td><%=h bank_balance[:description] %></td>
+          <td align='right'><%= format_currency(bank_balance[:transaction_value]) if bank_balance[:debit] == true %></td>
+          <td align='right'><%= format_currency(bank_balance[:transaction_value]) if bank_balance[:debit] != true %></td>
+          <% bank_balance[:debit] == true  ? @first_saldo += bank_balance[:transaction_value] : @first_saldo -= bank_balance[:transaction_value] %>
+          <td align="right"><%= format_currency(@first_saldo) %></td>
+          <td width='100'><%= link_to_remote_redbox("Edit", {:url => "/accounting/bank_balances/edit/#{bank_balance[:id]}"}, {:class => "a_edit"})  if !bank_balance[:id].nil?  %></td>
+          <td width='100'><%= (link_to 'Hapus', accounting_bank_balance_path(bank_balance), :confirm => "Apakah anda yakin akan menghapus data '#{bank_balance[:description]}' ?", :method => :delete, :class => "a_delete")  if !bank_balance[:id].nil?%></td>
+        </tr>
+      <% end %>
+      <tr class="grid_2">
+        <td colspan="5" align='right'><b>Total</b></td>
+        <td align='right'><b><%= format_currency(@bank_balances.collect { |s| s[:debit] == true ? s[:transaction_value]: 0}.sum) %></b></td>
+        <td align='right'><b><%= format_currency(@bank_balances.collect { |s| s[:debit] != true ? s[:transaction_value]: 0}.sum) %></b></td>
+        <td colspan='3'>&nbsp;</td>
+      </tr>
+    <% end %>
+  </table>
+</div>
+
+<table class="main_table" cellpadding="0" cellspacing="0" width="1000">
+  <tr class="grid_footer">
+    <td colspan="4" valign="center">
+      <%= link_to_remote_redbox("Input Transaksi", {:url => {:action => :new}}, {:class => "a_add"}) %><span class="blue_split">&nbsp;</span>
+      <%= link_to "Export PDF", formatted_accounting_bank_balances_path(:format => :pdf, :date => @date), :class => "a_pdf" %><span class="blue_split">&nbsp;</span>
+      <%= link_to "Export EXCEL", formatted_accounting_bank_balances_path(:format => :xls, :date => @date), :class => "a_xls" %>
+    </td>
+    <td colspan=''>&nbsp;</td>
+    <td><%= will_paginate @bank_balances %></td>
+    <td align="right;">
+      <%= link_to_remote_redbox("Bantuan",{:url => {:action => :bank_help}},{:class => "a_help", :title => "Bantuan"})  %>
+    </td>
+  </tr>
+</table>
+
+<br/>
+<div style="float: left;margin: 5px 10px 5px 3px;">
+  <table width="200" cellspacing="0" cellpadding="0" class="sum_table">
+    <tbody>
+      <tr><th>Total Debit</th><td align="right" class="grid_2_sum"><%= format_currency(@bank_balances.collect { |s| s[:debit] == true ? s[:transaction_value]: 0}.sum) %><%= space(3) %></td></tr>
+      <tr><th>Total Kredit</th><td align="right" class="grid_2_sum"><%= format_currency(@bank_balances.collect { |s| s[:debit] != true ? s[:transaction_value]: 0}.sum) %><%= space(3) %></td></tr>
+      <tr><th>Sisa Kas</th><td align="right" class="grid_2_sum"><%= format_currency(@first_saldo) %><%= space(3) %></td></tr>
+    </tbody>
+  </table>
+</div>
+
+<%=  saldo_bank_row(@saldo_bank)%>

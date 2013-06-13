@@ -1,0 +1,13 @@
+# Read about fixtures at http://ar.rubyonrails.org/classes/Fixtures.html
+
+one:
+  SSP_date: 2010-12-14
+  evidence: MyString
+  vendor_id: MyString
+  amount: 1.5
+
+two:
+  SSP_date: 2010-12-14
+  evidence: MyString
+  vendor_id: MyString
+  amount: 1.5

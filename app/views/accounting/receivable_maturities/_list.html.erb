@@ -1,0 +1,35 @@
+<% unless receivables.empty? %>
+  <% total_transaction_value = 0 %>
+  <% total_receivable = 0%>
+  <% total_paid = 0%>
+  <% receivables.each_with_index do |receivable,  nomor| %>
+    <tr class=<%= cycle("grid_2","grid_3") %>>
+      <td style="text-align:center;"><%= nomor + 1%></td>
+      <td style="text-align:center;"><%= format_date(receivable.created_at)%></td>
+      <td style="text-align:center;"><%= format_date(receivable.maturity_date) if receivable.maturity_date %></td>
+      <td><%= receivable.customer.name %></td>
+      <td><%= receivable.currency.name %></td>
+      <td style="text-align:right;"><%= format_currency(receivable.transaction_value) %></td>
+      <td style="text-align:right;"><%= format_currency(receivable.paid) %></td>
+      <td style="text-align:right;"><%= format_currency(receivable.amount_account_payable) %></td>
+      <% unless report %>
+        <td style="text-align:center;"><%= link_to_remote_redbox("Pembayaran",{:url => "/accounting/sale_balances/do_payment/#{receivable.id}?from=m"},{:class => "a_pay"})  %>
+        <% end %>
+      </td>
+      <% total_transaction_value += receivable.transaction_value %>
+      <% total_receivable += receivable.amount_account_payable %>
+      <% total_paid += receivable.paid %>
+    </tr>
+  <% end %>
+  <tr class="grid_2">
+    <th colspan="5" style="text-align:right;">Total</th>
+    <th style="text-align:right;"><%= format_currency(total_transaction_value) %></th>
+    <th style="text-align:right;"><%= format_currency(total_paid) %></th>
+    <th style="text-align:right;"><%= format_currency(total_receivable) %></th>
+    <% unless report %>
+      <th>&nbsp;</th>
+    <% end %>
+  </tr>
+<% else %>
+  <tr class="grid_2"><th colspan="<%= report ? "7" : "8" %>" style="text-align:center;">Tidak ada data</th></tr>
+<% end %>    

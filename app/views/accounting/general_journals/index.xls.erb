@@ -1,0 +1,33 @@
+<h3>GENERAL JOURNAL</h3>
+<h3>Bulan <%= selected_month %>  Tahun <%= selected_year %> </h3>
+<table border="1" id="t1" class="main_table" cellpadding="0" cellspacing="0" width="1500">
+  <tr>
+    <th style="width:180px;text-align:center; padding:5px 0px;">
+      TANGGAL 
+    </th>
+    <th style="width:200px;text-align:center;padding:5px 0px;">
+      NO. BUKTI 
+    </th>
+    <th style="width:400px;text-align:center;padding:5px 0px;">
+      KETERANGAN 
+    </th>
+    <th style="width:180px;text-align:center;padding:5px 0px;">
+      NO. JOB 
+    </th>
+    <th style="width:180px;text-align:center;padding:5px 0px;">
+      NO. REK
+    </th>
+    <th style="width:180px;text-align:center;padding:5px 0px;">
+      DEBIT 
+    </th>
+    <th style="width:180px;text-align:center;padding:5px 0px;">
+      KREDIT
+    </th>
+  </tr>
+</table>
+<table border="1" class="main_table" cellpadding="0" cellspacing="0"  id="target_journal" width="1500">
+  <% account_select = {:select => false, :value => params[:value]}%>
+  <% debit_select = false %>
+  <% credit_select = false %>
+  <%= render :partial => "content_general_journal", :locals => {:result => @result, :date => @date, :account => account_select, :debit => debit_select, :credit => credit_select, :report => true }%>  
+</table>

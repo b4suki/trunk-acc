@@ -1,0 +1,77 @@
+<div style="background-image:url(/images/menu/center_tile.gif); position: fixed; width: 100%;">
+  <table cellpadding=0 cellspacing=0 style="width:100%;"><tr><td><div style="font-size:1px;width:6px;height:34px;background-image:url(/images/menu/left_cap.gif);"></div></td><td style="width:100%;">
+        <div id="qm0" class="qmmc">
+           <a href="javascript:void(0)"><b>ACCOUNTING DEPARTMENT</b></a>
+          
+          <span class="qmdivider qmdividery" ></span>
+          <a href="javascript:void(0)">ADMINISTRATOR</a>
+          
+          <div>
+            <%= link_to_function 'Manage User',"alert('Under Construction !!!');" %>
+            <%= link_to 'Manage Roles', admin_manage_roles_path %>
+          </div>
+          
+          <span class="qmdivider qmdividery" ></span>
+          <a href="javascript:void(0)">DATA MASTER</a>
+          
+          <div>
+            <span class="qmtitle" >Umum</span>
+            <%= link_to 'Kode Rekening', accounting_accounts_path %>
+            <%= link_to 'Vendor', vendors_path %>
+            <%= link_to 'Customer', customers_path %>
+            <span class="qmdivider qmdividerx" ></span>
+            <span class="qmtitle" >Khusus</span>
+            <a href="javascript:void(0)">...</a>
+          </div>
+          
+          <span class="qmdivider qmdividery" ></span>
+          <a href="javascript:void(0)">INPUT DATA</a>
+          
+          <div>
+            <%= link_to 'Transaksi Kas', accounting_cash_balances_path %>
+            <%= link_to 'Transaksi Bank', accounting_bank_balances_path %>
+            <%= link_to 'Transaksi Penjualan', accounting_sale_balances_path %>
+            <%= link_to 'Transaksi Pembelian', accounting_purchase_balances_path %> 
+          </div>
+          
+          <span class="qmdivider qmdividery" ></span>
+          <a href="javascript:void(0)">LAPORAN</a>
+          
+          <div>
+            <span class="qmtitle" >Laporan Kas</span>
+            <a href="javascript:void(0)">Cetak Transaksi Kas</a>
+            <span class="qmdivider qmdividerx" ></span>
+            <span class="qmtitle" >Laporan Bank</span>
+            <a href="javascript:void(0)">Cetak Transaksi Bank</a>
+            <a href="javascript:void(0)">Bank Rekonsiliasi</a>
+            <span class="qmdivider qmdividerx" ></span>
+            <span class="qmtitle" >Laporan Penjualan</span>
+            <a href="javascript:void(0)">Cetak Transaksi Penjualan</a>
+            <span class="qmdivider qmdividerx" ></span>
+            <span class="qmtitle" >Laporan Pembelian</span>
+            <a href="javascript:void(0)">Cetak Transaksi Pembelian</a>
+            <span class="qmdivider qmdividerx" ></span>
+            <a href="javascript:void(0);">Jurnal Umum</a>
+            <a href="javascript:void(0);">Worksheet</a>
+          </div>
+          
+          <span class="qmdivider qmdividery" ></span>
+          <a href="javascript:void(0)">BANTUAN</a>
+          
+          <div>
+            <span class="qmtitle" >User Manual</span>
+          </div>
+          
+          
+          
+        <span class="qmclear">&nbsp;</span></div>
+</td>
+<td>
+  <div style="border-width:0px 0px 0px 1px;border-color:#aaaaaa;border-style:solid;font-size:1px;width:8px;height:31px;"></div>
+  <td style="padding:0px 5px 0px 0px;"><input type="text" style="font-family:arial;font-size:12px;width:100px;border-style:solid;border-width:1px;border-color:#ffffff;border-top-color:#aca899;border-left-color:#aca899;" value=""></td>
+  <td style="padding:0px 5px 0px 0px;font-family:arial;font-size:10px;color:#444444"><a href="javascript:void(0)">SEARCH</a></td>
+<td><div style="font-size:1px;width:6px;height:34px;background-image:url(/images/menu/right_cap.gif);"></div></td></tr></table></div>
+
+
+<!-- Create Menu Settings: (Menu ID, Is Vertical, Show Timer, Hide Timer, On Click (options: 'all' * 'all-always-open' * 'main' * 'lev2'), Right to Left, Horizontal Subs, Flush Left, Flush Top) -->
+<script type="text/javascript">qm_create(0,false,0,500,false,false,false,false,false);</script>

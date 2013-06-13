@@ -1,0 +1,5 @@
+<ul class="autocomplete_list">
+  <% for account in @accounts -%>
+     <li id="<%= account.id %>" style="width: 350;" class="autocomplete_item"><%= "#{account.code}   #{account.description}" %></li>
+  <% end -%>
+</ul>

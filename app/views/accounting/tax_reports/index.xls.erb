@@ -1,0 +1,24 @@
+<h3><%= @title %></h3>
+<h3>Bulan <%= selected_month %>  Tahun <%= selected_year %> </h3>
+<br />
+<table border="1" class="main_table" cellpadding="0" cellspacing="0" width="680">
+  <tr>
+    <th align="center">Tanggal</th>
+    <th align="center">Account</th>
+    <th align="center">Keterangan</th>
+    <th align="center">Debit</th>
+    <th align="center">Kredit</th>
+    <th align="center">Saldo</th>
+  </tr>
+  <% if  !@tax.empty? %>
+  <%= create_tax_report(@result, @ppn_masukan, @ppn_keluaran, @date) rescue nil%>
+  <%end%>
+</table>
+<br/>
+<div style="float: left;margin: 5px 10px 5px 3px;">
+  <table border="1" width="200" cellspacing="0" cellpadding="0" class="sum_table">
+    <tbody>
+     <%= get_total_tax() rescue nil%>
+    </tbody>
+  </table>
+</div>

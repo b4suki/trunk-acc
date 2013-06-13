@@ -1,0 +1,39 @@
+<h3><%= @title %></h3>
+<h3>Bulan <%= selected_month %>  Tahun <%= selected_year %> </h3>
+
+<br/><br/>
+
+<table border="1" id="t1" class="main_table" cellpadding="3" cellspacing="0" width="100%">
+  <thead>
+      <tr class="grid_1">
+        <th>No</th>
+        <th>Jenis Pajak</th>
+        <th>Tanggal SSP</th>
+        <th>No Bukti Potong / PIBT</th>
+        <th>Customer</th>
+        <th>Jumlah Pajak</th>
+      </tr>
+    </thead>
+    <tbody>
+      <% total = 0 %>
+      <% @tax_credits.each_with_index do |tax_credit, i|%>
+        <tr class=<%= cycle("grid_2","grid_3") %>>
+          <td><%=i+1 %></td>
+          <td><%=h tax_credit.tax_type %></td>
+          <td><%=h format_date(tax_credit.ssp_date) %></td>
+          <td><%=h tax_credit.evidence %></td>
+          <td><%=h tax_credit.customer.name %></td>
+          <td style="text-align:right;"><%= format_currency(tax_credit.amount) %></td>
+          <% total += tax_credit.amount %>
+        </tr>
+      <% end %>
+      <% if @tax_credits.size >= 1 %>
+        <tr class="grid_2">
+          <th colspan="5">Total</th>
+          <th style="text-align:right;"><%= format_currency(total) %></th>
+        </tr>
+      </tbody>
+    <% else %>
+      <tr class="grid_2"><td align="center" colspan="6">Tidak Ada Data</td></tr>
+    <%end%>
+</table>

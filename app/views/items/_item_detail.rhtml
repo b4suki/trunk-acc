@@ -1,0 +1,31 @@
+<td colspan="<%=14%>">
+  <table class="main_table" cellpadding="0" cellspacing="0" width="500px">
+    <tr class="grid_1">
+      <th>Tanggal Pembelian</th>
+      <th>Qty</th>
+      <th>Harga</th>
+      <th>Total</th>
+      <th>Edit</th>
+    </tr>
+    <% total_qty = 0 %>
+    <% total = 0 %>
+    <% item_details.each do |detail| %>
+      <tr class="grid_2">
+        <td><%= format_date(detail.purchasing_date) %></td>
+        <td align="right"><%= detail.qty %></td>
+        <td align="right"><%= format_currency(detail.price) %></td>
+        <td align="right"><%= format_currency(detail.total) %></td>
+        <% total_qty += detail.qty %>
+        <% total += detail.total %>
+        <td><%= link_to_remote_redbox("Edit", {:url => "/items/edit_detail/#{detail.id}"}, {:class => "a_edit"}) %></td>
+      </tr>
+    <% end %>
+    <tr class="grid_footer">
+      <th>Total</th>
+      <th style="text-align: right !important;"><%= total_qty %></th>
+      <th>&nbsp;</th>
+      <th style="text-align: right !important;"><%= format_currency(total) %></th>
+      <th>&nbsp;</th>
+    </tr>
+  </table>
+</td>

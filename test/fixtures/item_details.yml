@@ -1,0 +1,15 @@
+# Read about fixtures at http://ar.rubyonrails.org/classes/Fixtures.html
+
+one:
+  item_id: 1
+  qty: 1
+  price: 1.5
+  total: 
+  purchasing_date: 2010-12-03
+
+two:
+  item_id: 1
+  qty: 1
+  price: 1.5
+  total: 
+  purchasing_date: 2010-12-03

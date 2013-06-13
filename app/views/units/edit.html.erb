@@ -1,0 +1,32 @@
+<%= popup_title "Edit Satuan"  %>
+
+<div id="RB_body" style="width:300px">
+<% form_for(@unit) do |f| %>
+  <%= f.error_messages %>
+
+  <p>
+    <%= f.label :name %><br />
+    <%= f.text_field :name %>
+  </p>
+  <p>
+    <%= f.label :code %><br />
+    <%= f.text_field :code %>
+  </p>
+  <p>
+    <%= f.label :active %><br />
+    <%= f.check_box :active %>
+  </p>
+  <p>
+    <%= f.submit 'Update' %>
+  </p>
+  <br />
+  <script>
+    <%#*var name = new LiveValidation('unit_name');%>
+    <%#*name.add(Validate.Presence);%>
+    <%#*var code = new LiveValidation('unit_code');%>
+    <%#*code.add(Validate.Presence);%>
+    <%#*code.add(Validate.Numericality);%>
+  </script>
+<% end %>
+
+</div>

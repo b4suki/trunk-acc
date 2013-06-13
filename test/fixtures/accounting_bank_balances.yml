@@ -1,0 +1,113 @@
+--- 
+accounting_bank_balances_001: 
+  job_id: "0"
+  contra_account_id: "2"
+  updated_at: 2008-11-25 10:33:59
+  debit: "1"
+  evidence: "2"
+  account_id: "2"
+  credit: "0"
+  cg_gb_no: Mandiri Kircon
+  transaction_value: "1.25e+07"
+  id: "2"
+  total_debit: "1.607e+08"
+  description: Savety sewa gedung blan Desember
+  total_credit: "0"
+  cash_balance: "1.57e+07"
+  created_at: 2008-08-05 00:00:00
+accounting_bank_balances_002: 
+  job_id: "0"
+  contra_account_id: "1"
+  updated_at: 2008-11-25 10:33:59
+  debit: "0"
+  evidence: "1"
+  account_id: "1"
+  credit: "1"
+  cg_gb_no: DJ.008050
+  transaction_value: "1.45e+08"
+  id: "3"
+  total_debit: "0"
+  description: Kas TPMI
+  total_credit: "1.45e+08"
+  cash_balance: "1.57e+07"
+  created_at: 2008-08-10 00:00:00
+accounting_bank_balances_003: 
+  job_id: "0"
+  contra_account_id: "3"
+  updated_at: 2008-11-25 09:54:58
+  debit: "1"
+  evidence: "3"
+  account_id: "3"
+  credit: "0"
+  cg_gb_no: Mandiri Kircon
+  transaction_value: 2e+06
+  id: "4"
+  total_debit: "0"
+  description: Savety bi. telepon blan Desember
+  total_credit: "0"
+  cash_balance: "0"
+  created_at: 2008-08-15 00:00:00
+accounting_bank_balances_004: 
+  job_id: "0"
+  contra_account_id: "4"
+  updated_at: 2008-11-25 09:56:59
+  debit: "1"
+  evidence: "4"
+  account_id: "4"
+  credit: "0"
+  cg_gb_no: Mandiri Kircon
+  transaction_value: "1.2e+06"
+  id: "5"
+  total_debit: "0"
+  description: Savety Tunj.Keshtn krywn blan Desember
+  total_credit: "0"
+  cash_balance: "0"
+  created_at: 2008-08-20 00:00:00
+accounting_bank_balances_005: 
+  job_id: "0"
+  contra_account_id: "5"
+  updated_at: 2008-11-25 10:33:59
+  debit: "1"
+  evidence: "5"
+  account_id: "5"
+  credit: "0"
+  cg_gb_no: Mandiri Kircon
+  transaction_value: "1.45e+08"
+  id: "6"
+  total_debit: "0"
+  description: Setoran Tunai
+  total_credit: "0"
+  cash_balance: "0"
+  created_at: 2008-08-25 00:00:00
+accounting_bank_balances_006: 
+  job_id: "63463"
+  contra_account_id: 
+  updated_at: 2008-11-27 10:34:12
+  debit: "1"
+  evidence: "543634"
+  account_id: 
+  credit: "0"
+  cg_gb_no: "6346346"
+  transaction_value: "56"
+  id: "7"
+  total_debit: "56"
+  description: dghfshdfjdjggdjgfj
+  total_credit: "0"
+  cash_balance: "-44"
+  created_at: 2008-11-26 00:00:00
+accounting_bank_balances_007: 
+  job_id: 
+  contra_account_id: 
+  updated_at: 2008-11-27 10:34:12
+  debit: "0"
+  evidence: ""
+  account_id: 
+  credit: "1"
+  cg_gb_no: ""
+  transaction_value: "100"
+  id: "8"
+  total_debit: "0"
+  description: ""
+  total_credit: "100"
+  cash_balance: "-44"
+  created_at: 2008-11-27 00:00:00

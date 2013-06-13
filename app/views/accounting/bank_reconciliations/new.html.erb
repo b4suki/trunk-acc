@@ -1,0 +1,46 @@
+<h1>Buat Bank Reconciliation</h1>
+<%= link_to("input reconsiliasis" ) %>
+<% form_for(:reconciliation_detail_value, @detail_value, :url => {:action => 'create'}) do |f| %>
+<%= f.error_messages %>
+
+  <table>
+    <tr><td><h3>Catatan Perusahaan</h3</td><td><h3>Catatan Bank</h3</td></tr>
+    <tr>
+      <td valign="top">
+        <table>
+          <tr><td><b>Saldo</b></td><td>Rp. <%= format_currency(accumulate_cash_balance) %></td></tr>
+          <tr><td colspan="2"><b>Bertambah</b><td></tr>
+          <%  @reconciliation_company_debits.each do |company_debit| %>
+            <tr><td>&nbsp;&nbsp;&nbsp;<%= company_debit.name %></td><td><%= f.text_field :value %></td><tr>
+          <% end %>
+          <tr><td colspan="2"><b>Berkurang</b><td></tr>
+          <%  @reconciliation_company_credits.each do |company_credit| %>
+            <tr><td>&nbsp;&nbsp;&nbsp; ><%= company_credit.name %></td><td><%= f.text_field :value %></td></tr>
+          <% end %>
+        </table>
+      </td>
+      <td valign="top">
+        <table>
+          <b>Saldo</b> Rp. xxxxxxx<br/>
+          <tr><td colspan="2"><b>Bertambah</b><td></tr>
+          <%  @reconciliation_bank_debits.each do |bank_debit| %>
+            <tr><td>&nbsp;&nbsp;&nbsp;<%= bank_debit.name %></td><td><%= f.text_field :value %></td></tr>
+          <% end %>
+          <tr><td colspan="2"><b>Berkurang</b><td></tr>
+          <%  @reconciliation_bank_credits.each do |bank_credit| %>
+            <tr><td>&nbsp;&nbsp;&nbsp;<%= bank_debit.name %></td><td><%= f.text_field :value %></td></tr>
+          <% end %>
+        </table>
+      
+      </td>
+    </tr>
+  </table>
+
+  <br/><br/>
+  <p>
+    <%= f.submit "Create" %>
+  </p>
+<% end %>
+
+
+<%= link_to 'Back', accounting_bank_reconciliations_path %>

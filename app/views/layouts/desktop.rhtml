@@ -1,0 +1,53 @@
+<html>
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1"></meta>
+    <title>Sistem Informasi Akunting - ESITrack</title>
+    <!--
+    <script type="text/javascript" src="js/yui-utilities.js"></script>
+      <script type="text/javascript" src="js/ext-yui-adapter.js"></script>
+      <script type="text/javascript" src="js/ext-all.js"></script>
+      <script type="text/javascript" src="js/Desktop.js"></script>
+      <script type="text/javascript" src="js/windows.js"></script> -->
+    <%= javascript_include_tag 'js/yui-utilities' %>
+    <%= javascript_include_tag 'js/ext-yui-adapter' %>
+    <%= javascript_include_tag 'js/ext-all' %>
+    <%= javascript_include_tag 'js/Desktop' %>
+    <%= javascript_include_tag  'js/windows' %>
+    <%= render :partial => 'layouts/initialize_menu' %>
+    <%= stylesheet_link_tag 'css/ext-all' %>
+    <%= stylesheet_link_tag 'css/windows' %>
+    <!--
+      <link rel="stylesheet" type="text/css" href="css/ext-all.css" />
+      <link rel="stylesheet" type="text/css" href="css/windows.css" /> -->
+  </head>
+  <body>
+    <div id="x-taskbar">
+      <div id="title-bar"><div style="background:url('../images/esitrack-logo.png')no-repeat;margin-top:5px;margin-left:10px;width:50px;height:33px;float:left;"></div>Sistem Informasi Akunting<br/>PT. Elda Sarana Informatika</div>
+      <div id="x-launcher-wrap">
+        <div id="x-launcher-inner">
+          <div id="x-launcher-left">
+            <div id="x-launcher-right">
+              <div id="x-launcher-center">
+                <div id="x-launcher"></div>
+                <div id="x-info">
+                  <ext:user-name />
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div id="x-desktop" style="">
+      <div style="padding:0px;">
+        <%= image_tag("/images/bg-dalam.jpg", :width => "100%", :height => "100%")%>
+      </div>
+    </div>
+    <div id="x-windows">
+      <div id="x-winlist">
+        <div id="spacer"></div></div>
+      <div class="x-clear"></div>
+    </div>
+    <iframe style='display: none;' id="logOutFrame" src=""></iframe>
+  </body>
+</html>

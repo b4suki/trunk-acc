@@ -1,0 +1,31 @@
+<div style="float:left;margin: 5px 20px 5px 5px;">
+  <%= hidden_field_tag :from, params[:from] %>
+  <table class="search_table" cellpadding="5" cellspacing="0">
+    <tr>
+      <td>No Bukti</td>
+      <td> : </td>
+      <td align="right">
+        <%= f.text_field :evidence %>
+      </td>
+    </tr>
+    <tr>
+      <td>Tanggal Pembayaran</td>
+      <td> : </td>
+      <td>
+        <%= f.date_splicer :updated_at, :default_to_now => true %>
+      </td>
+    </tr>
+    <tr>
+      <td>Jumlah Pembayaran</td>
+      <td> : </td>
+      <td align="right">
+        <%#*<script type="text/javascript">%>
+          <%#*var v_paid = new LiveValidation('liability_payed_value');%>
+          <%#*v_paid.add(Validate.Numericality, { maximum: <%= @purchase.amount_account_receivable % > } );%>
+        <%#*</script>%>
+        <%= f.text_field :payed_value, :style => "text-align: right;" %>
+      </td>
+    </tr>
+  </table>
+</div>
+<br/>

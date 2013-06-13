@@ -1,0 +1,11 @@
+# Read about fixtures at http://ar.rubyonrails.org/classes/Fixtures.html
+
+one:
+  account_id: 1
+  last_saldo: 1.5
+  transaction_date: 2008-12-05 10:46:54
+
+two:
+  account_id: 1
+  last_saldo: 1.5
+  transaction_date: 2008-12-05 10:46:54

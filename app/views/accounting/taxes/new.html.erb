@@ -1,0 +1,11 @@
+<%=  popup_title "Input Pajak" %>
+
+<div id="RB_body" style="width: 350px;">
+<% form_for(:tax, @tax, :url => {:action => 'create'})  do |f| %>
+  <%= f.error_messages %>
+  <%= render :partial => 'form', :locals => { :f => f } %>
+  <p>
+    <%= f.submit "Simpan" %>  
+  </p>
+<% end %>
+</div>

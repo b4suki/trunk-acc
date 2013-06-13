@@ -1,0 +1,5 @@
+<ul class="autocomplete_list">
+  <% for account in @accounts -%>
+    <li onclick="set_contra_account_id('sale_balance_contra_account_id', <%= account.id%>)" class="autocomplete_item"><%= "#{account.code}   #{account.description}" %></li>
+  <% end -%>
+</ul>  

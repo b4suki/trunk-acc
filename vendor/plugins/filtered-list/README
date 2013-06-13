@@ -1,0 +1,14 @@
+= Filtered List
+
+See FilteredList for usage information.
+
+= Installation
+
+== Standard Method
+
+    ruby ./script/plugin install svn://rubyforge.org/var/svn/filtered-list/trunk
+    mv vendor/plugins/trunk vendor/plugins/filtered_list
+
+== Piston Method
+
+    piston import svn://rubyforge.org/var/svn/filtered-list vendor/plugins/filtered_list

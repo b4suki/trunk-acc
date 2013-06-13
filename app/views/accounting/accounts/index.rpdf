@@ -1,0 +1,14 @@
+<h2>Daftar Kode Rekening</h2>
+
+<br/><br/>
+<table bgcolor='white' width="1000px;" class='main_table' cellpadding='0' cellspacing='0'>
+  tr class='grid_1'>
+    <th width="100px" style="text-align:center;">No Rekening</th>
+    <th width="400px" style="text-align:center;">Deskripsi</th>
+    <th width="200px" style="text-align:center;">Keterangan</th>
+    <th style="text-align:center;">Option</th>
+  </tr>
+</table>
+<div style="overflow-y: auto; overflow-x: hidden; height: 350px; width: 1000px;">
+  <%= display_account(@accounts, true)%>
+</div>

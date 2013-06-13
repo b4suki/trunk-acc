@@ -1,0 +1,17 @@
+<% unless cost_evaluations.empty? %>
+  <% $SUM_LAST_COMMONT = 0 %>
+  <% $TOTAL_DEPTH = 0 %>
+  <% $SUM_LAST_TRANSACTION = 0%>
+  <% $TOTAL_DEPTH = cost_evaluations.size %>
+      <% cost_evaluations.each_with_index do |eval,i| %>
+         <% $DIVIDEN =  0 %>     
+         <% $TOTAL_EXPENSES =  0 %>     
+         <tr class=<%= cycle("grid_2","grid_3") %>>
+         <td style='color:red;'><%= i + 1 %></td>
+         <td style="color:red;"><%= eval.code %> </td>
+         <td style="color:red;"><%= eval.description%></td>         
+         <%= sum_first_account_report(eval,$year, i )%>           
+  <% end %>          
+<% else %>      
+  <td>NO DATA <td>
+<% end %>

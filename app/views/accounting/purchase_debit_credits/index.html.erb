@@ -1,0 +1,40 @@
+<table class="main_table" cellpadding="0" cellspacing="0" width="600">
+  <tr><th colspan="6">Daftar Debit Credit</th></tr>
+  <tr class="grid_1">
+    <td style="width :100px; text-align :center;">No Rekening</td>
+    <td style="width :200px; text-align :center;">Keterangan</td>
+    <td style="width :40px; text-align :center;">Debit</td>
+    <td style="width :40px; text-align :center;">Kredit</td>
+    <td style="width :50px;">&nbsp;</td>
+    <td style="width :50px;">&nbsp;</td>
+  </tr>
+
+  <div class="div_top_btn">
+    <%= link_to("Kembali", accounting_purchase_balances_path,{:class => "a_top_btn"})  %>
+  </div>
+  <div class="clear_right"></div>
+
+  <%# for purchase_debit_credit in @purchase_debit_credits %>
+    <%#*<tr class=<%= cycle("grid_2","grid_3") % >>%>
+      <%#*<td style="width :100px;"><%=h purchase_debit_credit.accounting_account.code % ></td>%>
+      <%#*<td style="width :200px;"><%=h purchase_debit_credit.description % ></td>%>
+      <%#*<td style="width :40px; text-align :center;"><%= check_box_tag 'Debit',:value_debet ,purchase_debit_credit.debit,:disabled => true % ></td>%>
+      <%#*<td style="width :40px; text-align :center;"><%= check_box_tag 'Kredit',:value_credit ,purchase_debit_credit.credit,:disabled => true % ></td>%>
+      <%#*<td style="width :50px;"><%= link_to_remote_redbox("Edit", {:url => "/accounting/purchase_debit_credits/edit/#{purchase_debit_credit.id}"},{:class => "a_edit"})  % ></td>%>
+      <%#*<td style="width :50px;"><%= link_to 'Hapus', accounting_purchase_debit_credit_path(purchase_debit_credit), :confirm => "Apakah anda yakin '#{purchase_debit_credit.description}' akan dihapus?", :method => :delete, :class => "a_delete" % ></td>%>
+    <%#*</tr>%>
+  <%# end %>
+
+  <% @purchase_debit_credit_accounts.each do |key, value| %>
+    <%= display_single_purchase_debit_credit_type(value[0], value[1], key.to_s) rescue nil%>
+  <% end %>
+
+  <tr class="grid_footer">
+    <td colspan="4" valign="center">
+<%#= link_to_remote_redbox("Input tipe Debit Kredit", {:url => {:action => :new}}, {:class => "a_add"}) %><span class="blue_split">&nbsp;</span>
+    </td>
+    <td colspan="2">&nbsp;</td>
+  </tr>
+</table>
+
+<br />

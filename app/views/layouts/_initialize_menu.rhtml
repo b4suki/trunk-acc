@@ -1,0 +1,143 @@
+<script type="text/javascript">
+  function showMessage(){
+    Ext.example.msg('Konfigurasi','', 'button click');
+  }
+
+  function makeSureLogOut() {
+    Ext.MessageBox.confirm('Confirm', 'Anda yakin akan keluar dari aplikasi?', logOut);
+  }
+
+  function logOut(btn) {
+    if (btn == 'yes') {
+      document.getElementById("logOutFrame").src = "http://<%=  request.env["HTTP_HOST"] %>/logout";
+      setTimeout("location.href='http://<%=  request.env["HTTP_HOST"] %>/dashboard'",2000);
+    } else {
+      return false;
+    }   
+  }  
+</script>
+<%# if current_user %>
+  <%#  deskstop_menu=[] %>
+  <%# if is_admin? %>
+    <%# deskstop_menu = ["Administrator","Account","DataMaster","Transaksi","JatuhTempo","Mutasi","Laporan","Utang","Piutang","Remainder","CashFlow","LogOut"]%>
+  <%# elsif  is_inventory? %>
+    <%#  deskstop_menu = ["DataMaster","JatuhTempo","Mutasi","Utang","Piutang","Remainder","LogOut"] %>
+  <%# elsif  is_pembelian? %>
+    <%# deskstop_menu = ["Transaksi","JatuhTempo","Mutasi","Utang","Piutang","Remainder","LogOut"]  %>
+  <%# elsif  is_kas_bank? %>
+    <%# deskstop_menu = ["Transaksi","JatuhTempo","Mutasi","Utang","Piutang","Remainder","LogOut"] %>
+  <%# elsif  is_petty_cash? %>
+    <%# deskstop_menu = ["Transaksi","JatuhTempo","Mutasi","Utang","Piutang","Remainder","LogOut"] %>
+  <%# elsif is_penjualan? %>
+    <%# deskstop_menu = ["Transaksi","JatuhTempo","Mutasi","Utang","Piutang","Remainder","LogOut"] %>
+  <%# elsif is_direktur? %>
+    <%# deskstop_menu = ["JatuhTempo","Mutasi","Laporan","Utang","Piutang","Remainder","LogOut"] %>
+  <%# end %>
+
+  <%#= init_desktop_js(deskstop_menu, {:current_user => current_user.login.capitalize }) %>
+
+  <%# restrict_to "Administrator" do %>
+    <%#= create_multiple_node([
+        {:title => "Manage User", :url => "http://#{request.env["HTTP_HOST"]}/admin/users"},
+        {:title => "Manage Roles", :url => "http://#{request.env["HTTP_HOST"]}/admin/manage_roles"}],
+      {:window_id => "accounting-report-win", :window_name => "Administrator", :window_text => "Administrator"}) %>
+
+
+    <%#= create_multiple_node([
+        {:title => "Profil", :url => "http://#{request.env["HTTP_HOST"]}/"},
+        {:title => "Pesan", :url => "http://#{request.env["HTTP_HOST"]}/users/inbox"},
+        {:title => "Chat", :url => "http://#{request.env["HTTP_HOST"]}/"}],
+      {:window_id => "account", :window_name => "Account", :window_text => "My Account"}) %>
+  <%# end %>
+
+  <%# restrict_to "Administrator | Direktur | Pembelian | Kas_Bank | Petty_Cash | Inventory | Penjualan" do %>
+    <%#= create_multiple_node([
+        {:title => "Items", :url => "http://#{request.env["HTTP_HOST"]}/items"},
+        {:title => "Kode Rekening", :url => "http://#{request.env["HTTP_HOST"]}/accounting/accounts"},
+        {:title => "Vendors", :url => "http://#{request.env["HTTP_HOST"]}/vendors"},
+        {:title => "Customers", :url => "http://#{request.env["HTTP_HOST"]}/customers",:height => "500",:width => "890"},
+        {:title => "Jenis Transaksi", :url => "http://#{request.env["HTTP_HOST"]}/accounting/transaction_types"}],
+      {:window_id => "data-master", :window_name => "DataMaster", :window_text => "Data Master"}) %>
+  <%# end %>
+
+  <%# restrict_to "Administrator | Direktur | Pembelian | Kas_Bank | Petty_Cash | Inventory | Penjualan" do %>
+    <%#= create_multiple_node([
+        {:title => "Transaksi Kas", :url => "http://#{request.env["HTTP_HOST"]}/accounting/cash_balances"},
+        {:title => "Transaksi Bank", :url => "http://#{request.env["HTTP_HOST"]}/accounting/bank_balances"},
+        {:title => "Transaksi Kas Dollar", :url => "http://#{request.env["HTTP_HOST"]}/accounting/dollar_balances"},
+        {:title => "Transaksi Penjualan", :url => "http://#{request.env["HTTP_HOST"]}/accounting/sale_balances"},
+        {:title => "Transaksi Pembelian", :url => "http://#{request.env["HTTP_HOST"]}/accounting/purchase_balances"},
+      ],
+      {:window_id => "transaksi", :window_name => "Transaksi", :window_text => "Transaksi"}) %>
+  <%# end %>
+
+  <%# restrict_to "Administrator | Direktur | Pembelian | Kas_Bank | Petty_Cash | Inventory | Penjualan" do %>
+    <%#= create_multiple_node([
+        {:title => "Jatuh Tempo Utang", :url => "http://#{request.env["HTTP_HOST"]}/accounting/liability_maturities"},
+        {:title => "Jatuh Tempo Piutang", :url => "http://#{request.env["HTTP_HOST"]}/accounting/receivable_maturities"}],
+      {:window_id => "jatuh-tempo", :window_name => "JatuhTempo", :window_text => "Jatuh Tempo"}) %>
+    <%#= create_multiple_node([
+        {:title => "Mutasi Utang", :url => "http://#{request.env["HTTP_HOST"]}/accounting/liability_mutations"},
+        {:title => "Mutasi Piutang", :url => "http://#{request.env["HTTP_HOST"]}/accounting/receivable_mutations"}],
+      {:window_id => "mutasi", :window_name => "Mutasi", :window_text => "Mutasi"}) %>
+  <%# end %>
+
+  <%# restrict_to "Administrator | Direktur | Pembelian | Kas_Bank | Petty_Cash | Inventory | Penjualan" do %>
+    <%#= create_multiple_node([
+        {:title => "General Journal", :url => "http://#{request.env["HTTP_HOST"]}/accounting/general_journals"},
+        {:title => "Trial Balance", :url => "http://#{request.env["HTTP_HOST"]}/accounting/trial_balances"},
+        {:title => "Aktiva Tetap", :url => "http://#{request.env["HTTP_HOST"]}/accounting/adjustment_entries"},
+        {:title => "Adjustment Entry", :url => "http://#{request.env["HTTP_HOST"]}/accounting/adjustment_balances"},
+        {:title => "Work Sheet", :url => "http://#{request.env["HTTP_HOST"]}/accounting/worksheets"},
+        {:title => "Income Statement", :url => "http://#{request.env["HTTP_HOST"]}/accounting/income_statement"},
+        {:title => "Balance Sheet", :url => "http://#{request.env["HTTP_HOST"]}/accounting/balance_sheet"},
+        {:title => "Cost Evaluation", :url => "http://#{request.env["HTTP_HOST"]}/accounting/cost_evaluations"}], #{:title => "Manual Journal", :url => "http://#{request.env["HTTP_HOST"]}/accounting/manual_journals"}],
+      {:window_id => "laporan", :window_name => "Laporan", :window_text => "Laporan"}) %>
+  <%# end  %>
+
+  <%#= create_single_node(:window_id => "detail-vendor", :window_name => "UtangKeVendor", :window_text => "Utang ke Vendor", :url => "http://#{request.env["HTTP_HOST"]}/dashboard/show_detail_vendors") %>
+  <%#= create_single_node(:window_id => "detail-customer", :window_name => "PiutangCustomer", :window_text => "Piutang Customer", :url => "http://#{request.env["HTTP_HOST"]}/dashboard/show_detail_customers") %>
+  <%# restrict_to "Administrator | Direktur | Pembelian | Kas_Bank | Petty_Cash | Inventory | Penjualan" do %>
+    <%#= create_multiple_node([
+        {:title => "Utang ke Customer", :url => "http://#{request.env["HTTP_HOST"]}/dashboard/show_payable_to_customers"},
+        {:title => "Utang ke Vendor", :url => "http://#{request.env["HTTP_HOST"]}/dashboard/show_payable_to_vendors"}],
+      {:window_id => "utang", :window_name => "Utang", :window_text => "Utang"}) %>
+    <%#= create_multiple_node([
+        {:title => "Piutang dari Customer", :url => "http://#{request.env["HTTP_HOST"]}/dashboard/show_receivable_from_customers"},
+        {:title => "Piutang dari Vendor", :url => "http://#{request.env["HTTP_HOST"]}/dashboard/show_receivable_from_vendors"}],
+      {:window_id => "piutang", :window_name => "Piutang", :window_text => "Piutang"}) %>
+
+    <%#= create_single_node(:window_id => "detail-remainder", :window_name => "Remainder", :window_text => "Remainder", :url => "http://#{request.env["HTTP_HOST"]}/dashboard/show_detail_remainders") %>
+  <%# end  %>
+  <%#= create_single_node(:window_id => "detail-cash-flow", :window_name => "CashFlow", :window_text => "Cash Flow", :url => "http://#{request.env["HTTP_HOST"]}/dashboard/show_detail_cash_flow") %>
+  <%#= create_single_node(:window_id => "detail-logout-flow", :window_name => "LogOut", :window_text => "Logout", :url => "http://#{request.env["HTTP_HOST"]}/logout", :no_window => true) %>
+
+
+<%# else %>
+  <%#= init_desktop_js(["LoginWindow"], {:current_user => "Dhendy Ferdian"}) %>
+  <%#= create_single_node(:window_id => "login-win", :window_name => "LoginWindow", :window_text => "Login", :url => "http://#{request.env["HTTP_HOST"]}/login") %>
+<%# end %>
+
+<% if current_user %>
+  <% menus = current_user.roles.first.menu_assignments %>
+  <% desktop_menu = menus.collect{|menu| menu.accounting_app_menu.window_name}.push("LogOut") %>
+  <%= init_desktop_js(desktop_menu, {:current_user => current_user.login.capitalize }) %>
+  <% menus.each do |menu_assignment| %>
+    <% menu = menu_assignment.accounting_app_menu %>
+    <% if menu.node_type == "multiple" %>
+      <% sub_menus = [] %>
+      <%# menu_assignment.role_sub_menu_assignments.sort! { |x, y| x.sequence <=> y.sequence } %>
+      <% menu_assignment.role_sub_menu_assignments.each do |sub_menu_assignment| %>
+        <% sub_menu = sub_menu_assignment.accounting_app_sub_menu %>
+        <% sub_menus << {:title => sub_menu.title, :url => "http://#{request.env["HTTP_HOST"]}#{sub_menu.url}"} %>
+      <% end %>
+      <%= create_multiple_node(sub_menus, :window_id => menu.window_id, :window_name => menu.window_name, :window_text => menu.window_text) %>
+    <% elsif menu.node_type == "single" %>
+      <%= create_single_node(:window_id => menu.window_id, :window_name => menu.window_name, :window_text => menu.window_text, :url => "http://#{request.env["HTTP_HOST"]}#{menu.url}") %>
+    <% end %>
+  <% end %>
+  <%= create_single_node(:window_id => "detail-logout-flow", :window_name => "LogOut", :window_text => "Logout", :url => "http://#{request.env["HTTP_HOST"]}/logout", :no_window => true) %>
+<% else %>
+  <%= init_desktop_js(["LoginWindow"], {:current_user => "Ascend Points"}) %>
+  <%= create_single_node(:window_id => "login-win", :window_name => "LoginWindow", :window_text => "Login", :url => "http://#{request.env["HTTP_HOST"]}/login") %>
+<% end %>

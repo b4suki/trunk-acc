@@ -1,0 +1,16 @@
+<%= popup_title "Buat Aksi Untuk #{Modul.find(params[:id]).name}" %>
+
+<div id="RB_body" style="width: 500px;">
+<% form_for(:a, @a, :url => {:action => "create_action"}) do |f| %>
+  <%= f.error_messages %>
+  <%= f.hidden_field "modul_id", :value => params[:id] %>
+  <label>Nama Aksi</label>
+  <%= f.text_field "name" %> <br />
+  <label>Nama Aksi di Controller</label>
+  <%= f.text_field "action_name" %> <br />
+  <br/><br/>
+  <p>
+    <%= f.submit "Simpan" %>
+  </p>
+<% end %>
+</div>

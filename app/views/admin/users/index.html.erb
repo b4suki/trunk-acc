@@ -1,0 +1,24 @@
+
+<br />
+<table class="main_table" width="1000px;" cellspacing="0" cellpadding="0" border="0">
+  <tr><th colspan="4">Daftar Pengguna</th><th style="text-align:right;"><%= filter_button %></th></tr>
+  <tr class="grid_1">
+    <th>Nama <%= filtered_header(@users, 'login') %></th>
+    <th>Email <%= filtered_header(@users, 'email') %></th>
+    <th>Hak Akses</th>
+    <th colspan="2"></th>
+  </tr>
+
+<% for user in @users %>
+  <tr class=<%= cycle("grid_2","grid_3") %>>
+    <td><%=h user.login %></td>
+    <td><%=h user.email %></td>
+    <td><%=h user.roles.first.nil? ? "" : user.roles.first.title %></td>
+    <td><%= link_to_remote_redbox("Edit", {:url => "users/edit/#{user.id}"}, :class => "a_edit")  %></td>
+    <td><%= link_to 'Hapus', admin_user_path(user), :confirm => "Apakah anda yakin akan menghapus data '#{user.login}' ?", :method => :delete, :class => "a_delete" %></td>
+  </tr>
+<% end %>
+  <tr class="grid_footer">
+    <td colspan="8" valign="center"><%= link_to_remote_redbox("Tambah Pengguna", {:url => new_admin_user_path}, :class => "a_add") %></td>
+  </tr>
+</table>

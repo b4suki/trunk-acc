@@ -1,0 +1,6 @@
+<span id="option_evidence"> 
+  <%= select("journal", "evidance", option_select_evidence_filter(result), {:selected => $SELECTED_EVIDENCE}, 
+    {:onchange => remote_function(
+                  :url => {:action => 'filter_evidence'}, 
+                  :with => "'value='+this.value+'&type=evidence&month='+#{date[:month]}+'&year='+#{date[:year]}")})%>
+</span>

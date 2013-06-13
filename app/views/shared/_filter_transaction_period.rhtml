@@ -1,0 +1,10 @@
+<div id="search">
+  <% form_tag(:action => :index) do %>
+    <table class="search_table" cellpadding="2" cellspacing="0" width="200">
+      <tr><th colspan="2"><%= title %></th></tr>
+      <tr><td>Bulan</td><td><%= select_month(default_filter_month, :use_month_names => indonesian_month_names ) %></td></tr>
+      <tr><td>Tahun</td><td><%= select_year(default_filter_year, :start_year => 2000, :end_year => 2030) %></td></tr>
+      <tr><td colspan="2" align="right"><%= submit_tag "Proses", :class => "btn-submit" %></td></tr>
+    </table>
+  <% end %>
+</div>

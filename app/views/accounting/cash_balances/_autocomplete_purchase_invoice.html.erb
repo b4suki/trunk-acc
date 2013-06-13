@@ -1,0 +1,5 @@
+<ul class="autocomplete_list">
+  <% for purchase_balance in @purchase_balances -%>
+     <li onclick="$('purchase_id_from_invoice').value =<%= purchase_balance.id%>;"  style="width: 350;" class="autocomplete_item"><%= purchase_balance.invoice_number %></li>
+  <% end -%>
+</ul>

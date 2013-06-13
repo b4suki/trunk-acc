@@ -1,0 +1,19 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+  <head>
+    <meta http-equiv="content-type" content="text/html;charset=UTF-8" />
+    <title></title>
+    <%= javascript_include_tag :defaults %>
+    <%= stylesheet_link_tag 'print_pajak', :media => "all" %>
+    <%= stylesheet_link_tag 'blue_themes', :media => "all" %>
+  </head>
+  <body>
+    <div id="main">
+      <br /><br /><br /><br /><br /><br /><br /><br />
+      <%= yield %>
+      <input id="print" type="button" onclick="$('print').remove(); window.print(); window.close();" value="Cetak" />
+    </div>
+  </body>
+</html>

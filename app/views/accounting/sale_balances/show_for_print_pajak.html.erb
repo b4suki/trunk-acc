@@ -1,0 +1,189 @@
+<% is_rupiah = @sale_balance.currency.name.downcase == "rupiah" %>
+<table class="brdTd" width="100%" border="0" cellpadding="0" cellspacing="0">
+  <tr>
+    <td style="border-bottom:1px solid #000;"><%= render :partial => "shared/updatable_print_content", :locals => {:id => "label-no-faktur-pajak", :content => "Kode dan Nomor Seri Faktur Pajak."} %> <%= @sale_balance.tax_reference rescue nil %></td>
+  </tr>
+  <tr>
+    <td>
+      <table width="100%" style="margin-top:20px;">
+        <tr>
+          <td colspan="3"><%= render :partial => "shared/updatable_print_content", :locals => {:id => "label-pengusaha-kena-pajak", :content => "Pengusaha Kena Pajak"} %></td>
+        </tr>
+        <tr>
+          <td class="wdTd"><%= render :partial => "shared/updatable_print_content", :locals => {:id => "label-pengusaha-nama", :content => "Nama"} %></td>
+          <td class="wrap1">:</td>
+          <td><%= render :partial => "shared/updatable_print_content", :locals => {:id => "label-ELDA", :content => "PT. ELDA SARANA INFORMATIKA"} %></td>
+        </tr>
+        <tr>
+          <td class="wdTd"><%= render :partial => "shared/updatable_print_content", :locals => {:id => "label-pengusaha-alamat", :content => "Alamat"} %></td>
+          <td class="wrap1">:</td>
+          <td><%= render :partial => "shared/updatable_print_content", :locals => {:id => "label-ELDA-alamat", :content => "Jl. Tubagus Ismail IV No. 2 Sekeloa - Coblong"} %></td>
+        </tr>
+        <tr>
+          <td class="wdTd">&nbsp;</td>
+          <td class="wrap1">&nbsp;</td>
+          <td><%= render :partial => "shared/updatable_print_content", :locals => {:id => "label-ELDA-alamat-2", :content => "Bandung - 40134"} %></td>
+        </tr>
+        <tr>
+          <td class="wdTd"><%= render :partial => "shared/updatable_print_content", :locals => {:id => "label-pengusaha-NPWP", :content => "NPWP"} %></td>
+          <td class="wrap1">:</td>
+          <td><%= render :partial => "shared/updatable_print_content", :locals => {:id => "label-ELDA-NPWP", :content => "01.956.529.0-423.000"} %></td>
+        </tr>
+        <tr>
+          <td class="wdTd"><%= render :partial => "shared/updatable_print_content", :locals => {:id => "label-tgl-pengukuhan", :content => "Tanggal Pengukuhan PKP"} %></td>
+          <td class="wrap1">:</td>
+          <td><%= render :partial => "shared/updatable_print_content", :locals => {:id => "label-ELDA-tgl-pengukuhan", :content => "21 Mei 2001"} %></td>
+        </tr>
+      </table>
+    </td>
+  </tr>
+  <tr>
+    <td>
+      <table style="margin-top:20px;padding-top: 20px;border-top:1px solid #000;" width="100%"  border="0" cellpadding="0" cellspacing="0">
+        <tr>
+          <td colspan="3"><%= render :partial => "shared/updatable_print_content", :locals => {:id => "label-pembeli", :content => "Pembeli Barang Kena Pajak/ Penerima Jasa Kena Pajak"} %></td>
+        </tr>
+        <tr>
+          <td class="wdTd"><%= render :partial => "shared/updatable_print_content", :locals => {:id => "label-pembeli-nama", :content => "Nama"} %></td>
+          <td class="wrap1">:</td>
+          <td><%= @sale_balance.customer.name %></td>
+        </tr>
+        <tr>
+          <td class="wdTd"><%= render :partial => "shared/updatable_print_content", :locals => {:id => "label-pembeli-alamat", :content => "Alamat"} %></td>
+          <td class="wrap1">:</td>
+          <td><%= @sale_balance.customer.address %></td>
+        </tr>
+        <tr>
+          <td class="wdTd" ><%= render :partial => "shared/updatable_print_content", :locals => {:id => "label-pembeli-NPWP", :content => "NPWP"} %></td>
+          <td class="wrap1">:</td>
+          <td><%= @sale_balance.customer.npwp.nil? || @sale_balance.customer.npwp == "" ? "00.000.000.0-000.000" : @sale_balance.customer.npwp %></td>
+        </tr>
+      </table>
+    </td>
+  </tr>
+  <tr>
+    <td>
+      <table width="100%" border="1" cellpadding="0" cellspacing="0" style="margin-top:20px;">
+        <tr class="brdTd">
+          <td rowspan="2" align="center"><%= render :partial => "shared/updatable_print_content", :locals => {:id => "label-no-urut", :content => "No. Urut"} %></td>
+          <td rowspan="2" align="center"><%= render :partial => "shared/updatable_print_content", :locals => {:id => "label-barang-kena-pajak", :content => "Nama Barang Kena Pajak/Jasa Kena Pajak"} %></td>
+          <td colspan="<%= is_rupiah ? "3" : "4" %>" align="center"><%= render :partial => "shared/updatable_print_content", :locals => {:id => "label-harga-jual", :content => "Harga Jual/Penggantian/Uang Muka/Termijn"} %></td>
+        </tr>
+        <tr>
+          <%= "<td align='center'>Valas USD</td>" unless is_rupiah %>
+          <td align="center">(Rp)</td>
+        </tr>
+        <% @sale_balance.accounting_sale_balance_details.each_with_index do |detail, i| %>
+          <tr>
+            <td align="center"><%= i + 1 %></td>
+            <td><%= "#{detail.item.name} #{detail.qty} #{detail.item.unit.name}" %></td>
+            <td align="right"><%= format_currency(detail.subtotal) %></td>
+            <%= "<td align='right'>#{format_currency(detail.subtotal * @sale_balance.kurs)}</td>" unless is_rupiah %>
+          </tr>
+        <% end %>
+        <% @sale_balance.service_details.each_with_index do |service_detail, i| %>
+          <tr>
+            <td align="center"><%= @sale_balance.accounting_sale_balance_details.count + i + 1 %></td>
+            <td><%= "#{service_detail.service.name} #{service_detail.qty}" %></td>
+            <td align="right"><%= format_currency(service_detail.subtotal) %></td>
+            <%= "<td align='right'>#{format_currency(service_detail.subtotal * @sale_balance.kurs)}</td>" unless is_rupiah %>
+          </tr>
+        <% end %>
+        <tr>
+          <td colspan="2"><%= render :partial => "shared/updatable_print_content", :locals => {:id => "label-pembayaran", :content => "Harga jual/Penggantian/Uang Muka/Termijn *)"} %></td>
+          <td align="right"><%= format_currency(@sale_balance.subtotal) %></td>
+          <%= "<td align='right'>#{format_currency(@sale_balance.subtotal * @sale_balance.kurs)}</td>" unless is_rupiah %>
+        </tr>
+        <tr>
+          <td colspan="2"><%= render :partial => "shared/updatable_print_content", :locals => {:id => "label-potongan-harga", :content => "Dikurangi Potongan Harga"} %></td>
+          <td align="right"><%= format_currency(@sale_balance.discount) %></td>
+          <%= "<td align='right'>#{format_currency(@sale_balance.discount * @sale_balance.kurs)}</td>" unless is_rupiah %>
+        </tr>
+        <tr>
+          <%
+           persentage =  (@sale_balance.payment_value / @sale_balance.transaction_value)*100
+          %>
+          <td colspan="2"><%= render :partial => "shared/updatable_print_content", :locals => {:id => "label-uang-muka", :content => "Dikurangi Uang Muka Yang Telah Diterima #{number_to_percentage(persentage, :precision => 1)}"} %></td>
+          <td align="right"><%= format_currency(@sale_balance.payment_value) %></td>
+          <%#*<td align="right"><%= format_currency(@sale_balance.paid) % ></td>%>
+          <%= "<td align='right'>#{format_currency(@sale_balance.paid * @sale_balance.kurs)}</td>" unless is_rupiah %>
+        </tr>
+        <tr>
+          <td colspan="2"><%= render :partial => "shared/updatable_print_content", :locals => {:id => "label-dasar-pengenaan-pajak", :content => "Dasar Pengenaan Pajak"} %></td>
+          <% basic_taxable = @sale_balance.subtotal - @sale_balance.discount - @sale_balance.payment_value %>
+          <%# basic_taxable = @sale_balance.subtotal - @sale_balance.discount - @sale_balance.paid %>
+          <td align="right"><%= format_currency(basic_taxable) %></td>
+          <%= "<td align='right'>#{format_currency(basic_taxable * @sale_balance.kurs)}</td>" unless is_rupiah %>
+        </tr>
+        <tr>
+          <td colspan="2"><%= render :partial => "shared/updatable_print_content", :locals => {:id => "label-total-PPN", :content => "PPN"} %> = <%= "#{@ppn_keluaran_rate_value * 100}%" %> x <%= render :partial => "shared/updatable_print_content", :locals => {:id => "label-multiply-dasar-pengenaan-pajak", :content => "Dasar Pengenaan pajak"} %></td>
+          <td align="right"><%= format_currency(basic_taxable * @ppn_keluaran_rate_value) %></td>
+          <%= "<td align='right'>#{format_currency(basic_taxable * @ppn_keluaran_rate_value * @sale_balance.kurs)}</td>" unless is_rupiah %>
+        </tr>
+      </table>
+    </td>
+  </tr>
+  <tr>
+    <td style="margin:20px 0px 20px 0px;float:left;"><%= render :partial => "shared/updatable_print_content", :locals => {:id => "label-total-pajak-barang-mewah", :content => "Pajak Penjualan Atas Barang Mewah"} %></td>
+  </tr>
+  <tr>
+    <td>
+      <table style="float:left;margin-left: 50px;" width="40%" border="1" cellpadding="0" cellspacing="0" >
+        <tr>
+          <td align="center"><%= render :partial => "shared/updatable_print_content", :locals => {:id => "label-mewah-tarif", :content => "Tarif"} %></td>
+          <td align="center"><%= render :partial => "shared/updatable_print_content", :locals => {:id => "label-mewah-DPP", :content => "DPP"} %></td>
+          <td align="center"><%= render :partial => "shared/updatable_print_content", :locals => {:id => "label-mewah-PPn-BM", :content => "PPn BM"} %></td>
+        </tr>
+        <tr>
+          <td><%= render :partial => "shared/updatable_print_content", :locals => {:id => "label-blank-percent-1", :content => "........%"} %></td>
+          <td><%= render :partial => "shared/updatable_print_content", :locals => {:id => "label-blank-rp-11", :content => "Rp ......"} %></td>
+          <td><%= render :partial => "shared/updatable_print_content", :locals => {:id => "label-blank-rp-12", :content => "Rp ......"} %></td>
+        </tr>
+        <tr>
+          <td><%= render :partial => "shared/updatable_print_content", :locals => {:id => "label-blank-percent-2", :content => "........%"} %></td>
+          <td><%= render :partial => "shared/updatable_print_content", :locals => {:id => "label-blank-rp-21", :content => "Rp ......"} %></td>
+          <td><%= render :partial => "shared/updatable_print_content", :locals => {:id => "label-blank-rp-22", :content => "Rp ......"} %></td>
+        </tr>
+        <tr>
+          <td><%= render :partial => "shared/updatable_print_content", :locals => {:id => "label-blank-percent-3", :content => "........%"} %></td>
+          <td><%= render :partial => "shared/updatable_print_content", :locals => {:id => "label-blank-rp-31", :content => "Rp ......"} %></td>
+          <td><%= render :partial => "shared/updatable_print_content", :locals => {:id => "label-blank-rp-32", :content => "Rp ......"} %></td>
+        </tr>
+        <tr>
+          <td><%= render :partial => "shared/updatable_print_content", :locals => {:id => "label-blank-percent-4", :content => "........%"} %></td>
+          <td><%= render :partial => "shared/updatable_print_content", :locals => {:id => "label-blank-rp-41", :content => "Rp ......"} %></td>
+          <td><%= render :partial => "shared/updatable_print_content", :locals => {:id => "label-blank-rp-42", :content => "Rp ......"} %></td>
+        </tr>
+        <tr>
+          <td colspan="2"><%= render :partial => "shared/updatable_print_content", :locals => {:id => "label-mewah-jumlah", :content => "Jumlah"} %></td>
+          <td><%= render :partial => "shared/updatable_print_content", :locals => {:id => "label-blank-rp-43", :content => "Rp ......"} %></td>
+        </tr>
+      </table>
+      <table class="signatory" width="20%">
+        <tr>
+          <td><%= render :partial => "shared/updatable_print_content", :locals => {:id => "label-signatory-place", :content => "Bandung"} %>, <%= format_date(@sale_balance.invoice_date) %></td>
+        </tr>
+        <tr>
+          <td>&nbsp;</td>
+        </tr>
+        <tr>
+          <td>&nbsp;</td>
+        </tr>
+        <tr>
+          <td>&nbsp;</td>
+        </tr>
+        <tr>
+          <td id="signatory-name"><%= @sale_balance.accounting_sale_signature.signatory %></td>
+        </tr>
+        <tr>
+          <td><%= @sale_balance.accounting_sale_signature.position %></td>
+        </tr>
+      </table>
+    </td>
+  </tr>
+  <% unless is_rupiah %>
+    <tr>
+      <td class="kurs"><%= render :partial => "shared/updatable_print_content", :locals => {:id => "label-catatan-kurs", :content => "Catatan : kurs Rp."} %> <%= format_currency(@sale_balance.kurs) %>/ USD</td>
+    </tr>
+  <% end %>
+</table>

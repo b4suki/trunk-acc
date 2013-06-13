@@ -1,0 +1,44 @@
+<% @accounting_sale_balance_detail = accounting_sale_balance_detail %>
+<tr class="accounting_sale_balance_detail grid_2">
+  <td>
+    <label><%= multi_text_field_with_auto_complete :accounting_sale_balance_detail_product, :name, index, { :size => 27 }, :skip_style => true, :indicator => "indicator-product-name-#{index}" -%>
+      <%= hidden_field_tag "accounting_sale_balance_detail_product_id_#{index}", "", :id => "accounting_sale_balance_detail_product_name_#{index}_id" %>
+      <span id="indicator-product-name-<%=index%>" style="display:none;"><%= image_tag "ajax-loader.gif" %></span>
+    </label>
+  </td>
+  <td>
+    <%= text_field_tag "accounting_sale_balance_detail_qty_#{index}","",:value => 0, :size => 3 ,:style => 'text-align:right;',
+      :onkeyup => "sum_product(this.value, $('accounting_sale_balance_detail_price_#{index}').value,#{index},'sale');
+calculate_total_sale_from_subtotal(parseInt($('count').value), parseInt($('count_service').value));
+ppn('sale', #{ppn_rate});
+disc($('sale_balance_subtotal').value,$('sale_balance_disc_percentage').value,'sale');
+calculate_total_transaction('sale');"%>
+  </td>
+  <td>
+    <%= text_field_tag "accounting_sale_balance_detail_price_#{index}","",:value => 0, :size => 10 , :style => 'text-align:right;',
+      :onkeyup => "sum_product(this.value, $('accounting_sale_balance_detail_qty_#{index}').value,#{index},'sale');
+calculate_total_sale_from_subtotal(parseInt($('count').value), parseInt($('count_service').value));
+ppn('sale', #{ppn_rate});
+disc($('sale_balance_subtotal').value,$('sale_balance_disc_percentage').value,'sale');
+calculate_total_transaction('sale');"%>
+  </td>
+  <td>
+    <%= text_field_tag "accounting_sale_balance_detail_subtotal_#{index}","" ,:value => 0, :size => 12, :style => 'text-align:right;',:readonly => true %>
+  </td>
+  <td>&nbsp;
+    <%= link_to_function "", "$(this).up('.accounting_sale_balance_detail').remove(); $('description_detail_service#{index}').remove();
+setIndex(-1,'count');
+calculate_total_sale_from_subtotal(parseInt($('count').value), parseInt($('count_service').value));
+ppn('sale', #{ppn_rate});
+disc($('sale_balance_subtotal').value,$('sale_balance_disc_percentage').value,'sale');
+calculate_total_transaction('sale');", :class => 'a_delete' %>
+  </td>
+</tr>
+
+<script type="text/javascript">
+  // var val_price = new LiveValidation('accounting_sale_balance_detail_price_
+  // var val_qty = new LiveValidation('accounting_sale_balance_detail[qty][=index
+  // val_price.add(Validate.Numericality);
+  // val_product.add(Validate.Presence);
+  // val_qty.add(Validate.Numericality);
+</script>

@@ -1,0 +1,104 @@
+<br/>
+<br/>
+<div id="search" style="z-index:-1000;">
+  <table class="search_table" cellpadding="2" cellspacing="0" width="450">
+    <% form_tag(:action => :show_period_accounts) do %>
+      <tr>
+        <th colspan="4">Create Periode </th>
+      </tr>
+  <%#*<tr><td>Tahun Start</td><td><%= select(:date, :year, year_of_end , :selected => @date_years.first(1).to_s  ) % </td>%>
+  <%#*<td>Tahun End</td><td><%= select(:date, :year_end, year_of_end , :selected =>  @date_years.last(1).to_s) % ></td></tr>%>
+      <tr><td>Tahun Start</td><td><%= text_field(:date, :year, :value => @date_years.first(1).to_s,:selected => @date_year, :size => 15) %></td>
+        <td>Tahun End</td><td><%= text_field(:date, :year_end, :value => @date_years.last(1).to_s, :selected => @date_year, :size => 15) %></td></tr>
+      <tr>
+        <td colspan="4">
+          Classifications : <br/>
+          <%= opt_classifications(@conditions) %>
+
+        </td>
+      </tr>
+  <%#*<tr><td>Account <span id="indicator-account-code" style="display:none;"><%= image_tag "ajax-loader.gif" % ></span></td>%>
+  <%#*<td colspan="3"><%= text_field_with_auto_complete :account, :code, { :size => 30}, :skip_style => true, :indicator => "indicator-account-code" -% >%>
+  <%#= hidden_field_tag :account_id,nil ,:id => "account_code_id" % ></td>
+  <%#*</tr>%>
+      <tr><td colspan="4" align="right"><%= submit_tag "Proses", :class => "btn-submit" %></td></tr>
+    </table>
+  <% end %>
+</div>
+<br/>
+<br/>
+<div class="div_freezepanes_wrapper" style="height:100%; ">
+  <table id="t1" class="main_table" cellpadding="0" cellspacing="0" width="1000px">
+    <thead>
+      <tr class="grid_1">
+        <th  style="width:20px;text-align:center; padding:5px 0px;">
+          No
+        </th>
+        <th style="width:50px;text-align:center;padding:5px 0px;">
+          No Rek
+        </th>
+        <th style="width:300px;text-align:center;padding:5px 0px;">
+          Description
+        </th>
+        <% if !@date_years.nil? %>
+          <% @date_years.each do |year| %>
+            <th style="width:30px;text-align:center;padding:5px 0px;">
+              <%= year %>
+            </th>
+          <% end %>
+        <% end %>
+        <th style="width:100px;text-align:center;padding:5px 0px;">
+          Total
+        </th>
+      </tr>
+    </thead>
+    <% @cost_evaluations.each_with_index do |eval,i| %>
+      <tr class=<%= cycle("grid_2","grid_3") %>>
+        <% if eval.id.to_i != 12 && eval.id.to_i != 60%>
+          <td ><%= i + 1 %></td>
+          <td ><%= eval.code %> </td>
+          <td ><%= eval.description%></td>
+          <% if !@date_years.nil? %>
+            <% @date_years.each do |year| %>
+              <td style="width:100px;text-align:right;padding:0px 8px;">
+                <%= year_value_accounts(eval.id,year ) rescue nil %>
+              </td>
+            <% end %>
+            <td style="width:100px;text-align:right;padding:0px 8px;">
+              <%=  format_currency $total_account[eval.id.to_s] rescue nil %>
+            </td>
+          <% end %>
+        <% end %>
+      </tr>
+    <% end %>
+  </table>
+</div>
+
+<table class="table_footer" cellpadding="0" cellspacing="0" width="1000px;">
+  <tr class="grid_footer">
+    <td colspan="25" valign="center">
+      <%= link_to "Export PDF", {"format"=>"pdf", "action"=>"show_period_accounts", "controller"=>"accounting/cost_evaluations",
+        "date" => {:year => @date_years.first(1).to_s, :year_end=> @date_years.last(1).to_s },
+        'classification' =>  get_value_conditions(@conditions) } , :class => "a_pdf" %>
+      <span class="blue_split">&nbsp;</span>
+      <%= link_to "Export XLS", {"format"=>"xls", "action"=>"show_period_accounts", "controller"=>"accounting/cost_evaluations",
+        "date" => {:year => @date_years.first(1).to_s, :year_end=> @date_years.last(1).to_s },
+        'classification' =>  get_value_conditions(@conditions) }, :class => "a_xls" %>
+    </td>
+    <td align="right">
+    </td>
+  </tr>
+</table>
+
+<script type="text/javascript">
+  {
+    var val_date_year = new LiveValidation('date_year');
+    val_date_year.add(Validate.Presence)
+    val_date_year.add(Validate.Numericality)
+  }
+  {
+    var val_date_end = new LiveValidation('date_year_end');
+    val_date_end.add(Validate.Presence)
+    val_date_end.add(Validate.Numericality)
+  }
+</script>

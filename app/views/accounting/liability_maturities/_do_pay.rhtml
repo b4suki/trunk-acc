@@ -1,0 +1,11 @@
+<td>Jumlah Pembayaran</td>
+<td> : </td>
+<td>
+  <script type="text/javascript">                               
+    var validate = new LiveValidation('total');    
+    validate.add(Validate.Numericality, { maximum: 
+    <%= liability.amount_account_receivable.nil? ? liability.transaction_value : liability.amount_account_receivable - get_liability(liability) %> } );
+  </script>         
+  <%= text_field_tag :total %> 
+  <%= link_to_remote "Batal", :url => {:action => :cancel_pay}%>
+</td>

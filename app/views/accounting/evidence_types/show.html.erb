@@ -1,0 +1,13 @@
+<p>
+  <b>Name:</b>
+  <%=h @evidence_type.name %>
+</p>
+
+<p>
+  <b>Description:</b>
+  <%=h @evidence_type.description %>
+</p>
+
+
+<%= link_to 'Edit', edit_accounting_evidence_type_path(@evidence_type) %> |
+<%= link_to 'Back', accounting_evidence_types_path %>

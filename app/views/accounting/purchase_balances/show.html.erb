@@ -1,0 +1,68 @@
+<p>
+  <b>Invoice number:</b>
+  <%=h @purchase_balance.invoice_number %>
+</p>
+
+<p>
+  <b>Invoice date:</b>
+  <%=h @purchase_balance.invoice_date %>
+</p>
+
+<p>
+  <b>Vendor:</b>
+  <%=h @purchase_balance.vendor_id %>
+</p>
+
+<p>
+  <b>Commodity type:</b>
+  <%=h @purchase_balance.description %>
+</p>
+
+<p>
+  <b>Job:</b>
+  <%=h @purchase_balance.job_id %>
+</p>
+
+<p>
+  <b>Subtotal:</b>
+  <%=h @purchase_balance.subtotal %>
+</p>
+
+<p>
+  <b>Discount:</b>
+  <%=h @purchase_balance.discount %>
+</p>
+
+<p>
+  <b>Total purchase:</b>
+  <%=h @purchase_balance.total_purchase %>
+</p>
+
+<p>
+  <b>Purchase debit kredit:</b>
+  <%=h @purchase_balance.purchase_debit_kredit_id %>
+</p>
+
+<p>
+  <b>Total subtotal:</b>
+  <%=h @purchase_balance.total_subtotal %>
+</p>
+
+<p>
+  <b>Final total purchase:</b>
+  <%=h @purchase_balance.final_total_purchase %>
+</p>
+
+<p>
+  <b>Total discount:</b>
+  <%=h @purchase_balance.total_discount %>
+</p>
+
+<p>
+  <b>Account:</b>
+  <%=h @purchase_balance.account_id %>
+</p>
+
+
+<%= link_to 'Edit', edit_accounting_purchase_balance_path(@purchase_balance) %> |
+<%= link_to 'Back', accounting_purchase_balances_path %>

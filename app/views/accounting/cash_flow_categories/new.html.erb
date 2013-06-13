@@ -1,0 +1,21 @@
+<%= popup_title "Input Kategori" %>
+
+<div id="RB_body" style="width: 350px;">
+  <% form_for(:accounting_cash_flow_category, @accounting_cash_flow_category, :url => {:action => 'create'})  do |f| %>
+    <%= f.error_messages %>
+    <div style="float: left;margin: 0px 20px 5px 5px;">
+      Nama Kategori<br />
+      <%= f.text_field :title %><br />
+      <%= f.hidden_field :activity_id, :value => params[:activity_id] %>
+      Jenis<br />
+      <%= f.select :is_cash_receipt, [["Penerimaan", "1"], ["Pengeluaran", "0"]] %>
+    </div>
+    <script type="text/javascript">
+      var validate = new LiveValidation('accounting_cash_flow_category_title');
+      validate.add(Validate.Presence );
+    </script>
+    <p>
+      <%= f.submit "Simpan" %>
+    </p>
+  <% end %>
+</div>

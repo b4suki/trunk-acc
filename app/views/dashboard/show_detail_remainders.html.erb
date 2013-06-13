@@ -1,0 +1,45 @@
+<div id="search">
+    <% form_tag(:action => :show_detail_remainders) do %>
+    <table class="search_table" cellpadding="2" cellspacing="0" width="200">
+        <tr><th colspan="2">Filter Remainder</th></tr>
+        <tr><td>Bulan</td><td><%= select_month(default_filter_month, :use_month_names => indonesian_month_names ) %></td></tr> <br/>
+        <tr><td>Tahun</td><td><%= select_year(default_filter_year, :start_year => 2000, :end_year => 2030) %></td></tr>
+        <tr><td colspan="2" align="right"><%= submit_tag "Proses", :class => "btn-submit" %></td></tr>
+    </table>
+    <% end %>
+</div>
+
+<table id="t1" class="main_table" cellpadding="0" cellspacing="0" width="500px;">
+    <tr class="grid_1">
+        <th>No</th>
+        <th>Nama Kegiatan</th>
+        <th>Deskripsi Kegiatan</th>
+        <th>Waktu Pelaksanaan</th>
+        <th>Aktif</th>
+        <th>&nbsp;</th>
+        <th>&nbsp;</th>
+    </tr>  
+  <%#= periodically_call_remote(:url => {:controller => 'dashboard' , :action => 'send_command_remainder'},:frequency => '1')%>
+  <% unless @remainders.empty? %>      
+    <% @remainders.each_with_index do |remainder, count| %>
+    <tr class=<%= cycle("grid_2","grid_3") %>>
+        <td align="center"><%= count + 1 %></td>
+        <td align="center"><%= remainder.task_name %></td>
+        <td align="left"><%= remainder.description%></td>
+        <td align="left"><%= remainder.task_date %></td>
+        <td align="left"><%= check_box_tag "remainder", "task" , remainder.alert_date.nil? ? false : true, :disabled => true%></td>
+        <td><%= link_to_remote_redbox("Edit",{:url => "/dashboard/edit_remainders/#{remainder.id}"},{:class => "a_edit"})  %></td>
+        <td><%= link_to 'Hapus', (remainder), :confirm => "Apakah anda yakin akan menghapus data'#{remainder.description}' ?", :method => :delete, :class => "a_delete" %></td>
+        <% count = count + 1 %>    
+    </tr>
+    <% end %>        
+    <% else %>      
+      <tr><td align="center" colspan="6"> Tidak Ada Data </td></tr>
+  <% end %>
+    <tr class="grid_footer">
+       <td colspan="6">
+        <%= link_to_remote_redbox("Input Remainder", {:url => {:action => :new_remainder}}, {:class => "a_add"}) %><span class="blue_split">&nbsp;</span>
+       </td>
+    </tr>
+</table>
+

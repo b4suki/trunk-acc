@@ -1,0 +1,27 @@
+<td width='20' valign="top" style="text-align:center;padding:0px;"> <%= text_field_tag :code_a, acc.code_a, :size => 1, :style =>"text-align:center;", :onkeyup => "set_value('account_code_a', this); $('code_b').focus();validation_account_code(this);" %></td>
+<td width='20' valign="top" style="text-align:center;padding:0px;"> <%= text_field_tag :code_b, acc.code_b, :size => 1, :style =>"text-align:center;", :onkeyup => "set_value('account_code_b', this); $('code_c').focus();validation_account_code(this);" %></td>
+<td width='20' valign="top" style="text-align:center;padding:0px;"> <%= text_field_tag :code_c, acc.code_c, :size => 1, :style =>"text-align:center;", :onkeyup => "set_value('account_code_c', this); $('code_d').focus();validation_account_code(this);" %></td>
+<td width='20' valign="top" style="text-align:center;padding:0px;"> <%= text_field_tag :code_d, acc.code_d, :size => 1, :style =>"text-align:center;", :onkeyup => "set_value('account_code_d', this); $('code_e').focus();validation_account_code(this);" %></td>
+<td width='20' valign="top" style="text-align:center;padding:0px;"> <%= text_field_tag :code_e, acc.code_e, :size => 1, :style =>"text-align:center;", :onkeyup => "set_value('account_code_e', this); $('description').focus();validation_account_code(this);" %></td>
+<td width='200' valign="top" style="padding:0px;">
+    <div style="float:left;">
+      <div style="width:<%= level.to_i*25%>px;height:20px;float:left;"></div>
+      <%= text_field_tag :description, acc.description, :onkeyup => "set_value('account_description', this);" %>
+    </div>
+</td>
+<td width='200' valign="top">
+  <% form_remote_tag :url => {:action => :update_account, :level => level}, :html => {:id => "form_edit_#{acc.id}"} do %>
+    <%= hidden_field :account,:id, :value => acc.id, :size => 1 %>
+    <%= hidden_field :account,:code_a, :value => acc.code_a, :size => 1 %>
+    <%= hidden_field :account,:code_b, :value => acc.code_b, :size => 1 %>
+    <%= hidden_field :account,:code_c, :value => acc.code_c, :size => 1 %>
+    <%= hidden_field :account,:code_d, :value => acc.code_d, :size => 1 %>
+    <%= hidden_field :account,:code_e, :value => acc.code_e, :size => 1 %>
+    <%= hidden_field :account,:description, :value => acc.description %>
+    <%= text_area :account,:notes, :value => acc.notes, :rows => 5, :cols => 20, :onfocus => "validation_description('description');" %>
+  <% end %>
+</td>
+<td valign="top" style="text-align:center;padding:0px;">
+  <%= submit_tag "Update", :onclick => "submit_ajax_form('form_edit_#{acc.id}')", :disable => true %> | <%= link_to_remote "Batal", :url => {:action => :cancel_editing, :id => acc.id, :level => level}%>    
+</td>
+

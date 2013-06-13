@@ -1,0 +1,23 @@
+<p>
+  <b>Name:</b>
+  <%=h @transaction_type.name %>
+</p>
+
+<p>
+  <b>Description:</b>
+  <%=h @transaction_type.description %>
+</p>
+
+<p>
+  <b>Order:</b>
+  <%=h @transaction_type.order %>
+</p>
+
+<p>
+  <b>Group:</b>
+  <%=h @transaction_type.group %>
+</p>
+
+
+<%= link_to 'Edit', edit_accounting_transaction_type_path(@transaction_type) %> |
+<%= link_to 'Back', accounting_transaction_types_path %>

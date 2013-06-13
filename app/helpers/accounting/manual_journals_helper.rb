@@ -1,0 +1,2 @@
+module Accounting::ManualJournalsHelper
+end

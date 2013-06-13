@@ -1,0 +1,48 @@
+<script>
+  jQuery(document).ready(function(){
+     jQuery("#data").fixedHeader({width: 500,height: 400});
+  })
+</script>
+
+<table id="data" class="main_table" cellpadding="0" cellspacing="0" width="500px">
+<thead>
+  <tr class="grid_1">
+    <th>No</th>
+    <th>Name</th>
+    <th>Description</th>
+    <th>Active</th>
+    <th>&nbsp;</th>
+    <th>&nbsp;</th>
+  </tr>
+</thead>
+
+<div class="div_top_btn">
+    <%= link_to("Kembali",items_path,{:class => "a_top_btn"}) %>
+</div>
+  <div class="clear_right"></div>  
+<% @types.each_with_index do |type, index|  %>
+  <tr class=<%= cycle("grid_2","grid_3") %>>
+    <td><%= index + 1 %></td>
+    <td><%= type.name %></td>
+    <td><%= type.description %></td>
+    <td><%= check_box_tag 'Aktif',:value_credit ,type.active,:disabled => true %></td>
+    <td><%= link_to_remote_redbox("Edit", {:url => "/types/edit/#{type.id}"}, {:class => "a_edit"})  %></td>
+    <td><%= link_to 'Hapus', type, :confirm => "Apakah anda yakin akan menghapus data '#{type.name}' ?", :method => :delete, :class => "a_delete" %></td>
+  </tr>
+  <% end %>
+</table>
+
+
+<table class="table_footer" cellpadding="0" cellspacing="0" width="500px">
+  <tr class="grid_footer">
+    <td colspan="9" valign="center">
+      <%= link_to_remote_redbox("Tambah Tipe", {:url => new_type_path}, {:class => "a_add"}) %>
+      <%#= link_to "Export PDF", formatted_customers_path(:pdf), :class => "a_pdf" %>
+      <%#= link_to "Export EXCEL", formatted_customers_path(:xls), :class => "a_xls" %>
+    </td>
+    <td colspan="2">
+        &nbsp;
+      <%#= render(:partial => "shared/paginate", :locals => {:collection => @customers }) -%>
+    </td>
+  </tr>
+</table>

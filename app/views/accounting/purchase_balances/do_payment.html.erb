@@ -1,0 +1,10 @@
+<%=  popup_title "Pembayaran Utang" %>
+
+<div id="RB_body" style="width: 500px;">
+<% form_for(:liability, @liability, :url => {:action => :create_payment})  do |f| %>
+  <%= f.error_messages %>
+  <%= render :partial => 'form_payment', :locals => { :f => f } %>
+  <div style="clear: both;"></div>
+  <%= f.submit "Simpan" %>
+<% end %>
+</div>

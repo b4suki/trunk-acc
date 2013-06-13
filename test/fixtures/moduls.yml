@@ -1,0 +1,31 @@
+--- 
+moduls_001: 
+  name: Cash Balances
+  updated_at: 2008-12-01 10:03:28
+  id: "1"
+  controller_name: cash_balances
+  created_at: 2008-11-12 04:00:49
+moduls_002: 
+  name: Kode Rekening
+  updated_at: 2008-11-12 04:00:49
+  id: "2"
+  controller_name: accounts
+  created_at: 2008-11-12 04:00:49
+moduls_003: 
+  name: Purchasing
+  updated_at: 2008-12-01 08:55:38
+  id: "3"
+  controller_name: purchase_balances
+  created_at: 2008-12-01 08:55:38
+moduls_004: 
+  name: Banking
+  updated_at: 2008-12-01 08:57:04
+  id: "4"
+  controller_name: bank_balances
+  created_at: 2008-12-01 08:57:04
+moduls_005: 
+  name: General Journal
+  updated_at: 2008-12-01 08:58:04
+  id: "5"
+  controller_name: general_journals
+  created_at: 2008-12-01 08:58:04

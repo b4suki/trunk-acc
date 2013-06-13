@@ -1,0 +1,17 @@
+<div class="accounting_purchase_debit_credit_<%= index_parent%>">
+<br />
+    <% @accounting_purchase_debit_credit = accounting_purchase_debit_credit %>       
+    <%# code_utang = get_code_ppn_pph_purchase('15300','21100')[1].nil? ? "" : get_code_ppn_pph_purchase('15300','21100')[1] %>        
+    <% code_ppn0 = get_code_ppn_pph_purchase('15100','21503')[0].nil? ? "" : get_code_ppn_pph_purchase('15100','21503')[0] %>        
+    <%= select "accounting_purchase_debit_credit_id_#{index_parent}_#{index}","", options_for_debet_purchase("debit"), {},{
+               :onchange => "auto_calculate_debit_credit_purchase(#{code_ppn0},this.value,'PPN',#{index},'purchase_debit_credit', #{index_parent});
+                             ",:style => "width: 90px;"}%>
+    <%= text_field "accounting_purchase_debit_credit_value_#{index_parent}_#{index}","",:style => 'text-align:right;', :value => 0 , :size => 9 %>                      
+    <%= hidden_field("accounting_purchase_debit_credit_hide_#{index_parent}_#{index}","",:value => 'FALSE') %>    
+    <%= hidden_field_tag "purchase_debit_credit_ppn_#{index_parent}", :start, :value => 0%>
+    <%= link_to_function "remove", "$(this).up('.accounting_purchase_debit_credit_#{index_parent}').remove(); 
+                          if($('count_debit_#{index_parent}') != null){
+                             setIndex(-1,'count_debit_#{index_parent}');
+                             setIndex(-1,'count_debit_edit_#{index_parent}');
+                           }" %>
+</div>

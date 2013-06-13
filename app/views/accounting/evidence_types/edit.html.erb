@@ -1,0 +1,20 @@
+<h1>Editing evidence_type</h1>
+
+<% form_for(:evidence_type, @evidence_type, :url => accounting_evidence_type_path(@evidence_type), :html=> {:method=>'put'})  do |f| %>
+  <%= f.error_messages %>
+
+  <p>
+    <%= f.label :name %><br />
+    <%= f.text_field :name %>
+  </p>
+  <p>
+    <%= f.label :description %><br />
+    <%= f.text_area :description %>
+  </p>
+  <p>
+    <%= f.submit "Update" %>
+  </p>
+<% end %>
+
+<%= link_to 'Show', accounting_evidence_type_path(@evidence_type) %> |
+<%= link_to 'Back', accounting_evidence_types_path %>

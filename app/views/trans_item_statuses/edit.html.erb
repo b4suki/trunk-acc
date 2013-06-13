@@ -1,0 +1,16 @@
+<h1>Editing trans_item_status</h1>
+
+<% form_for(@trans_item_status) do |f| %>
+  <%= f.error_messages %>
+
+  <p>
+    <%= f.label :name %><br />
+    <%= f.text_field :name %>
+  </p>
+  <p>
+    <%= f.submit 'Update' %>
+  </p>
+<% end %>
+
+<%= link_to 'Show', @trans_item_status %> |
+<%= link_to 'Back', trans_item_statuses_path %>

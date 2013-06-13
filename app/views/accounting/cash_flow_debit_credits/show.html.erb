@@ -1,0 +1,33 @@
+<p>
+  <b>Account:</b>
+  <%=h @sale_debit_credit.account_id %>
+</p>
+
+<p>
+  <b>Description:</b>
+  <%=h @sale_debit_credit.description %>
+</p>
+
+<p>
+  <b>Debit:</b>
+  <%=h @sale_debit_credit.debit %>
+</p>
+
+<p>
+  <b>Credit:</b>
+  <%=h @sale_debit_credit.credit %>
+</p>
+
+<p>
+  <b>Value:</b>
+  <%#=h @sale_debit_credit.value %>
+</p>
+
+<p>
+  <b>Total value:</b>
+  <%#=h @sale_debit_credit.total_value %>
+</p>
+
+
+<%= link_to 'Edit', edit_accounting_sale_debit_credit_path(@sale_debit_credit) %> |
+<%= link_to 'Back', accounting_sale_debit_credits_path %>

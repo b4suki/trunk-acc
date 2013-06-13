@@ -1,0 +1,9 @@
+<%=  popup_title "Input Transaksi Bank" %>
+<div id="RB_body" style="width: 500px;">
+  <% form_for(:bank_balance, @bank_balance, :url => {:action => 'create'}) do |f| %>
+    <%= f.error_messages %>
+    <%= render :partial => 'form', :locals => { :f => f, :bank_balance => @bank_balance } %>
+    <div style="clear: both;"></div>
+    <%= f.submit "Simpan" %>
+  <% end %>
+</div>

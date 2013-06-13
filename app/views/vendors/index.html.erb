@@ -1,0 +1,54 @@
+<script>
+  jQuery(document).ready(function(){
+     jQuery("#data").fixedHeader({width: 1000,height: 400});
+  })
+</script>
+
+<table id='data' class="main_table" cellpadding="0" cellspacing="0" width="1000px">
+  
+<thead>
+  <tr class="grid_1">
+    <th>Nama <%= filtered_header(@vendors, 'name') %></th>
+    <th>Rek <%= filtered_header(@vendors, 'rek_no') %></th>
+    <th>NPWP <%= filtered_header(@vendors, 'npwp') %></th>
+    <th>Keterangan<%= filtered_header(@vendors, 'description') %></th>
+    <th>Alamat <%= filtered_header(@vendors, 'address') %></th>
+    <th>Telepon <%= filtered_header(@vendors, 'phone') %></th>
+    <th>Fax <%= filtered_header(@vendors, 'fax') %></th>
+    <th>Kontak <%= filtered_header(@vendors, 'contact') %></th>
+    <th><%= filter_button%></th>
+    <th>&nbsp;</th>    
+  </tr>
+</thead>
+
+
+<% for vendor in @vendors %>
+  <tr class=<%= cycle("grid_2","grid_3") %>>
+    <td><%=h vendor.name %></td>
+    <td><%=h vendor.nil? ? "" : vendor.rek_no%></td>
+    <td><%=h vendor.nil? ? "" : vendor.npwp %></td>    
+    <td><%=h vendor.description %></td>
+    <td><%=h vendor.address %></td>
+    <td><%=h vendor.phone %></td>
+    <td><%=h vendor.fax %></td>
+    <td><%=h vendor.contact %></td>
+    <td><%= link_to_remote_redbox("Edit", {:url => "/vendors/edit/#{vendor.id}"},{:class => "a_edit"})  %></td>
+    <td><%= link_to 'Hapus', vendor, :confirm => "Apakah anda yakin #{vendor.name} akan dihapus?", :method => :delete, :class => "a_delete" %></td>
+  </tr>
+<% end %>
+</table>
+
+
+<table id="data" class="main_table" cellpadding="0" cellspacing="0" width="1000px">
+  <tr class="grid_footer">    
+  <td colspan="5" valign="center">
+    <%= link_to_remote_redbox("Tambah Vendor", {:url => new_vendor_path},{:class => "a_add"}) %><span class="blue_split">&nbsp;</span>
+    <%= link_to "Export PDF", formatted_vendors_path(:pdf), :class => "a_pdf" %><span class="blue_split">&nbsp;</span>
+    <%= link_to "Export EXCEL", formatted_vendors_path(:xls), :class => "a_xls" %>
+  </td>
+  
+  <td colspan="3">
+      <%#= render(:partial => "shared/paginate", :locals => {:collection => @customers }) -%>
+  </td>
+  </tr>
+</table>

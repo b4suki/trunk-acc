@@ -1,0 +1,42 @@
+<h3>DAFTAR TRANSAKSI KAS DOLLAR</h3>
+<h3>Bulan <%= selected_month %>  Tahun <%= selected_year %> </h3>
+
+<br/><br/>
+
+<table border="1" id="t1" class="main_table" cellpadding="3" cellspacing="0">
+  <tr class="grid_1">
+    <th width='15%'>Tanggal</th>
+    <th>No Bukti</th>
+    <th width='40%'>Keterangan</th>
+    <th>Kurs</th>
+    <th>Jumlah Penerimaan($)</th>
+    <th colspan='3'>Jumlah Pengeluaran($)</th>
+  </tr>
+  <%= dollar_balance_saldo_row %>
+  <% if @dollar_balances.size == 0 %>
+    <tr class="grid_2"><td colspan="8">&nbsp;Tidak Ada Data</td></tr>
+  <% else %>
+    <% for dollar_balance in @dollar_balances %>
+      <tr class=<%= cycle("grid_2","grid_3") %>>
+        <td><%=h format_date(dollar_balance.transaction_date) %></td>
+        <td><%=h dollar_balance.transaction_evidence != "" ? dollar_balance.transaction_evidence : '-' %></td>
+        <td><%=h dollar_balance.description %></td>
+        <td align='right'><%= format_currency(!dollar_balance.kurs.nil? ? dollar_balance.kurs : 0) %></td>
+        <td align='right'><%= format_currency(!dollar_balance.total_revenue.nil? ? dollar_balance.total_revenue : 0) %></td>
+        <td align='right'  colspan='3'><%= format_currency(!dollar_balance.total_payment.nil? ? dollar_balance.total_payment: 0) %></td>
+      </tr>
+    <% end %>
+    <tr class="grid_2">
+      <td colspan="4" align='right'><b>Total</b></td>
+      <td align='right'><b><%= format_currency(AccountingDollarBalance.accumulate_total_revenue($month, $year)) %></b></td>
+      <td align='right'  colspan='3'><b><%= format_currency(AccountingDollarBalance.accumulate_total_payment($month, $year)) %></b></td>
+    </tr>
+  <% end %>
+</table>
+
+<br/>
+<table border="1" width="15%" class="sum_table" cellpadding="3" cellspacing="0">
+  <tr><th>Total Penerimaan($)</th><td align="right" class="grid_2_sum"><%= format_currency(AccountingDollarBalance.accumulate_total_revenue($month, $year)) %><%= space(3) %></td></tr>
+  <tr><th>Total Pengeluaran($)</th><td align="right" class="grid_2_sum"><%= format_currency(AccountingDollarBalance.accumulate_total_payment($month, $year)) %><%= space(3) %></td></tr>
+  <tr><th>Sisa Kas($)</th><td align="right" class="grid_2_sum"><%= format_currency(AccountingDollarBalance.accumulate_total_dollar_balance($month, $year)) %><%= space(3) %></td></tr>
+</table>

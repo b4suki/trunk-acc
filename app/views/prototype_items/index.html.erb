@@ -1,0 +1,59 @@
+<script type="text/javascript">
+  jQuery(document).ready(function(){
+    jQuery("#data").fixedHeader({width: 1000,height: 400});
+  })
+</script>
+
+<div id="search">
+  <% form_tag(:action => :index) do %>
+    <table width="220" class="search_table" cellpadding="5" cellspacing="0" style="margin: 8px 6px;">
+      <tr><th>Cari</th><th><%= text_field_tag "search", "" %></th></tr>
+      <tr><th colspan="2" align="right"><%= submit_tag "Proses", :class => "btn-submit" %></th></tr>
+    </table>
+  <% end %>
+</div>
+
+<table id="data" class="main_table" cellpadding="0" cellspacing="0" width="1000px">
+
+  <thead>
+    <tr class="grid_1">
+      <th>No</th>
+      <th>Name</th>
+      <th>Keterangan</th>
+      <th>Aktif</th>
+      <th colspan="4">&nbsp;</th>
+    </tr>
+  </thead>
+  <div class="div_top_btn">
+    <%= link_to("kembali",products_path,{:class => "a_top_btn"}) %>
+  </div>
+  <div class="clear_right"></div>
+  <% unless @products.empty? %>
+    <% @products.each_with_index do |product, index| %>
+      <tr class=<%= cycle("grid_2","grid_3") %>>
+        <td><%= index + 1 %></td>
+        <td><%=h product.item.name rescue nil %></td>
+        <td><%=h product.nil? ? "" : product.description %></td>
+        <td align="center"><%= check_box_tag 'Aktif',:value_credit ,product.active,:disabled => true %></td>
+        <td><%= link_to_remote_redbox("Edit", {:url => "/prototype_items/edit/#{product.id}"}, {:class => "a_edit"})  %></td>
+        <td><%= link_to 'Hapus', product, :confirm => "Apakah anda yakin akan menghapus data '#{product.item.name}' ?", :method => :delete, :class => "a_delete" %></td>
+        <td id="show-hide-product-detail-<%=product.id%>"><%= render :partial => "item_detail_trigger", :locals => {:product => product, :show => true} %></td>
+      </tr>
+      <tr class="grid_3" id="product-detail-<%=product.id%>"></tr>
+    <% end %>
+  <% else %>
+    <tr class="grid_2"><td align="center" colspan="13">TIDAK ADA DATA</td></tr>
+  <% end %>
+</table>
+
+
+<table class="table_footer" cellpadding="0" cellspacing="0" width="1000px">
+  <tr class="grid_footer">
+    <td colspan="8" valign="center">
+      <%= link_to_remote_redbox("Tambah Barang", {:url => new_prototype_item_path}, {:class => "a_add"}) %>
+    </td>
+    <td colspan="2">
+      <%= will_paginate @products %>
+    </td>
+  </tr>
+</table>

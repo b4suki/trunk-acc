@@ -1,0 +1,34 @@
+<tr class="detail_service grid_2">
+  <td>
+    <label><%= multi_text_field_with_auto_complete :detail_service, :name, index, { :size => 27 }, :skip_style => true, :indicator => "indicator-service-name-#{index}" -%>
+      <%= hidden_field_tag "detail_service_id_#{index}", "", :id => "detail_service_name_#{index}_id" %>
+      <span id="indicator-service-name-<%=index%>" style="display:none;"><%= image_tag "ajax-loader.gif" %></span>
+    </label>
+  </td>
+  <td>
+    <%= text_field_tag "detail_service_qty_#{index}", 0, :size => 3 ,:style => 'text-align:right;',
+      :onkeyup => "multiply_service(this.value, $('detail_service_price_#{index}').value, #{index});
+calculate_total_sale_from_subtotal(parseInt($('count').value), parseInt($('count_service').value));
+ppn('sale', #{ppn_rate});
+disc($('sale_balance_subtotal').value,$('sale_balance_disc_percentage').value,'sale');
+calculate_total_transaction('sale');" %>
+  </td>
+  <td>
+    <%= text_field_tag "detail_service_price_#{index}", 0, :size => 10 , :style => 'text-align:right;',
+      :onkeyup => "multiply_service(this.value, $('detail_service_qty_#{index}').value, #{index});
+calculate_total_sale_from_subtotal(parseInt($('count').value), parseInt($('count_service').value));
+ppn('sale', #{ppn_rate});
+disc($('sale_balance_subtotal').value,$('sale_balance_disc_percentage').value,'sale');
+calculate_total_transaction('sale');" %>
+  </td>
+  <td>
+    <%= text_field_tag "detail_service_subtotal_#{index}", 0, :size => 12, :style => 'text-align:right;', :readonly => true %>
+  </td>
+  <td>&nbsp;
+    <%= link_to_function "", "$(this).up('.detail_service').remove(); setIndex(-1,'count_service');
+calculate_total_sale_from_subtotal(parseInt($('count').value), parseInt($('count_service').value));
+ppn('sale', #{ppn_rate});
+disc($('sale_balance_subtotal').value,$('sale_balance_disc_percentage').value,'sale');
+calculate_total_transaction('sale');", :class => 'a_delete' %>
+  </td>
+</tr>

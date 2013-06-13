@@ -1,0 +1,40 @@
+<div class="div_freezepanes_wrapper">
+<table border="1" id="t1" class="main_table" cellpadding="0" cellspacing="0" width="100%">
+    <tr class="grid_1">
+      <th>Tanggal</th>
+      <th>Job No.</th>
+      <th>Description<%= space(40) %></th>
+      <th>Penerimaan</th>
+      <th>Pengeluaran</th>
+      <th>Saldo</th>
+    </tr>
+
+    <%= saldo_row_report %>
+    <% @one_month_ago_cash_balance %>
+    <% for cash_balance in @cash_balances %>
+      <tr class=<%= cycle("grid_2","grid_3") %>>
+        <td><%=h format_date cash_balance[:created_at] %></td>
+        <td><%=h cash_balance[:job_id] %></td>
+        <td><%=h cash_balance[:description] %></td>
+        <td align="right"><%= cash_balance[:bkk] != 0 ? format_currency(cash_balance[:bkk]) : "&nbsp;" %></td>
+        <td align="right"><%= cash_balance[:bkm] != 0 ? format_currency(cash_balance[:bkm]) : "&nbsp;" %></td>
+        <% cash_balance[:bkk] != 0 ? @first_saldo += cash_balance[:bkk] : @first_saldo -= cash_balance[:bkm] %>
+        <td align="right"><%= format_currency(@first_saldo) %></td>
+      </tr>
+    <% end %>
+
+    <%= empty_data_row if @cash_balances.empty? %>
+  </table>
+</div>
+
+<br/>
+<div style="float: left;margin: 5px 10px 5px 3px;">
+  <table border="1" width="210" cellspacing="0" cellpadding="0" class="sum_table">
+    <tbody>
+      <tr><th>Total Penerimaan</th><td align="right" class="grid_2_sum"><%= @cash_balances.collect { |s| s[:bkk] }.sum %><%= space(3) %></td></tr>
+      <tr><th>Total Pengeluaran</th><td align="right" class="grid_2_sum"><%= @cash_balances.collect { |s| s[:bkm] }.sum %><%= space(3) %></td></tr>
+      <tr><th>Sisa Kas</th><td align="right" class="grid_2_sum"><%= format_currency(@first_saldo) %><%= space(3) %></td></tr>
+      <tr><th>Saldo Akhir</th><td align='right' class='grid_2_sum'><%= format_currency(@first_saldo ) %><%= space(3) %></td></tr>
+    </tbody>
+  </table>
+</div>

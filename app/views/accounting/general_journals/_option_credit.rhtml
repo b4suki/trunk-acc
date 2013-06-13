@@ -1,0 +1,6 @@
+<span id="option_credit">
+  <%= select("journal","credit", option_select_credit_filter(result),{:selected => $SELECTED_CREDIT == "all" ? "all" : $SELECTED_CREDIT.to_f}, 
+    {:onchange => remote_function(
+                  :url => {:action => 'filter_credit'}, 
+                  :with => "'value='+this.value+'&type=job&month='+#{date[:month]}+'&year='+#{date[:year]}")})%>
+</span>  

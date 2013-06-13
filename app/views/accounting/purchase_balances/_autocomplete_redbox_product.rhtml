@@ -1,0 +1,23 @@
+<div id="autocomplete_product" style="z-index:10;" class="autocomplete_redbox">
+  <div id="RB_body" style="width: 100px;height:50px;">
+      <p>
+        Nama Produk <span id="indicator-product-id" style="display:none;"><%= image_tag "ajax-loader.gif" %></span><br />
+        <%= text_field_with_auto_complete :item, :name, { :size => 30 }, :skip_style => true, :indicator => "indicator-product-id" -%>
+      </p>
+        <%= hidden_field :item_id,"", :id => 'item_name_id' %>
+        <%= link_to_function "Pilih", "{$('accounting_purchase_balance_detail_item_id_#{index}').value = $('item_name_id').value;
+                                    $('accounting_purchase_balance_detail_product_name_#{index}').value = $('item_name').value;
+                                    $('autocomplete_product').hide();
+                                }" %>
+        <%= link_to_function "Batal","$('autocomplete_product').hide()" %>
+  </div>
+</div>
+
+ <script type="text/javascript">
+        <%#*var item_name = new Array();%>
+        <%# validate_item.each_with_index  do |x,i|%>
+          <%#*item_name[<%=i% >]='<%= x % >';%>
+        <%# end %>
+        <%#*var validate = new LiveValidation('item_name');%>
+        <%#*validate.add(Validate.Inclusion,{ within: item_name});%>
+ </script>

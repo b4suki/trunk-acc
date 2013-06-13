@@ -1,0 +1,29 @@
+<% if !result.empty? %>        
+  <% $TOTAL_DEBIT = 0 %>
+  <% $TOTAL_CREDIT = 0 %>
+  <%= create_general_journal(result, account) %>
+  <% display = "none"%>
+  <%# if !report%>
+    <%# display = "none"%>
+  <%# end %>
+  <tr>
+    <td colspan="5" style="display:<%=display%>;text-align:right;">TOTAL</td>
+    <td id="total-debit-tmp" style="display:<%=display%>; text-align:right;"><%=  format_currency($TOTAL_DEBIT) %></td>
+    <td id="total-credit-tmp" style="display:<%=display%>; text-align:right;"><%= format_currency($TOTAL_CREDIT) %></td>
+  </tr>
+
+  <script type="text/javascript">
+  <%# if !report%>
+      //alert($("total-debit").innerHTML);
+      //alert($("total-debit").value);
+      // if (($("total-debit-tmp") !=null) && $("total-credit-tmp") != null){
+      $("total-debit").innerHTML = $('total-debit-tmp').innerHTML;
+      $("total-credit").innerHTML = $('total-credit-tmp').innerHTML;
+      //  }
+  <%# end%>
+  </script>
+<% else %>
+  <tr>
+    <td colspan="7">Tidak Ada Data</td>
+  </tr>
+<% end %>

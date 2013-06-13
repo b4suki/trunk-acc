@@ -1,0 +1,11 @@
+<td>Pembayaran</td>
+<td> : </td>
+<td align="right">
+  <script type="text/javascript">                               
+    var validate = new LiveValidation('total');    
+    validate.add(Validate.Presence);
+    validate.add(Validate.Numericality, { maximum: <%= receivable.amount_account_payable %> } );
+  </script>         
+  <%= text_field_tag :total, 0, :style => "text-align: right;" %>
+  <%#= link_to_remote "Batal", :url => {:action => :cancel_pay}%>
+</td>

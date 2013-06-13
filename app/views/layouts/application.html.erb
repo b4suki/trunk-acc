@@ -1,0 +1,74 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+  <head>
+    <meta http-equiv="content-type" content="text/html;charset=UTF-8" />
+    <title>SISTEM INFORMASI - PT. ESITRACK</title>
+
+    <%= stylesheet_link_tag 'redbox_1' %>
+
+    <%= stylesheet_link_tag 'autocomplete' %>
+<%#= stylesheet_link_tag 'menu' %>
+    <%= stylesheet_link_tag 'live_validation' %>
+    <%= stylesheet_link_tag 'blue_themes', 'paginate' %>
+    <%= stylesheet_link_tag 'calendar/calendar-blue' %>
+    <%= stylesheet_link_tag 'table_freeze' %>
+
+    <!-- NEED SOME CONFLICT HANDLE -->
+    <!--
+  <link rel="stylesheet" href="/stylesheets/blueprint/screen.css" type="text/css" media="screen, projection">
+  <link rel="stylesheet" href="/stylesheets/blueprint/print.css" type="text/css" media="print">
+  [if IE]>
+    <link rel="stylesheet" href="/stylesheets/blueprint/ie.css" type="text/css" media="screen, projection">
+  <![endif]
+    -->
+    <%= javascript_include_tag 'redbox' %>
+
+    <%= javascript_include_tag 'prototype', 'effects', 'dragdrop', 'controls' %>
+    <%= javascript_include_tag  'jquery-1.2.6', 'jquery.fixedheader'%>
+    <script>
+      jQuery.noConflict();
+    </script>
+    <%= javascript_include_tag "calendar/calendar",
+      "calendar/lang/calendar-parser-en",
+      "calendar/lang/calendar-en",
+      "calendar/calendar-parser",
+      "calendar/calendar-setup" %>
+
+    <%= javascript_include_tag 'live_validation' %>
+
+<%#= javascript_include_tag 'jquery-1.2.6' %>
+<%#= javascript_include_tag 'jquery.fixedheader' %>
+
+<%#= javascript_include_tag "calendar/calendar.js", "calendar/calendar-en.js", "calendar/calendar-helper.js" %>
+
+
+    <%= javascript_include_tag 'application' %>
+    <%= yield :head -%>
+  </head>
+  <body>
+    <div id="main">
+      <div id="main-table">
+        <table width="100%" cellspacing="0" border="0" cellpadding="0">
+          <tr>
+            <td width="98%">
+              <div id="judul">                
+                <h2><%= @title %></h2>
+                <% if @periode == true %>
+                  <h2>Periode <%= selected_month %> Tahun <%= selected_year %></h2>
+                  <% else %>
+                  <h2><%= @periode %></h2>
+                <% end %>
+              </div>
+              <span id="content_message">
+                <%= content_tag 'div', flash_notice, :id => 'notice' if flash[:notice] || flash[:error] %>
+              </span>
+              <div style="margin: 10px;"><%= yield %></div>
+            </td>
+          </tr>
+        </table>
+      </div>
+    </div>
+  </body>
+</html>

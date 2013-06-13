@@ -1,0 +1,56 @@
+<%= render :partial => "shared/filter_transaction_period", :locals => {:title => "Filter Bulan Transaksi"} %>
+<br />
+
+<table id="t1" class="main_table" cellpadding="0" cellspacing="0" width="1050">
+  <tr>
+    <th style="width:85px;text-align:center; padding:5px 0px;">TANGGAL</th>
+    <th style="width:80px;text-align:center;padding:5px 0px;">NO. BUKTI</th>
+    <th style="width:200px;text-align:center;padding:5px 0px;">KETERANGAN</th>
+    <th style="width:250px;text-align:center;padding:5px 0px;">ACCOUNT</th>
+    <th style="width:180px;text-align:center;padding:5px 0px;">DEBIT</th>
+    <th style="width:180px;text-align:center;padding:5px 0px;">KREDIT</th>
+    <th colspan="2" style="width:100px;">&nbsp;</th>
+  </tr>
+</table>
+
+<div style="overflow-y: auto; overflow-x: hidden; height: 350px; width: 1050px;">
+  <table class="main_table" cellpadding="2" cellspacing="0" width="1050">
+    <% total_debit = 0 %>
+    <% total_credit = 0 %>
+    <% if @manual_journals.size > 0 %>
+      <% @manual_journals.each do |manual_journal| %>
+        <% manual_journal.values.each_with_index do |values, i| %>
+          <tr class="grid_2">
+            <td style="width:85px;text-align:center;"><%= format_date(manual_journal.created_at) if i==0 %></td>
+            <td style="width:80px;"><%=h manual_journal.evidence if i==0 %></td>
+            <td style="width:300px;"><%=h manual_journal.description if i==0 %></td>
+            <td style="width:300px;<%= "padding-left:30px;" if !values.is_debit %>"><%=h values.account.description %></td>
+            <td align="right" style="width:180px;"><%= format_currency(values.value) if values.is_debit %></td>
+            <td align="right" style="width:180px;"><%= format_currency(values.value) if !values.is_debit %></td>
+            <% values.is_debit ? total_debit += values.value : total_credit += values.value %>
+            <td style="width:50px;"><%= link_to_remote_redbox("Edit", {:url => "/accounting/manual_journals/edit/#{manual_journal.id}"}, {:class => 'a_edit'}) if i==0 && manual_journal.editable %></td>
+            <td style="width:50px;"><%= link_to("Hapus", accounting_manual_journal_path(manual_journal), :confirm => "Apakah anda yakin akan menghapus data '#{manual_journal.description}' ?", :method => :delete, :class => 'a_delete') if i==0 && manual_journal.editable %></td>
+          </tr>
+        <% end %>
+      <% end %>
+    <% else %>
+      <tr class="grid_2">
+        <td style="width:1050px;" align="center">Tidak Ada Data</td>
+      </tr>
+    <% end %>
+  </table>
+</div>
+
+<table width="1050" class='main_table' cellpadding='0' cellspacing='0'>
+  <tr class="grid_footer">
+    <td valign="center" style="width:540px;">
+      <%= link_to_remote_redbox("Input Transaksi", {:url => {:action => :new}}, {:class => "a_add"}) %><span class="blue_split">&nbsp;</span>
+      <%= link_to "Export PDF", formatted_accounting_manual_journals_path(:pdf), :class => "a_pdf" %><span class="blue_split">&nbsp;</span>
+      <%= link_to "Export EXCEL", formatted_accounting_manual_journals_path(:xls), :class => "a_xls" %>
+    </td>
+    <td colspan="4" style="width:30px;text-align:right;"><b>TOTAL</b></td>
+    <td style="width:150px;text-align:right;"><b><%= format_currency(total_debit) %></b></td>
+    <td style="width:150px;text-align:right;"><b><%= format_currency(total_credit) %></b></td>
+    <th colspan="2" style="width:100px;">&nbsp;</th>
+  </tr>
+</table>

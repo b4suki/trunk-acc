@@ -1,0 +1,134 @@
+<div id="search">
+  <table class="search_table" cellpadding="2" cellspacing="0" width="200">
+    <% form_tag(:action => :index) do %>
+      <tr><th colspan="2">Filter Bulan Penjualan</th></tr>
+      <tr><td>Bulan</td><td><%= select_month(default_filter_month, :use_month_names => indonesian_month_names ) %></td></tr> <br/>
+      <tr><td>Tahun</td><td><%= select_year(default_filter_year, :start_year => 2000, :end_year => 2030) %></td></tr>
+      <tr><td colspan="2" align="right"><%= submit_tag "Proses", :class => "btn-submit" %></td></tr>
+    <%end%>
+  </table>
+</div>
+
+<div class="div_top_btn">
+  <%= link_to("Transaksi Item",history_items_path,{:class => "a_top_btn"}) %>
+  <%= link_to("Tanda Tangan Perusahaan",accounting_sale_signatures_path,{:class => "a_top_btn"}) %>
+  <%= link_to("Input Tipe Debet Kredit",accounting_sale_debit_credits_path,{:class => "a_top_btn"}) %>
+</div>
+<div class="clear_right"></div>
+<div class="wrap_table_data">
+  <table id="data" class="main_table" cellpadding="0" cellspacing="0" width="1000px">
+    <thead>
+      <tr class="grid_1">
+        <th rowspan="2">No</th>
+        <th rowspan="2">No Po</th>
+        <th rowspan="2">Surat Jln</th>
+        <th style="text-align:center;" colspan="2">Invoice</th>
+        <th rowspan="2">Customer <%#= filtered_header(@sale_balances,@sale_balance.customer.name)%></th>
+        <th rowspan="2">Keterangan</th>
+        <th rowspan="2">Job No.</th>
+        <th rowspan="2">Subtotal</th>
+        <th rowspan="2">Discount</th>
+        <th rowspan="2">DP</th>
+        <th rowspan="2">PPN</th>
+        <th rowspan="2">Biaya Kirim</th>
+        <th rowspan="2">Total Pembayaran</th>
+        <th rowspan="2">Mata Uang</th>
+        <th rowspan="2">Kurs</th>
+        <th style="text-align:center;" rowspan="1" colspan="<%= @debit  %>">Debit</th>
+        <th style="text-align:center;" rowspan="1" colspan="<%= @credit  %>">Kredit</th>
+        <th style="text-align:center;" rowspan="2" colspan="7">&nbsp;</th>
+      </tr>
+      <tr class="grid_1">
+        <th style="text-align:center;">No</th>
+        <th style="text-align:center;">Tanggal</th>
+        <%= view_header("debit")%>
+        <%= view_header("credit")%>
+      </tr>
+    </thead>
+    <tbody>
+      <% $TOTAL_SALE_DEBET = 0%>
+      <% $TOTAL_SALE_CREDIT, $total_payment = 0, 0%>
+      <% @sale_balances.each_with_index do |sale_balance, i|%>
+        <tr class=<%= cycle("grid_2","grid_3") %>>
+          <td><%=i+1 %></td>
+          <td><%=h sale_balance.po_num %></td>
+          <td><%=h sale_balance.travel_pass %></td>
+          <td><%=h sale_balance.invoice_number %></td>
+          <td><%=h format_date(sale_balance.invoice_date) %></td>
+          <td><%=h sale_balance.customer ? sale_balance.customer.name : ""  %></td>
+          <td><%=h sale_balance.description %></td>
+
+          <td><%=h sale_balance.job_id %></td>
+          <td style="text-align:right;"><%= format_currency(sale_balance.subtotal) %></td>
+          <% set_total_field_for sale_balance, :subtotal %>
+          <td style="text-align:right;"><%= format_currency(sale_balance.discount) %></td>
+          <% set_total_field_for sale_balance, :discount %>
+          <td style="text-align:right;"><%= format_currency(sale_balance.payment_value) %></td>
+          <% set_total_field_for sale_balance, :payment_value %>
+          <td style="text-align:right;"><%= format_currency(sale_balance.ppn_value) %></td>
+          <% set_total_field_for sale_balance, :ppn_value %>
+          <td style="text-align:right;"><%= format_currency(sale_balance.shipping_cost) %></td>
+          <% set_total_field_for sale_balance, :shipping_cost %>
+          <%
+          payment = 0
+          payment += sale_balance.payment_value + sale_balance.ppn_value + sale_balance.shipping_cost
+          $total_payment += payment
+        %>
+          <td style="text-align:right;"><%= format_currency(payment) %></td>
+          <%# set_total_field_for sale_balance, :transaction_value %>
+          <td><%=h sale_balance.currency.name rescue nil %></td>
+          <td style="text-align:right;"><%= format_currency(sale_balance.kurs) rescue nil %></td>
+          <%= table_values_debet_credit(sale_balance.id,"debit") %>
+          <%= table_values_debet_credit(sale_balance.id,"credit") %>
+          <td><%= link_to_remote_redbox("Edit", {:url => "/accounting/sale_balances/edit/#{sale_balance.id}"},{:class => "a_edit"})  %></td>
+          <td><%= link_to_remote_redbox("Trasfer", {:url => "/accounting/sale_balances/edit_after_transfer/#{sale_balance.id}"},{:class => "a_edit"})  if check_account_cash(sale_balance.id) == true %></td>
+          <td><%= link_to 'Hapus', accounting_sale_balance_path(sale_balance), :confirm => "Apakah anda yakin job '#{sale_balance.job_id}' akan dihapus?", :method => :delete, :class => "a_delete" %></td>
+          <td><%= link_to 'Cetak', "#", :class => "a_print", :onclick => "window.open('http://#{request.env["HTTP_HOST"]}/accounting/sale_balances/show_for_print/#{sale_balance.id}', 'Print Transaksi Penjualan', 'resizable=no,toolbar=no,menubar=no,location=no');" %></td>
+          <td><%= link_to 'Cetak Faktur Pajak', "#", :class => "a_print", :onclick => "window.open('http://#{request.env["HTTP_HOST"]}/accounting/sale_balances/show_for_print_pajak/#{sale_balance.id}', 'Print Faktur Pajak', 'resizable=no,toolbar=no,menubar=no,location=no');" if sale_balance.taxable %></td>
+          <td><%= sale_balance.amount_account_payable > 0 ? link_to_remote_redbox("Pembayaran",{:url => "/accounting/sale_balances/do_payment/#{sale_balance.id}?from=s"},{:class => "a_pay"}) : "Lunas" %></td>
+          <td id="show-hide-payment-record-<%=sale_balance.id%>"><%= render :partial => "payment_record_trigger", :locals => {:sale => sale_balance, :show => true} %></td>
+        </tr>
+        <tr class="grid_3" id="payment-record-<%=sale_balance.id%>"></tr>
+      <% end %>
+      <% if @sale_balances.size >= 1 %>
+        <tr class="grid_2">
+          <th colspan="8">Total</th>
+          <th style="text-align:right;"><%= format_currency(show_total_for :subtotal) %></th>
+          <th style="text-align:right;"><%= format_currency(show_total_for :discount) %></th>
+          <th style="text-align:right;"><%= format_currency(show_total_for :payment_value) %></th>
+          <th style="text-align:right;"><%= format_currency(show_total_for :ppn_value) %></th>
+          <th style="text-align:right;"><%= format_currency(show_total_for :shipping_cost) %></th>
+          <th style="text-align:right;"><%= format_currency($total_payment) %></th>
+          <%#*<th style="text-align:right;"><%= format_currency(show_total_for :transaction_value) % ></th>%>
+          <th style="text-align:right;">&nbsp;</th>
+          <th style="text-align:right;">&nbsp;</th>
+          <%= sum_debet_credit("debit")%>
+          <%= sum_debet_credit("credit")%>
+          <th colspan="8">&nbsp;</th>
+        </tr>
+      </tbody>
+    <% else %>
+      <tr class="grid_2"><td align="center" colspan="<%=21+@credit+@debit%>">Tidak Ada Data</td></tr>
+    <%end%>
+  </table>
+</div>
+
+<table id="data" class="main_table" cellpadding="0" cellspacing="0" width="1000px;">
+  <tr class="grid_footer">
+    <td colspan="<%=11+@credit+@debit%>" valign="center">
+      <% if @can_input %>
+        <%= link_to_remote_redbox("Input Transaksi", {:url => {:action => :new}}, {:class => "a_add"}) %><span class="blue_split">&nbsp;</span>
+      <% end %>
+      <%= link_to "Export PDF", formatted_accounting_sale_balances_path(:pdf), :class => "a_pdf" %><span class="blue_split">&nbsp;</span>
+      <%= link_to "Export EXCEL", formatted_accounting_sale_balances_path(:xls), :class => "a_xls" %><span class="blue_split">&nbsp;</span>
+      <%= link_to_remote_redbox("Trasfer ALL Sale ", {:url => "/accounting/sale_balances/transfer_all"}) %><span class="blue_split">&nbsp;</span>
+      <%= link_to_remote_redbox("Trasfer ALL  Piutang", {:url => "/accounting/sale_balances/transfer_all/#{true}"}) %>
+    </td>
+    <td>
+      <%= will_paginate @sale_balances %>
+    </td>
+    <td align="right">
+      <%= link_to_remote_redbox("Bantuan",{:url => {:action => :sale_help}},{:class => "a_help", :title => "Bantuan"})  %>
+    </td>
+  </tr>
+</table>

@@ -1,0 +1,20 @@
+<center><h2>Daftar Status Item</h2></center>
+
+<table>
+  <tr>
+    <th>Name</th>
+  </tr>
+
+<% @trans_item_statuses.each do |trans_item_status| %>
+  <tr>
+    <td><%=h trans_item_status.name %></td>
+    <td><%= link_to 'Show', trans_item_status %></td>
+    <td><%= link_to 'Edit', edit_trans_item_status_path(trans_item_status) %></td>
+    <td><%= link_to 'Destroy', trans_item_status, :confirm => 'Are you sure?', :method => :delete %></td>
+  </tr>
+<% end %>
+</table>
+
+<br />
+
+<%= link_to 'New trans_item_status', new_trans_item_status_path %>

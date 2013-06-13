@@ -1,0 +1,19 @@
+<div style="float: left;margin: 0px 10px 5px 3px;">
+    <p>
+        Nama Kegiatan <br />
+        <%= f.text_field(:task_name)%>
+    </p>
+    <p>
+       Deskripsi<br />
+        <%= f.text_area :description, :cols => 30, :rows => 10 %>        
+    </p>     
+    <p>
+       Aktif<br/>
+        <%= check_box_tag "check_aktif", "true",@remainder.id.nil? ? true : (@remainder.alert_date.nil? ? false : true) %>        
+    </p>
+    <p>
+        Tanggal Kegiatan <br />
+        <%= f.date_splicer :task_date, :default_to_now => false %>
+    </p>
+</div>
+<div style="clear:both;"></div> 

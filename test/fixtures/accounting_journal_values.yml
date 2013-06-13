@@ -1,0 +1,13 @@
+# Read about fixtures at http://ar.rubyonrails.org/classes/Fixtures.html
+
+one:
+  account_id: 1
+  value: 1.5
+  journal_id: 1
+  is_debit: false
+
+two:
+  account_id: 1
+  value: 1.5
+  journal_id: 1
+  is_debit: false

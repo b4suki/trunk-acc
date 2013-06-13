@@ -1,0 +1,11 @@
+# Read about fixtures at http://ar.rubyonrails.org/classes/Fixtures.html
+
+one:
+  item_id: 1
+  last_date: 2011-05-18
+  last_stock: 1
+
+two:
+  item_id: 1
+  last_date: 2011-05-18
+  last_stock: 1

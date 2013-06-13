@@ -1,0 +1,121 @@
+--- 
+activity_logs_006: 
+  updated_at: 2008-11-27 07:44:38
+  referenced_id: 
+  culprit_id: 
+  referenced_type: 
+  action: update
+  activity_loggable_type: Customer
+  id: "6"
+  activity_loggable_id: "2"
+  culprit_type: 
+  user_id: 
+  created_at: 2008-11-27 07:44:38
+activity_logs_007: 
+  updated_at: 2008-11-27 07:49:53
+  referenced_id: 
+  culprit_id: 
+  referenced_type: 
+  action: create
+  activity_loggable_type: Customer
+  id: "7"
+  activity_loggable_id: "3"
+  culprit_type: 
+  user_id: 
+  created_at: 2008-11-27 07:49:53
+activity_logs_008: 
+  updated_at: 2008-11-27 07:50:28
+  referenced_id: 
+  culprit_id: 
+  referenced_type: 
+  action: create
+  activity_loggable_type: Customer
+  id: "8"
+  activity_loggable_id: "4"
+  culprit_type: 
+  user_id: 
+  created_at: 2008-11-27 07:50:28
+activity_logs_009: 
+  updated_at: 2008-11-27 07:50:44
+  referenced_id: 
+  culprit_id: 
+  referenced_type: 
+  action: create
+  activity_loggable_type: Customer
+  id: "9"
+  activity_loggable_id: "5"
+  culprit_type: 
+  user_id: 
+  created_at: 2008-11-27 07:50:44
+activity_logs_010: 
+  updated_at: 2008-11-27 07:57:47
+  referenced_id: 
+  culprit_id: 
+  referenced_type: 
+  action: update
+  activity_loggable_type: Customer
+  id: "10"
+  activity_loggable_id: "3"
+  culprit_type: 
+  user_id: 
+  created_at: 2008-11-27 07:57:47
+activity_logs_001: 
+  updated_at: 2008-11-26 03:36:49
+  referenced_id: 
+  culprit_id: 
+  referenced_type: 
+  action: create
+  activity_loggable_type: Customer
+  id: "1"
+  activity_loggable_id: "1"
+  culprit_type: 
+  user_id: 
+  created_at: 2008-11-26 03:36:49
+activity_logs_002: 
+  updated_at: 2008-11-26 08:51:33
+  referenced_id: 
+  culprit_id: 
+  referenced_type: 
+  action: create
+  activity_loggable_type: Customer
+  id: "2"
+  activity_loggable_id: "2"
+  culprit_type: 
+  user_id: 
+  created_at: 2008-11-26 08:51:33
+activity_logs_003: 
+  updated_at: 2008-11-26 08:58:29
+  referenced_id: 
+  culprit_id: 
+  referenced_type: 
+  action: update
+  activity_loggable_type: Customer
+  id: "3"
+  activity_loggable_id: "2"
+  culprit_type: 
+  user_id: 
+  created_at: 2008-11-26 08:58:29
+activity_logs_004: 
+  updated_at: 2008-11-27 07:43:54
+  referenced_id: 
+  culprit_id: 
+  referenced_type: 
+  action: update
+  activity_loggable_type: Customer
+  id: "4"
+  activity_loggable_id: "2"
+  culprit_type: 
+  user_id: 
+  created_at: 2008-11-27 07:43:54
+activity_logs_005: 
+  updated_at: 2008-11-27 07:44:17
+  referenced_id: 
+  culprit_id: 
+  referenced_type: 
+  action: update
+  activity_loggable_type: Customer
+  id: "5"
+  activity_loggable_id: "2"
+  culprit_type: 
+  user_id: 
+  created_at: 2008-11-27 07:44:17

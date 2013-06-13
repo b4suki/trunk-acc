@@ -1,0 +1,10 @@
+<%=  popup_title "Edit Kredit Pajak" %>
+
+<div id="RB_body" style="width: 500px;">
+<% form_for(:tax_credit, @tax_credit, :url => accounting_tax_credit_path(@tax_credit), :html=> {:method=>'put'})  do |f| %>
+  <%= f.error_messages %>
+  <%= render :partial => 'form', :locals => { :f => f } %>
+  <div style="clear: both;"></div>
+  <%= f.submit "Update" %>
+<% end %>
+</div>

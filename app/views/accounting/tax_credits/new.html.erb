@@ -1,0 +1,10 @@
+<%=  popup_title "Input Kredit Pajak" %>
+
+<div id="RB_body" style="width: 500px;">
+<% form_for(:tax_credit, @tax_credit, :url => {:action => 'create'})  do |f| %>
+  <%= f.error_messages %>
+  <%= render :partial => 'form', :locals => { :f => f } %>
+  <div style="clear: both;"></div>
+  <%= f.submit "Simpan" %>
+<% end %>
+</div>

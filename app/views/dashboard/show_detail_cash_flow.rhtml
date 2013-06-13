@@ -1,0 +1,13 @@
+
+<div id="search">
+  <table class="search_table" cellpadding="2" cellspacing="0" width="200">
+    <tr><th colspan="2">Cash Flow</th></tr>        
+    <tr><td>Tahun</td><td><%= Time.now().strftime('%Y') %></td></tr>
+  </table>
+</div>
+<br /><br /><br />
+
+<%#= ziya_chart load_chart_accounting_reports_url, :size => "530x220" -%>
+<script type="text/javascript" src="/javascripts/swfobject.js"></script>
+<%= @graph %>
+

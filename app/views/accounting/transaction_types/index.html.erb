@@ -1,0 +1,41 @@
+<%#= link_to 'New transaction_type', new_accounting_transaction_type_path %>
+<center><h2>Daftar Jenis Transaksi</h2></center>
+<br/>
+<table bgcolor='white' width="700px;" class='main_table' cellpadding='0' cellspacing='0'>
+  <tr class='grid_1'>
+    <th width="251px" style="text-align:center;">Name</th>
+    <th width="103px" style="text-align:center;">Description</th>
+    <%#*<th width="63px" style="text-align:center;">Order</th>%>
+    <th width="78px" style="text-align:center;">Group</th>
+    <th colspan="3" style="text-align:center;">Option</th>
+  </tr>
+</table>
+<div style="overflow-y: auto; overflow-x: hidden; height: 250px; width: 700px;">
+<table width='700px;' class='main_table' cellpadding='0' cellspacing='0'>
+<% for transaction_type in @transaction_types %>
+  <tr class=<%= cycle("grid_2","grid_3") %>>
+    <td width="251px"><%=h transaction_type.name %></td>
+    <td width="102px"><%=h transaction_type.description %></td>
+    <%#*<td width="61px"><%=h transaction_type.order % ></td>%>
+    <td width="78px"><%=h transaction_type.group %></td>
+    <td><%#= link_to_remote 'Edit', :url => {:action => "edit", :id => transaction_type.id}, :html => {:class => 'a_edit'} %>
+    <%= link_to_remote_redbox("Edit", {:url => edit_redbox_url('transaction_types', params[:action], transaction_type)}, {:class => "a_edit"})  %></td>
+    <td><%= link_to 'Destroy', accounting_transaction_type_path(transaction_type), :class => "a_delete", :confirm => 'Are you sure?', :method => :delete %></td>
+  </tr>  
+<% end %>
+</table>
+</div>
+<table width="700px;" class='main_table' cellpadding='0' cellspacing='0'>
+  <tr class="grid_footer">
+    <td colspan="6" valign="center"> 
+      <% restrict_to "Administrator | Accounting | Kasir" do %>
+          <%= link_to_remote_redbox("Jenis Transaksi", {:url => new_accounting_transaction_type_path}, :class => "a_add") %>
+      <% end %>
+      <%#= link_to "Export PDF", formatted_accounting_accounts_path(:pdf), :class => "a_pdf" %>
+      <%#= link_to "Export EXCEL", formatted_accounting_accounts_path(:xls), :class => "a_xls" %>
+    </td>
+    <td colspan="3">
+      <%#= render(:partial => "shared/paginate", :locals => {:collection => @customers }) -%>
+    </td>
+  </tr>
+</table>

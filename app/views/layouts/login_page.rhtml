@@ -1,0 +1,44 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1" />
+    <title>Sistem Informasi Akunting - ESITrack</title>
+    <%= stylesheet_link_tag "login"  %>
+    <%= javascript_include_tag :defaults %>
+  </head>
+  
+  <body>
+    <div class="log_bar">
+      <div class="bg_log">
+        <div class="login_box">
+          <div class="frm_log" id="form">
+            <span id="content_message" style="display:none;">
+              <%= content_tag 'div', '', :class => 'notice', :id => 'ajax_notice' %>
+            </span>
+            <% form_remote_tag :url => session_path, :html => {:id => 'form-login'} do -%>
+            <table width="100%" border="0" cellpadding="1" cellspacing="1">
+              <tr>
+                <td width="82">Username</td>
+                <td width="10">:</td>
+                <td width="158"><%= text_field_tag 'login' %></td>
+              </tr>
+              <tr>
+                <td>Password</td>
+                <td>:</td>
+                <td><%= password_field_tag 'password' %></td>
+              </tr>
+              <tr>
+                <td colspan="3"><div align="right">
+                    <%= submit_tag 'Log in' %>
+                    &nbsp;&nbsp;
+                </div></td>
+              </tr>
+            </table>
+            <% end -%>
+          </div>
+        </div>
+        <div style="clear:both;"></div>
+      </div>
+    </div>
+  </body>
+</html>

@@ -1,0 +1,27 @@
+<div style="float: left;margin: 0px 20px 5px 5px;">
+    Kode Rekening <br />
+    <%= text_field_with_auto_complete :account, :code, { :size => 30, :value => @purchase_debit_credit.nil? || @purchase_debit_credit.accounting_account.nil? ? "" : @purchase_debit_credit.accounting_account.code.to_s+"   "+@purchase_debit_credit.accounting_account.description.to_s }, :skip_style => true -%>
+  <script type="text/javascript">                               
+          var validate = new LiveValidation('account_code');    
+          validate.add(Validate.Presence );
+   </script> 
+    <%= f.hidden_field :account_id, :id => 'account_code_id' %> <br />
+     <script type="text/javascript">
+        var test = new Array();
+        <% validate_account.each_with_index  do |x,i|%>
+          test[<%=i%>]='<%= x %>';
+          <%end%>
+          var validate = new LiveValidation('account_code');    
+          validate.add(Validate.Inclusion,{ within: test});
+      </script> 
+    <%#*Description <br />%>
+    <%#= f.text_field(:description)% ><br />%>
+    <% if params[:account_type].nil? && @purchase_debit_credit.account_type.nil? %>
+    Tipe
+    <%= select(:combo,:value,options_for_debit_credit,{:selected => find_combo_purchase(@purchase_debit_credit.id)})%>
+  <% else %>
+    <%= hidden_field_tag :account_type, params[:account_type].nil? ? @purchase_debit_credit.account_type : params[:account_type] %>
+    <% account_type = params[:account_type].nil? ? @purchase_debit_credit.account_type : params[:account_type] %>
+    <%= f.hidden_field(get_purchase_debit_or_credit(account_type), :value => "1") %>
+  <% end %>
+</div>

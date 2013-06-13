@@ -1,0 +1,47 @@
+<td colspan="<%=14%>">
+  <table class="main_table" cellpadding="0" cellspacing="0" width="500px">
+    <tr class="grid_1">
+      <th width="100px">Last Saldo</th>
+      <th width="100px">Total Pemakain Saldo</th>
+      <th width="100px">Masa Aktif Card</th>
+      <th width="100px">&nbsp;</th>
+    </tr>
+    <tr class="grid_2">
+      <td style="text-transform:capitalize ">
+<%= link_to_remote_redbox("#{pulsa_customer.last_saldo}", {:url => "/pulsa_customers/edit_saldo/#{pulsa_customer.id}"}, {:class => "a_edit"})  %>
+      </td>
+      <td><%= pulsa_customer.detail_pulsa_customers.sum("pulsa") %></td>
+      <td style="text-transform:capitalize ">
+        <%= link_to_remote_redbox("#{pulsa_customer.aktif}", {:url => "/pulsa_customers/edit/#{pulsa_customer.id}"}, {:class => "a_edit"}) %>
+      </td>
+      <td style="text-transform:capitalize ">
+        <%= link_to_remote_redbox("Isi Pulsa", {:url => add_pulsa_pulsa_customers_path(:id=>pulsa_customer.id)}, {:class => "a_add"}) %>
+      </td>
+    </tr>
+  </table>
+  <br/>
+  <br/>
+  <table class="main_table" cellpadding="0" cellspacing="0" width="500px">
+    <tr class="grid_1">
+      <th colspan="3" align="center"><%= "Daftar Isi Pulsa #{selected_month} #{selected_year}" %></th>
+    </tr>
+    <% total = 0 %>
+    <tr class="grid_1">
+      <th>Tanggal Isi</th>
+      <th>Voucher</th>
+      <th>Pulsa</th>
+    </tr>
+    <% pulsa_details.each do |detail| %>
+      <tr class="grid_2">
+        <td><%= format_date(detail.date_pulsa) %></td>
+        <td style="text-transform:capitalize "><%= detail.item.name %></td>
+        <td align="right"><%= format_currency(detail.pulsa ) %></td>
+        <% total += detail.pulsa %>
+      </tr>
+    <% end %>
+    <tr class="grid_footer">
+      <th colspan="2" align="right"><%= "Total Pulsa "  %> </th>
+      <th style="text-align: right !important;"><%= format_currency(total) %></th>
+    </tr>
+  </table>
+</td>

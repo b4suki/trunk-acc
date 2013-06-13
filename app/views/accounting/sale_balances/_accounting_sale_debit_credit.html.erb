@@ -1,0 +1,24 @@
+<div class="accounting_sale_debit_credit">
+<br />
+  <% @accounting_sale_debit_credit = accounting_sale_debit_credit %>       
+    <% code_ppn1 = get_code_ppn_pph('15300','21503')[1].nil? ? "" : get_code_ppn_pph('15300','21503')[1] %>
+    <% code_ppn0 = get_code_ppn_pph('15300','21503')[0].nil? ? "" : get_code_ppn_pph('15300','21503')[0] %>
+    <% code_piut = get_code_ppn_pph('11401','15300')[0].nil? ? "" :get_code_ppn_pph('11401','15300')[0]%>
+    
+    <%= select "accounting_sale_debit_credit_id_#{index}","", options_for_sale_debet("debit"), {},{
+      :onchange => 
+      "auto_calculate_debit_credit(#{code_ppn1},this.value,'23',#{index},'sale_debit_credit');
+      auto_calculate_debit_credit(#{code_ppn0},this.value,'23',#{index},'sale_debit_credit');
+      if (this.value == #{code_piut}){auto_calculate_debit_credit(#{code_piut},this.value,'PIUTANG',#{index},'sale_debit_credit');}",
+      :style => "width: 90px;"} %> 
+    <%= text_field "accounting_sale_debit_credit_value_#{index}","",:style => 'text-align:right;', :value => 0 , :size => 15 %>                  
+    <%= hidden_field("accounting_sale_debit_credit_hide_#{index}","",:value => 'FALSE')%>          
+    <%= link_to_function "remove", "$(this).up('.accounting_sale_debit_credit').remove(); setIndex(-1, 'count_debit');
+                         $('sale_debit_credit_ppn').value = 0;
+                    //auto_calculate_debit_credit(#{get_code_ppn_pph('15300','21503')[1].nil? ? "" :get_code_ppn_pph('15300','21503')[1]},this.value,'23',#{index},'sale_debit_credit');" %>   
+    
+    <%#*<script type="text/javascript">%>
+           <%#*var add_credit1 = new LiveValidation("accounting_sale_debit_credit_value<%=index%>
+           <%#*add_credit1.add(Validate.Numericality)%>
+    <%#*</script>%>
+</div>

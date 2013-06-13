@@ -1,0 +1,12 @@
+<%=  popup_title "Edit Transaksi Adjustment" %>
+<div style="max-height:410px; overflow-x:hidden;overflow-y:auto;">
+<div id="RB_body" style="width: 300px;">
+  <% form_for(:adjustment_balance, @adjustment_balance, :url => accounting_adjustment_balance_path(@adjustment_balance), :html=> {:method=>'put'})  do |f| %>
+   <%= f.error_messages %>
+   <%= render :partial => 'form', :locals => { :f => f, :adjustment_balance => @adjustment_balance } %>
+   <p>
+    <%= f.submit "Update" %>
+   </p>
+  <% end %>
+</div>
+</div>

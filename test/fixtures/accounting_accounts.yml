@@ -1,0 +1,1741 @@
+--- 
+accounting_accounts_081: 
+  updated_at: 2008-11-05 07:47:40
+  code: "52202"
+  worksheet: income_statement
+  code_a: "5"
+  account_type: debet
+  notes: 
+  code_b: "2"
+  id: "81"
+  description: Beban Alat Tulis Kantor
+  code_c: "2"
+  code_d: "0"
+  code_e: "2"
+  parent_id: "79"
+  created_at: 2008-11-05 07:47:40
+accounting_accounts_053: 
+  updated_at: 2008-11-05 07:38:58
+  code: "32000"
+  worksheet: balance_sheet
+  code_a: "3"
+  account_type: debet
+  notes: 
+  code_b: "2"
+  id: "53"
+  description: Laba (Rugi) Tahun Berjalan
+  code_c: "0"
+  code_d: "0"
+  code_e: "0"
+  parent_id: 
+  created_at: 2008-11-05 07:38:58
+accounting_accounts_024: 
+  updated_at: 2008-11-05 07:30:40
+  code: "13301"
+  worksheet: balance_sheet
+  code_a: "1"
+  account_type: credit
+  notes: 
+  code_b: "3"
+  id: "24"
+  description: Akumulasi Penyusutan Prasarana Listrik, Komputer dan Elektronika
+  code_c: "3"
+  code_d: "0"
+  code_e: "1"
+  parent_id: "18"
+  created_at: 2008-11-05 07:30:40
+accounting_accounts_082: 
+  updated_at: 2008-11-05 07:48:07
+  code: "52203"
+  worksheet: income_statement
+  code_a: "5"
+  account_type: debet
+  notes: 
+  code_b: "2"
+  id: "82"
+  description: Beban Rekening Listrik
+  code_c: "2"
+  code_d: "0"
+  code_e: "3"
+  parent_id: "79"
+  created_at: 2008-11-05 07:48:07
+accounting_accounts_025: 
+  updated_at: 2008-11-05 07:31:00
+  code: "13400"
+  worksheet: balance_sheet
+  code_a: "1"
+  account_type: debet
+  notes: 
+  code_b: "3"
+  id: "25"
+  description: Furniture dan Peralatan Kantor
+  code_c: "4"
+  code_d: "0"
+  code_e: "0"
+  parent_id: "18"
+  created_at: 2008-11-05 07:31:00
+accounting_accounts_083: 
+  updated_at: 2008-11-05 07:48:29
+  code: "52204"
+  worksheet: income_statement
+  code_a: "5"
+  account_type: debet
+  notes: 
+  code_b: "2"
+  id: "83"
+  description: Beban Komunikasi
+  code_c: "2"
+  code_d: "0"
+  code_e: "4"
+  parent_id: "79"
+  created_at: 2008-11-05 07:48:29
+accounting_accounts_054: 
+  updated_at: 2008-11-05 07:39:12
+  code: "33000"
+  worksheet: balance_sheet
+  code_a: "3"
+  account_type: debet
+  notes: 
+  code_b: "3"
+  id: "54"
+  description: Laba Ditahan
+  code_c: "0"
+  code_d: "0"
+  code_e: "0"
+  parent_id: 
+  created_at: 2008-11-05 07:39:12
+accounting_accounts_026: 
+  updated_at: 2008-11-05 07:31:20
+  code: "13401"
+  worksheet: balance_sheet
+  code_a: "1"
+  account_type: credit
+  notes: 
+  code_b: "3"
+  id: "26"
+  description: Akumulasi Penyusutan Furniture dan Peralatan Kantor
+  code_c: "4"
+  code_d: "0"
+  code_e: "1"
+  parent_id: "18"
+  created_at: 2008-11-05 07:31:20
+accounting_accounts_084: 
+  updated_at: 2008-11-05 07:48:46
+  code: "52205"
+  worksheet: income_statement
+  code_a: "5"
+  account_type: debet
+  notes: 
+  code_b: "2"
+  id: "84"
+  description: Beban Rekening Air
+  code_c: "2"
+  code_d: "0"
+  code_e: "5"
+  parent_id: "79"
+  created_at: 2008-11-05 07:48:46
+accounting_accounts_055: 
+  updated_at: 2008-11-05 07:40:00
+  code: "41100"
+  worksheet: income_statement
+  code_a: "4"
+  account_type: credit
+  notes: 
+  code_b: "1"
+  id: "55"
+  description: Penjualan Barang dan Jasa
+  code_c: "1"
+  code_d: "0"
+  code_e: "0"
+  parent_id: 
+  created_at: 2008-11-05 07:40:00
+accounting_accounts_110: 
+  updated_at: 2008-11-05 07:57:09
+  code: "62000"
+  worksheet: 
+  code_a: "6"
+  account_type: 
+  notes: 
+  code_b: "2"
+  id: "110"
+  description: Beban dan Rugi Diluar Usaha
+  code_c: "0"
+  code_d: "0"
+  code_e: "0"
+  parent_id: 
+  created_at: 2008-11-05 07:57:09
+accounting_accounts_027: 
+  updated_at: 2008-11-05 07:31:40
+  code: "13500"
+  worksheet: balance_sheet
+  code_a: "1"
+  account_type: debet
+  notes: 
+  code_b: "3"
+  id: "27"
+  description: Alat Ukur dan Metrologi Lainnya
+  code_c: "5"
+  code_d: "0"
+  code_e: "0"
+  parent_id: "18"
+  created_at: 2008-11-05 07:31:40
+accounting_accounts_085: 
+  updated_at: 2008-11-05 07:49:04
+  code: "52206"
+  worksheet: income_statement
+  code_a: "5"
+  account_type: debet
+  notes: 
+  code_b: "2"
+  id: "85"
+  description: Beban Rumah Tangga
+  code_c: "2"
+  code_d: "0"
+  code_e: "6"
+  parent_id: "79"
+  created_at: 2008-11-05 07:49:04
+accounting_accounts_056: 
+  updated_at: 2008-11-05 07:40:15
+  code: "41200"
+  worksheet: 
+  code_a: "4"
+  account_type: 
+  notes: 
+  code_b: "1"
+  id: "56"
+  description: Penjualan Barang dan Jasa tanpa Pajak
+  code_c: "2"
+  code_d: "0"
+  code_e: "0"
+  parent_id: 
+  created_at: 2008-11-05 07:40:15
+accounting_accounts_111: 
+  updated_at: 2008-11-05 07:57:27
+  code: "62100"
+  worksheet: income_statement
+  code_a: "6"
+  account_type: debet
+  notes: 
+  code_b: "2"
+  id: "111"
+  description: Beban Bunga
+  code_c: "1"
+  code_d: "0"
+  code_e: "0"
+  parent_id: "110"
+  created_at: 2008-11-05 07:57:27
+accounting_accounts_028: 
+  updated_at: 2008-11-05 07:31:55
+  code: "13501"
+  worksheet: balance_sheet
+  code_a: "1"
+  account_type: credit
+  notes: 
+  code_b: "3"
+  id: "28"
+  description: Akumulasi Penyusutan Alat Ukur dan Metrologi Lainnya
+  code_c: "5"
+  code_d: "0"
+  code_e: "1"
+  parent_id: "18"
+  created_at: 2008-11-05 07:31:55
+accounting_accounts_086: 
+  updated_at: 2008-11-05 07:49:20
+  code: "52207"
+  worksheet: income_statement
+  code_a: "5"
+  account_type: debet
+  notes: 
+  code_b: "2"
+  id: "86"
+  description: Beban Sumbangan
+  code_c: "2"
+  code_d: "0"
+  code_e: "7"
+  parent_id: "79"
+  created_at: 2008-11-05 07:49:20
+accounting_accounts_057: 
+  updated_at: 2008-11-05 07:40:31
+  code: "42000"
+  worksheet: 
+  code_a: "4"
+  account_type: 
+  notes: 
+  code_b: "2"
+  id: "57"
+  description: Pengurangan Penjualan
+  code_c: "0"
+  code_d: "0"
+  code_e: "0"
+  parent_id: 
+  created_at: 2008-11-05 07:40:31
+accounting_accounts_112: 
+  updated_at: 2008-11-05 07:57:43
+  code: "62200"
+  worksheet: income_statement
+  code_a: "6"
+  account_type: debet
+  notes: 
+  code_b: "2"
+  id: "112"
+  description: Beban Administrasi Bank
+  code_c: "2"
+  code_d: "0"
+  code_e: "0"
+  parent_id: "110"
+  created_at: 2008-11-05 07:57:43
+accounting_accounts_029: 
+  updated_at: 2008-11-05 07:32:11
+  code: "13600"
+  worksheet: balance_sheet
+  code_a: "1"
+  account_type: debet
+  notes: 
+  code_b: "3"
+  id: "29"
+  description: Kendaraan
+  code_c: "6"
+  code_d: "0"
+  code_e: "0"
+  parent_id: "18"
+  created_at: 2008-11-05 07:32:11
+accounting_accounts_058: 
+  updated_at: 2008-11-05 07:40:51
+  code: "42100"
+  worksheet: income_statement
+  code_a: "4"
+  account_type: debet
+  notes: 
+  code_b: "2"
+  id: "58"
+  description: Potongan Penjualan
+  code_c: "1"
+  code_d: "0"
+  code_e: "0"
+  parent_id: "57"
+  created_at: 2008-11-05 07:40:51
+accounting_accounts_113: 
+  updated_at: 2008-11-05 07:57:55
+  code: "62300"
+  worksheet: income_statement
+  code_a: "6"
+  account_type: debet
+  notes: 
+  code_b: "2"
+  id: "113"
+  description: Rugi Penjualan Aktiva Tetap
+  code_c: "3"
+  code_d: "0"
+  code_e: "0"
+  parent_id: "110"
+  created_at: 2008-11-05 07:57:55
+accounting_accounts_059: 
+  updated_at: 2008-11-05 07:41:04
+  code: "42200"
+  worksheet: income_statement
+  code_a: "4"
+  account_type: debet
+  notes: 
+  code_b: "2"
+  id: "59"
+  description: Retur Penjualan
+  code_c: "2"
+  code_d: "0"
+  code_e: "0"
+  parent_id: "57"
+  created_at: 2008-11-05 07:41:04
+accounting_accounts_114: 
+  updated_at: 2008-11-05 07:58:07
+  code: "62400"
+  worksheet: income_statement
+  code_a: "6"
+  account_type: debet
+  notes: 
+  code_b: "2"
+  id: "114"
+  description: Beban dan Rugi Diluar Usaha Lainnya
+  code_c: "4"
+  code_d: "0"
+  code_e: "0"
+  parent_id: "110"
+  created_at: 2008-11-05 07:58:07
+accounting_accounts_087: 
+  updated_at: 2008-11-05 07:49:33
+  code: "52208"
+  worksheet: income_statement
+  code_a: "5"
+  account_type: debet
+  notes: 
+  code_b: "2"
+  id: "87"
+  description: Beban Sewa
+  code_c: "2"
+  code_d: "0"
+  code_e: "8"
+  parent_id: "79"
+  created_at: 2008-11-05 07:49:33
+accounting_accounts_115: 
+  updated_at: 2008-11-05 07:59:57
+  code: "71000"
+  worksheet: income_statement
+  code_a: "7"
+  account_type: debet
+  notes: 
+  code_b: "1"
+  id: "115"
+  description: Rekening Antara Kas dan Bank
+  code_c: "0"
+  code_d: "0"
+  code_e: "0"
+  parent_id: 
+  created_at: 2008-11-05 07:59:57
+accounting_accounts_001: 
+  updated_at: 2008-11-28 10:00:37
+  code: "11000"
+  worksheet: 
+  code_a: "1"
+  account_type: 
+  notes: asdasdsad
+  code_b: "1"
+  id: "1"
+  description: Aktiva Lancar
+  code_c: "0"
+  code_d: "0"
+  code_e: "0"
+  parent_id: 
+  created_at: 2008-11-05 07:24:16
+accounting_accounts_030: 
+  updated_at: 2008-11-05 07:32:25
+  code: "13601"
+  worksheet: balance_sheet
+  code_a: "1"
+  account_type: credit
+  notes: 
+  code_b: "3"
+  id: "30"
+  description: Akumulasi Penyusutan Kendaraan
+  code_c: "6"
+  code_d: "0"
+  code_e: "1"
+  parent_id: "18"
+  created_at: 2008-11-05 07:32:25
+accounting_accounts_088: 
+  updated_at: 2008-11-05 07:49:47
+  code: "52209"
+  worksheet: income_statement
+  code_a: "5"
+  account_type: debet
+  notes: 
+  code_b: "2"
+  id: "88"
+  description: Beban Asuransi
+  code_c: "2"
+  code_d: "0"
+  code_e: "9"
+  parent_id: "79"
+  created_at: 2008-11-05 07:49:47
+accounting_accounts_116: 
+  updated_at: 2008-11-05 08:00:20
+  code: "72000"
+  worksheet: income_statement
+  code_a: "7"
+  account_type: debet
+  notes: 
+  code_b: "2"
+  id: "116"
+  description: Rekening Antara Bank dan Bank
+  code_c: "0"
+  code_d: "0"
+  code_e: "0"
+  parent_id: 
+  created_at: 2008-11-05 08:00:20
+accounting_accounts_031: 
+  updated_at: 2008-11-05 07:32:42
+  code: "14000"
+  worksheet: 
+  code_a: "1"
+  account_type: 
+  notes: 
+  code_b: "4"
+  id: "31"
+  description: Aktiva Lain-lain
+  code_c: "0"
+  code_d: "0"
+  code_e: "0"
+  parent_id: 
+  created_at: 2008-11-05 07:32:42
+accounting_accounts_089: 
+  updated_at: 2008-11-05 07:50:40
+  code: "522010"
+  worksheet: income_statement
+  code_a: "5"
+  account_type: debet
+  notes: 
+  code_b: "2"
+  id: "89"
+  description: Beban Penyusutan Aktiva Tetap
+  code_c: "2"
+  code_d: "0"
+  code_e: "10"
+  parent_id: "79"
+  created_at: 2008-11-05 07:50:40
+accounting_accounts_002: 
+  updated_at: 2008-11-05 07:24:32
+  code: "11100"
+  worksheet: balance_sheet
+  code_a: "1"
+  account_type: debet
+  notes: 
+  code_b: "1"
+  id: "2"
+  description: Kas
+  code_c: "1"
+  code_d: "0"
+  code_e: "0"
+  parent_id: "1"
+  created_at: 2008-11-05 07:24:32
+accounting_accounts_060: 
+  updated_at: 2008-11-05 07:41:22
+  code: "51000"
+  worksheet: 
+  code_a: "5"
+  account_type: 
+  notes: 
+  code_b: "1"
+  id: "60"
+  description: Harga Pokok Produksi
+  code_c: "0"
+  code_d: "0"
+  code_e: "0"
+  parent_id: 
+  created_at: 2008-11-05 07:41:22
+accounting_accounts_003: 
+  updated_at: 2008-11-05 07:24:49
+  code: "11200"
+  worksheet: 
+  code_a: "1"
+  account_type: 
+  notes: 
+  code_b: "1"
+  id: "3"
+  description: Bank Mandiri Metro
+  code_c: "2"
+  code_d: "0"
+  code_e: "0"
+  parent_id: "1"
+  created_at: 2008-11-05 07:24:49
+accounting_accounts_061: 
+  updated_at: 2008-11-05 07:41:42
+  code: "51100"
+  worksheet: 
+  code_a: "5"
+  account_type: 
+  notes: 
+  code_b: "1"
+  id: "61"
+  description: Beban Produksi Langsung
+  code_c: "1"
+  code_d: "0"
+  code_e: "0"
+  parent_id: "60"
+  created_at: 2008-11-05 07:41:42
+accounting_accounts_032: 
+  updated_at: 2008-11-05 07:32:58
+  code: "14100"
+  worksheet: balance_sheet
+  code_a: "1"
+  account_type: debet
+  notes: 
+  code_b: "4"
+  id: "32"
+  description: Jaminan Bank
+  code_c: "1"
+  code_d: "0"
+  code_e: "0"
+  parent_id: "31"
+  created_at: 2008-11-05 07:32:58
+accounting_accounts_004: 
+  updated_at: 2008-11-05 07:25:04
+  code: "11201"
+  worksheet: 
+  code_a: "1"
+  account_type: 
+  notes: 
+  code_b: "1"
+  id: "4"
+  description: Bank Mandiri Kircon
+  code_c: "2"
+  code_d: "0"
+  code_e: "1"
+  parent_id: "1"
+  created_at: 2008-11-05 07:25:04
+accounting_accounts_062: 
+  updated_at: 2008-11-05 07:41:57
+  code: "51101"
+  worksheet: income_statement
+  code_a: "5"
+  account_type: debet
+  notes: 
+  code_b: "1"
+  id: "62"
+  description: Pemakaian Bahan Baku Utama
+  code_c: "1"
+  code_d: "0"
+  code_e: "1"
+  parent_id: "61"
+  created_at: 2008-11-05 07:41:57
+accounting_accounts_033: 
+  updated_at: 2008-11-05 07:33:11
+  code: "14200"
+  worksheet: balance_sheet
+  code_a: "1"
+  account_type: debet
+  notes: 
+  code_b: "4"
+  id: "33"
+  description: Uang Muka
+  code_c: "2"
+  code_d: "0"
+  code_e: "0"
+  parent_id: "31"
+  created_at: 2008-11-05 07:33:11
+accounting_accounts_005: 
+  updated_at: 2008-11-05 07:25:28
+  code: "11300"
+  worksheet: 
+  code_a: "1"
+  account_type: 
+  notes: 
+  code_b: "1"
+  id: "5"
+  description: Surat Berharga
+  code_c: "3"
+  code_d: "0"
+  code_e: "0"
+  parent_id: "1"
+  created_at: 2008-11-05 07:25:28
+accounting_accounts_090: 
+  updated_at: 2008-11-05 07:50:58
+  code: "522011"
+  worksheet: 
+  code_a: "5"
+  account_type: 
+  notes: 
+  code_b: "2"
+  id: "90"
+  description: Beban Administrasi Lainnya
+  code_c: "2"
+  code_d: "0"
+  code_e: "11"
+  parent_id: "79"
+  created_at: 2008-11-05 07:50:58
+accounting_accounts_063: 
+  updated_at: 2008-11-05 07:42:14
+  code: "51102"
+  worksheet: income_statement
+  code_a: "5"
+  account_type: debet
+  notes: 
+  code_b: "1"
+  id: "63"
+  description: Pemakaian Bahan Pendukung
+  code_c: "1"
+  code_d: "0"
+  code_e: "2"
+  parent_id: "61"
+  created_at: 2008-11-05 07:42:14
+accounting_accounts_034: 
+  updated_at: 2008-11-05 07:33:27
+  code: "14300"
+  worksheet: balance_sheet
+  code_a: "1"
+  account_type: debet
+  notes: 
+  code_b: "4"
+  id: "34"
+  description: Biaya yang Ditangguhkan
+  code_c: "3"
+  code_d: "0"
+  code_e: "0"
+  parent_id: "31"
+  created_at: 2008-11-05 07:33:27
+accounting_accounts_006: 
+  updated_at: 2008-11-05 07:25:43
+  code: "11301"
+  worksheet: balance_sheet
+  code_a: "1"
+  account_type: debet
+  notes: 
+  code_b: "1"
+  id: "6"
+  description: Investasi Dalam Saham
+  code_c: "3"
+  code_d: "0"
+  code_e: "1"
+  parent_id: "5"
+  created_at: 2008-11-05 07:25:43
+accounting_accounts_091: 
+  updated_at: 2008-11-05 07:51:15
+  code: "52300"
+  worksheet: income_statement
+  code_a: "5"
+  account_type: debet
+  notes: 
+  code_b: "2"
+  id: "91"
+  description: Beban Pemeliharaan Alat dan Aktiva
+  code_c: "3"
+  code_d: "0"
+  code_e: "0"
+  parent_id: "74"
+  created_at: 2008-11-05 07:51:15
+accounting_accounts_064: 
+  updated_at: 2008-11-05 07:42:32
+  code: "51103"
+  worksheet: income_statement
+  code_a: "5"
+  account_type: debet
+  notes: 
+  code_b: "1"
+  id: "64"
+  description: Biaya Subkontrak Pekerjaan
+  code_c: "1"
+  code_d: "0"
+  code_e: "3"
+  parent_id: "61"
+  created_at: 2008-11-05 07:42:32
+accounting_accounts_035: 
+  updated_at: 2008-11-05 07:33:47
+  code: "15000"
+  worksheet: 
+  code_a: "1"
+  account_type: 
+  notes: 
+  code_b: "5"
+  id: "35"
+  description: Pajak Dibayar Dimuka
+  code_c: "0"
+  code_d: "0"
+  code_e: "0"
+  parent_id: 
+  created_at: 2008-11-05 07:33:47
+accounting_accounts_007: 
+  updated_at: 2008-11-05 07:25:57
+  code: "11302"
+  worksheet: balance_sheet
+  code_a: "1"
+  account_type: debet
+  notes: 
+  code_b: "1"
+  id: "7"
+  description: Investasi Dalam Deposito
+  code_c: "3"
+  code_d: "0"
+  code_e: "2"
+  parent_id: "5"
+  created_at: 2008-11-05 07:25:57
+accounting_accounts_092: 
+  updated_at: 2008-11-05 07:51:33
+  code: "52301"
+  worksheet: income_statement
+  code_a: "5"
+  account_type: debet
+  notes: 
+  code_b: "2"
+  id: "92"
+  description: Beban Pemeliharaan Inventaris Kantor
+  code_c: "3"
+  code_d: "0"
+  code_e: "1"
+  parent_id: "91"
+  created_at: 2008-11-05 07:51:33
+accounting_accounts_036: 
+  updated_at: 2008-11-05 07:34:02
+  code: "15100"
+  worksheet: balance_sheet
+  code_a: "1"
+  account_type: debet
+  notes: 
+  code_b: "5"
+  id: "36"
+  description: PPN Masukan
+  code_c: "1"
+  code_d: "0"
+  code_e: "0"
+  parent_id: "35"
+  created_at: 2008-11-05 07:34:02
+accounting_accounts_008: 
+  updated_at: 2008-11-05 07:26:12
+  code: "11400"
+  worksheet: 
+  code_a: "1"
+  account_type: 
+  notes: 
+  code_b: "1"
+  id: "8"
+  description: Piutang
+  code_c: "4"
+  code_d: "0"
+  code_e: "0"
+  parent_id: "1"
+  created_at: 2008-11-05 07:26:12
+accounting_accounts_093: 
+  updated_at: 2008-11-05 07:51:47
+  code: "52302"
+  worksheet: income_statement
+  code_a: "5"
+  account_type: debet
+  notes: 
+  code_b: "2"
+  id: "93"
+  description: Beban Pemeliharaan Mesin
+  code_c: "3"
+  code_d: "0"
+  code_e: "2"
+  parent_id: "91"
+  created_at: 2008-11-05 07:51:47
+accounting_accounts_037: 
+  updated_at: 2008-11-05 07:34:23
+  code: "15200"
+  worksheet: balance_sheet
+  code_a: "1"
+  account_type: debet
+  notes: 
+  code_b: "5"
+  id: "37"
+  description: PPh Pasal 22
+  code_c: "2"
+  code_d: "0"
+  code_e: "0"
+  parent_id: "35"
+  created_at: 2008-11-05 07:34:23
+accounting_accounts_009: 
+  updated_at: 2008-11-05 07:26:28
+  code: "11401"
+  worksheet: balance_sheet
+  code_a: "1"
+  account_type: debet
+  notes: 
+  code_b: "1"
+  id: "9"
+  description: Piutang Usaha
+  code_c: "4"
+  code_d: "0"
+  code_e: "1"
+  parent_id: "8"
+  created_at: 2008-11-05 07:26:28
+accounting_accounts_094: 
+  updated_at: 2008-11-05 07:52:08
+  code: "52303"
+  worksheet: income_statement
+  code_a: "5"
+  account_type: debet
+  notes: 
+  code_b: "2"
+  id: "94"
+  description: Beban Pemeliharaan Kendaraan
+  code_c: "3"
+  code_d: "0"
+  code_e: "3"
+  parent_id: "91"
+  created_at: 2008-11-05 07:52:08
+accounting_accounts_065: 
+  updated_at: 2008-11-05 07:42:49
+  code: "51200"
+  worksheet: 
+  code_a: "5"
+  account_type: 
+  notes: 
+  code_b: "1"
+  id: "65"
+  description: Pengurangan Pembelian
+  code_c: "2"
+  code_d: "0"
+  code_e: "0"
+  parent_id: "60"
+  created_at: 2008-11-05 07:42:49
+accounting_accounts_038: 
+  updated_at: 2008-11-05 07:34:38
+  code: "15300"
+  worksheet: balance_sheet
+  code_a: "1"
+  account_type: debet
+  notes: 
+  code_b: "5"
+  id: "38"
+  description: PPh Pasal 23
+  code_c: "3"
+  code_d: "0"
+  code_e: "0"
+  parent_id: "35"
+  created_at: 2008-11-05 07:34:38
+accounting_accounts_095: 
+  updated_at: 2008-11-05 07:52:32
+  code: "52304"
+  worksheet: income_statement
+  code_a: "5"
+  account_type: debet
+  notes: 
+  code_b: "2"
+  id: "95"
+  description: Beban Pemeliharaan Alat Pendukung Produksi
+  code_c: "3"
+  code_d: "0"
+  code_e: "4"
+  parent_id: "91"
+  created_at: 2008-11-05 07:52:32
+accounting_accounts_066: 
+  updated_at: 2008-11-05 07:43:03
+  code: "51201"
+  worksheet: income_statement
+  code_a: "5"
+  account_type: debet
+  notes: 
+  code_b: "1"
+  id: "66"
+  description: Potongan Pembelian
+  code_c: "2"
+  code_d: "0"
+  code_e: "1"
+  parent_id: "65"
+  created_at: 2008-11-05 07:43:03
+accounting_accounts_039: 
+  updated_at: 2008-11-05 07:34:52
+  code: "15400"
+  worksheet: balance_sheet
+  code_a: "1"
+  account_type: debet
+  notes: 
+  code_b: "5"
+  id: "39"
+  description: PPh Pasal 25
+  code_c: "4"
+  code_d: "0"
+  code_e: "0"
+  parent_id: "35"
+  created_at: 2008-11-05 07:34:52
+accounting_accounts_096: 
+  updated_at: 2008-11-05 07:52:49
+  code: "52400"
+  worksheet: income_statement
+  code_a: "5"
+  account_type: debet
+  notes: 
+  code_b: "2"
+  id: "96"
+  description: Beban Gaji
+  code_c: "4"
+  code_d: "0"
+  code_e: "0"
+  parent_id: "74"
+  created_at: 2008-11-05 07:52:49
+accounting_accounts_067: 
+  updated_at: 2008-11-05 07:43:18
+  code: "51202"
+  worksheet: income_statement
+  code_a: "5"
+  account_type: debet
+  notes: 
+  code_b: "1"
+  id: "67"
+  description: Retur Pembelian
+  code_c: "2"
+  code_d: "0"
+  code_e: "2"
+  parent_id: "65"
+  created_at: 2008-11-05 07:43:18
+accounting_accounts_097: 
+  updated_at: 2008-11-05 07:53:05
+  code: "52401"
+  worksheet: 
+  code_a: "5"
+  account_type: 
+  notes: 
+  code_b: "2"
+  id: "97"
+  description: Beban Gaji
+  code_c: "4"
+  code_d: "0"
+  code_e: "1"
+  parent_id: "96"
+  created_at: 2008-11-05 07:53:05
+accounting_accounts_068: 
+  updated_at: 2008-11-05 07:43:33
+  code: "51300"
+  worksheet: 
+  code_a: "5"
+  account_type: 
+  notes: 
+  code_b: "1"
+  id: "68"
+  description: Beban Produksi Tak Langsung
+  code_c: "3"
+  code_d: "0"
+  code_e: "0"
+  parent_id: "60"
+  created_at: 2008-11-05 07:43:33
+accounting_accounts_010: 
+  updated_at: 2008-11-05 07:26:43
+  code: "11402"
+  worksheet: balance_sheet
+  code_a: "1"
+  account_type: debet
+  notes: 
+  code_b: "1"
+  id: "10"
+  description: Piutang Karyawan
+  code_c: "4"
+  code_d: "0"
+  code_e: "2"
+  parent_id: "8"
+  created_at: 2008-11-05 07:26:43
+accounting_accounts_069: 
+  updated_at: 2008-11-05 07:43:49
+  code: "51301"
+  worksheet: income_statement
+  code_a: "5"
+  account_type: debet
+  notes: 
+  code_b: "1"
+  id: "69"
+  description: Beban Perjalanan Dinas Produksi
+  code_c: "3"
+  code_d: "0"
+  code_e: "1"
+  parent_id: "68"
+  created_at: 2008-11-05 07:43:49
+accounting_accounts_040: 
+  updated_at: 2008-11-05 07:35:14
+  code: "21000"
+  worksheet: 
+  code_a: "2"
+  account_type: 
+  notes: 
+  code_b: "1"
+  id: "40"
+  description: Utang Lancar
+  code_c: "0"
+  code_d: "0"
+  code_e: "0"
+  parent_id: 
+  created_at: 2008-11-05 07:35:14
+accounting_accounts_098: 
+  updated_at: 2008-11-05 07:53:19
+  code: "52402"
+  worksheet: 
+  code_a: "5"
+  account_type: 
+  notes: 
+  code_b: "2"
+  id: "98"
+  description: Beban Fasilitas
+  code_c: "4"
+  code_d: "0"
+  code_e: "2"
+  parent_id: "96"
+  created_at: 2008-11-05 07:53:19
+accounting_accounts_011: 
+  updated_at: 2008-11-05 07:26:55
+  code: "11403"
+  worksheet: balance_sheet
+  code_a: "1"
+  account_type: debet
+  notes: 
+  code_b: "1"
+  id: "11"
+  description: Piutang Lain-lain
+  code_c: "4"
+  code_d: "0"
+  code_e: "3"
+  parent_id: "8"
+  created_at: 2008-11-05 07:26:55
+accounting_accounts_041: 
+  updated_at: 2008-11-05 07:35:32
+  code: "21100"
+  worksheet: balance_sheet
+  code_a: "2"
+  account_type: credit
+  notes: 
+  code_b: "1"
+  id: "41"
+  description: Utang Usaha
+  code_c: "1"
+  code_d: "0"
+  code_e: "0"
+  parent_id: "40"
+  created_at: 2008-11-05 07:35:32
+accounting_accounts_099: 
+  updated_at: 2008-11-05 07:53:34
+  code: "52403"
+  worksheet: 
+  code_a: "5"
+  account_type: 
+  notes: 
+  code_b: "2"
+  id: "99"
+  description: Beban Pelatihan dan Pegembangan Diri
+  code_c: "4"
+  code_d: "0"
+  code_e: "3"
+  parent_id: "96"
+  created_at: 2008-11-05 07:53:34
+accounting_accounts_012: 
+  updated_at: 2008-11-05 07:27:09
+  code: "11500"
+  worksheet: balance_sheet
+  code_a: "1"
+  account_type: debet
+  notes: 
+  code_b: "1"
+  id: "12"
+  description: Persediaan Barang
+  code_c: "5"
+  code_d: "0"
+  code_e: "0"
+  parent_id: "1"
+  created_at: 2008-11-05 07:27:09
+accounting_accounts_042: 
+  updated_at: 2008-11-05 07:35:49
+  code: "21200"
+  worksheet: balance_sheet
+  code_a: "2"
+  account_type: credit
+  notes: 
+  code_b: "1"
+  id: "42"
+  description: Utang Leasing
+  code_c: "2"
+  code_d: "0"
+  code_e: "0"
+  parent_id: "40"
+  created_at: 2008-11-05 07:35:49
+accounting_accounts_013: 
+  updated_at: 2008-11-05 07:27:26
+  code: "11600"
+  worksheet: 
+  code_a: "1"
+  account_type: 
+  notes: 
+  code_b: "1"
+  id: "13"
+  description: Biaya Dibayar Dimuka
+  code_c: "6"
+  code_d: "0"
+  code_e: "0"
+  parent_id: "1"
+  created_at: 2008-11-05 07:27:26
+accounting_accounts_070: 
+  updated_at: 2008-11-05 07:44:08
+  code: "51302"
+  worksheet: income_statement
+  code_a: "5"
+  account_type: debet
+  notes: 
+  code_b: "1"
+  id: "70"
+  description: Beban Commissioning
+  code_c: "3"
+  code_d: "0"
+  code_e: "2"
+  parent_id: "68"
+  created_at: 2008-11-05 07:44:08
+accounting_accounts_014: 
+  updated_at: 2008-11-05 07:27:40
+  code: "11601"
+  worksheet: 
+  code_a: "1"
+  account_type: 
+  notes: 
+  code_b: "1"
+  id: "14"
+  description: Sewa Bangunan
+  code_c: "6"
+  code_d: "0"
+  code_e: "1"
+  parent_id: "13"
+  created_at: 2008-11-05 07:27:40
+accounting_accounts_071: 
+  updated_at: 2008-11-05 07:44:23
+  code: "51303"
+  worksheet: income_statement
+  code_a: "5"
+  account_type: debet
+  notes: 
+  code_b: "1"
+  id: "71"
+  description: Beban Entertainment Produksi
+  code_c: "3"
+  code_d: "0"
+  code_e: "3"
+  parent_id: "68"
+  created_at: 2008-11-05 07:44:23
+accounting_accounts_043: 
+  updated_at: 2008-11-05 07:36:15
+  code: "21300"
+  worksheet: balance_sheet
+  code_a: "2"
+  account_type: credit
+  notes: 
+  code_b: "1"
+  id: "43"
+  description: Utang Karyawan
+  code_c: "3"
+  code_d: "0"
+  code_e: "0"
+  parent_id: "40"
+  created_at: 2008-11-05 07:36:15
+accounting_accounts_015: 
+  updated_at: 2008-11-05 07:27:52
+  code: "11602"
+  worksheet: 
+  code_a: "1"
+  account_type: 
+  notes: 
+  code_b: "1"
+  id: "15"
+  description: Sewa Peralatan dan Lain-lain
+  code_c: "6"
+  code_d: "0"
+  code_e: "2"
+  parent_id: "13"
+  created_at: 2008-11-05 07:27:52
+accounting_accounts_072: 
+  updated_at: 2008-11-05 07:44:37
+  code: "51304"
+  worksheet: income_statement
+  code_a: "5"
+  account_type: debet
+  notes: 
+  code_b: "1"
+  id: "72"
+  description: Beban Sewa Alat
+  code_c: "3"
+  code_d: "0"
+  code_e: "4"
+  parent_id: "68"
+  created_at: 2008-11-05 07:44:37
+accounting_accounts_016: 
+  updated_at: 2008-11-05 07:28:07
+  code: "11603"
+  worksheet: 
+  code_a: "1"
+  account_type: 
+  notes: 
+  code_b: "1"
+  id: "16"
+  description: Asuransi
+  code_c: "6"
+  code_d: "0"
+  code_e: "3"
+  parent_id: "13"
+  created_at: 2008-11-05 07:28:07
+accounting_accounts_073: 
+  updated_at: 2008-11-05 07:44:57
+  code: "51305"
+  worksheet: income_statement
+  code_a: "5"
+  account_type: debet
+  notes: 
+  code_b: "1"
+  id: "73"
+  description: Beban Makan dan Lembur
+  code_c: "3"
+  code_d: "0"
+  code_e: "5"
+  parent_id: "68"
+  created_at: 2008-11-05 07:44:57
+accounting_accounts_044: 
+  updated_at: 2008-11-05 07:36:32
+  code: "21400"
+  worksheet: balance_sheet
+  code_a: "2"
+  account_type: credit
+  notes: 
+  code_b: "1"
+  id: "44"
+  description: Utang Lain-lain
+  code_c: "4"
+  code_d: "0"
+  code_e: "0"
+  parent_id: "40"
+  created_at: 2008-11-05 07:36:32
+accounting_accounts_100: 
+  updated_at: 2008-11-05 07:53:58
+  code: "52500"
+  worksheet: income_statement
+  code_a: "5"
+  account_type: debet
+  notes: 
+  code_b: "2"
+  id: "100"
+  description: Beban Barang Habis Pakai
+  code_c: "5"
+  code_d: "0"
+  code_e: "0"
+  parent_id: "74"
+  created_at: 2008-11-05 07:53:58
+accounting_accounts_017: 
+  updated_at: 2008-11-05 07:28:26
+  code: "12000"
+  worksheet: 
+  code_a: "1"
+  account_type: 
+  notes: 
+  code_b: "2"
+  id: "17"
+  description: Investasi Jangka Panjang
+  code_c: "0"
+  code_d: "0"
+  code_e: "0"
+  parent_id: 
+  created_at: 2008-11-05 07:28:26
+accounting_accounts_074: 
+  updated_at: 2008-11-05 07:45:37
+  code: "52000"
+  worksheet: 
+  code_a: "5"
+  account_type: 
+  notes: 
+  code_b: "2"
+  id: "74"
+  description: Beban Usaha
+  code_c: "0"
+  code_d: "0"
+  code_e: "0"
+  parent_id: 
+  created_at: 2008-11-05 07:45:37
+accounting_accounts_045: 
+  updated_at: 2008-11-05 07:36:47
+  code: "21500"
+  worksheet: 
+  code_a: "2"
+  account_type: 
+  notes: 
+  code_b: "1"
+  id: "45"
+  description: Utang Pajak
+  code_c: "5"
+  code_d: "0"
+  code_e: "0"
+  parent_id: "40"
+  created_at: 2008-11-05 07:36:47
+accounting_accounts_018: 
+  updated_at: 2008-11-05 07:28:40
+  code: "13000"
+  worksheet: 
+  code_a: "1"
+  account_type: 
+  notes: 
+  code_b: "3"
+  id: "18"
+  description: Aktiva Tetap
+  code_c: "0"
+  code_d: "0"
+  code_e: "0"
+  parent_id: 
+  created_at: 2008-11-05 07:28:40
+accounting_accounts_075: 
+  updated_at: 2008-11-05 07:46:00
+  code: "52100"
+  worksheet: income_statement
+  code_a: "5"
+  account_type: debet
+  notes: 
+  code_b: "2"
+  id: "75"
+  description: Beban Marketing
+  code_c: "1"
+  code_d: "0"
+  code_e: "0"
+  parent_id: "74"
+  created_at: 2008-11-05 07:46:00
+accounting_accounts_046: 
+  updated_at: 2008-11-05 07:37:02
+  code: "21501"
+  worksheet: balance_sheet
+  code_a: "2"
+  account_type: credit
+  notes: 
+  code_b: "1"
+  id: "46"
+  description: PPh Pasal 25
+  code_c: "5"
+  code_d: "0"
+  code_e: "1"
+  parent_id: "45"
+  created_at: 2008-11-05 07:37:02
+accounting_accounts_101: 
+  updated_at: 2008-11-05 07:54:17
+  code: "52600"
+  worksheet: income_statement
+  code_a: "5"
+  account_type: debet
+  notes: 
+  code_b: "2"
+  id: "101"
+  description: Beban Alat Pendukung Produksi
+  code_c: "6"
+  code_d: "0"
+  code_e: "0"
+  parent_id: "74"
+  created_at: 2008-11-05 07:54:17
+accounting_accounts_019: 
+  updated_at: 2008-11-05 07:29:01
+  code: "13100"
+  worksheet: balance_sheet
+  code_a: "1"
+  account_type: debet
+  notes: 
+  code_b: "3"
+  id: "19"
+  description: Tanah dan Bangunan
+  code_c: "1"
+  code_d: "0"
+  code_e: "0"
+  parent_id: "18"
+  created_at: 2008-11-05 07:29:01
+accounting_accounts_047: 
+  updated_at: 2008-11-05 07:37:16
+  code: "21502"
+  worksheet: balance_sheet
+  code_a: "2"
+  account_type: credit
+  notes: 
+  code_b: "1"
+  id: "47"
+  description: PPh Pasal 21
+  code_c: "5"
+  code_d: "0"
+  code_e: "2"
+  parent_id: "45"
+  created_at: 2008-11-05 07:37:16
+accounting_accounts_102: 
+  updated_at: 2008-11-05 07:54:35
+  code: "52700"
+  worksheet: income_statement
+  code_a: "5"
+  account_type: debet
+  notes: 
+  code_b: "2"
+  id: "102"
+  description: Beban Fasilitas Karyawan
+  code_c: "7"
+  code_d: "0"
+  code_e: "0"
+  parent_id: "74"
+  created_at: 2008-11-05 07:54:35
+accounting_accounts_076: 
+  updated_at: 2008-11-05 07:46:23
+  code: "52101"
+  worksheet: income_statement
+  code_a: "5"
+  account_type: debet
+  notes: 
+  code_b: "2"
+  id: "76"
+  description: Beban Promosi dan Pejualan
+  code_c: "1"
+  code_d: "0"
+  code_e: "1"
+  parent_id: "75"
+  created_at: 2008-11-05 07:46:23
+accounting_accounts_048: 
+  updated_at: 2008-11-05 07:37:30
+  code: "21503"
+  worksheet: balance_sheet
+  code_a: "2"
+  account_type: credit
+  notes: 
+  code_b: "1"
+  id: "48"
+  description: PPN Keluaran
+  code_c: "5"
+  code_d: "0"
+  code_e: "3"
+  parent_id: "45"
+  created_at: 2008-11-05 07:37:30
+accounting_accounts_103: 
+  updated_at: 2008-11-05 07:54:53
+  code: "52800"
+  worksheet: income_statement
+  code_a: "5"
+  account_type: debet
+  notes: 
+  code_b: "2"
+  id: "103"
+  description: Beban Riset dan Pengembangan
+  code_c: "8"
+  code_d: "0"
+  code_e: "0"
+  parent_id: "74"
+  created_at: 2008-11-05 07:54:53
+accounting_accounts_077: 
+  updated_at: 2008-11-05 07:46:37
+  code: "52102"
+  worksheet: income_statement
+  code_a: "5"
+  account_type: debet
+  notes: 
+  code_b: "2"
+  id: "77"
+  description: Beban Perjalanan Dinas Marketing
+  code_c: "1"
+  code_d: "0"
+  code_e: "2"
+  parent_id: "75"
+  created_at: 2008-11-05 07:46:37
+accounting_accounts_049: 
+  updated_at: 2008-11-05 07:37:47
+  code: "21600"
+  worksheet: balance_sheet
+  code_a: "2"
+  account_type: credit
+  notes: 
+  code_b: "1"
+  id: "49"
+  description: Biaya Yang Masih Harus Dibayar
+  code_c: "6"
+  code_d: "0"
+  code_e: "0"
+  parent_id: "40"
+  created_at: 2008-11-05 07:37:47
+accounting_accounts_104: 
+  updated_at: 2008-11-05 07:55:07
+  code: "52900"
+  worksheet: income_statement
+  code_a: "5"
+  account_type: debet
+  notes: 
+  code_b: "2"
+  id: "104"
+  description: Beban Usaha Lain-lain
+  code_c: "9"
+  code_d: "0"
+  code_e: "0"
+  parent_id: "74"
+  created_at: 2008-11-05 07:55:07
+accounting_accounts_020: 
+  updated_at: 2008-11-05 07:29:21
+  code: "13101"
+  worksheet: balance_sheet
+  code_a: "1"
+  account_type: credit
+  notes: 
+  code_b: "3"
+  id: "20"
+  description: Akumulasi Penyusutan Bangunan
+  code_c: "1"
+  code_d: "0"
+  code_e: "1"
+  parent_id: "18"
+  created_at: 2008-11-05 07:29:21
+accounting_accounts_078: 
+  updated_at: 2008-11-05 07:46:51
+  code: "52103"
+  worksheet: income_statement
+  code_a: "5"
+  account_type: debet
+  notes: 
+  code_b: "2"
+  id: "78"
+  description: Beban Entertainment Marketing
+  code_c: "1"
+  code_d: "0"
+  code_e: "3"
+  parent_id: "75"
+  created_at: 2008-11-05 07:46:51
+accounting_accounts_105: 
+  updated_at: 2008-11-05 07:55:33
+  code: "61000"
+  worksheet: 
+  code_a: "6"
+  account_type: 
+  notes: 
+  code_b: "1"
+  id: "105"
+  description: Pendapatan dan Laba diluar Usaha
+  code_c: "0"
+  code_d: "0"
+  code_e: "0"
+  parent_id: 
+  created_at: 2008-11-05 07:55:33
+accounting_accounts_079: 
+  updated_at: 2008-11-05 07:47:07
+  code: "52200"
+  worksheet: income_statement
+  code_a: "5"
+  account_type: debet
+  notes: 
+  code_b: "2"
+  id: "79"
+  description: Beban Administrasi dan Umum
+  code_c: "2"
+  code_d: "0"
+  code_e: "0"
+  parent_id: "74"
+  created_at: 2008-11-05 07:47:07
+accounting_accounts_106: 
+  updated_at: 2008-11-05 07:55:55
+  code: "61100"
+  worksheet: income_statement
+  code_a: "6"
+  account_type: credit
+  notes: 
+  code_b: "1"
+  id: "106"
+  description: Pendapatan Bunga
+  code_c: "1"
+  code_d: "0"
+  code_e: "0"
+  parent_id: "105"
+  created_at: 2008-11-05 07:55:55
+accounting_accounts_021: 
+  updated_at: 2008-11-05 07:29:47
+  code: "13200"
+  worksheet: balance_sheet
+  code_a: "1"
+  account_type: debet
+  notes: 
+  code_b: "3"
+  id: "21"
+  description: Mesin Produksi dan Aksesoris
+  code_c: "2"
+  code_d: "0"
+  code_e: "0"
+  parent_id: "18"
+  created_at: 2008-11-05 07:29:47
+accounting_accounts_107: 
+  updated_at: 2008-11-05 07:56:10
+  code: "61200"
+  worksheet: income_statement
+  code_a: "6"
+  account_type: credit
+  notes: 
+  code_b: "1"
+  id: "107"
+  description: Pendapatan Dividen
+  code_c: "2"
+  code_d: "0"
+  code_e: "0"
+  parent_id: "105"
+  created_at: 2008-11-05 07:56:10
+accounting_accounts_050: 
+  updated_at: 2008-11-05 07:38:09
+  code: "22000"
+  worksheet: balance_sheet
+  code_a: "2"
+  account_type: credit
+  notes: 
+  code_b: "2"
+  id: "50"
+  description: Pendapatan Diterima Dimuka
+  code_c: "0"
+  code_d: "0"
+  code_e: "0"
+  parent_id: 
+  created_at: 2008-11-05 07:38:09
+accounting_accounts_022: 
+  updated_at: 2008-11-05 07:30:03
+  code: "13201"
+  worksheet: balance_sheet
+  code_a: "1"
+  account_type: credit
+  notes: 
+  code_b: "3"
+  id: "22"
+  description: Akumulasi Penyusutan Mesin Produksi dan Aksesoris
+  code_c: "2"
+  code_d: "0"
+  code_e: "1"
+  parent_id: "18"
+  created_at: 2008-11-05 07:30:03
+accounting_accounts_108: 
+  updated_at: 2008-11-05 07:56:22
+  code: "61300"
+  worksheet: income_statement
+  code_a: "6"
+  account_type: credit
+  notes: 
+  code_b: "1"
+  id: "108"
+  description: Laba Penjualan Aktiva Tetap
+  code_c: "3"
+  code_d: "0"
+  code_e: "0"
+  parent_id: "105"
+  created_at: 2008-11-05 07:56:22
+accounting_accounts_051: 
+  updated_at: 2008-11-05 07:38:26
+  code: "23000"
+  worksheet: balance_sheet
+  code_a: "2"
+  account_type: credit
+  notes: 
+  code_b: "3"
+  id: "51"
+  description: Utang Jangka Panjang
+  code_c: "0"
+  code_d: "0"
+  code_e: "0"
+  parent_id: 
+  created_at: 2008-11-05 07:38:26
+accounting_accounts_080: 
+  updated_at: 2008-11-05 07:47:20
+  code: "52200"
+  worksheet: income_statement
+  code_a: "5"
+  account_type: debet
+  notes: 
+  code_b: "2"
+  id: "80"
+  description: Beban Administrasi Kantor
+  code_c: "2"
+  code_d: "0"
+  code_e: "0"
+  parent_id: "79"
+  created_at: 2008-11-05 07:47:20
+accounting_accounts_109: 
+  updated_at: 2008-11-05 07:56:39
+  code: "61400"
+  worksheet: income_statement
+  code_a: "6"
+  account_type: credit
+  notes: 
+  code_b: "1"
+  id: "109"
+  description: Pendapatan dan Laba diluar Usaha Lainnya
+  code_c: "4"
+  code_d: "0"
+  code_e: "0"
+  parent_id: "105"
+  created_at: 2008-11-05 07:56:39
+accounting_accounts_052: 
+  updated_at: 2008-11-05 07:38:45
+  code: "31000"
+  worksheet: balance_sheet
+  code_a: "3"
+  account_type: credit
+  notes: 
+  code_b: "1"
+  id: "52"
+  description: Modal Saham
+  code_c: "0"
+  code_d: "0"
+  code_e: "0"
+  parent_id: 
+  created_at: 2008-11-05 07:38:45
+accounting_accounts_023: 
+  updated_at: 2008-11-05 07:30:24
+  code: "13300"
+  worksheet: balance_sheet
+  code_a: "1"
+  account_type: debet
+  notes: 
+  code_b: "3"
+  id: "23"
+  description: Prasarana Listrik, Komputer & Elektronika
+  code_c: "3"
+  code_d: "0"
+  code_e: "0"
+  parent_id: "18"
+  created_at: 2008-11-05 07:30:24

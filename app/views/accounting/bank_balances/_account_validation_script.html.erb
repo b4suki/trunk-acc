@@ -1,0 +1,9 @@
+<script type="text/javascript">
+  var accounts = new Array();
+<% validate_account.each_with_index  do |x, i| %>
+    accounts[<%=i%>]='<%= x %>';
+<% end %>
+  var val_account_code = new LiveValidation('account_code');
+  val_account_code.add(Validate.Inclusion,{ within: accounts});
+  val_account_code.add(Validate.Presence);
+</script>

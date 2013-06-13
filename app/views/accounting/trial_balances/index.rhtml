@@ -1,0 +1,44 @@
+<div id="search">
+  <% form_tag(:action => :index) do %>
+    <table width="200" class="search_table" cellpadding="5" cellspacing="0">
+      <tr><th colspan="2">Filter Bulan Transaksi</th></tr>
+      <tr><td>Bulan</td><td>&nbsp;&nbsp;<%= select_month(@date ? @date[:month].to_i : current_month.to_i, :use_month_names => indonesian_month_names  ) %></td></tr>
+      <tr><td>Tahun</td><td>&nbsp;&nbsp;<%= select_year(@date ? @date[:year].to_i : current_year.to_i, :start_year => 2000, :end_year => 2030) %></td></tr>
+      <tr><td colspan="2" align="right"><%= submit_tag "Proses", :class => "btn-submit" %></td></tr>
+    </table>
+  <% end %>
+</div>
+
+<br/><br/>
+<table width="1000px;" class='main_table' cellpadding='0' cellspacing='0'>
+  <tr class='grid_1'>
+    <th style="width: 150px;" align="center" rowspan="2">No Rekening</th>
+    <th style="width: 400px;" align="center" rowspan="2">Deskripsi</th>
+    <th style="width: 125px;" align="center" rowspan="2">Saldo Awal</th>
+    <th style="width: 250px;" align="center" colspan="2">Mutasi</th>
+    <th style="width: 125px;" align="center" rowspan="2">Saldo Akhir</th>
+  </tr>
+  <tr class='grid_1'>
+    <th style="width:125px;" align="center" >Debet</th>
+    <th style="width:125px;" align="center" >Kredit</th>
+  </tr>
+</table>
+<div style="overflow-y: auto; overflow-x: hidden; height: 350px; width: 1000px;">
+  <%= display_account_on_trial_balance(@accounts, @result, @previous_date, false)%>
+</div>
+<table width="1000px;" class='main_table' cellpadding='0' cellspacing='0'>
+  <tr class="grid_footer">
+    <th style="width:500px;" align="left"  colspan="2">
+      <% if @trial_balance.nil? %>
+        <%= link_to_remote_redbox("Input Saldo Awal", {:url => {:action => :initial_saldo}}, {:class => "a_add"}) %><span class="blue_split">&nbsp;</span>
+      <% end %>
+      <%= link_to "Export PDF", formatted_accounting_trial_balances_path(:pdf), :date => @date, :class => "a_pdf" %><span class="blue_split">&nbsp;</span>
+      <%= link_to "Export EXCEL",formatted_accounting_trial_balances_path(:xls),  :date => @date, :class => "a_xls" %>
+    </th>
+    <th style="width: 115px; text-align: right;"><%= format_currency($SUMMARY_PREVIOUS) %></th>
+    <th style="width: 113px; text-align: right;"><%= format_currency($SUMMARY_DEBET) %></th>
+    <th style="width: 110px; text-align: right;"><%= format_currency($SUMMARY_CREDIT ) %></th>
+    <th style="width: 110px; text-align: right;"><%= format_currency($SUMMARY_DEBET - $SUMMARY_CREDIT) %></th>
+    <%#*<th style="width: 115px; text-align: right;"><%= format_currency($SUMMARY_SALDO) % ></th>%>
+  </tr>
+</table>

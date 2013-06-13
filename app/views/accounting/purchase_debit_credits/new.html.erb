@@ -1,0 +1,11 @@
+<%=  popup_title "Input Tipe Debit Credit Pembelian" %>
+
+<div id="RB_body" style="width: 350px;">
+<% form_for(:purchase_debit_credit, @purchase_debit_credit, :url => {:action => 'create'})  do |f| %>
+  <%= f.error_messages %>
+  <%= render :partial => 'form', :locals => { :f => f } %>
+  <p>
+    <%= f.submit "Simpan" %>
+  </p>
+<% end %>
+</div>

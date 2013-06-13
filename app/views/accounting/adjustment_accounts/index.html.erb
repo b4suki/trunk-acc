@@ -1,0 +1,38 @@
+<div class="div_top_btn">
+<%= link_to("Kembali",accounting_adjustment_entries_path,{:class => "a_top_btn"}) %>
+</div>
+<div class="clear_right"></div>
+
+<table class="main_table" cellpadding="0" cellspacing="0" width="500">
+ <tr><th colspan="6">Daftar No Rekening Aktiva tetap</th></tr>
+ <tr class="grid_1">
+  <td style="width :20px; text-align :center;">No</td>
+  <td style="width :40px; text-align :center;">Kode Rekening</td>
+  <td style="width :100px; text-align :center;">Keterangan</td>
+  <td style="width :50px; text-align :center;">Tipe</td>
+  <td style="width :50px; text-align :center;">&nbsp;</td>
+  <td style="width :50px; text-align :center;">&nbsp;</td>
+</tr>
+<% @adjustment_accounts.each_with_index do |adjustment_account, i| %>
+  <tr class=<%= cycle("grid_2","grid_3") %>>
+    <td><%= i+1 %></td>    
+    <td style="text-align :center;"><%= adjustment_account.accounting_account.code %></td>    
+    <td><%= adjustment_account.accounting_account.description %></td>    
+    <td style="text-align :center;"><%= find_combo_type(adjustment_account.id) %></td>    
+    <td><%= link_to_remote_redbox("Edit",{ :url => "/accounting/adjustment_accounts/edit/#{adjustment_account.id}"},{:class => 'a_edit'})  %></td>
+    <td><%= link_to 'Hapus', accounting_adjustment_account_path(adjustment_account), :confirm => "Anda yakin kode rekening '#{adjustment_account.accounting_account.code}' akan dihapus?", :method => :delete, :class => 'a_delete' %></td>
+  </tr>
+<% end %>
+<tr class="grid_footer">
+    <td colspan="4" valign="center">       
+      <%= link_to_remote_redbox("Tambah No Rekening", {:url => {:action => :new}}, {:class => "a_add"}) %><span class="blue_split">&nbsp;</span>
+      <%#*<a class="a_pdf" href="#"> View PDF</a><span class="blue_split">&nbsp;</span>%>
+      <%#= link_to "Export EXCEL", export_excel_accounting_sale_balances_path, :class => "a_xls" %>
+    </td>
+    <td colspan="2">
+      <%#= render(:partial => "shared/paginate", :locals => {:collection => @customers }) -%>
+    </td>
+ </tr>
+</table>
+<br />
+

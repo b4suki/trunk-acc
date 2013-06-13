@@ -1,0 +1,256 @@
+--- 
+accounting_cash_balances_008: 
+  contra_account_id: "8"
+  job_id: "0"
+  updated_at: 2008-11-12 04:26:42
+  evidence: C3
+  account_id: "8"
+  transaction_type_id: "1"
+  bkk: "108"
+  total_payment: "0"
+  bkm: 
+  transaction_value: "1.6e+07"
+  total_revenue: "1.6e+07"
+  id: "8"
+  description: Terima dari Bank
+  total_payment_by_type: "0"
+  cash_balance: "7.8502e+06"
+  created_at: 2008-09-06 00:00:00
+accounting_cash_balances_009: 
+  contra_account_id: "9"
+  job_id: "0"
+  updated_at: 2008-11-12 04:25:10
+  evidence: C4
+  account_id: "9"
+  transaction_type_id: "2"
+  bkk: "108"
+  total_payment: "0"
+  bkm: 
+  transaction_value: "3.6498e+06"
+  total_revenue: "0"
+  id: "9"
+  description: Pmbyran Asuransi ManuLife
+  total_payment_by_type: "3.6498e+06"
+  cash_balance: "0"
+  created_at: 2008-09-07 00:00:00
+accounting_cash_balances_010: 
+  contra_account_id: "10"
+  job_id: "0"
+  updated_at: 2008-11-12 04:26:42
+  evidence: C5
+  account_id: "10"
+  transaction_type_id: "15"
+  bkk: "108"
+  total_payment: "0"
+  bkm: 
+  transaction_value: 1e+06
+  total_revenue: "0"
+  id: "10"
+  description: Kasbon ADE
+  total_payment_by_type: "0"
+  cash_balance: "0"
+  created_at: 2008-09-10 00:00:00
+accounting_cash_balances_011: 
+  contra_account_id: "11"
+  job_id: "0"
+  updated_at: 2008-11-12 04:34:45
+  evidence: D1
+  account_id: "11"
+  transaction_type_id: "1"
+  bkk: "108"
+  total_payment: "0"
+  bkm: 
+  transaction_value: 1e+07
+  total_revenue: "1.25e+07"
+  id: "11"
+  description: Terima Pembayaran dari Wafiq
+  total_payment_by_type: "0"
+  cash_balance: "-4.9883e+06"
+  created_at: 2008-10-03 00:00:00
+accounting_cash_balances_012: 
+  contra_account_id: "12"
+  job_id: "0"
+  updated_at: 2008-11-12 04:34:45
+  evidence: D2
+  account_id: "12"
+  transaction_type_id: "17"
+  bkk: "108"
+  total_payment: "1.74883e+07"
+  bkm: 
+  transaction_value: "5.6848e+06"
+  total_revenue: "0"
+  id: "12"
+  description: Pembayaran pada Khaelani (GME)
+  total_payment_by_type: "1.69348e+07"
+  cash_balance: "-4.9883e+06"
+  created_at: 2008-10-04 00:00:00
+accounting_cash_balances_001: 
+  contra_account_id: "40"
+  job_id: 
+  updated_at: 2008-11-12 04:18:15
+  evidence: B1
+  account_id: "1"
+  transaction_type_id: "7"
+  bkk: "108"
+  total_payment: "887863"
+  bkm: 
+  transaction_value: "190000"
+  total_revenue: "0"
+  id: "1"
+  description: Asah Tools
+  total_payment_by_type: "190000"
+  cash_balance: "9.11214e+06"
+  created_at: 2008-08-01 00:00:00
+accounting_cash_balances_013: 
+  contra_account_id: "13"
+  job_id: "0"
+  updated_at: 2008-11-12 04:32:09
+  evidence: D3
+  account_id: "13"
+  transaction_type_id: "17"
+  bkk: "108"
+  total_payment: "0"
+  bkm: 
+  transaction_value: "1.125e+07"
+  total_revenue: "0"
+  id: "13"
+  description: Pembayaran pada Intech
+  total_payment_by_type: "0"
+  cash_balance: "0"
+  created_at: 2008-10-05 00:00:00
+accounting_cash_balances_002: 
+  contra_account_id: "2"
+  job_id: "0"
+  updated_at: 2008-11-12 04:12:19
+  evidence: B2
+  account_id: "2"
+  transaction_type_id: "19"
+  bkk: "108"
+  total_payment: "0"
+  bkm: 
+  transaction_value: "164713"
+  total_revenue: "0"
+  id: "2"
+  description: Setor Pajak PPh 21
+  total_payment_by_type: "164713"
+  cash_balance: "0"
+  created_at: 2008-08-02 00:00:00
+accounting_cash_balances_014: 
+  contra_account_id: "14"
+  job_id: "0"
+  updated_at: 2008-11-12 04:33:17
+  evidence: D4
+  account_id: "14"
+  transaction_type_id: "1"
+  bkk: "108"
+  total_payment: "0"
+  bkm: 
+  transaction_value: "2.5e+06"
+  total_revenue: "0"
+  id: "14"
+  description: Ptjb UM Kas Eq
+  total_payment_by_type: "0"
+  cash_balance: "0"
+  created_at: 2008-10-08 00:00:00
+accounting_cash_balances_003: 
+  contra_account_id: "3"
+  job_id: "0"
+  updated_at: 2008-11-12 04:14:58
+  evidence: B3
+  account_id: "3"
+  transaction_type_id: "15"
+  bkk: "108"
+  total_payment: "0"
+  bkm: 
+  transaction_value: "500000"
+  total_revenue: "0"
+  id: "3"
+  description: UM Kas Kecil Irv
+  total_payment_by_type: "500000"
+  cash_balance: "0"
+  created_at: 2008-08-03 00:00:00
+accounting_cash_balances_015: 
+  contra_account_id: "15"
+  job_id: "0"
+  updated_at: 2008-11-12 04:34:45
+  evidence: D5
+  account_id: "15"
+  transaction_type_id: "19"
+  bkk: "108"
+  total_payment: "0"
+  bkm: 
+  transaction_value: "553500"
+  total_revenue: "0"
+  id: "15"
+  description: Setor PPh Pasal 21 bln sept
+  total_payment_by_type: "553500"
+  cash_balance: "0"
+  created_at: 2008-10-09 00:00:00
+accounting_cash_balances_004: 
+  contra_account_id: "4"
+  job_id: "0"
+  updated_at: 2008-11-12 04:16:50
+  evidence: B4
+  account_id: "4"
+  transaction_type_id: "8"
+  bkk: "108"
+  total_payment: "0"
+  bkm: 
+  transaction_value: "33150"
+  total_revenue: "0"
+  id: "4"
+  description: Kertas HVS biru (atk)
+  total_payment_by_type: "33150"
+  cash_balance: "0"
+  created_at: 2008-08-06 00:00:00
+accounting_cash_balances_005: 
+  contra_account_id: "5"
+  job_id: "0"
+  updated_at: 2008-11-12 04:18:15
+  evidence: B5
+  account_id: "5"
+  transaction_type_id: "1"
+  bkk: "108"
+  total_payment: "0"
+  bkm: 
+  transaction_value: 1e+07
+  total_revenue: 1e+07
+  id: "5"
+  description: Terima dari Bank
+  total_payment_by_type: "0"
+  cash_balance: "9.11214e+06"
+  created_at: 2008-08-07 00:00:00
+accounting_cash_balances_006: 
+  contra_account_id: "6"
+  job_id: "0"
+  updated_at: 2008-11-12 04:26:42
+  evidence: C1
+  account_id: "6"
+  transaction_type_id: "15"
+  bkk: "108"
+  total_payment: "8.1498e+06"
+  bkm: 
+  transaction_value: "500000"
+  total_revenue: "0"
+  id: "6"
+  description: UM kas kecil Irv
+  total_payment_by_type: "1.5e+06"
+  cash_balance: "7.8502e+06"
+  created_at: 2008-09-04 00:00:00
+accounting_cash_balances_007: 
+  contra_account_id: "7"
+  job_id: "0"
+  updated_at: 2008-11-12 04:22:47
+  evidence: C2
+  account_id: "7"
+  transaction_type_id: "17"
+  bkk: "108"
+  total_payment: "0"
+  bkm: 
+  transaction_value: 3e+06
+  total_revenue: "0"
+  id: "7"
+  description: Pmbyran DP pada Intech
+  total_payment_by_type: 3e+06
+  cash_balance: "0"
+  created_at: 2008-09-05 00:00:00

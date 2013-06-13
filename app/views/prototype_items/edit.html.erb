@@ -1,0 +1,82 @@
+<%=  popup_title "Edit Barang" %>
+
+<div id="RB_body" style="width: 400px;">
+
+  <% form_for(@product) do |f| %>
+    <%= f.error_messages %>
+    <%= hidden_field_tag "count", @index %>
+    <p>
+      Nama Barang:<span id="indicator-tipe" style="display:none;"><%= image_tag "ajax-loader.gif" %></span><br />
+      <%= text_field_with_auto_complete :item, :name, { :value => @product.item.name,:size => 30}, :skip_style => true, :indicator => "indicator-tipe" -%>
+      <%= f.hidden_field :item_id ,:id => 'item_name_id'%>
+    </p>
+    <p>
+      Keterangan<br />
+      <%= f.text_area :description, :column => 15, :rows => 4, :live => false %>
+    </p>
+    <br/>
+    <br/>
+    <table id="accounting_sale_balance_detail" class="main_table" width="390">
+      <tr>
+        <th>Nama Produk</th>
+        <th>Qty</th>
+        <th>&nbsp;</th>
+      </tr>
+        <% @product.prototype_item_details.each_with_index do |detail, index| %>
+          <tr class="detail_item grid_2">
+            <td>
+              <label><%= multi_text_field_with_auto_complete :detail_product, :name, index, { :size => 27, :value => detail.item.name  }, :skip_style => true, :indicator => "indicator-product-name-#{index}" -%>
+                <%= hidden_field_tag "product_id_#{index}",detail.item_id, :id => "detail_product_name_#{index}_id" %>
+                <span id="indicator-product-name-<%=index%>" style="display:none;"><%= image_tag "ajax-loader.gif" %></span>
+              </label>
+            </td>
+            <td>
+              <%= text_field_tag "detail_qty_#{index}","",:value => detail.quantity , :size => 3 ,:style => 'text-align:right;' %>
+            </td>
+            <td>&nbsp;
+              <%= link_to_function "", "$(this).up('.detail_item').remove();setIndex(-1,'count');", :class => 'a_delete' %>
+            </td>
+          </tr>
+        <% end %>
+      <tr class="detail_item grid_2"></tr>
+
+      <tr id="detail_item" class="grid_footer">
+        <td colspan="3">
+          <div>
+            <span id="link-add-indicator" style="float:left;display:none;">
+              <%= image_tag "ajax-loader.gif" %>&nbsp;
+            </span>
+            <span id="link-add-read" style="float:left;display:none;">
+              Tambah Barang ...
+            </span>
+            <span id="link_add" style="float:left;">
+              <%= render :partial => "add_new_link", :locals => {:index => @index}%>
+            </span>
+          </div>
+        </td>
+      </tr>
+    </table>
+    <br/>
+    <br/>
+    <p>
+      Aktif<br />
+      <%= check_box_tag "active", true, true %>
+    </p>
+    <br/>
+    <br/>
+    <p>
+      <%= f.submit "Simpan" %>
+    </p>
+
+
+  <% end %>
+</div>
+
+<script type="text/javascript" >
+  var type = new Array();
+<% validate_type_item.each_with_index  do |x,i|%>
+    type[<%=i%>]='<%= x %>';
+<% end %>
+  var tipe = new LiveValidation('type_name');
+  tipe.add( Validate.Inclusion, {within: type});
+</script>

@@ -1,0 +1,33 @@
+<%=  popup_title "Convert Data Nilai Tukar" %>
+
+<div id="RB_body" style="width: 400px;">
+  <% form_remote_tag :url => {:action => :currency_exchange},
+                     :loading => "$('indicator').show();$('result').hide();" ,
+                     :loaded => "$('indicator').hide();$('result').show();" do %>
+    <table>
+      <tr>
+        <td>From </td>
+        <td> : </td>
+        <td><%= select :exchange, :from, option_select_for_currency %></td>
+      </tr>
+      <tr>
+        <td>To </td>
+        <td> : </td>
+        <td><%= select :exchange, :to, option_select_for_currency %></td>
+      </tr>
+      <tr>
+        <td>Amount</td>
+        <td> : </td>
+        <td> <%= text_field_tag :amount %> </td>
+        <td><%= submit_tag "Convert" %></td>
+      </tr>
+      <tr>
+        <td>  Hasil Konversi </td>
+        <td> : </td>
+        <td><div id="result">0.0</div> <span id="indicator" style="display:none;"><%= image_tag "ajax-loader.gif" %></span></td>
+        <td>&nbsp;</td>
+      </tr>
+    </table>
+  <% end %> 
+</div>
+

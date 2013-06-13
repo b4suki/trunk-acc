@@ -1,0 +1,83 @@
+<script>
+  jQuery(document).ready(function(){
+    jQuery("#data").fixedHeader({width: 1000,height: 400});
+  })
+</script>
+
+<div id="search">
+  <% form_tag(:action => :generate_invoice) do %>
+    <table width="200" class="search_table" cellpadding="5" cellspacing="0">
+      <tr><th colspan="2">Filter Bulan Transaksi</th></tr>
+      <tr><td>Bulan</td><td>&nbsp;&nbsp;<%= select_month(default_filter_month, :use_month_names => indonesian_month_names ) %></td></tr>
+      <tr><td>Tahun</td><td>&nbsp;&nbsp;<%= select_year(default_filter_year, :start_year => 2000, :end_year => 2030) %></td></tr>
+      <tr><td colspan="2" align="right"><%= submit_tag "Proses", :class => "btn-submit" %></td></tr>
+    </table>
+  <% end %>
+</div>
+
+<table id="data" class="main_table" cellpadding="0" cellspacing="0" width="1000px">
+  <thead>
+    <tr class="grid_1">
+      <th>No</th>
+      <th>No Invoice</th>
+      <th>Tanggal Invoice</th>
+      <th>Tanggal Jatuh Tempo</th>
+      <th>Tanggal Pembuatan</th>
+      <th>Customer</th>
+      <th>Nama Barang</th>
+      <th>Qty</th>
+      <th>Price</th>
+      <th>Subtotal</th>
+    </tr>
+  </thead>
+
+  <div class="div_top_btn">
+    <%= link_to("Kembali",trans_items_path,{:class => "a_top_btn"}) %>
+  </div>
+  <div class="clear_right"></div>
+
+
+  <% if @invoice_numbers.length > 0 %>
+    <% @invoice_numbers.each_with_index do |invoice, i| %>
+      <% total_invoice = 0 %>
+      <% invoice.accounting_sale_balance_details.each_with_index do |item, index| %>
+        <tr class=<%= cycle("grid_2","grid_3") %>>
+          <td><%=h index==0 ? i + 1 : "" %></td>
+          <td><%=h index==0 ? invoice.invoice_number : "" %></td>
+          <td><%=h index==0 ? format_date(invoice.invoice_date) : "" %></td>
+          <td><%=h index==0 ? format_date(invoice.maturity_date) : "" %></td>
+          <td><%=h index==0 ? format_date(invoice.created_at) : "" %></td>
+          <td><%=h index==0 ? invoice.customer.name : "" rescue nil %></td>
+          <td><%=h item.product_name %></td>
+          <td align="right"><%=h item.qty %></td>
+          <td align="right"><%=h item.price %></td>
+          <td align="right"><%=h item.subtotal %></td>
+          <% total_invoice += item.subtotal.to_i %>
+        </tr>
+      <% end %>
+        <tr class="grid_1">
+          <td colspan="8">&nbsp;</td>
+          <td align="center">Total</td>
+          <td align="right"><%=h total_invoice %></td>
+        </tr>
+    <% end %>
+  <% else %>
+    <tr class="grid_2"><td align="center" colspan="10">TIDAK ADA DATA</td></tr>
+  <% end %>
+</table>
+
+
+<table class="table_footer" cellpadding="0" cellspacing="0" width="1000px">
+  <tr class="grid_footer">
+    <td colspan="8" valign="center">
+      <%#= link_to "Export Purchase Request", trans_items_path(:format => :pdf, :report => 'request'), :class => "a_pdf" % ><span class="blue_split">&nbsp;</span>
+<%#= link_to "Export EXCEL", formatted_customers_path(:xls), :class => "a_xls" %>
+      <%#= link_to "Penerimaan dan Pemasukkan", trans_items_path(:format => :pdf, :report => 'terima'), :class => "a_pdf" %>
+      
+    </td>
+    <td colspan="2">
+      &nbsp;
+<%#= render(:partial => "shared/paginate", :locals => {:collection => @customers }) -%>
+    </td>
+  </tr>
+</table>

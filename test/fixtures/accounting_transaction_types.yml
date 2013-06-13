@@ -1,0 +1,153 @@
+--- 
+accounting_transaction_types_019: 
+  name: Tax
+  updated_at: 
+  order: "19"
+  id: "19"
+  description: 
+  group: 
+  created_at: 
+accounting_transaction_types_008: 
+  name: Adm. Expense
+  updated_at: 
+  order: "8"
+  id: "8"
+  description: 
+  group: 
+  created_at: 
+accounting_transaction_types_010: 
+  name: Machine
+  updated_at: 
+  order: "10"
+  id: "10"
+  description: 
+  group: Maintenance
+  created_at: 
+accounting_transaction_types_009: 
+  name: Office
+  updated_at: 
+  order: "9"
+  id: "9"
+  description: 
+  group: Maintenance
+  created_at: 
+accounting_transaction_types_011: 
+  name: Vehicle
+  updated_at: 
+  order: "11"
+  id: "11"
+  description: 
+  group: Maintenance
+  created_at: 
+accounting_transaction_types_012: 
+  name: Workshop Tools
+  updated_at: 
+  order: "12"
+  id: "12"
+  description: 
+  group: Maintenance
+  created_at: 
+accounting_transaction_types_001: 
+  name: Cash
+  updated_at: 
+  order: "1"
+  id: "1"
+  description: 
+  group: 
+  created_at: 
+accounting_transaction_types_013: 
+  name: Marketing Expense
+  updated_at: 
+  order: "13"
+  id: "13"
+  description: 
+  group: 
+  created_at: 
+accounting_transaction_types_002: 
+  name: Saving Account
+  updated_at: 
+  order: "2"
+  id: "2"
+  description: 
+  group: 
+  created_at: 
+accounting_transaction_types_014: 
+  name: Misc.
+  updated_at: 
+  order: "14"
+  id: "14"
+  description: 
+  group: 
+  created_at: 
+accounting_transaction_types_003: 
+  name: Fixed Assets
+  updated_at: 
+  order: "3"
+  id: "3"
+  description: 
+  group: 
+  created_at: 
+accounting_transaction_types_015: 
+  name: Cash Advance
+  updated_at: 
+  order: "15"
+  id: "15"
+  description: 
+  group: 
+  created_at: 
+accounting_transaction_types_004: 
+  name: Langsung
+  updated_at: 
+  order: "4"
+  id: "4"
+  description: 
+  group: Material
+  created_at: 
+accounting_transaction_types_016: 
+  name: Account Receivable
+  updated_at: 
+  order: "16"
+  id: "16"
+  description: 
+  group: 
+  created_at: 
+accounting_transaction_types_005: 
+  name: Tidak Langsung
+  updated_at: 
+  order: "5"
+  id: "5"
+  description: 
+  group: Material
+  created_at: 
+accounting_transaction_types_017: 
+  name: Account Payable
+  updated_at: 
+  order: "17"
+  id: "17"
+  description: 
+  group: 
+  created_at: 
+accounting_transaction_types_006: 
+  name: Consumables
+  updated_at: 
+  order: "6"
+  id: "6"
+  description: 
+  group: 
+  created_at: 
+accounting_transaction_types_018: 
+  name: Salary
+  updated_at: 
+  order: "18"
+  id: "18"
+  description: 
+  group: 
+  created_at: 
+accounting_transaction_types_007: 
+  name: Production Tools
+  updated_at: 
+  order: "7"
+  id: "7"
+  description: 
+  group: 
+  created_at: 

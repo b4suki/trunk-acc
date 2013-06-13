@@ -1,0 +1,13 @@
+
+
+<%=  popup_title "Edit Tipe Kas" %>
+
+<div id="RB_body" style="width: 350px;">
+<% form_for(:accounting_cash, @accounting_cash, :url => accounting_cash_path(@accounting_cash), :html=> {:method=>'put'})  do |f| %>
+  <%= f.error_messages %>
+  <%= render :partial => 'form', :locals => { :f => f } %>
+  <p>
+    <%= f.submit "Update" %>
+  </p>
+<% end %>
+</div>

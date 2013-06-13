@@ -1,0 +1,52 @@
+<%= popup_title "Set Hak Akses" %>
+
+<div id="RB_body" style="width: 350px; overflow-x: scroll;">
+  <br/>
+  <% form_for(:rule, @rule, :url => {:action => 'create_rule', :role_id => params[:id]}) do |f| %>
+    <p>Menu :</p><br />
+    <%= hidden_field_tag :menu_count, @app_menus.size %>
+    <div style="float: left; height: 350px;">
+      <% @app_menus.each_with_index do |app_menu, x| %>
+        <div class="branch">
+          <% role_menu = RoleMenuAssignment.find_by_role_id_and_menu_id(@role.id, app_menu.id) %>
+          <%= check_box_tag "cb_menu_#{x+1}", nil, role_menu, :class => "chk-menu" %><%= app_menu.window_text %>
+          <%= hidden_field_tag "menu_id_#{x+1}", app_menu.id %>
+        </div>
+        <div class="leaf" style="margin-left: 20px;">
+          <%= hidden_field_tag "sub_menu_count_#{x+1}", app_menu.sub_menu.size %>
+          <% app_menu.sub_menu.each_with_index do |sub_menu, y| %>
+            <div>
+              <% if role_menu %>
+                <% role_sub_menu = RoleSubMenuAssignment.find_by_role_menu_assignment_id_and_sub_menu_id(role_menu.id, sub_menu.id) %>
+              <% else %>
+                <% role_sub_menu = false %>
+              <% end %>
+              <%= check_box_tag "cb_sub_menu_#{x+1}_#{y+1}", nil, role_sub_menu, :class => "chk-sub-menu" %><%= sub_menu.title %>
+              <%= hidden_field_tag "sub_menu_id_#{x+1}_#{y+1}", sub_menu.id %>
+            </div>
+          <% end %>
+        </div>
+        <br />
+      <% end %>
+      <p><%= submit_tag "Simpan" %></p>
+    </div>
+
+  <% end %>
+</div>
+
+<script type="text/javascript">
+  (function($){
+    $('.chk-menu').change(function(){
+      if(!$(this).attr('checked')){
+        $(this).parent('.branch').next('.leaf').find('.chk-sub-menu').attr({checked:false});
+      }
+
+      $('.chk-sub-menu').change(function(){
+        if($(this).attr('checked')){
+          $(this).parents('.leaf:eq(0)').prev('.branch').find('.chk-menu').attr({checked:true});
+        }
+      });
+    });
+
+  })(jQuery);
+</script>

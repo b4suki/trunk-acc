@@ -1,0 +1,5 @@
+  <div style="float: left;margin: 0px 20px 5px 5px;">
+    Kode Rekening <br />
+    <%= text_field_with_auto_complete :account, :code, { :size => 30, :value => @adjustment_account.nil? || @adjustment_account.accounting_account.nil? ? "" : @adjustment_account.accounting_account.code }, :skip_style => true -%>
+    <%= f.hidden_field :account_id %> <br />        
+  </div>

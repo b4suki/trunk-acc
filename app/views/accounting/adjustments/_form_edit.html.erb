@@ -1,0 +1,88 @@
+<p>Tanggal Transaksi<br />
+  <%= f.date_splicer :created_at, :default_to_now => true %>
+</p>
+<p>No Bukti<br />
+  <%= f.text_field :evidence %>
+</p>
+<p>Keterangan<br />
+  <%= f.text_area :description, :rows => 4 %>
+</p>
+<div style="clear:both;"></div>
+<br />
+<%= hidden_field_tag "debit_count", @debit_values.size %>
+<%= hidden_field_tag "credit_count", @credit_values.size %>
+<% total_debit = 0 %>
+<% total_credit = 0 %>
+<table width="325px" class='main_table' cellpadding='0' cellspacing='0' style="float: left;">
+  <tr>
+    <th colspan="2">Debit</th>
+  </tr>
+  <tr class='grid_1'>
+    <td>Kode Rekening</td>
+    <td>Nilai</td>
+    <td></td>
+  </tr>
+  <% @debit_values.each_with_index do |debit_value, i| %>
+    <tr class="debit-account-detail grid_2">
+      <td>
+        <label><%= multi_text_field_with_auto_complete :account, :debit, i+1, { :value => "#{debit_value.account.code}   #{debit_value.account.description}", :size => 27 }, :skip_style => true, :indicator => "indicator-account-debit-#{i+1}" -%>
+          <%= hidden_field_tag "debit_account_id_#{i+1}", debit_value.account_id, :id => "account_debit_#{i+1}_id" %>
+          <span id="indicator-account-debit-<%=i+1%>" style="display:none;"><%= image_tag "ajax-loader.gif" %></span>
+        </label>
+      </td>
+      <td><%= text_field_tag "value_debit_#{i+1}", debit_value.value, :size => 10, :style => "text-align: right;", :onkeyup => "sum_total_manual_journal('debit',$('debit_count').value);" %></td>
+      <% total_debit += debit_value.value %>
+      <td><%= link_to_function("",
+          "$(this).up('tr.debit-account-detail').hide();
+    $('account_debit_#{i+1}').setAttribute('value','xs-x');
+    $('value_debit_#{i+1}').value=0;
+    sum_total_manual_journal('debit',$('debit_count').value);", :class => 'a_delete') if i>0 %></td>
+    </tr>
+  <% end %>
+  <tr class='grid_1' id="end-of-debit-account">
+    <td colspan="3">
+      <%= link_to_remote "Tambah", :url => {:action => 'add_debit', :index => @debit_values.size + 1, :size => 0}, :html => {:class => "a_add"} %>
+    </td>
+  </tr>
+  <tr class='grid_1'>
+    <td align="right">Total</td>
+    <td><%= text_field_tag 'total_debit', total_debit, :size => 10, :readonly => true, :style => "text-align: right;" %></td>
+    <td></td>
+  </tr>
+</table>
+<table width="325px" class='main_table' cellpadding='0' cellspacing='0' style="float: left; margin-left: 5px;">
+  <tr>
+    <th colspan="2">Kredit</th>
+  </tr>
+  <tr class='grid_1'>
+    <td>Kode Rekening</td>
+    <td>Nilai</td>
+    <td></td>
+  </tr>
+  <% @credit_values.each_with_index do |credit_value, i| %>
+    <tr class="credit-account-detail grid_2">
+      <td>
+        <label><%= multi_text_field_with_auto_complete :account, :credit, i+1, { :value => "#{credit_value.account.code}   #{credit_value.account.description}", :size => 27 }, :skip_style => true, :indicator => "indicator-account-credit-#{i+1}" -%>
+          <%= hidden_field_tag "credit_account_id_#{i+1}", credit_value.account_id, :id => "account_credit_#{i+1}_id" %>
+          <span id="indicator-account-credit-<%=i+1%>" style="display:none;"><%= image_tag "ajax-loader.gif" %></span>
+        </label>
+      </td>
+      <td><%= text_field_tag "value_credit_#{i+1}", credit_value.value, :size => 10, :style => "text-align: right;", :onkeyup => "sum_total_manual_journal('credit',$('credit_count').value);" %></td>
+      <% total_credit += credit_value.value %>
+      <td><%= link_to_function("",
+          "$(this).up('tr.credit-account-detail').hide();
+    $('account_credit_#{i+1}').setAttribute('value','xs-x');
+    $('value_credit_#{i+1}').value=0;
+    sum_total_manual_journal('credit',$('credit_count').value);", :class => 'a_delete') if i>0 %></td>
+    </tr>
+  <% end %>
+  <tr class='grid_1' id="end-of-credit-account">
+    <td colspan="3"><%= link_to_remote "Tambah", :url => {:action => 'add_credit', :index => @credit_values.size + 1, :size => 0}, :html => {:class => "a_add"} %></td>
+  </tr>
+  <tr class='grid_1'>
+    <td align="right">Total</td>
+    <td><%= text_field_tag 'total_credit', total_credit, :size => 10, :readonly => true, :style => "text-align: right;" %></td>
+    <td></td>
+  </tr>
+</table>
+<div style="clear:both;"></div>

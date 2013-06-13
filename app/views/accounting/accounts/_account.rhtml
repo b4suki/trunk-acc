@@ -1,0 +1,6 @@
+<tr id="new_group_<%= acc.parent_id %>"> </tr>
+<tr class="<%= cycle("grid_2","grid_3")%>" id="account_<%= acc.id %>">
+  <%= render :partial => "detail", :locals => {:acc => acc, :level => level }%>
+</tr>
+<tr id="new_group_<%= acc.id %>"> </tr>
+

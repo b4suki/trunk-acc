@@ -1,0 +1,29 @@
+<%=  popup_title "Tambah Pengguna" %>
+
+<div id="RB_body" style="width: 500px;">
+<% form_for(:user, @user, :url => {:action => 'create'}) do |f| %>
+  <%= f.error_messages %>
+
+<p><label for="login">Login</label><br/>
+<%= f.text_field :login %></p>
+
+<p><label for="email">Email</label><br/>
+<%= f.text_field :email %></p>
+<script>
+  <%#*var email = new LiveValidation('user_email');%>
+  <%#*email.add( Validate.Email );%>
+</script>
+
+<p><label for="password">Password</label><br/>
+<%= f.password_field :password %></p>
+
+<p><label for="password_confirmation">Confirm Password</label><br/>
+<%= f.password_field :password_confirmation %></p>
+<p><label>Hak Akses Sebagai : </label><br />
+  <%= set_check_box_role(@user) %>
+</p>
+  <p>
+    <%= f.submit "Simpan" %>
+  </p>
+<% end %>
+</div>

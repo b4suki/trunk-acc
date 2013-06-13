@@ -1,0 +1,18 @@
+<%= popup_title "Isi Pulsa " %>
+
+<div id="RB_body" style="width: 300px;">
+  <%= javascript_include_tag :defaults %>
+<%# form_for(@add_pulsa) do |f| %>
+  <% form_tag :action => :create_pulsa do  %>
+    <%= hidden_field :detail, :pulsa_customer_id,:value => @add_pulsa.pulsa_customer_id, :live => false %>
+    <%= hidden_field :detail, :date_pulsa,:value => Time.now.strftime("%B-%d-%Y"), :live => false %>
+
+
+    <%= select(:detail ,:item_id,pulsa_seting_choise) %>
+    <br/>
+    <br/>
+    <p>
+      <%= submit_tag "Create" %>
+    </p>
+  <% end %>
+</div>

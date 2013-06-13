@@ -1,0 +1,174 @@
+<table class="search_table" cellpadding="2" cellspacing="0" width="690">
+  <tr>
+    <td>Tanggal Transaksi</td>
+    <td>No Po</td>
+    <td>No Invoice</td>
+    <td>Vendor<span id="indicator-vendor-code" style="display:none;"><%= image_tag "ajax-loader.gif" %></span></td>
+  </tr>
+  <tr>
+    <td><%= f.date_splicer(:invoice_date, :default_to_now => true) %></td>
+    <td><%= f.text_field(:po_out, :size => "11", :live => false) %></td>
+    <td><%= f.text_field(:invoice_number, :size => "11", :live => false) %></td>
+    <td><%= text_field_with_auto_complete :vendor, :name, { :size => 30, :value => @purchase_balance.nil? || @purchase_balance.vendor.nil? ? "" : @purchase_balance.vendor.name }, :skip_style => true, :indicator => "indicator-vendor-code" -%>
+      <%= f.hidden_field :vendor_id, :id => 'vendor_name_id' %></td>
+  </tr>
+  <tr>
+    <td>Tanggal Pengiriman</td>
+    <td>Surat Jalan</td>
+    <td>Job No</td>
+    <td>Mata Uang</td>
+  </tr>
+  <tr>
+    <td><%= f.date_splicer(:shipping_date, :default_to_now => true) %></td>
+    <td><%= f.text_field(:travel_pass, :size => "11", :live => false) %></td>
+    <td><%= f.text_field(:job_id, :size => "11", :live => false) %></td>
+    <td><%= f.select :currency_id, Currency.find(:all).collect{|x| [x.name, x.id]},{},
+        { :style => "width:250px",
+        :onchange => remote_function(
+          :url =>{:controller => "accounting/purchase_balances", :action => :prepare_show_currency},
+          :with =>"'id='+this.value",
+          :loading => "$('indicator-kurs').show();",
+          :complete => "$('indicator-kurs').hide();"
+        )} %>
+      <span id="indicator-kurs" style="display:none;"><%= image_tag "ajax-loader.gif" %></span></td>
+  </tr>
+  <tr>
+    <td>Tanggal Pembayaran</td>
+    <td>Biaya Pengiriman</td>
+    <td>Jenis Pembayaran&nbsp;</td>
+    <td id="kurs-text"><%= @purchase_balance.currency.nil? || @purchase_balance.currency.name.downcase == "rupiah" ? "&nbsp;" : "Kurs" %></td>
+  </tr>
+  <tr>
+    <td><%= f.date_splicer :maturity_date, :default_to_now => true %></td>
+    <td><%= f.text_field :shipping_cost, :style =>'text-align:right;', :size => 11,
+        :onkeyup => "disc($('purchase_balance_subtotal').value, $('purchase_balance_disc_percentage').value, 'purchase');
+calculate_total_transactionx('purchase');"%></td>
+<%#*<td> <%= select "terms_of_payment",:id,options_for_terms_of_payments,{:style => "width: 90px;"},%>
+<%#*:onchange => "set_maturity_date_x($('terms_of_payment_id').value,'purchase');" % >&nbsp;</td>%>
+    <td>
+      <%= select "terms_of_payment",:id,options_for_terms_of_payments,{:style => "width: 90px;"},
+        :onchange => "set_maturity_date($('terms_of_payment_id').value,'purchase');" %>&nbsp;
+    </td>
+    <td><div id="show-kurs"><%= @purchase_balance.currency.nil? || @purchase_balance.currency.name.downcase == "rupiah" ? "&nbsp;" : render(:partial => "kurs", :locals => {:search => @purchase_balance.currency, :value => @purchase_balance.kurs}) %></div></td>
+  </tr>
+</table>
+
+<br />
+<%= hidden_field_tag "count", @count%>
+
+<table cellpadding="0" cellspacing="1px" class='main_table' width="690" >
+  <tbody>
+    <tr>
+      <th>Nama Produk</th>
+      <th>Qty</th>
+      <th>Harga</th>
+      <th>Subtotalsss</th>
+      <th>&nbsp;</th>
+    </tr>
+    <% @purchase_balance.accounting_purchase_balance_details.each_with_index do |detail, i| %>
+      <tr class="accounting_purchase_balance_detail grid_2">
+        <td>
+          <label><%= multi_text_field_with_auto_complete :accounting_purchase_balance_detail_product, :name, i, { :size => 27, :value => detail.product_name }, :skip_style => true, :indicator => "indicator-product-name-#{i}" -%>
+            <%= hidden_field_tag "accounting_purchase_balance_detail_item_id_#{i}", detail.item_id, :id => "accounting_purchase_balance_detail_product_name_#{i}_id" %>
+            <span id="indicator-product-name-<%=i%>" style="display:none;"><%= image_tag "ajax-loader.gif" %></span></label>
+        </td>
+        <td>
+          <%= text_field_tag "accounting_purchase_balance_detail_qty_#{i}", detail.qty, :size => 3 ,:style => 'text-align:right;',
+            :onkeyup => "sum_product(this.value, $('accounting_purchase_balance_detail_price_#{i}').value,#{i},'purchase');
+  $('purchase_balance_transaction_value_#{i}').value = $('accounting_purchase_balance_detail_subtotal_#{i}').value;
+  sum_total_all(parseInt($('count').value),'purchase');
+  ppnx('purchase',#{@ppn_masukan_rate_value});
+  disc($('purchase_balance_subtotal').value,$('purchase_balance_disc_percentage').value,'purchase');
+  calculate_total_transactionx('purchase');" %>
+        </td>
+        <td>
+          <%= text_field_tag "accounting_purchase_balance_detail_price_#{i}", detail.price, :size => 8 , :style => 'text-align:right;',
+            :onkeyup => "sum_product(this.value, $('accounting_purchase_balance_detail_qty_#{i}').value,#{i},'purchase');
+  $('purchase_balance_transaction_value_#{i}').value = $('accounting_purchase_balance_detail_subtotal_#{i}').value;
+  sum_total_all(parseInt($('count').value),'purchase');
+  ppnx('purchase',#{@ppn_masukan_rate_value});
+  disc($('purchase_balance_subtotal').value,$('purchase_balance_disc_percentage').value,'purchase');
+  calculate_total_transactionx('purchase');" %>
+        </td>
+        <%= hidden_field_tag "accounting_purchase_balance_detail_subtotal_#{i}", detail.subtotal, :size => 10, :style => 'text-align:right;',:readonly => true %>
+        <%= hidden_field_tag("purchase_balance_disc_percentage_#{i}", detail.disc_percentage, :style => 'text-align:right;',:size => 2,
+          :onkeyup => "disc_purchase($('accounting_purchase_balance_detail_subtotal_#{i}').value,$('purchase_balance_disc_percentage_#{i}').value,#{i});
+    sum_total_all(parseInt($('count').value),'purchase');
+    ppnx('purchase',#{@ppn_masukan_rate_value});
+    disc($('purchase_balance_subtotal').value,$('purchase_balance_disc_percentage').value,'purchase');
+    calculate_total_transactionx('purchase');") %>
+        <td>
+          <%= hidden_field_tag("purchase_balance_discount_#{i}", detail.discount) %>
+          <%= text_field_tag("purchase_balance_transaction_value_#{i}", (detail.qty * detail.price) - detail.discount,:size => 20, :readonly => true, :style => 'text-align:right;') %>
+        </td>
+        <td>
+          <%= link_to_function "", "$(this).up('.accounting_purchase_balance_detail').remove();
+  sum_total_all(parseInt($('count').value),'purchase');
+  ppnx('purchase',#{@ppn_masukan_rate_value});
+  disc($('purchase_balance_subtotal').value,$('purchase_balance_disc_percentage').value,'purchase');
+  calculate_total_transactionx('purchase');", :class => "a_delete" %>
+        </td>
+      </tr>
+    <% end %>
+    <tr id="end-of-accounting-purchase-balance-detail" class="grid_footer">
+      <td colspan="3" id="link_add">
+        <%= render :partial => "add_new_link", :locals => {:index => @count, :size => 0, :index_debit => @index_debit, :index_credit => @index_credit, :ppn_rate => @ppn_masukan_rate_value}%>
+      </td>
+      <td colspan="2">
+        <div style="float:left;margin-right:3px;text-align: right;" ><%= f.check_box(:received, {}, true, false) %></div>Telah Diterima
+      </td>
+    </tr>
+  </tbody>
+</table>
+<br />
+
+<table class="search_table" cellpadding="2" cellspacing="0" width="350" style="float: left">
+  <tr>
+    <td>Kena Pajak</td>
+    <td><%= f.check_box :taxable, :onchange =>
+        "disc($('purchase_balance_subtotal').value,$('purchase_balance_disc_percentage').value,'purchase');
+ppnx('purchase',#{@ppn_masukan_rate_value});
+calculate_total_transactionx('purchase');" %></td>
+  </tr>
+  <tr>
+    <td>Subtotal</td>
+    <td><%= f.text_field(:subtotal, :value => @purchase_balance.subtotal.blank? ? 0 : @purchase_balance.subtotal, :style =>'text-align:right;', :readonly => true, :size => 18) %></td>
+  </tr>
+  <tr>
+    <td>Diskon(%)</td>
+    <td>
+      <%= f.text_field(:disc_percentage, :value => @purchase_balance.disc_percentage.blank? ? 0 : @purchase_balance.disc_percentage, :size => 3,:style =>'text-align:right;' ,
+        :onkeyup => "disc($('purchase_balance_subtotal').value, this.value, 'purchase');
+  ppnx('purchase',#{@ppn_masukan_rate_value});
+  calculate_total_transactionx('purchase');") %>
+    </td>
+  </tr>
+  <tr>
+    <td>Total Diskon</td>
+    <td>
+      <%= f.text_field(:discount, :value => @purchase_balance.discount.blank? ? 0 : @purchase_balance.discount, :size => 18,:style =>'text-align:right;', :readonly => true) %>
+    </td>
+  </tr>
+  <tr>
+    <td>PPN (<%= "#{@ppn_masukan_rate_value * 100}%" %>)</td>
+    <td><%= f.text_field(:ppn_value, :value => @purchase_balance.ppn_value.blank? ? 0 : @purchase_balance.ppn_value, :style =>'text-align:right;', :readonly => true, :size => 18) %></td>
+  </tr>
+  <tr>
+    <td>Total</td>
+    <td><%= f.text_field(:transaction_value,:style =>'text-align:right;', :readonly => true, :size => 18) %></td>
+  </tr>
+  <tr>
+    <td>Pembayaran</td>
+    <td><%= f.text_field(:payment_value, :style =>'text-align:right;', :size => 18) %></td>
+  </tr>
+</table>
+
+<table class="search_table" cellpadding="2" cellspacing="0" width="330" style="float: left; margin-left: 10px">
+  <tr>
+    <td valign="top">Keterangan</td>
+    <td><%= f.text_area(:description, :cols => 32, :rows => 5) %></td>
+  </tr>
+</table>
+<div style="clear:both;"></div>
+<br />
+

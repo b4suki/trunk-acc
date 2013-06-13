@@ -1,0 +1,15 @@
+# Read about fixtures at http://ar.rubyonrails.org/classes/Fixtures.html
+
+one:
+  sale_balance_id: 1
+  service_id: 1
+  qty: 1.5
+  price: 1.5
+  subtotal: 1.5
+
+two:
+  sale_balance_id: 1
+  service_id: 1
+  qty: 1.5
+  price: 1.5
+  subtotal: 1.5

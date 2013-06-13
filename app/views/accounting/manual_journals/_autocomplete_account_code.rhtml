@@ -1,0 +1,23 @@
+<div id="autocomplete_account_code" style="z-index:10;" class="autocomplete_redbox">
+  <div id="RB_body" style="width: 100px;height:50px;">
+    <p>
+      Kode Rekening <span id="indicator-account-code" style="display:none;"><%= image_tag "ajax-loader.gif" %></span><br />
+      <%= text_field_with_auto_complete :account, :code, { :size => 30 }, :skip_style => true, :indicator => "indicator-account-code" -%>
+    </p>
+    <%= hidden_field :account_id, "", :id => 'account_id' %>
+    <%= link_to_function "Pilih", "{$('#{type}_account_id_#{index}').value = $('account_id').value;
+$('account_#{type}_#{index}').value = $('account_code').value;
+$('autocomplete_account_code').hide();
+}" %>
+    <%= link_to_function "Batal","$('autocomplete_account_code').hide()" %>
+  </div>
+</div>
+
+<script type="text/javascript">
+var accounts = new Array();
+<% validate_account.each_with_index  do |x,i|%>
+accounts[<%=i%>]='<%= x %>';
+<% end %>
+var validate = new LiveValidation('account_code');
+validate.add(Validate.Inclusion,{ within: accounts});
+</script>

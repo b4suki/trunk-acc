@@ -1,0 +1,15 @@
+<%= popup_title "Buat Modul" %>
+
+<div id="RB_body" style="width: 500px;">
+<% form_for(:modul, @modul, :url => {:action => 'create_modul'}) do |f| %>
+  <%= f.error_messages %>
+  <label>Nama Modul:</label>
+  <%= f.text_field "name" %> <br />
+  <label>Nama Controller:</label>
+  <%= f.text_field "controller_name" %> <br />
+  <br/><br/>
+  <p>
+    <%= f.submit "Simpan" %>
+  </p>
+<% end %>
+</div>

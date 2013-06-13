@@ -1,0 +1,273 @@
+--- 
+exchange_rates_032: 
+  updated_at: 2008-12-12 09:36:52
+  rate: "1.9704"
+  id: "32"
+  issued_on: "2008-12-11"
+  base_currency: EUR
+  created_at: 2008-12-12 07:25:04
+  currency: SGD
+exchange_rates_021: 
+  updated_at: 2008-12-12 09:36:52
+  rate: "1.9889"
+  id: "21"
+  issued_on: "2008-12-11"
+  base_currency: EUR
+  created_at: 2008-12-12 07:25:04
+  currency: AUD
+exchange_rates_010: 
+  updated_at: 2008-12-12 09:36:52
+  rate: "3.4528"
+  id: "10"
+  issued_on: "2008-12-11"
+  base_currency: EUR
+  created_at: 2008-12-12 07:25:03
+  currency: LTL
+exchange_rates_033: 
+  updated_at: 2008-12-12 09:36:52
+  rate: "46.345"
+  id: "33"
+  issued_on: "2008-12-11"
+  base_currency: EUR
+  created_at: 2008-12-12 07:25:04
+  currency: THB
+exchange_rates_022: 
+  updated_at: 2008-12-12 09:36:52
+  rate: "3.1663"
+  id: "22"
+  issued_on: "2008-12-11"
+  base_currency: EUR
+  created_at: 2008-12-12 07:25:04
+  currency: BRL
+exchange_rates_011: 
+  updated_at: 2008-12-12 09:36:52
+  rate: "0.7092"
+  id: "11"
+  issued_on: "2008-12-11"
+  base_currency: EUR
+  created_at: 2008-12-12 07:25:03
+  currency: LVL
+exchange_rates_034: 
+  updated_at: 2008-12-12 09:36:52
+  rate: "13.3991"
+  id: "34"
+  issued_on: "2008-12-11"
+  base_currency: EUR
+  created_at: 2008-12-12 07:25:04
+  currency: ZAR
+exchange_rates_023: 
+  updated_at: 2008-12-12 09:36:52
+  rate: "1.6383"
+  id: "23"
+  issued_on: "2008-12-11"
+  base_currency: EUR
+  created_at: 2008-12-12 07:25:04
+  currency: CAD
+exchange_rates_012: 
+  updated_at: 2008-12-12 09:36:52
+  rate: "3.9865"
+  id: "12"
+  issued_on: "2008-12-11"
+  base_currency: EUR
+  created_at: 2008-12-12 07:25:03
+  currency: PLN
+exchange_rates_001: 
+  updated_at: 2008-12-12 09:36:51
+  rate: "1"
+  id: "1"
+  issued_on: "2008-12-11"
+  base_currency: EUR
+  created_at: 2008-12-12 07:25:03
+  currency: EUR
+exchange_rates_024: 
+  updated_at: 2008-12-12 09:36:52
+  rate: "9.054"
+  id: "24"
+  issued_on: "2008-12-11"
+  base_currency: EUR
+  created_at: 2008-12-12 07:25:04
+  currency: CNY
+exchange_rates_013: 
+  updated_at: 2008-12-12 09:36:52
+  rate: "3.9138"
+  id: "13"
+  issued_on: "2008-12-11"
+  base_currency: EUR
+  created_at: 2008-12-12 07:25:03
+  currency: RON
+exchange_rates_002: 
+  updated_at: 2008-12-12 09:36:52
+  rate: "1.3215"
+  id: "2"
+  issued_on: "2008-12-11"
+  base_currency: EUR
+  created_at: 2008-12-12 07:25:03
+  currency: USD
+exchange_rates_025: 
+  updated_at: 2008-12-12 09:36:52
+  rate: "10.2417"
+  id: "25"
+  issued_on: "2008-12-11"
+  base_currency: EUR
+  created_at: 2008-12-12 07:25:04
+  currency: HKD
+exchange_rates_014: 
+  updated_at: 2008-12-12 09:36:52
+  rate: "10.58"
+  id: "14"
+  issued_on: "2008-12-11"
+  base_currency: EUR
+  created_at: 2008-12-12 07:25:03
+  currency: SEK
+exchange_rates_003: 
+  updated_at: 2008-12-12 09:36:52
+  rate: "120.67"
+  id: "3"
+  issued_on: "2008-12-11"
+  base_currency: EUR
+  created_at: 2008-12-12 07:25:03
+  currency: JPY
+exchange_rates_026: 
+  updated_at: 2008-12-12 09:36:52
+  rate: "14602.6"
+  id: "26"
+  issued_on: "2008-12-11"
+  base_currency: EUR
+  created_at: 2008-12-12 07:25:04
+  currency: IDR
+exchange_rates_015: 
+  updated_at: 2008-12-12 09:36:52
+  rate: "30.175"
+  id: "15"
+  issued_on: "2008-12-11"
+  base_currency: EUR
+  created_at: 2008-12-12 07:25:03
+  currency: SKK
+exchange_rates_004: 
+  updated_at: 2008-12-12 09:36:52
+  rate: "1.9558"
+  id: "4"
+  issued_on: "2008-12-11"
+  base_currency: EUR
+  created_at: 2008-12-12 07:25:03
+  currency: BGN
+exchange_rates_027: 
+  updated_at: 2008-12-12 09:36:52
+  rate: "1800.54"
+  id: "27"
+  issued_on: "2008-12-11"
+  base_currency: EUR
+  created_at: 2008-12-12 07:25:04
+  currency: KRW
+exchange_rates_016: 
+  updated_at: 2008-12-12 09:36:52
+  rate: "1.5737"
+  id: "16"
+  issued_on: "2008-12-11"
+  base_currency: EUR
+  created_at: 2008-12-12 07:25:03
+  currency: CHF
+exchange_rates_005: 
+  updated_at: 2008-12-12 09:36:52
+  rate: "25.965"
+  id: "5"
+  issued_on: "2008-12-11"
+  base_currency: EUR
+  created_at: 2008-12-12 07:25:03
+  currency: CZK
+exchange_rates_028: 
+  updated_at: 2008-12-12 09:36:52
+  rate: "17.5615"
+  id: "28"
+  issued_on: "2008-12-11"
+  base_currency: EUR
+  created_at: 2008-12-12 07:25:04
+  currency: MXN
+exchange_rates_017: 
+  updated_at: 2008-12-12 09:36:52
+  rate: "9.2065"
+  id: "17"
+  issued_on: "2008-12-11"
+  base_currency: EUR
+  created_at: 2008-12-12 07:25:03
+  currency: NOK
+exchange_rates_006: 
+  updated_at: 2008-12-12 09:36:52
+  rate: "7.4503"
+  id: "6"
+  issued_on: "2008-12-11"
+  base_currency: EUR
+  created_at: 2008-12-12 07:25:03
+  currency: DKK
+exchange_rates_029: 
+  updated_at: 2008-12-12 09:36:52
+  rate: "4.7138"
+  id: "29"
+  issued_on: "2008-12-11"
+  base_currency: EUR
+  created_at: 2008-12-12 07:25:04
+  currency: MYR
+exchange_rates_018: 
+  updated_at: 2008-12-12 09:36:52
+  rate: "7.1818"
+  id: "18"
+  issued_on: "2008-12-11"
+  base_currency: EUR
+  created_at: 2008-12-12 07:25:03
+  currency: HRK
+exchange_rates_007: 
+  updated_at: 2008-12-12 09:36:52
+  rate: "15.6466"
+  id: "7"
+  issued_on: "2008-12-11"
+  base_currency: EUR
+  created_at: 2008-12-12 07:25:03
+  currency: EEK
+exchange_rates_030: 
+  updated_at: 2008-12-12 09:36:52
+  rate: "2.399"
+  id: "30"
+  issued_on: "2008-12-11"
+  base_currency: EUR
+  created_at: 2008-12-12 07:25:04
+  currency: NZD
+exchange_rates_019: 
+  updated_at: 2008-12-12 09:36:52
+  rate: "36.7912"
+  id: "19"
+  issued_on: "2008-12-11"
+  base_currency: EUR
+  created_at: 2008-12-12 07:25:03
+  currency: RUB
+exchange_rates_008: 
+  updated_at: 2008-12-12 09:36:52
+  rate: "0.8869"
+  id: "8"
+  issued_on: "2008-12-11"
+  base_currency: EUR
+  created_at: 2008-12-12 07:25:03
+  currency: GBP
+exchange_rates_031: 
+  updated_at: 2008-12-12 09:36:52
+  rate: "63.13"
+  id: "31"
+  issued_on: "2008-12-11"
+  base_currency: EUR
+  created_at: 2008-12-12 07:25:04
+  currency: PHP
+exchange_rates_020: 
+  updated_at: 2008-12-12 09:36:52
+  rate: "2.0504"
+  id: "20"
+  issued_on: "2008-12-11"
+  base_currency: EUR
+  created_at: 2008-12-12 07:25:03
+  currency: TRY
+exchange_rates_009: 
+  updated_at: 2008-12-12 09:36:52
+  rate: "264.45"
+  id: "9"
+  issued_on: "2008-12-11"
+  base_currency: EUR
+  created_at: 2008-12-12 07:25:03
+  currency: HUF

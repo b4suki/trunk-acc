@@ -1,0 +1,6 @@
+<span id="option_debit">
+  <%= select("journal","debit", option_select_debit_filter(result),{:selected => $SELECTED_DEBIT == "all" ? "all" : $SELECTED_DEBIT.to_f}, 
+    {:onchange => remote_function(
+                  :url => {:action => 'filter_debit'}, 
+                  :with => "'value='+this.value+'&type=job&month='+#{date[:month]}+'&year='+#{date[:year]}")})%>
+</span>  

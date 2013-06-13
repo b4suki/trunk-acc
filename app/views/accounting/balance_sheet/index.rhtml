@@ -1,0 +1,83 @@
+<div id="search">
+  <% form_tag(:action => :index) do %>
+    <table width="200" class="search_table" cellpadding="5" cellspacing="0">
+      <tr><th colspan="2">Filter Bulan</th></tr>
+      <tr><td>Bulan</td><td>&nbsp;&nbsp;<%= select_month(default_filter_month, :use_month_names => indonesian_month_names ) %></td></tr>
+      <tr><td>Tahun</td><td>&nbsp;&nbsp;<%= select_year(default_filter_year, :start_year => 2000, :end_year => 2030) %></td></tr>
+      <tr><td colspan="2" align="right"><%= submit_tag "Proses", :class => "btn-submit" %></td></tr>
+    </table>
+  <% end %>
+</div>
+<br />
+
+<table width="1000" cellpadding="0" cellspacing="0">
+  <tr>
+    <td valign="top" style="width: 499px">
+      <table width="100%" class="main_table" cellpadding="0" cellspacing="0">
+        <tr class='grid_1'>
+          <th colspan="2">ASSETS</th>
+        </tr>
+        <%= display_current_asset(@date) %>
+      </table>
+    </td>
+    <td style="width: 2px"></td>
+    <td valign="top" style="width: 499px">
+      <table width="100%" class="main_table" cellpadding="0" cellspacing="0">
+        <tr class='grid_1'>
+          <th colspan="2">LIABILITIES AND CAPITAL</th>
+        </tr>
+        <tr class='grid_1'>
+          <th colspan="2">LIABILITIES </th>
+        </tr>
+        <%= display_liabilities(@date) %>
+        <tr class='grid_footer'>
+          <td><%= create_space(2) %>TOTAL LIABILITIES</td>
+          <td style="text-align:right;"><%= format_currency($TOTAL_LIABILITIES) %></td>
+        </tr>
+        <tr class='grid_1'>
+          <th colspan="2">CAPITAL</th>
+        </tr>
+        <%= display_capital(@date) %>
+        <tr class='grid_footer'>
+          <td><%= create_space(2) %>TOTAL CAPITAL</td>
+          <td style="text-align:right;"><%= format_currency($TOTAL_CAPITAL) %></td>
+        </tr>
+      </table>
+
+    </td>
+  </tr>
+  <tr><td colspan="3">&nbsp;</td></tr>
+  <tr>
+    <td>
+      <table width="100%" class="main_table" cellpadding="0" cellspacing="0">
+        <tr class='grid_footer'>
+          <td>TOTAL ASSETS</td>
+          <td style="text-align:right;"><%= format_currency($TOTAL_CURRENT_ASSET)%></td>
+        </tr>
+      </table>
+    </td>
+    <td></td>
+    <td><table width="100%" class="main_table" cellpadding="0" cellspacing="0">
+        <tr class='grid_footer'>
+          <td>TOTAL LIABILITIES AND CAPITAL</td>
+          <td style="text-align:right;"><%= format_currency($TOTAL_CAPITAL+$TOTAL_LIABILITIES) %></td>
+        </tr>
+      </table></td>
+  </tr>
+  <td colspan="3">
+    <table width="100%" class="main_table" cellpadding="0" cellspacing="0">
+      <tr class='grid_footer'>
+        <td colspan="3"><%= link_to "Export PDF", {
+            :controller => '/accounting/balance_sheet',
+            :action => :index ,
+            :format => 'pdf'
+          }, :class => "a_pdf" %><span class="blue_split">&nbsp;</span>
+          <%= link_to "Export EXCEL", {
+            :controller => '/accounting/balance_sheet',
+            :action => :index,
+            :format => 'xls'
+          }, :class => "a_xls" %></td>
+      </tr>
+    </table>
+  </td>
+</table>

@@ -1,0 +1,5 @@
+<ul class="autocomplete_customer">
+  <% for customer in @customers -%>
+     <li id="<%= customer.id %>" style="width: 350;" class="autocomplete_item"><%= "#{customer.name}"  %></li>
+  <% end -%>
+</ul>

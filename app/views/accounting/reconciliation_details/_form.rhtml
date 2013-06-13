@@ -1,0 +1,12 @@
+<p>
+  Sumber Transaksi<br />
+  <%= select_tag "reconciliation_detail[transaction_source]", options_for_select([["- Pilih -", ""], ["Perusahaan", "company"], ["Bank", "bank"]], selected_transaction_source(@reconciliation_detail)) %>
+</p>
+<p>
+  Jenis Transaksi<br />
+  <%= select_tag "reconciliation_detail[transaction_type]", options_for_select([["- Pilih -", ""], ["Bertambah", "debit"], ["Berkurang", "credit"]], selected_transaction_type(@reconciliation_detail)) %>
+</p>
+<p>
+  <%= f.label :name %><br />
+  <%= f.text_field :name %>
+</p>

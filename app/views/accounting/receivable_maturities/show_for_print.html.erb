@@ -1,0 +1,135 @@
+<%#*<div style="border-bottom: solid black 2px; width: 600px; text-align: center;">%>
+  <%#*INVOICE%>
+<%#*</div>%>
+<%#*<div style="clear: both"></div>%>
+<div style="float: right;">
+  </div>
+<div style="clear: both;"></div>
+<br />
+<div style="width: 600px;">
+<div style="border: solid black 1px; width: 250px; height: 60px; padding: 2px 2px; float: left;">
+  <p><strong><%= render :partial => "shared/updatable_print_content", :locals => {:id => "label-sold-to", :content => "Sold To"} %> : </strong><%= @receivable.customer.name  %> </p><br />
+  <p><strong><%= render :partial => "shared/updatable_print_content", :locals => {:id => "label-deliver-to", :content => "Deliver to"} %> : </strong><%= @receivable.customer.address  %> </p>
+</div>
+<div style="width: 300px; height: 100px; padding: 2px 2px; float: right; margin-left: 20px">
+  <table border="0">
+    <tr>
+      <td><%= render :partial => "shared/updatable_print_content", :locals => {:id => "label-invoice-no", :content => "Invoice No."} %></td>
+      <td>: <%= @receivable.evidence %></td>
+    </tr>
+    <tr>
+      <td><%= render :partial => "shared/updatable_print_content", :locals => {:id => "label-invoice-date", :content => "Invoice Date"} %></td>
+      <td>: <%= format_date(@receivable.updated_at) %></td>
+    </tr>
+    <tr>
+      <td><%= render :partial => "shared/updatable_print_content", :locals => {:id => "label-cust-po", :content => "Cust. PO"} %></td>
+      <td>: <%= @receivable.sale.po_num %></td>
+    </tr>
+    <tr>
+      <td><%= render :partial => "shared/updatable_print_content", :locals => {:id => "label-ref-letter-no", :content => "Ref. Letter no."} %></td>
+      <td>: <%= render :partial => "shared/updatable_print_content", :locals => {:id => "blank-ref-letter-no", :content => "-"} %></td>
+    </tr>
+    <tr>
+      <td><%= render :partial => "shared/updatable_print_content", :locals => {:id => "label-sales-order", :content => "Sales Order"} %></td>
+      <td>: <%= render :partial => "shared/updatable_print_content", :locals => {:id => "blank-sales-order", :content => "-"} %></td>
+    </tr>
+    <tr>
+      <td><%= render :partial => "shared/updatable_print_content", :locals => {:id => "label-terms", :content => "Terms"} %></td>
+      <td>: <%= render :partial => "shared/updatable_print_content", :locals => {:id => "blank-terms", :content => "T/T"} %></td>
+    </tr>
+    <tr>
+      <td><%= render :partial => "shared/updatable_print_content", :locals => {:id => "label-currency", :content => "Currency"} %></td>
+      <td>: <%= @receivable.sale.currency.name %></td>
+    </tr>
+    <tr>
+      <td><%= render :partial => "shared/updatable_print_content", :locals => {:id => "label-shipped-by", :content => "Shipped by"} %></td>
+      <td>: <%= render :partial => "shared/updatable_print_content", :locals => {:id => "blank-shipped-by", :content => "-"} %></td>
+    </tr>
+  </table>
+</div>
+<div style="clear: both;"></div>
+</div>
+<br /><br /><br /><br />
+<div>
+  <table border="1" cellspacing="0" cellpadding="3" width="600">
+    <tr>
+      <th style="text-align:center;"><%= render :partial => "shared/updatable_print_content", :locals => {:id => "label-nomer", :content => "No."} %></th>
+      <th style="text-align:center;"><%= render :partial => "shared/updatable_print_content", :locals => {:id => "label-desc", :content => "Description"} %></th>
+      <th style="text-align:center;"><%= render :partial => "shared/updatable_print_content", :locals => {:id => "label-qty", :content => "Qty"} %></th>
+      <th style="text-align:center;"><%= render :partial => "shared/updatable_print_content", :locals => {:id => "label-unit-price", :content => "Unit Price "} %>(<%= @receivable.sale.currency.name %>)</th>
+      <th style="text-align:center;"><%= render :partial => "shared/updatable_print_content", :locals => {:id => "label-total", :content => "TOTAL"} %> (<%= @receivable.sale.currency.name %>)</th>
+    </tr>
+      <% @receivable.sale.accounting_sale_balance_details.each_with_index do |detail, i| %>
+        <tr>
+          <td style="text-align:center;"><%= i+1 %></td>
+          <% if detail.position.nil? %>
+            <% product_name = detail.product_name %>
+          <% else %>
+            <% product_name = detail.position=="before" ? "#{detail.description rescue nil} #{detail.product_name}" : "#{detail.product_name} #{detail.description rescue nil}" %>
+          <% end %>
+          <td><%= product_name %></td>
+          <td style="text-align:center;"><%= detail.qty.to_i %></td>
+          <td style="text-align:right;"><%= format_currency(detail.price) %></td>
+          <td style="text-align:right;"><%= format_currency(detail.subtotal) %></td>
+        </tr>
+      <% end %>
+    <tr>
+      <td colspan="3">&nbsp;</td>
+      <td><%= render :partial => "shared/updatable_print_content", :locals => {:id => "label-subtotal", :content => "Subtotal"} %></td>
+      <td style="text-align:right;"><%= format_currency(@receivable.sale.subtotal) %></td>
+    </tr>
+    <tr>
+      <td colspan="3">&nbsp;</td>
+      <td><%= render :partial => "shared/updatable_print_content", :locals => {:id => "label-vat", :content => "VAT"} %></td>
+      <td style="text-align:right;"><%= format_currency(@receivable.sale.ppn_value) %></td>
+    </tr>
+    <tr>
+      <td colspan="3">&nbsp;</td>
+      <td><%= render :partial => "shared/updatable_print_content", :locals => {:id => "label-discount", :content => "Discount"} %> (<%= "#{@receivable.sale.disc_percentage}%" %>)</td>
+      <td style="text-align:right;"><%= format_currency(@receivable.sale.discount) %></td>
+    </tr>
+    <tr>
+      <td colspan="3">&nbsp;</td>
+      <td><%= render :partial => "shared/updatable_print_content", :locals => {:id => "label-total2", :content => "TOTAL"} %></td>
+      <td style="text-align:right;"><%= format_currency(@receivable.sale.transaction_value) %></td>
+    </tr>
+    <tr>
+      <td colspan="3">&nbsp;</td>
+      <% persentase_dp =  (@receivable.sale.payment_value / @receivable.sale.transaction_value)*100 %>
+      <td><%= render :partial => "shared/updatable_print_content", :locals => {:id => "label-total2", :content => "Uang Muka Yang Telah Diterima #{number_to_percentage(persentase_dp, :precision => 2)}"} %></td>
+      <td style="text-align:right;"><%= format_currency(@receivable.sale.payment_value) %></td>
+    </tr>
+    <tr>
+    <%# @sale.receivables.each_with_index do |receivable, i| %>
+      <td colspan="3">&nbsp;</td>
+      <td><%= render :partial => "shared/updatable_print_content", :locals => {:id => "label-total2", :content => "Pembayaran ke- #{@index}"} %></td>
+      <td style="text-align:right;"><%= format_currency(@receivable.payed_value) %></td>
+    <%# end %>
+    </tr>
+    <tr>
+      <td colspan="3">&nbsp;</td>
+      <% 
+        not_paid = @receivable.sale.amount_account_payable
+        persentage_not_paid = (not_paid/@receivable.sale.transaction_value)*100
+      %>
+      <td><%= render :partial => "shared/updatable_print_content", :locals => {:id => "label-total2", :content => "Sisa yang Belum Dibayar #{number_to_percentage(persentage_not_paid, :precision => 2)}"} %></td>
+      <td style="text-align:right;"><%= format_currency(not_paid )  %></td>
+    </tr>
+  </table>
+</div>
+<br /><br />
+<% if !@receivable.sale.description.nil? && @receivable.sale.description!="" %>
+<div>
+  <p><%= render :partial => "shared/updatable_print_content", :locals => {:id => "label-keterangan", :content => "Keterangan "} %> :</p>
+  <p><%= @receivable.description %></p>
+</div>
+<% end %>
+<br />
+<div style="text-align: center; width: 215px;">
+  <p>
+    <%= @receivable.sale.accounting_sale_signature.company_name %><br /><br /><br /><br /><br /><br /><br />
+    <%= @receivable.sale.accounting_sale_signature.signatory %><br />
+    <%= @receivable.sale.accounting_sale_signature.position %>
+  </p>
+</div>
+<br />

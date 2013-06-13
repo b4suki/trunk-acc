@@ -1,0 +1,24 @@
+<h3><%= @title %></h3>
+<h3>Bulan <%= selected_export_month($month) %>  Tahun <%= $year %> </h3>
+
+<table width="100%" class='main_table' cellpadding='0' cellspacing='0' border="1">
+  <tr class='grid_1'>
+    <th style="width: 100px;" align="center" rowspan="2" colspan="5">No Rekening</th>
+    <th style="width: 400px;" align="center" rowspan="2">Deskripsi</th>
+    <th style="width: 125px;" align="center" rowspan="2">Saldo Awal</th>
+    <th style="width: 250px;" align="center" colspan="2">Mutasi</th>
+    <th style="width: 125px;" align="center" rowspan="2">Saldo Akhir</th>
+  </tr>
+  <tr class='grid_1'>
+    <th style="width:125px;" align="center" >Debet</th>
+    <th style="width:125px;" align="center" >Kredit</th>
+  </tr>
+  <%= display_account_on_trial_balance(@accounts, @result, @date, true )%>
+  <tr class="grid_footer">
+    <th colspan="6">&nbsp;</th>
+    <th style="text-align:right;" ><%= format_currency($SUMMARY_PREVIOUS) %></th>
+    <th style="text-align:right;" ><%= format_currency($SUMMARY_DEBET) %></th>
+    <th style="text-align:right;" ><%= format_currency($SUMMARY_CREDIT) %></th>
+    <th style="text-align:right;" ><%= format_currency($SUMMARY_SALDO) %></th>
+  </tr>
+</table>

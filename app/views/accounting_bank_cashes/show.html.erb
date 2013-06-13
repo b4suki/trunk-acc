@@ -1,0 +1,13 @@
+<p>
+  <b>Account:</b>
+  <%=h @accounting_bank_cash.account_id %>
+</p>
+
+<p>
+  <b>Description:</b>
+  <%=h @accounting_bank_cash.description %>
+</p>
+
+
+<%= link_to 'Edit', edit_accounting_bank_cash_path(@accounting_cash) %> |
+<%= link_to 'Back', accounting_bank_cashes_path %>

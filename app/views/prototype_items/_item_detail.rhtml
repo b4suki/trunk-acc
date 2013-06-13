@@ -1,0 +1,15 @@
+<td colspan="<%=14%>">
+  <table class="main_table" cellpadding="0" cellspacing="0" width="500px">
+    <tr class="grid_1">
+      <th>Nama</th>
+      <th>Qty</th>
+    </tr>
+    <% item_details.each do |detail| %>
+      <tr class="grid_2">
+        <td><%= detail.item.name %></td>
+        <td align="right"><%= detail.quantity %></td>
+      </tr>
+    <% end %>
+    
+  </table>
+</td>

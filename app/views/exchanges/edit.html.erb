@@ -1,0 +1,12 @@
+<%=  popup_title "Edit Data Nilai Tukar" %>
+
+<div id="RB_body" style="width: 400px;">
+<% form_for(:exchange, @exchange, :url => exchange_path(@exchange), :html=> {:method=>'put'})  do |f| %>
+  <%= f.error_messages %>
+  <%= render :partial => 'form', :locals => { :f => f} %>  
+  <p>    
+    <br />
+    <%= f.submit "Update" %>
+  </p>
+<% end %>
+</div>

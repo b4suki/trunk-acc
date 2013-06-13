@@ -1,0 +1,13 @@
+<%=  popup_title "Edit Data Vendor" %>
+
+<div id="RB_body" style="width: 400px;">
+<% form_for(:vendor, @vendor, :url => vendor_path(@vendor), :html=> {:method=>'put'})  do |f| %>
+<%# form_for(:vendor, @vendor, :url => {:action => 'update'})  do |f| %>
+  <%= f.error_messages %>
+  <%= render :partial => 'form', :locals => { :f => f , :a => 'edit'} %>  
+  <p>    
+    <br />
+    <%= f.submit "Update" %>
+  </p>
+<% end %>
+</div>

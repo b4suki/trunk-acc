@@ -1,0 +1,5 @@
+<ul class="autocomplete_list" >
+  <% for customer in customers -%>
+     <li id="<%= customer.id %>" style="width: 250px;" class="autocomplete_item"><%= customer.name %></li>
+  <% end -%>
+</ul>

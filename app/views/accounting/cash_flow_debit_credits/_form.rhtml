@@ -1,0 +1,18 @@
+<div style="float: left;margin: 0px 20px 5px 5px;">
+  Kode Rekening <br />
+  <%= text_field_with_auto_complete :account, :code, { :size => 30, :value => @accounting_cash_flow_debit_credit.nil? || @accounting_cash_flow_debit_credit.account.nil? ? "" : @accounting_cash_flow_debit_credit.account.code.to_s+"   "+@accounting_cash_flow_debit_credit.account.description.to_s }, :skip_style => true -%>
+  <script type="text/javascript">
+    var validate = new LiveValidation('account_code');
+    validate.add(Validate.Presence );
+  </script>
+  <%= f.hidden_field :account_id, :id => 'account_code_id' %> <br />
+  <script type="text/javascript">
+    var test = new Array();
+<% validate_account.each_with_index  do |x,i|%>
+    test[<%=i%>]='<%= x %>';
+<%end%>
+  var validate = new LiveValidation('account_code'); 
+  validate.add(Validate.Inclusion,{ within: test});
+  </script>
+  <%= f.hidden_field :category_id, :value => @accounting_cash_flow_debit_credit.category_id.nil? ? params[:category_id] : @accounting_cash_flow_debit_credit.category_id %>
+</div>

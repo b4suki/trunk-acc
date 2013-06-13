@@ -1,0 +1,33 @@
+<% total_last_value = 0%>
+<% total_debit_mutation = 0%>
+<% total_credit_mutation = 0%>
+<% total_current_value = 0 %>
+<% unless receivables.empty? %>
+  <% receivables.each_with_index do |receivable,i|%>
+    <% last_value = get_last_value_receive(receivable.customer_id,$month) if receivable.customer %>
+    <% debit_mutation = get_debit_mutations_receive(receivable.customer_id) if receivable.customer %>
+    <% credit_mutation = get_credit_mutations_receive(receivable.customer_id) if receivable.customer %>
+    <tr class=<%= cycle("grid_2","grid_3") %>>
+      <td><%= i + 1%></td>
+      <td><%= receivable.customer.name if receivable.customer %></td>
+      <% current_value = (last_value+debit_mutation) - credit_mutation %>
+      <td style='text-align:right;'><%= format_currency(last_value) %></td>
+      <td style="text-align:right;"><%= format_currency(debit_mutation)%></td>
+      <td style='text-align:right;'><%= format_currency(credit_mutation) %></td>
+      <td style='text-align:right;'><%= format_currency(current_value) %></td>
+      <% total_last_value += last_value %>
+      <% total_debit_mutation += debit_mutation %>
+      <% total_credit_mutation += credit_mutation%>
+      <% total_current_value += current_value %>
+    </tr>
+  <% end %>
+  <tr class="grid_2" style="font-weight:bold; text-align:center;">
+    <th colspan=2 style='text-align:right;'>Total</th>
+    <th style="text-align:right;"><%= format_currency(total_last_value)%></th>
+    <th style="text-align:right;"><%= format_currency(total_debit_mutation)%></th>
+    <th style="text-align:right;"><%= format_currency(total_credit_mutation)%></th>
+    <th style="text-align:right;"><%= format_currency(total_current_value)%></th>
+  </tr>
+<% else %>
+  <th colspan="6" style="text-align:center;">Tidak Ada Data</th>
+<% end %>

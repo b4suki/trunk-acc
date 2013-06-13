@@ -1,0 +1,23 @@
+<h1>Buat Kode Rekening Baru</h1>
+
+<% form_tag :action => :create do %>
+  <%= error_messages_for :account %>
+  <%= hidden_field :account, :parent_id, :value => params[:parent_id]%>
+  <p>
+    <label><b>Kode: </b></label>
+    <% if params[:parent_id] %>
+      <%= text_field :account, :code_a, :size => 1, :value => Accounting::AccountingAccount.find(params[:parent_id]).code_a, :read_only => true %>
+    <% else %>
+       <%= text_field :account, :code_a, :size => 1 %>
+    <% end %>  
+    <%= text_field :account, :code_2, :size => 1 %>
+    <%= text_field :account, :code_3, :size => 1 %>
+    <%= text_field :account, :code_4, :size => 1 %>
+    <%= text_field :account, :code_5, :size => 1 %> <br /><br />
+    <label><b>Deskripsi: </b></label>
+    <%= text_field :account, :description, :value => "" %>
+  </p>
+  <p>
+    <%= submit_tag "Create" %>
+  </p>
+<% end %>

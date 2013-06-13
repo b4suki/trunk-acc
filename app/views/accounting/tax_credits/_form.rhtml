@@ -1,0 +1,37 @@
+<div style="float:left;margin: 5px 20px 5px 5px;">
+  Tanggal SSP<br />
+  <%= f.date_splicer :ssp_date, :default_to_now => true %><br />
+  <div class="to_remove">
+    Customer <span id="indicator-customer-name" style="display:none;"><%= image_tag "ajax-loader.gif" %></span><br />
+    <%= text_field_with_auto_complete :customer, :name, { :size => 30, :value => selected_customer(@tax_credit) }, :skip_style => true, :indicator => "indicator-customer-name" -%>
+    <%= f.hidden_field :customer_id, :id => "customer_name_id", :value => selected_customer_id(@tax_credit) %>
+    <br />
+    Jenis Pajak<br />
+    <%= select_tag "tax_credit[tax_type]", options_for_select([["PPh 22 (import)", "PPh 22 (import)"], ["PPh 22 (bendahara)", "PPh 22 (bendahara)"], ["PPh 23", "PPh 23"], ["PPh 25", "PPh 25"]], @tax_credit.tax_type) %>
+    <br />
+    No. Bukti Potong / PIBT<br />
+    <%= f.text_field :evidence %>
+    <br />
+  </div>
+</div>
+<div style="float:left;margin: 5px 5px 5px 5px;">
+  Jumlah<br />
+  <%= f.text_field :amount, :value => @tax_credit.amount == 0 || @tax_credit.amount == 0.0 ? "" : @tax_credit.amount %><br />
+</div>
+<br/>
+
+<script type="text/javascript">
+  var customers = new Array();
+<% validate_customer.each_with_index  do |x, i| %>
+    customers[<%=i%>]='<%= x %>';
+<% end %>
+
+var val_customer_name = new LiveValidation('customer_name');
+val_customer_name.add(Validate.Inclusion,{ within: customers});
+val_customer_name.add(Validate.Presence)
+var val_evidence = new LiveValidation('tax_credit_evidence');
+val_evidence.add(Validate.Presence)
+var val_amount = new LiveValidation('tax_credit_amount');
+val_amount.add(Validate.Presence)
+val_amount.add(Validate.Numericality)
+</script>

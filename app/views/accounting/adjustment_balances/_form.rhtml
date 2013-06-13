@@ -1,0 +1,35 @@
+<p>Tanggal Transaksi<br />
+  <%= f.date_splicer :adjustment_date, :default_to_now => true %>  
+</p> 
+<p>No Bukti <br />
+  <%= f.text_field :evidence_no %>
+</p>
+<p>Keterangan <br />
+  <%= f.text_field :description %>
+</p>
+<p>No. Job <br />
+  <%= f.text_field :job_no %>
+</p>
+<p>Nilai <br />
+  <%= f.text_field :values %>
+</p>
+<p> 
+  Kode Rekening <span id="indicator-account-code" style="display:none;"><%= image_tag "ajax-loader.gif" %></span><br />  
+  <%= text_field_with_auto_complete :account, :code, { :size => 30, :value => @adjustment_balance.nil? || @adjustment_balance.accounting_account.nil? ? "" : @adjustment_balance.accounting_account.code.to_s+"   "+@adjustment_balance.accounting_account.description.to_s }, :skip_style => true, :indicator => "indicator-account-code" -%>  
+  <%= f.hidden_field :account_id, :id => 'account_code_id' %> <br />
+</p>
+ <%= check_box_tag "name", 1, @adjustment_balance.contra_account_id.nil? ? false : true, :onclick => "$('contra_account_code').toggle(); if (this.checked) {$('contra_account_code').focus();$('contra_account_code').show();}else{ $('adjustment_balance_contra_account_id').value='';}" %> Contra Account
+ <span id="indicator-contra-account-code" style="display:none;"><%= image_tag "ajax-loader.gif" %></span><br/>
+<%= text_field_with_auto_complete :contra_account, :code, { :size => 30, :style => @adjustment_balance.nil? || @adjustment_balance.contra_account_id.nil? ?  "display:none;" : "", :value => selected_account_adjustment(@adjustment_balance)}, :skip_style => true, :indicator => "indicator-contra-account-code" -%><br/>
+ <%= f.hidden_field :contra_account_id %>
+ <script type="text/javascript">
+      var test = new Array();
+      <% validate_account.each_with_index  do |x,i|%>
+        test[<%=i%>]='<%= x %>';
+      <% end %>       
+        var validate_account = new LiveValidation('account_code');
+        var validate = new LiveValidation('contra_account_code');    
+        validate.add(Validate.Inclusion,{ within: test}); 
+        validate_account.add(Validate.Inclusion,{ within: test}); 
+ </script> 
+

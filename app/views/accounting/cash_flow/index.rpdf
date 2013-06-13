@@ -1,0 +1,15 @@
+<h3><%= @title %></h3>
+<h3>Bulan <%= selected_month %> Tahun <%= selected_year %> </h3>
+
+<table border="1" cellpadding="0" cellspacing="0" width="100%" class="main_table" >
+  <% total_saldo = 0 %>
+  <% tmp = display_cash_flow(@operating_activity, @date) %>
+  <%= tmp[0] %>
+  <% total_saldo += tmp[1] %>
+  <% tmp = display_cash_flow(@investing_activity, @date) %>
+  <%= tmp[0] %>
+  <% total_saldo += tmp[1] %>
+  <% tmp = display_cash_flow(@financing_activity, @date) %>
+  <%= tmp[0] %>
+  <% total_saldo += tmp[1] %>
+</table>

@@ -1,0 +1,23 @@
+<h2 align="center"><%= @title %></h2><br /><br />
+
+<table width="700px" border="1">
+  <thead>
+    <tr class="grid_1">
+      <th>No</th>
+      <th><%= link_to "Nama Layanan", :action => :index, :sort => "name" %></th>
+      <th><%= link_to "Harga", :action => :index, :sort => "price" %></th>
+    </tr>
+  </thead>
+
+  <% unless @services.empty? %>
+    <% @services.each_with_index do |service, i| %>
+      <tr class=<%= cycle("grid_2","grid_3") %>>
+        <td><%= i+1 %></td>
+        <td><%=h service.name %></td>
+        <td align="right"><%= format_currency(service.price) %></td>
+      </tr>
+    <% end %>
+  <% else %>
+    <tr class="grid_2"><td align="center" colspan="3">TIDAK ADA DATA</td></tr>
+  <% end %>
+</table>

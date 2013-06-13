@@ -1,0 +1,34 @@
+<table class="main_table" cellpadding="0" cellspacing="0" width="600">
+<tr><th colspan="6">Daftar Penanda tangan</th></tr>
+  <tr class="grid_1">
+    <td style="text-align :center;">Nama Perusahaan</td>
+    <td style="text-align :center;">Penanda tangan</td>
+    <td style="text-align :center;">Jabatan</td>
+    <td>&nbsp;</td>
+    <td>&nbsp;</td>
+  </tr>
+
+<div class="div_top_btn">
+<%= link_to("Kembali",accounting_sale_balances_path,{:class => "a_top_btn"}) %>
+</div>
+<div class="clear_right"></div>
+<% for sale_signature in @sale_signatures %>
+  <tr class=<%= cycle("grid_2","grid_3") %>>
+    <td style="width :100px;"><%=h sale_signature.company_name %></td>
+    <td style="width :200px;"><%=h sale_signature.signatory %></td>
+    <td style="width :200px;"><%=h sale_signature.position %></td>
+    <td><%= link_to_remote_redbox("Edit",{:url => "/accounting/sale_signatures/edit/#{sale_signature.id}"},{:class => "a_edit"})  %></td>
+    <td><%= link_to 'Hapus', accounting_sale_signature_path(sale_signature), :confirm => "Apakah anda yakin '#{sale_signature.signatory}' akan dihapus?", :method => :delete , :class => "a_delete"%></td>
+  </tr>
+<% end %>
+
+<tr class="grid_footer">
+    <td colspan="4" valign="center">
+      <%= link_to_remote_redbox("Input Penanda tangan", {:url => {:action => :new}}, {:class => "a_add"}) %>
+    </td>
+    <td colspan="2"></td>
+  </tr>
+</table>
+<br />
+
+

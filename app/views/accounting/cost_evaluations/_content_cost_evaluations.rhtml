@@ -1,0 +1,17 @@
+<% unless cost_evaluations.empty? %>
+<% $TOTAL_DEPTH = 0 %>
+<% $TOTAL_DEPTH = cost_evaluations.size %>
+    <% cost_evaluations.each_with_index do |eval,i| %>
+     <% $TOTAL_EXPENSES =  0 %>     
+     <tr class=<%= cycle("grid_2","grid_3") %>>
+        <td><%= i + 1 %></td>
+        <td style="color:red;"><%= eval.code %> </td>
+        <td style="color:red;"><%= eval.description%></td>         
+        <%= sum_first_account_code($year, i) %>
+        <%= generate_table_evaluations(eval, i) %>            
+        <%= last_account_code($TOTAL_DEPTH, i)%>        
+    <% end %>        
+    <%= sum_last_account_code($TOTAL_DEPTH)%>     
+    <% else %>      
+    <td>NO DATA <td>
+<% end %>

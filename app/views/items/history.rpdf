@@ -1,0 +1,106 @@
+<table id="data" class="main_table" cellpadding="0" cellspacing="0" width="1000px">
+  <% if @history_items.nil? %>
+  <tr class="grid_1">
+      <th>Date</th>
+      <th>Barang Masuk</th>
+      <th>Barang Keluar</th>
+      <th>Pengambilan</th>
+      <th>Sisa</th>
+      <th>Pembelian</th>
+      <th>Penjualan</th>
+      <th>Pengambilan</th>
+      <th>Saldo</th>
+    </tr>
+    <tr class="grid_2">
+      <td align="center" colspan="9>">Tidak Ada Data</td>
+    </tr>
+    <% else if !@history_items.nil?%>
+    <% @history_items.each_with_index do |history, index|   %>
+      <thead>
+        <tr class="grid_1">
+          <th><%= index + 1 %></th>
+          <th><%= history.item.name %></th>
+          <th colspan="1" align="left"></th>
+          <th style="text-align: center"><%= history.last_stock%></th>
+          <th align="left"></th>
+          <th align="left"></th>
+          <th align="left"></th>
+          <th align="left"></th>
+          <th align="left"><%= format_currency history.value%></th>
+        </tr>
+        <tr class="grid_1">
+          <th>Date</th>
+          <th>Barang Masuk</th>
+          <th>Barang Keluar</th>
+          <th>Pengambilan</th>
+          <th>Sisa</th>
+          <th>Pembelian</th>
+          <th>Penjualan</th>
+          <th>Pengambilan</th>
+          <th>Saldo</th>
+        </tr>
+        <% stock , pendapatan , sale, purchase, min, qty_out, qty_in, qty_min = history.last_stock, history.value , 0, 0, 0, 0, 0, 0 %>
+        <%@data[history.item.name].each do |info|  %>
+          <tr  class=<%= cycle("grid_2","grid_3") %>>
+            <td><%=  info[:date]%></td>
+      <%#*<td align="center" style="color: <%= 'blue'  if info[:sale] == true % >"><%=  info[:qty] % ></td>%>
+            <td align="center" style="color: <%= 'blue'  if info[:sale] == true %>"><%=  info[:sale] == false ? info[:qty]  : "-"%></td>
+            <td align="center" style="color: <%= 'blue'  if info[:sale] == true %>"><%=  info[:sale] == true ? info[:qty] : "-"%></td>
+            <td align="center" style="color: <%= 'red'  if info[:minus] == true %>"><%=  info[:minus] == true ? info[:qty] : "-"%></td>
+            <td align="center"><%=  info[:sale] == true || info[:minus] == true ? stock -= info[:qty]  : stock += info[:qty]%></td>
+            <td align="right"><%=  info[:sale] == false ? (format_currency info[:price]*info[:qty]) :  "-"%></td>
+            <td align="right" style="color: <%= 'blue'  if info[:sale] == true %>"><%=  info[:sale] == true ? (format_currency info[:price]*info[:qty]) : "-"%></td>
+            <td align="right" style="color: <%= 'red'  if info[:minus] == true %>"><%=  info[:minus] == true ? (format_currency info[:price]*info[:qty]) : "-"%></td>
+            <%  if info[:sale] == true
+              pendapatan -= info[:price] * info[:qty]
+              sale += info[:price] * info[:qty]
+              qty_out += info[:qty]
+            else if info[:sale] == false
+                pendapatan += info[:price] * info[:qty]
+                purchase += info[:price] * info[:qty]
+                qty_in += info[:qty]
+              else if info[:minus] == true
+                  pendapatan -= info[:price] * info[:qty]
+                  min += info[:price] * info[:qty]
+                  qty_min += info[:qty]
+                end
+              end
+            end
+          %>
+            <td align="right" ><%=  format_currency(pendapatan)%></td>
+          </tr>
+        <% end %>
+        <tr class="grid_1">
+          <th >Total</th>
+          <th style="text-align: center"><%= qty_in %></th>
+          <th style="text-align: center"><%= qty_out %></th>
+          <th style="text-align: center"><%= qty_min  %></th>
+          <th style="text-align: center"><%=  stock%></th>
+          <th style="text-align: right"><%= format_currency purchase %></th>
+          <th style="text-align: right"><%= format_currency sale %></th>
+          <th style="text-align: right"><%= format_currency min %></th>
+          <th style="text-align: right"><%= format_currency pendapatan  %> </th>
+        </tr>
+      </thead>
+      <tr class=<%= cycle("grid_2","grid_3") %>>
+        <td colspan="9"></td>
+      </tr>
+    <% end %>
+  <% else %>
+    <tr class="grid_1">
+      <th>Date</th>
+      <th>Barang Masuk</th>
+      <th>Barang Keluar</th>
+      <th>Pengambilan</th>
+      <th>Sisa</th>
+      <th>Pembelian</th>
+      <th>Penjualan</th>
+      <th>Pengambilan</th>
+      <th>Saldo</th>
+    </tr>
+    <tr class="grid_2">
+      <td align="center" colspan="9>">Tidak Ada Data</td>
+    </tr>
+  <% end %>
+  <% end %>
+</table>

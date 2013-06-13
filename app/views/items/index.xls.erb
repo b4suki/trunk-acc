@@ -1,0 +1,34 @@
+<h2 align="center"><%= @title %></h2><br /><br />
+
+<table width="700px" border="1">
+  <thead>
+    <tr class="grid_1">
+      <th>No</th>
+      <th>Tipe</th>
+      <th>Kode Item</th>
+      <th>Name</th>
+      <th>Satuan</th>
+      <th>Stock</th>
+      <th>Total Nilai</th>
+      <th>Keterangan</th>
+    </tr>
+  </thead>
+  <tbody>
+    <% unless @items.empty? %>
+      <% @items.each_with_index do |item, index| %>
+        <tr class=<%= cycle("grid_2","grid_3") %>>
+          <td><%= index + 1 %></td>
+          <td><%=h item.type.name rescue nil %></td>
+          <td><%=h item.nil? || item.item_code.nil? ? "" : item.item_code %></td>
+          <td><%=h item.name rescue nil %></td>
+          <td><%=h item.nil? || item.unit.nil? ? "" : item.unit.name %></td>
+          <td align="right"><%= item.stock %></td>
+          <td align="right"><%= format_currency(item.total_value) %></td>
+          <td><%=h item.nil? ? "" : item.description %></td>
+        </tr>
+      <% end %>
+    <% else %>
+      <tr class="grid_2"><td align="center" colspan="8">TIDAK ADA DATA</td></tr>
+    <% end %>
+  </tbody>
+</table>

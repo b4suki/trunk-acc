@@ -1,0 +1,29 @@
+<%=  popup_title "Edit Tipe " %>
+
+<div id="RB_body" style="width: 300px;">
+
+<% form_for(@type) do |f| %>
+  <%= f.error_messages %>
+
+  <p>
+    <%= f.label :name %><br />
+    <%= f.text_field :name %>
+  </p>
+  <p>
+    <%= f.label :description %><br />
+    <%= f.text_field :description, :live => false %>
+  </p>
+   <p>
+   Aktif<br />
+   <%= check_box_tag "active", true, @type.active %>
+    </p>
+  <p>
+    <%= f.submit "Update" %>
+  </p>
+  <script>
+    <%#*var name = new LiveValidation('type_name');%>
+    <%#*name.add(Validate.Presence);%>
+  </script>
+<% end %>
+</div>
+

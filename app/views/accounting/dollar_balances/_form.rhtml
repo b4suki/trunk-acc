@@ -1,0 +1,33 @@
+<script type="text/javascript">
+  <%#*var test = new Array();%>
+  <%# validate_account.each_with_index  do |x, i| %>
+    <%#*test[<%=i% >]='<%= x % >';%>
+  <%# end %>
+
+  <%#*var val_account_code = new LiveValidation('account_code');%>
+  <%#*val_account_code.add(Validate.Inclusion,{ within: test});%>
+  <%#*val_account_code.add(Validate.Presence)%>
+
+  <%#*var val_contra_account_code = new LiveValidation('contra_account_code');%>
+  <%#*val_contra_account_code.add(Validate.Inclusion,{ within: test});%>
+
+  <%#*var trans_type = new LiveValidation('post');%>
+  <%#*trans_type.add(Validate.Presence)%>
+</script>
+
+<div style="float:left;margin: 5px 20px 5px 5px;">
+  <%#*<img src="<%= RAILS_ROOT + "/public/images/logo.bmp" % >" width="200" />%>
+  Tanggal Transaksi<br />
+  <%= f.date_splicer :transaction_date, :default_to_now => true %>
+  No. Bukti<br />
+  <%= f.text_field :transaction_evidence %>
+  <br />
+  Jumlah Penerimaan($)<br/>
+  <%= f.text_field :total_revenue %><br/>
+  Jumlah Pengeluaran($)<br/>
+  <%= f.text_field :total_payment %><br/>
+  Kurs Dollar(Rp)<br/>
+  <%= f.text_field :kurs %><br/>
+  Keterangan<br/>
+  <%= f.text_area :description, :cols => 26, :rows => 10 %>
+</div>

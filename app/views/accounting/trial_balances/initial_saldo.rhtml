@@ -1,0 +1,13 @@
+<%=  popup_title "Input Saldo Awal (#{selected_month} #{selected_year})" %>
+<div style="max-height:410px; overflow:auto;">
+  <div id="RB_body" style="width: 700px;">
+    <% form_tag(:action => :create_saldo) do %>
+      <%= hidden_field_tag :month, $month %>
+      <%= hidden_field_tag :year, $year %>
+      <%= display_account_on_initial_saldo(@accounts) %>
+      <p>
+        <%= submit_tag "Simpan", :class => "btn-submit" %>
+      </p>
+    <% end %>
+  </div>
+</div>

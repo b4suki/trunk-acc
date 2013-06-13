@@ -1,0 +1,9 @@
+<%=  popup_title "Edit Transaksi Bank" %>
+<div id="RB_body" style="width: 500px;">
+  <% form_for(:bank_balance, @bank_balance, :url => accounting_bank_balance_path(@bank_balance), :html=> {:method=>'put'})  do |f| %>
+    <%= f.error_messages %>
+    <%= render :partial => 'form', :locals => { :f => f, :bank_balance => @bank_balance } %>
+    <div style="clear: both;"></div>
+    <%= f.submit "Update" %>
+  <% end %>
+</div>

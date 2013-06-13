@@ -1,0 +1,10 @@
+<%=  popup_title "Input Remainder" %>
+
+<div id="RB_body" style="width: 500px;">
+  <% form_for(:remainder, @remainder, :url => {:controller => 'dashboard', :action => 'create_remainder'}, :html => {:class => "validated"})  do |f| %>
+      <%= f.error_messages %>
+      <%= render :partial => 'form_edit_remainder', :locals => { :f => f} %>
+    <div style="clear: both;"></div>
+    <%= f.submit "Simpan" %>
+<% end %>
+</div>

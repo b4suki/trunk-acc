@@ -1,0 +1,9 @@
+<%= popup_title "Edit Transaksi Kas Dollar" %>
+<div id="RB_body" style="width: 500px;">
+  <% form_for(:dollar_balance, @dollar_balance, :url => accounting_dollar_balance_path(@dollar_balance), :html=> {:method=>'put'})  do |f| %>
+    <%= f.error_messages %>
+    <%= render :partial => 'form', :locals => { :f => f, :dollar_balance => @dollar_balance } %>
+    <div style="clear: both;"></div>
+    <%= f.submit "Update" %>
+  <% end %>
+</div>

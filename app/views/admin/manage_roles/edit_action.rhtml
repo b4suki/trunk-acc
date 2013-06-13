@@ -1,0 +1,15 @@
+<%= popup_title "Edit Aksi" %>
+
+<div id="RB_body" style="width: 500px;">
+<% form_for(:a, @a, :url => {:action => "update_action", :id => params[:id]}, :html => {:method => :put}) do |f| %>
+  <%= f.error_messages %>
+  <label>Nama Aksi</label>
+  <%= f.text_field "name" %> <br />
+  <label>Nama Aksi di Controller</label>
+  <%= f.text_field "action_name" %> <br />
+  <br/><br/>
+  <p>
+    <%= f.submit "Simpan" %>
+  </p>
+<% end %>
+</div>

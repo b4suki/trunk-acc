@@ -1,0 +1,85 @@
+<table border="1" id="t1" class="main_table" cellpadding="3" cellspacing="0" width="100%">
+  <tr class="grid_1">
+    <td colspan="<%= view_header("debit").size + view_header("credit").size %>"><h3><%= @title %></h3></td>
+  </tr>
+  <tr class="grid_1">
+    <td colspan="<%= view_header("debit").size + view_header("credit").size %>"><h3><h3>Bulan <%= selected_month %>  Tahun <%= selected_year %> </h3></h3></td>
+  </tr>
+</table>
+<br/><br/>
+
+<table border="1" id="t1" class="main_table" cellpadding="3" cellspacing="0" width="100%">
+  <thead>
+    <tr class="grid_1">
+      <th rowspan="2">No</th>
+      <th rowspan="2">No Po</th>
+      <th rowspan="2">Surat Jln</th>
+      <th style="text-align:center;" colspan="2">Invoice</th>
+      <th rowspan="2">Customer</th>
+      <th rowspan="2">Keterangan</th>
+      <th rowspan="2">Job No.</th>
+      <th rowspan="2">Biaya Kirim</th>
+      <th rowspan="2">Subtotal</th>
+      <th rowspan="2">Discount</th>
+      <th rowspan="2">PPN</th>
+      <th rowspan="2">Total Transaksi</th>
+      <th rowspan="2">Mata Uang</th>
+      <th rowspan="2">Kurs</th>
+      <th style="text-align:center;" rowspan="1" colspan="<%= @debit %>">Debit</th>
+      <th style="text-align:center;" rowspan="1" colspan="<%= @credit %>">Kredit</th>
+    </tr>
+    <tr class="grid_1">
+      <th style="text-align:center;">No</th>
+      <th style="text-align:center;">Tanggal</th>
+      <%= view_header("debit")%>
+      <%= view_header("credit")%>
+    </tr>
+  </thead>
+  <tbody>
+    <% $TOTAL_SALE_DEBET = 0%>
+    <% $TOTAL_SALE_CREDIT = 0%>
+    <% @sale_balances.each_with_index do |sale_balance, i|%>
+      <tr class=<%= cycle("grid_2","grid_3") %>>
+        <td><%=i+1 %></td>
+        <td><%=h sale_balance.po_num %></td>
+        <td><%=h sale_balance.travel_pass %></td>
+        <td><%=h sale_balance.invoice_number %></td>
+        <td><%=h format_date(sale_balance.invoice_date) %></td>
+        <td><%=h sale_balance.customer ? sale_balance.customer.name : ""  %></td>
+        <td><%=h sale_balance.description %></td>
+
+        <td><%=h sale_balance.job_id %></td>
+        <td style="text-align:right;"><%= format_currency(sale_balance.shipping_cost) %></td>
+        <% set_total_field_for sale_balance, :shipping_cost %>
+        <td style="text-align:right;"><%= format_currency(sale_balance.subtotal) %></td>
+        <% set_total_field_for sale_balance, :subtotal %>
+        <td style="text-align:right;"><%= format_currency(sale_balance.discount) %></td>
+        <% set_total_field_for sale_balance, :discount %>
+        <td style="text-align:right;"><%= format_currency(sale_balance.ppn_value) %></td>
+        <% set_total_field_for sale_balance, :ppn_value %>
+        <td style="text-align:right;"><%= format_currency(sale_balance.transaction_value) %></td>
+        <% set_total_field_for sale_balance, :transaction_value %>
+        <td><%=h sale_balance.currency.name rescue nil %></td>
+        <td style="text-align:right;"><%= format_currency(sale_balance.kurs) rescue nil %></td>
+        <%= table_values_debet_credit(sale_balance.id,"debit") %>
+        <%= table_values_debet_credit(sale_balance.id,"credit") %>
+      </tr>
+    <% end %>
+    <% if @sale_balances.size >= 1 %>
+      <tr class="grid_2">
+        <th colspan="8">Total</th>
+        <th style="text-align:right;"><%= format_currency(show_total_for :shipping_cost) %></th>
+        <th style="text-align:right;"><%= format_currency(show_total_for :subtotal) %></th>
+        <th style="text-align:right;"><%= format_currency(show_total_for :discount) %></th>
+        <th style="text-align:right;"><%= format_currency(show_total_for :ppn_value) %></th>
+        <th style="text-align:right;"><%= format_currency(show_total_for :transaction_value) %></th>
+        <th style="text-align:right;">&nbsp;</th>
+        <th style="text-align:right;">&nbsp;</th>
+        <%= sum_debet_credit("debit")%>
+        <%= sum_debet_credit("credit")%>
+      </tr>
+    </tbody>
+  <% else %>
+    <tr class="grid_2"><td align="center" colspan="<%=15+@credit+@debit%>">Tidak Ada Data</td></tr>
+  <%end%>
+</table>

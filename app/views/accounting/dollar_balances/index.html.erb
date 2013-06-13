@@ -1,0 +1,73 @@
+<div id="search">
+  <% form_tag(:action => :index) do %>
+    <table width="200" class="search_table" cellpadding="5" cellspacing="0">
+      <tr><th colspan="2">Filter Bulan Transaksi</th></tr>
+      <tr><td>Bulan</td><td>&nbsp;&nbsp;<%= select_month(default_filter_month, :use_month_names => indonesian_month_names ) %></td></tr>
+      <tr><td>Tahun</td><td>&nbsp;&nbsp;<%= select_year(default_filter_year, :start_year => 2000, :end_year => 2030) %></td></tr>
+  <tr><td colspan="2" align="right"><%= submit_tag "Proses", :class => "btn-submit" %></td></tr>
+</table>
+<% end %>
+</div>
+
+<% if dollar_balance_initial_data.empty? %>
+  <div style="font-size: 11px;">
+    <%= link_to_remote_redbox("Input Data Saldo", {:url => {:action => :saldo_new}}, {:class => "a_add", :style => "text-decoration: none;"}) %>
+    <br />
+  </div>
+<% end %>
+
+<table class="main_table" cellpadding="0" cellspacing="0" width="1000">
+  <tr>
+    <th width='15%'>Tanggal</th>
+    <th>No Bukti</th>
+    <th width='40%'>Keterangan</th>
+    <th>Kurs</th>
+    <th>Jumlah Penerimaan($)</th>
+    <th>Jumlah Pengeluaran($)</th>
+    <th width='5%' colspan='2'>&nbsp;</th>
+  </tr>
+
+  <%= dollar_balance_saldo_row %>
+  <% if @dollar_balances.size == 0 %>
+    <tr class="grid_2"><td colspan="9">&nbsp;Tidak Ada Data</td></tr>
+  <% else %>
+    <% for dollar_balance in @dollar_balances %>
+      <tr class=<%= cycle("grid_2","grid_3") %>>
+        <td><%=h format_date(dollar_balance.transaction_date) %></td>
+        <td><%= dollar_balance.transaction_evidence %></td>
+        <td><%=h dollar_balance.description %></td>
+        <td align='right'><%= format_currency(!dollar_balance.kurs.nil? ? dollar_balance.kurs : 0) %></td>
+        <td align='right'><%= format_currency(!dollar_balance.total_revenue.nil? ? dollar_balance.total_revenue : 0) %></td>
+        <td align='right'><%= format_currency(!dollar_balance.total_payment.nil? ? dollar_balance.total_payment: 0) %></td>
+        <td width='100'><%= link_to_remote_redbox("Edit", {:url => edit_redbox_url('dollar_balances', params[:action], dollar_balance)}, {:class => "a_edit"}) %></td>
+        <td width='100'><%= link_to 'Hapus', accounting_dollar_balance_path(dollar_balance), :confirm => "Apakah anda yakin akan menghapus data '#{dollar_balance.description}' ?", :method => :delete, :class => "a_delete" %></td>
+      </tr>
+    <% end %>
+    <tr class="grid_2">
+      <td colspan="4" align='right'><b>Total</b></td>
+      <td align='right'><b><%= format_currency(AccountingDollarBalance.accumulate_total_revenue($month, $year)) %></b></td>
+      <td align='right'><b><%= format_currency(AccountingDollarBalance.accumulate_total_payment($month, $year)) %></b></td>
+      <td colspan='2'>&nbsp;</td>
+    </tr>
+  <% end %>
+
+  <tr class="grid_footer">
+    <td colspan="8" valign="center">
+      <%= link_to_remote_redbox("Input Transaksi", {:url => {:action => :new}}, {:class => "a_add"}) %><span class="blue_split">&nbsp;</span>
+      <%= link_to "Export PDF", formatted_accounting_dollar_balances_path(:pdf), :class => "a_pdf" %><span class="blue_split">&nbsp;</span>
+      <%= link_to "Export EXCEL", formatted_accounting_dollar_balances_path(:xls), :class => "a_xls" %>
+    </td>
+    <td align="right;">
+     <%#= link_to_remote_redbox("Bantuan",{:url => {:action => :bank_help}},{:class => "a_help", :title => "Bantuan"})  %>
+    </td>
+  </tr>
+</table>
+
+<br/>
+<table width="200" cellspacing="0" cellpadding="0" class="sum_table">
+  <tbody>
+    <tr><th>Total Penerimaan($)</th><td align="right" class="grid_2_sum"><%= format_currency(AccountingDollarBalance.accumulate_total_revenue($month, $year)) %><%= space(3) %></td></tr>
+    <tr><th>Total Pengeluaran($)</th><td align="right" class="grid_2_sum"><%= format_currency(AccountingDollarBalance.accumulate_total_payment($month, $year)) %><%= space(3) %></td></tr>
+    <tr><th>Sisa Kas($)</th><td align="right" class="grid_2_sum"><%= format_currency(AccountingDollarBalance.accumulate_total_dollar_balance($month, $year)) %><%= space(3) %></td></tr>
+  </tbody>
+</table>

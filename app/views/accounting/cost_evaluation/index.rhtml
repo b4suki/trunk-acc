@@ -1,0 +1,39 @@
+<%#= initial_table_freeze(:freeze_size => 6, :stop_cell => 7, :stop_vertical => 3) %>
+<%#= javascript_include_tag 'table_freeze' %>
+<%#*<div class="div_freezepanes_wrapper">%>
+
+  <%#*<div class="div_verticalscroll" onmouseover="this.style.cursor='pointer'">%>
+    <%#*<div style="height:50%;" onmousedown="upp();" onmouseup="upp(1);"><img class="buttonUp" src="/images/uF035.png"></div>%>
+    <%#*<div style="height:50%;" onmousedown="downn();" onmouseup="downn(1);"><img class="buttonDn" src="/images/uF036.png"></div>%>
+  <%#*</div>%>
+
+  <%#*<div class="div_horizontalscroll" onmouseover="this.style.cursor='pointer'">%>
+    <%#*<div style="float:left;width:50%;height:100%;" onmousedown="right();" onmouseup="right(1);"><img class="buttonRight" src="/images/uF033.png"></div>%>
+    <%#*<div style="float:right;width:50%;height:100%;" onmousedown="left();" onmouseup="left(1);"><img class="buttonLeft" src="/images/uF034.png"></div>%>
+  <%#*</div>%>
+  <table  id="t1" class="main_table" cellpadding="0" cellspacing="0">
+    <tr class='grid_1'>
+      <td width='20px'></td>
+      <td width='20px'></td>
+      <td width='20px'></td>
+      <td width='20px'></td>
+      <td width='20px'></td>
+      <td width='400px'>Deskripsi Account</td>
+      <td width="100px">Januari</td>
+      <td width="100px">Februari</td>
+      <td width="100px">Maret</td>
+      <td width="100px">April</td>
+      <td width="100px">Mei</td>
+      <td width="100px">Juni</td>
+      <td width="100px">Juli</td>
+      <td width="100px">Agustus</td>
+      <td width="100px">September</td>
+      <td width="100px">Oktober</td>
+      <td width="100px">November</td>
+      <td width="100px">Desember</td>
+      <td width="100px">2008</td>
+      <td width="100px">COMMON</td>
+    </tr>
+    <%= display_account_on_cost_evaluation(@accounts)%>
+  </table>
+<%#*</div>%>

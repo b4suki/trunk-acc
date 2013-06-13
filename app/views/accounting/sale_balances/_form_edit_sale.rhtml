@@ -1,0 +1,194 @@
+<div style="float: left;margin: 0px 10px 5px 3px;">
+  <p>
+    Tanggal Transaksi <br />
+    <%= f.date_splicer :invoice_date, :default_to_now => true %>
+  </p>
+  <p>
+    Tanggal Pengiriman<br />
+    <%= f.date_splicer :shipping_date, :default_to_now => true %>
+  </p>
+  <p>
+    Biaya  Pengiriman<br />
+    <%= text_field_tag(:shipping_cost, @sale_balance.shipping_cost.blank? ? 0 : @sale_balance.shipping_cost,:onkeyup => "sale_shipping_cost(this.value);") %>
+  </p>
+  <p>
+    No Po<br />
+    <%= f.text_field :po_num, :live => false %>
+  </p>
+  <p>
+    Surat Jalan<br />
+    <%= f.text_field :travel_pass %>
+  </p>
+  <p>
+    No Invoice<br />
+    <%= f.text_field :invoice_number%>
+  </p>
+</div>
+
+<div style="float:left; margin: 0 5px 5px 7px;">
+  <p>Job No<br />
+    <%= f.text_field :job_id, :live => false %>
+  </p>
+
+  <p>
+    Customer<span id="indicator-customer-code" style="display:none;"><%= image_tag "ajax-loader.gif" %></span><br />
+    <%= text_field_with_auto_complete :customer, :code, { :size => 30, :value => @sale_balance.nil? || @sale_balance.customer.nil? ? "" : @sale_balance.customer.name }, :skip_style => true, :indicator => "indicator-customer-code" -%>
+    <%= f.hidden_field :customer_id, :id => 'customer_code_id' %><br />
+  </p>
+  <p>Mata Uang<br />
+    <%= f.select :currency_id, Currency.find(:all).collect{|x| [x.name, x.id]},{},
+      {:onchange => remote_function(
+        :url =>{:controller => "accounting/sale_balances", :action => :prepare_show_currency},
+        :with =>"'id='+this.value")} %>
+  </p>
+  <p><div id="show-kurs"></div></p>
+</div>
+
+<div style="clear:both;"></div>
+
+<br />
+<%#= hidden_field_tag "count", :start, :value => 0%>
+<%= hidden_field_tag "count", @index %>
+
+<%#*------------------%>
+<table id="accounting_sale_balance_detail" class="main_table">
+  <tr>
+    <th style="width: 170px;">Nama Produk </th>
+    <th style="width: 44px;">Qty </th>
+    <th style="width: 86px;">Harga </th>
+    <th style="width: 98px;">Subtotal </th>
+    <th>&nbsp; </th>
+  </tr>
+  <% if @sale_balance_details != nil %>
+    <% @sale_balance_details.each_with_index do |detail, index| %>
+      <tr class="accounting_sale_balance_detail grid_2" id="<%="detail_#{index}"%>">
+        <td>
+          <label>
+            <%= link_to_remote("", {:url => {:action => :autocomplete_item, :index => index ,:f => 1}}, {:class => "a_edit"}) %>
+            <%= text_field_tag "accounting_sale_balance_detail_product_name_#{index}", "",:value => (detail.product_name), :size => 24, :readonly => true %>
+            <%= hidden_field_tag "accounting_sale_balance_detail_product_id_#{index}", "", :value => detail.item_id, :size => 24 %>
+          </label>
+        </td>
+        <td>
+          <%= text_field_tag "accounting_sale_balance_detail_qty_#{index}","",:value => (detail.qty.nil? ? "": detail.qty), :size => 3 ,:style => 'text-align:right;', :onkeyup => "sum_product(this.value, $('accounting_sale_balance_detail_price_#{index}').value,#{index},'sale');
+    sum_total_all(parseInt($('count').value) + parseInt(#{@sale_balance_details.nil? ? 0 :@sale_balance_details.size.to_i}),'sale');
+    ppn('sale');"%>
+        </td>
+        <td>
+          <%= text_field_tag "accounting_sale_balance_detail_price_#{index}","",:value => (detail.price.nil? ? "": detail.price), :size => 10 , :style => 'text-align:right;', :onkeyup => "sum_product(this.value, $('accounting_sale_balance_detail_qty_#{index}').value,#{index},'sale');
+    sum_total_all(parseInt($('count').value) + parseInt(#{@sale_balance_details.nil? ? 0 :@sale_balance_details.size.to_i}),'sale');
+    disc( $('sale_balance_subtotal').value,$('sale_balance_disc_percentage').value,'sale');
+    ppn('sale');"%>
+        </td>
+        <td>
+          <%= text_field_tag "accounting_sale_balance_detail_subtotal_#{index}","" ,:value => (detail.subtotal.nil? ? "": detail.subtotal), :size => 12, :style => 'text-align:right;',:readonly => true %>
+        </td>
+        <td>&nbsp;
+          <%= link_to_function "", "$('detail_#{index}').hide(); $('sale_balance_description_detail_#{index}').hide();
+    $('accounting_sale_balance_detail_product_name_#{index}').value = 'rm';
+    setIndex(-1,'count_edit');
+    sum_total_all(parseInt($('count').value) + parseInt($('count_edit').value),'sale'); ppn('sale');", :class => 'a_delete' %>
+        </td>
+      </tr>
+      <tr class="accounting_sale_balance_detail grid_2" id="<%="sale_balance_description_detail_#{index}"%>">
+        <td colspan="5" style="padding-left: 23px; padding-bottom: 10px;">
+          <%= check_box_tag "accounting_sale_balance_chk_description_#{index}", "with_description", detail.position.nil? ? false : true,
+            :onclick => "this.checked==true ? $('added_description_#{index}').show() : $('added_description_#{index}').hide();" %>Tambah Deskripsi
+          <div id="<%="added_description_#{index}"%>" <%= detail.position.nil? ? "style='display: none;'" : "" %>>
+            <%= select_tag "accounting_sale_balance_description_position_#{index}", options_for_select([["Sebelum nama produk", "before"], ["Setelah nama produk", "after"]], !detail.position.nil? ? detail.position : "" ) %>
+            <%= text_field_tag "accounting_sale_balance_product_description_#{index}", detail.description.nil? ? "" : detail.description, :size => 23 %>
+          </div>
+        </td>
+      </tr>
+    <% end %>
+  <% end %>
+  <tr id="end_of_accounting_sale_balance_detail" class="grid_footer">
+    <td colspan="5">
+      <div style="text-align: right">
+        <span id="link-add-indicator" style="float:left;display:none;">
+          <%= image_tag "ajax-loader.gif" %>&nbsp;
+        </span>
+        <span id="link-add-read" style="float:left;display:none;">
+          Tambah Barang
+        </span>
+        <span id="link_add" style="float:left;">
+          <%= render :partial => "add_new_link", :locals => {:index => @index, :size => (@sale_balance_details.nil? ? 0 :@sale_balance_details.size.to_i)}%>
+        </span>
+      </div>
+    </td>
+  </tr>
+</table>
+<%#*------------------%>
+
+<br />
+<div style="float:left;margin-right:3px;" >
+  <%= f.check_box(:sent, {}, true, false) %></div>Telah Dikirim<br /><br />
+<table border="0" style="float: left">
+  <tr>
+    <td>Kena Pajak</td>
+    <td><%= f.check_box :taxable, :onchange => "disc($('sale_balance_subtotal').value,$('sale_balance_disc_percentage').value,'sale');ppn('sale',#{@ppn_keluaran_rate_value});" %></td>
+  </tr>
+  <tr>
+    <td>Subtotal</td>
+    <td><%= f.text_field(:subtotal,:style =>'text-align:right;', :value => @sale_balance.subtotal.blank? ? 0 : @sale_balance.subtotal, :readonly => true, :size => 18) %></td>
+  </tr>
+  <tr>
+    <td>Discount</td>
+    <td>
+      <%= f.text_field(:disc_percentage, :size => 3,:style =>'text-align:right;' , :value => @sale_balance.disc_percentage.blank? ? 0: @sale_balance.disc_percentage,
+        :onkeyup => "disc( $('sale_balance_subtotal').value,this.value,'sale');
+  ppn('sale',#{AccountingTax.find_by_account_type('ppn_keluaran').rate_value});") %>
+      <%= f.hidden_field(:discount,:value => @sale_balance.discount.blank? ? 0 : @sale_balance.discount) %>
+    </td>
+  </tr>
+  <tr>
+    <td>PPN</td>
+    <td><%= f.text_field(:ppn_value,:style =>'text-align:right;', :value => "0", :readonly => true, :size => 18) %></td>
+  </tr>
+  <tr>
+    <td>Biaya Kirim</td>
+    <td><%= f.text_field :shipping_cost, :style =>'text-align:right;', :readonly => true, :size => 18 %></td>
+  </tr>
+  <tr>
+    <td>Total :</td>
+    <td><%= f.text_field(:transaction_value,:style =>'text-align:right;',:value => @sale_balance.transaction_value.blank? ? 0: @sale_balance.transaction_value, :readonly => true, :size => 18) %></td>
+  </tr>
+  <tr>
+    <td>Nilai Pembayaran :</td>
+    <td><%= f.text_field(:payment_value,:style =>'text-align:right;',:value => @sale_balance.payment_value.blank? ? 0 : @sale_balance.payment_value, :size => 18) %></td>
+  </tr>
+</table>
+
+<table border="0" style="float: left; margin-left: 10px">
+  <tr>
+    <td valign="top">Keterangan</td>
+    <td><%= f.text_area(:job_description, :cols => 20, :rows => 5) %></td>
+  </tr>
+  <tr>
+    <td valign="top">Tanda tangan</td>
+    <td><%= f.select(:signature_id, options_for_signatures) %></td>
+  </tr>
+</table>
+<div style="clear:both;"></div>
+
+<br/><%= create_space(3)%> &nbsp; &nbsp;
+<p>Jenis Pembayaran
+  <%= select "terms_of_payment",:id,options_for_terms_of_payments,{:style => "width: 90px;"}, :onchange => "set_maturity_date($('terms_of_payment_id').value,'sale');" %>
+  Tgl Pembayaran
+  <%= f.date_splicer :maturity_date, :default_to_now => true %>
+</p>
+<br />
+
+<script type="text/javascript">
+  var customers = new Array();
+<% validate_customer.each_with_index  do |x,i|%>
+    customers[<%=i%>]='<%= x %>';
+<% end %>
+
+  var validate_customer = new LiveValidation('customer_code');
+  validate_customer.add(Validate.Inclusion,{ within: customers});
+  
+  var validate_payment_value = new LiveValidation('sale_balance_payment_value');
+  validate_payment_value.add(Validate.Presence);
+  validate_payment_value.add(Validate.Numericality);
+</script>

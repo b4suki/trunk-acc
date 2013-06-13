@@ -1,0 +1,38 @@
+<h3><%= @title %></h3>
+<h3>Bulan <%= selected_month %>  Tahun <%= selected_year %> </h3>
+<table border="1" id="t1" class="main_table" cellpadding="0" cellspacing="0" width="100%">
+  <tr>
+    <th style="width:85px;text-align:center; padding:5px 0px;">TANGGAL</th>
+    <th style="width:80px;text-align:center; padding:5px 0px;">NO. BUKTI</th>
+    <th style="width:200px;text-align:center;padding:5px 0px;">KETERANGAN</th>
+    <th style="width:250px;text-align:center;padding:5px 0px;">ACCOUNT</th>
+    <th style="width:180px;text-align:center;padding:5px 0px;">DEBIT</th>
+    <th style="width:180px;text-align:center;padding:5px 0px;">KREDIT</th>
+  </tr>
+  <% total_debit = 0 %>
+  <% total_credit = 0 %>
+  <% if @manual_journals.size > 0 %>
+    <% @manual_journals.each do |manual_journal| %>
+      <% manual_journal.values.each_with_index do |values, i| %>
+        <tr class="grid_2">
+          <td style="width:85px;text-align:center;"><%= format_date(manual_journal.created_at) if i==0 %></td>
+          <td style="width:80px;"><%=h manual_journal.evidence if i==0 %></td>
+          <td style="width:300px;"><%=h manual_journal.description if i==0 %></td>
+          <td style="width:300px;<%= "padding-left:30px;" if !values.is_debit %>"><%=h values.account.description %></td>
+          <td align="right" style="width:180px;"><%= format_currency(values.value) if values.is_debit %></td>
+          <td align="right" style="width:180px;"><%= format_currency(values.value) if !values.is_debit %></td>
+          <% values.is_debit ? total_debit += values.value : total_credit += values.value %>
+        </tr>
+      <% end %>
+    <% end %>
+  <% else %>
+    <tr class="grid_2">
+      <td colspan="6" align="center">Tidak Ada Data</td>
+    </tr>
+  <% end %>
+    <tr>
+    <td colspan="4" align="center" style="width:180px;"><b>TOTAL</b></td>
+    <td align="right" style="width:180px;"><b><%= format_currency(total_debit) %></b></td>
+    <td align="right" style="width:180px;"><b><%= format_currency(total_credit) %></b></td>
+  </tr>
+</table>

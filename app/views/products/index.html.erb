@@ -1,0 +1,72 @@
+<script type="text/javascript">
+  jQuery(document).ready(function(){
+    jQuery("#data").fixedHeader({width: 1000,height: 400});
+  })
+</script>
+
+<div id="search">
+  <% form_tag(:action => :index) do %>
+    <table width="220" class="search_table" cellpadding="5" cellspacing="0" style="margin: 8px 6px;">
+      <tr><th>Cari</th><th><%= text_field_tag "search", "" %></th></tr>
+      <tr><th colspan="2" align="right"><%= submit_tag "Proses", :class => "btn-submit" %></th></tr>
+    </table>
+  <% end %>
+</div>
+
+<div style="float: left">
+  <%= link_to("Items ",items_path,{:class => "a_top_btn"}) %>
+  <%= link_to("Barang Setengah Jadi ",products_path,{:class => "a_top_btn"}) %>
+  <%= link_to("Barang Jadi",items_path(:completed => true),{:class => "a_top_btn"}) %>
+</div>
+<table id="data" class="main_table" cellpadding="0" cellspacing="0" width="1000px">
+
+  <thead>
+    <tr class="grid_1">
+      <th>No</th>
+      <th><%= link_to "Tipe", :action => :index, :sort => "types.name" %></th>
+      <th><%= link_to "Name", :action => :index, :sort => "name" %></th>
+      <th>Total Pembuatan</th>
+      <th>Keterangan</th>
+      <th>Aktif</th>
+      <th colspan="4">&nbsp;</th>
+    </tr>
+  </thead>
+  <div class="div_top_btn">
+    <%= link_to("Prototype Barang",prototype_items_path,{:class => "a_top_btn"}) %>
+  </div>
+  <div class="clear_right"></div>
+  <% unless @items.empty? %>
+    <% @items.each_with_index do |item, index| %>
+      <tr class=<%= cycle("grid_2","grid_3") %>>
+        <td><%= index + 1 %></td>
+        <td><%=h item.type.name rescue nil %></td>
+        <td><%=h item.name rescue nil %></td>
+        <td align="right"><%= item.products.sum('quantity')  %></td>
+        <td><%=h item.nil? ? "" : item.description %></td>
+        <td align="center"><%= check_box_tag 'Aktif',:value_credit ,item.active,:disabled => true %></td>
+        <td align="center"><%= (link_to_remote_redbox("Tambah Barang", {:url => new_product_path(:item => item)}, {:class => "a_add"})) if item.prototype_items != [] %></td>
+        <%#*<td><%= link_to_remote_redbox("Edit", {:url => "/products/edit/#{product.id}"}, {:class => "a_edit"})  % ></td>%>
+        <%#*<td><%= link_to 'Hapus', product, :confirm => "Apakah anda yakin akan menghapus data '#{product.name}' ?", :method => :delete, :class => "a_delete" % ></td>%>
+        <%#*<td><%= link_to_remote_redbox 'Transaksi Item',{:url => "/trans_items/new/#{product.id}"}  % ></td>%>
+        <td id="show-hide-product-detail-<%= item.id %>"><%= (render :partial => "item_detail_trigger", :locals => {:item_id => item.id, :show => true})if item.products != [] %></td>
+      </tr>
+      <tr class="grid_3" id="product-detail-<%= item.id %>"></tr>
+    <% end %>
+  <% else %>
+    <tr class="grid_2"><td align="center" colspan="13">TIDAK ADA DATA</td></tr>
+  <% end %>
+</table>
+
+
+<table class="table_footer" cellpadding="0" cellspacing="0" width="1000px">
+  <tr class="grid_footer">
+    <td colspan="8" valign="center">
+      <%#= (link_to_remote_redbox("Tambah Barang", {:url => new_product_path}, {:class => "a_add"})) if @completed_cheack.nil?  %><span class="blue_split">&nbsp;</span>
+      <%#= link_to "Export PDF", products_path(:format => :pdf, :report => "list"), :class => "a_pdf" %><span class="blue_split">&nbsp;</span>
+      <%#= link_to "Export EXCEL", formatted_products_path(:xls), :class => "a_xls" %><span class="blue_split">&nbsp;</span>
+    </td>
+    <td colspan="2">
+      <%= will_paginate @items %>
+    </td>
+  </tr>
+</table>

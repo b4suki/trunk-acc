@@ -1,0 +1,94 @@
+<div id="search">
+  <table class="search_table" cellpadding="2" cellspacing="0" width="200">
+   <% form_tag(:action => :index) do %>         
+      <tr><th colspan="2">Filter Aktiva Tetap</th></tr>
+      <tr><td>Bulan</td><td><%= select_month(default_filter_month, :use_month_names => indonesian_month_names ) %></td></tr> <br/>
+      <tr><td>Tahun</td><td><%= select_year(default_filter_year, :start_year => 2000, :end_year => 2030) %></td></tr>
+    <tr><td colspan="2" align="right"><%= submit_tag "Proses", :class => "btn-submit" %></td></tr>  
+  </table>
+</div>
+<%end%> 
+ <% form_tag(:action => :create_aje) do %>  
+  <tr>
+    
+    <td colspan="2" align="right"><div style="float: right;"><%= submit_tag "Generate AJE", :disabled => cek_button_generate %></div>
+      
+      <div style="float: left;">
+        <%= link_to("Input Kode Rekening Aktiva",accounting_adjustment_accounts_path,{:class => "a_top_btn"}) %>
+      </div>
+      <div style="clear: both;"></div>
+    </td>
+  </tr>  
+<% end %>
+     
+<%#= link_to_remote_redbox("Input Data Purchase", :url => {:action => :new})  %>
+<%# restrict_to '(Administrator | Accounting)' do %>
+  
+<%# end %>
+
+<table id="t1" class="main_table" cellpadding="0" cellspacing="0">
+<tr class="grid_1">
+    <th rowspan="2" style="width:40px;text-align:center; padding:5px 0px;">
+      No 
+      <%#= render :partial => "option_date", :locals => {:result => @result, :date => @date }%>
+    </th>
+    <th rowspan="2" style="width:200px;text-align:center;padding:5px 0px;">
+      Tanggal Perolehan
+      <%#= render :partial => "option_evidence", :locals => {:result => @result, :date => @date}%>
+    </th>
+    <th rowspan="2" style="width:400px;text-align:center;padding:5px 0px;">
+      Nama Aktiva Tetap 
+      <%#= render :partial => "option_description", :locals => {:result => @result, :date => @date}%>
+    </th>
+    <th rowspan="2" style="width:180px;text-align:center;padding:5px 0px;">
+      Nilai Perolehan
+      <%#= render :partial => "option_job", :locals => {:result => @result, :date => @date}%>
+    </th>
+    <th rowspan="2" style="width:180px;text-align:center;padding:5px 0px;">
+      Nilai Sisa
+      <%#= render :partial => "option_account", :locals => {:result => @result, :date => @date}%>
+    </th>
+    <th rowspan="2" style="width:40px;text-align:center;padding:5px 0px;">
+      Umur Ekonomis (Thn)
+      <%#= render :partial => "option_debit", :locals => {:result => @result, :date => @date}%>
+    </th>  
+    <th rowspan="1" colspan="4" style="text-align:center;padding:5px 0px;">
+      Saldo Aktiva Tetap
+      <%#= render :partial => "option_credit", :locals => {:result => @result, :date => @date}%> 
+    </th>
+    <th rowspan="1" colspan="4" style="text-align:center;padding:5px 0px;">
+      Akum Penyusutan
+      <%#= render :partial => "option_credit", :locals => {:result => @result, :date => @date}%> 
+    </th>
+    <th rowspan="2" style="width:180px;text-align:center;padding:5px 0px;">
+      Nilai Buku
+      <%#= render :partial => "option_credit", :locals => {:result => @result, :date => @date}%> 
+    </th>
+  </tr>
+  <tr class="grid_1">
+    <th style=width:50px;text-align:center>Saldo Per 31 <%= month_names_before($month.to_i - 1).downcase %></th>
+    <th style=width:50px;text-align:center>Penambahan</th>
+    <th style=width:50px;text-align:center>Pengurangan</th>    
+    <th style=width:50px;text-align:center>Saldo Per 31 <%= month_names($month).downcase %></th>
+    <th style=width:50px;text-align:center>Saldo Per 31 <%= month_names_before($month.to_i - 1).downcase%></th>
+    <th style=width:50px;text-align:center>Penambahan</th>
+    <th style=width:50px;text-align:center>Pengurangan</th>
+    <th style=width:50px;text-align:center>Saldo Per 31 <%= month_names($month).downcase %></th>
+  </tr>
+
+
+ <%= render :partial => "content_adjustment_entries", :locals => {:accounts => @accounts, :date => @date}%>  
+  <tr class="grid_footer">
+    <td colspan="14" valign="center">
+      <%# restrict_to '(Administrator | Accounting)' do %>
+        <%#= link_to_remote_redbox("Input Transaksi", {:url => {:action => :new}}, {:class => "a_add"}) %><span class="blue_split">&nbsp;</span>
+      <%# end %>
+      <%= link_to "Export PDF", formatted_accounting_adjustment_entries_path(:pdf), :class => "a_pdf" %><span class="blue_split">&nbsp;</span>
+      <%= link_to "Export EXCEL", formatted_accounting_adjustment_entries_path(:xls), :class => "a_xls" %>
+    </td>
+    <td colspan="1">
+      <%#= render(:partial => "shared/paginate", :locals => {:collection => @purchase_balances }) -%>
+    </td>
+  </tr>
+</table>   
+

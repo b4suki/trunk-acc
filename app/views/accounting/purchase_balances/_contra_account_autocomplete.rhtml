@@ -1,0 +1,12 @@
+<ul class="autocomplete_list">
+  <% for account in @accounts -%>
+        <li onclick="
+                     $('account_code_auto_complete_<%= index %>').innerHTML='';
+                     $('account_code_<%= index %>').value ='<%= "#{account.code}   #{account.description}" %>'" 
+                     class="autocomplete_item">
+                     <%= "#{account.code}   #{account.description}" %>
+        </li>
+  <% end -%>
+</ul>  
+
+<!--    <%#*<li onclick="set_contra_account_id('purchase_balance_contra_account_id', <%= account.id%>)" class="autocomplete_item"><%#= "#{account.code}   #{account.description}" %></li>%> -->

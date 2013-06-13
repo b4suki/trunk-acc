@@ -1,0 +1,24 @@
+<h1>Editing bank_reconciliations</h1>
+
+<% form_for(:bank_reconciliations, @bank_reconciliations, :url => accounting_bank_reconciliation_path(@bank_reconciliations), :html=> {:method=>'put'})  do |f| %>
+  <%= f.error_messages %>
+
+  <p>
+    <%= f.label :company_cash_balance %><br />
+    <%= f.text_area :company_cash_balance %>
+  </p>
+  <p>
+    <%= f.label :bank_balance_id %><br />
+    <%= f.text_field :bank_balance_id %>
+  </p>
+  <p>
+    <%= f.label :reconciliation_detail_id %><br />
+    <%= f.text_field :reconciliation_detail_id %>
+  </p>
+  <p>
+    <%= f.submit "Update" %>
+  </p>
+<% end %>
+
+<%= link_to 'Show', accounting_bank_reconciliation_path(@bank_reconciliations) %> |
+<%= link_to 'Back', accounting_bank_reconciliations_path %>

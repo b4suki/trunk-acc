@@ -1,0 +1,6 @@
+<span id="option_date">
+  <%= select("journal","date",option_select_date_filter(result), {:selected => $SELECTED_DATE}, 
+  {:onchange => remote_function(
+                   :url => {:action => 'filter_date'}, 
+                   :with => "'value='+this.value+'&type=date&month='+#{date[:month]}+'&year='+#{date[:year]}")})%>
+</span>

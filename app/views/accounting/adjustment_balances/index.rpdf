@@ -1,0 +1,78 @@
+<h3>DAFTAR Adjusment Entries</h3>
+<h3>Bulan <%= selected_month %>  Tahun <%= selected_year %> </h3>
+ 
+<table border = "1">
+<tr class="grid_1">
+    <th  style="width:40px;text-align:center; padding:5px 0px;">
+      No 
+      <%#= render :partial => "option_date", :locals => {:result => @result, :date => @date }%>
+    </th>
+    <th  style="width:100px;text-align:center;padding:5px 0px;">
+      Tanggal
+      <%#= render :partial => "option_evidence", :locals => {:result => @result, :date => @date}%>
+    </th>
+    <th style="width:80px;text-align:center;padding:5px 0px;">
+      No Bukti
+      <%#= render :partial => "option_description", :locals => {:result => @result, :date => @date}%>
+    </th>
+    <th  style="width:500px;text-align:center;padding:5px 0px;">
+      Keterangan
+      <%#= render :partial => "option_job", :locals => {:result => @result, :date => @date}%>
+    </th>
+    <th  style="width:180px;text-align:center;padding:5px 0px;">
+      No Job
+      <%#= render :partial => "option_account", :locals => {:result => @result, :date => @date}%>
+    </th>
+    <th  style="width:40px;text-align:center;padding:5px 0px;">
+      No Rek
+      <%#= render :partial => "option_debit", :locals => {:result => @result, :date => @date}%>
+    </th>      
+    <th  style="width:40px;text-align:center;padding:5px 0px;">
+      Debit
+      <%#= render :partial => "option_debit", :locals => {:result => @result, :date => @date}%>
+    </th>  
+    <th  style="width:40px;text-align:center;padding:5px 0px;">
+      Credit
+      <%#= render :partial => "option_debit", :locals => {:result => @result, :date => @date}%>
+    </th>   
+  </tr>
+ 
+ <% unless @results.empty? %>
+   <% $TOTAL_DEBIT_AJE = 0%>
+   <% $TOTAL_CREDIT_AJE = 0%>
+   <% $TOTAL_FIXED_ASSETS_CREDIT = 0%>
+   <% $next_num = 0 %>
+   <tr class="grid_3">
+     <td>1</td>
+     <td> 31- <%= selected_month[0,3]  %> - <%= $year%></td>
+     <td>&nbsp;</td>
+     <td>Aje Beban Penyusutan bulan <%= selected_month%></td>
+     <td></td>
+     <td>52210</td>
+     <td><%= get_subtotal_assets %></td>
+     <td>&nbsp;</td>     
+   </tr>
+   <% @results.each_with_index do |acc,i| %>
+     <tr class="grid_3">
+     <td> <%= i+2 %></td>
+     <td> 31- <%= selected_month[0,3]  %> - <%= $year%></td>
+     <td style="text-align:center;"> AJE</td>
+     <td> Aje <%= acc.accounting_account.description  %></td>
+      <%#= p acc %>
+     <td> &nbsp;</td>
+     <td> <%= acc.accounting_account.code%></td>
+     <%= formula_depreciation_reverse(acc, true) %>
+     <% $next_num = i + 3%>
+     </tr>
+   <% end %>
+   <%# untuk yang diinput secara manual%>
+   <%= set_table_aje_manual($next_num, false) %>
+   <tr class="grid_2"><th colspan="6">Total</th>
+       <th style="text-align:right;"><%= $TOTAL_FIXED_ASSETS_DEBIT %></th>
+       <th style="text-align:right;"><%= $TOTAL_FIXED_ASSETS_CREDIT %></th>       
+   </tr>
+ <% else %>
+   <tr class="grid_2"><th colspan="10" style="text-align: center;">Tidak Ada Data</th>
+ <% end %> 
+</table>   
+

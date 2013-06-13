@@ -1,0 +1,21 @@
+<h3>Daftar Vendor</h3>
+<table border='1' class="main_table" cellpadding="3" cellspacing="0" width="700px;">
+  <tr class="grid_1">
+    <td><b>Nama</b></td>
+    <td><b>Keterangan</b></td>
+    <td><b>Alamat</b></td>
+    <td><b>Telepon</b></td>
+    <td><b>Fax</b></td>
+    <td><b>Kontak</b></td>
+  </tr>
+
+<% for vendor in @vendors %>
+  <tr>
+    <td><%=h vendor.name %></td>
+    <td><%=h vendor.description %></td>
+    <td><%=h vendor.address %></td>
+    <td><%=h vendor.phone %></td>
+    <td><%=h vendor.fax %></td>
+    <td><%=h vendor.contact %></td>  </tr>
+<% end %>
+</table>

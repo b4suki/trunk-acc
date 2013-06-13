@@ -1,0 +1,684 @@
+# Logfile created on Tue Mar 23 23:08:28 +0700 2010 by /
+[03/23/10 23:08:28 (3480)] INFO : New Relic RPM Agent Initialized: pid = 3480
+[03/23/10 23:08:28 (3480)] INFO : Agent Log is found in D:/thyro/workspaces/accounting-esitrack/log/newrelic_agent.3000.log
+[03/23/10 23:08:28 (3480)] INFO : Runtime environment: Mongrel
+[03/23/10 23:08:28 (3480)] INFO : Transaction tracing is enabled in the agent
+[03/25/10 16:00:39 (3008)] INFO : New Relic RPM Agent Initialized: pid = 3008
+[03/25/10 16:00:39 (3008)] INFO : Agent Log is found in D:/thyro/workspaces/accounting-esitrack/log/newrelic_agent.3000.log
+[03/25/10 16:00:39 (3008)] INFO : Runtime environment: Mongrel
+[03/25/10 16:00:39 (3008)] INFO : Transaction tracing is enabled in the agent
+[03/26/10 09:19:11 (6820)] INFO : New Relic RPM Agent Initialized: pid = 6820
+[03/26/10 09:19:11 (6820)] INFO : Agent Log is found in D:/thyro/workspaces/accounting-esitrack/log/newrelic_agent.3000.log
+[03/26/10 09:19:11 (6820)] INFO : Runtime environment: Mongrel
+[03/26/10 09:19:11 (6820)] INFO : Transaction tracing is enabled in the agent
+[03/26/10 10:17:43 (6820)] INFO : Not reporting error (queue exceeded maximum length): ActionController::InvalidAuthenticityToken
+[03/26/10 10:17:44 (6820)] INFO : Not reporting error (queue exceeded maximum length): ActionController::InvalidAuthenticityToken
+[03/26/10 10:17:45 (6820)] INFO : Not reporting error (queue exceeded maximum length): ActionController::InvalidAuthenticityToken
+[03/26/10 10:17:46 (6820)] INFO : Not reporting error (queue exceeded maximum length): ActionController::InvalidAuthenticityToken
+[03/26/10 11:34:05 (6820)] INFO : Not reporting error (queue exceeded maximum length): undefined method `size' for false:FalseClass
+[03/26/10 11:34:19 (6820)] INFO : Not reporting error (queue exceeded maximum length): undefined method `size' for false:FalseClass
+[03/26/10 12:43:38 (6820)] INFO : Not reporting error (queue exceeded maximum length): undefined method `status_name' for #<TransItem:0x63f8134>
+[03/26/10 12:44:04 (6820)] INFO : Not reporting error (queue exceeded maximum length): undefined method `status_name' for #<TransItem:0x5cbc604>
+[03/26/10 12:55:42 (6820)] INFO : Not reporting error (queue exceeded maximum length): ActionController::InvalidAuthenticityToken
+[03/26/10 12:55:46 (6820)] INFO : Not reporting error (queue exceeded maximum length): ActionController::InvalidAuthenticityToken
+[03/26/10 12:57:15 (6820)] INFO : Not reporting error (queue exceeded maximum length): D:/thyro/workspaces/accounting-esitrack/app/controllers/trans_items_controller.rb:285: syntax error, unexpected tCONSTANT, expecting kEND
+    @title = "Transaksi Pengambilan / Penambahan Stok"
+                       ^
+D:/thyro/workspaces/accounting-esitrack/app/controllers/trans_items_controller.rb:285: syntax error, unexpected tCONSTANT, expecting kDO or '{' or '('
+    @title = "Transaksi Pengambilan / Penambahan Stok"
+                                                     ^
+D:/thyro/workspaces/accounting-esitrack/app/controllers/trans_items_controller.rb:285: unterminated string meets end of file
+D:/thyro/workspaces/accounting-esitrack/app/controllers/trans_items_controller.rb:285: syntax error, unexpected $end, expecting kEND
+[03/26/10 12:57:58 (6820)] INFO : Not reporting error (queue exceeded maximum length): You have a nil object when you didn't expect it!
+You might have expected an instance of ActiveRecord::Base.
+The error occurred while evaluating nil.[]
+[03/26/10 13:09:22 (6820)] INFO : Not reporting error (queue exceeded maximum length): Couldn't find TransItemStatus with ID=index
+[03/26/10 13:32:59 (6820)] INFO : Not reporting error (queue exceeded maximum length): ActionController::InvalidAuthenticityToken
+[03/26/10 13:33:52 (6820)] INFO : Not reporting error (queue exceeded maximum length): undefined method `formated_trans_item_statuses_path' for #<ActionView::Base:0x5db031c>
+[03/26/10 13:48:55 (6820)] INFO : Not reporting error (queue exceeded maximum length): undefined method `formated_trans_item_statuses_path' for #<ActionView::Base:0x5c5a418>
+[03/26/10 13:49:28 (6820)] INFO : Not reporting error (queue exceeded maximum length): undefined method `formated_trans_item_statuses_path' for #<ActionView::Base:0x60910a4>
+[03/26/10 13:52:41 (6820)] INFO : Not reporting error (queue exceeded maximum length): ActionController::InvalidAuthenticityToken
+[03/26/10 13:52:48 (6820)] INFO : Not reporting error (queue exceeded maximum length): ActionController::InvalidAuthenticityToken
+[03/26/10 13:54:35 (6820)] INFO : Not reporting error (queue exceeded maximum length): No action responded to auto_complete_for_trans_item_status_name. Actions: auto_complete_for_item_name, auto_complete_for_status_name, create, destroy, edit, generate_invoice, generate_po, index, is_admin?, new, show, update, and update_status
+[03/26/10 13:59:41 (6820)] INFO : Not reporting error (queue exceeded maximum length): No action responded to auto_complete_for_trans_item_status_name. Actions: auto_complete_for_item_name, auto_complete_for_status_name, create, destroy, edit, generate_invoice, generate_po, index, is_admin?, new, show, update, and update_status
+[03/26/10 14:02:40 (6820)] INFO : Not reporting error (queue exceeded maximum length): ActionController::InvalidAuthenticityToken
+[03/26/10 14:03:38 (6820)] INFO : Not reporting error (queue exceeded maximum length): No action responded to auto_complete_for_trans_item_status_name. Actions: auto_complete_for_item_name, auto_complete_for_status_name, create, destroy, edit, generate_invoice, generate_po, index, is_admin?, new, show, update, and update_status
+[03/26/10 14:10:13 (6820)] INFO : Not reporting error (queue exceeded maximum length): No action responded to auto_complete_for_trans_item_status_name. Actions: auto_complete_for_item_name, auto_complete_for_status_name, create, destroy, edit, generate_invoice, generate_po, index, is_admin?, new, show, update, and update_status
+[03/26/10 14:10:28 (6820)] INFO : Not reporting error (queue exceeded maximum length): No action responded to auto_complete_for_trans_item_status_name. Actions: auto_complete_for_item_name, auto_complete_for_status_name, create, destroy, edit, generate_invoice, generate_po, index, is_admin?, new, show, update, and update_status
+[03/26/10 14:29:47 (6820)] INFO : Not reporting error (queue exceeded maximum length): undefined method `find_or_create' for #<Class:0x61744f8>
+[03/26/10 14:29:56 (6820)] INFO : Not reporting error (queue exceeded maximum length): undefined method `find_or_create' for #<Class:0x60280f4>
+[03/26/10 14:35:28 (6820)] INFO : Not reporting error (queue exceeded maximum length): wrong number of arguments (2 for 3)
+[03/26/10 14:35:43 (6820)] INFO : Not reporting error (queue exceeded maximum length): wrong number of arguments (2 for 3)
+[03/26/10 14:36:38 (6820)] INFO : Not reporting error (queue exceeded maximum length): wrong number of arguments (1 for 3)
+[03/26/10 14:37:16 (6820)] INFO : Not reporting error (queue exceeded maximum length): undefined method `status_name' for #<TransItem:0x5ec68f0>
+[03/26/10 14:45:33 (6820)] INFO : Not reporting error (queue exceeded maximum length): No action responded to auto_complete_for_trans_item_status_name. Actions: auto_complete_for_item_name, auto_complete_for_status_name, create, destroy, edit, generate_invoice, generate_po, index, is_admin?, new, show, update, and update_status
+[03/26/10 14:45:43 (6820)] INFO : Not reporting error (queue exceeded maximum length): No action responded to auto_complete_for_trans_item_status_name. Actions: auto_complete_for_item_name, auto_complete_for_status_name, create, destroy, edit, generate_invoice, generate_po, index, is_admin?, new, show, update, and update_status
+[03/26/10 14:45:48 (6820)] INFO : Not reporting error (queue exceeded maximum length): No action responded to auto_complete_for_trans_item_status_name. Actions: auto_complete_for_item_name, auto_complete_for_status_name, create, destroy, edit, generate_invoice, generate_po, index, is_admin?, new, show, update, and update_status
+[03/26/10 14:47:05 (6820)] INFO : Not reporting error (queue exceeded maximum length): ActionController::InvalidAuthenticityToken
+[03/26/10 15:08:15 (6820)] INFO : Not reporting error (queue exceeded maximum length): ActionController::InvalidAuthenticityToken
+[03/26/10 15:09:36 (6820)] INFO : Not reporting error (queue exceeded maximum length): ActionController::InvalidAuthenticityToken
+[03/26/10 15:09:42 (6820)] INFO : Not reporting error (queue exceeded maximum length): ActionController::InvalidAuthenticityToken
+[03/26/10 15:14:03 (6820)] INFO : Not reporting error (queue exceeded maximum length): undefined method `formatted_trans_item_statuses' for #<ActionView::Base:0x60f3754>
+[03/26/10 15:25:42 (6820)] INFO : Not reporting error (queue exceeded maximum length): undefined method `formatted_trans_item_statuses' for #<ActionView::Base:0x5eb64c8>
+[03/26/10 15:28:47 (6820)] INFO : Not reporting error (queue exceeded maximum length): undefined method `formatted_trans_item_statuses' for #<ActionView::Base:0x5e619a0>
+[03/26/10 15:30:14 (6820)] INFO : Not reporting error (queue exceeded maximum length): undefined method `formatted_trans_item_statuses' for #<ActionView::Base:0x645e3d0>
+[03/26/10 16:04:53 (6820)] INFO : Not reporting error (queue exceeded maximum length): undefined method `status_name' for #<TransItem:0x5f4b898>
+[03/26/10 16:32:21 (6820)] INFO : Not reporting error (queue exceeded maximum length): No route matches "/images/help/sale_balances/form.png" with {:method=>:get}
+[03/26/10 16:32:22 (6820)] INFO : Not reporting error (queue exceeded maximum length): No route matches "/images/help/sale_balances/edit.png" with {:method=>:get}
+[03/26/10 16:32:23 (6820)] INFO : Not reporting error (queue exceeded maximum length): No route matches "/images/help/global_help/edit.png" with {:method=>:get}
+[03/26/10 16:32:23 (6820)] INFO : Not reporting error (queue exceeded maximum length): No route matches "/images/help/sale_balances/view_pdf.png" with {:method=>:get}
+[03/26/10 16:32:24 (6820)] INFO : Not reporting error (queue exceeded maximum length): No route matches "/images/help/sale_balances/excell_view.png" with {:method=>:get}
+[03/27/10 09:59:10 (3896)] INFO : New Relic RPM Agent Initialized: pid = 3896
+[03/27/10 09:59:10 (3896)] INFO : Agent Log is found in D:/thyro/workspaces/accounting-esitrack/log/newrelic_agent.3000.log
+[03/27/10 09:59:10 (3896)] INFO : Runtime environment: Mongrel
+[03/27/10 09:59:10 (3896)] INFO : Transaction tracing is enabled in the agent
+[03/29/10 09:18:50 (3408)] INFO : New Relic RPM Agent Initialized: pid = 3408
+[03/29/10 09:18:50 (3408)] INFO : Agent Log is found in D:/thyro/workspaces/accounting-esitrack/log/newrelic_agent.3000.log
+[03/29/10 09:18:50 (3408)] INFO : Runtime environment: Mongrel
+[03/29/10 09:18:50 (3408)] INFO : Transaction tracing is enabled in the agent
+[03/30/10 09:14:16 (6540)] INFO : New Relic RPM Agent Initialized: pid = 6540
+[03/30/10 09:14:16 (6540)] INFO : Agent Log is found in D:/thyro/workspaces/accounting-esitrack/log/newrelic_agent.3000.log
+[03/30/10 09:14:16 (6540)] INFO : Runtime environment: Mongrel
+[03/30/10 09:14:16 (6540)] INFO : Transaction tracing is enabled in the agent
+[03/31/10 15:52:40 (1376)] INFO : New Relic RPM Agent Initialized: pid = 1376
+[03/31/10 15:52:40 (1376)] INFO : Agent Log is found in D:/thyro/workspaces/accounting-esitrack/log/newrelic_agent.3000.log
+[03/31/10 15:52:40 (1376)] INFO : Runtime environment: Mongrel
+[03/31/10 15:52:40 (1376)] INFO : Transaction tracing is enabled in the agent
+[04/01/10 08:49:47 (3832)] INFO : New Relic RPM Agent Initialized: pid = 3832
+[04/01/10 08:49:47 (3832)] INFO : Agent Log is found in D:/thyro/workspaces/accounting-esitrack/log/newrelic_agent.3000.log
+[04/01/10 08:49:47 (3832)] INFO : Runtime environment: Mongrel
+[04/01/10 08:49:47 (3832)] INFO : Transaction tracing is enabled in the agent
+[04/02/10 09:14:05 (3552)] INFO : New Relic RPM Agent Initialized: pid = 3552
+[04/02/10 09:14:05 (3552)] INFO : Agent Log is found in D:/thyro/workspaces/accounting-esitrack/log/newrelic_agent.3000.log
+[04/02/10 09:14:05 (3552)] INFO : Runtime environment: Mongrel
+[04/02/10 09:14:05 (3552)] INFO : Transaction tracing is enabled in the agent
+[04/02/10 15:52:37 (3552)] INFO : Not reporting error (queue exceeded maximum length): undefined method `size' for false:FalseClass
+[04/02/10 15:52:38 (3552)] INFO : Not reporting error (queue exceeded maximum length): undefined method `size' for false:FalseClass
+[04/02/10 16:13:44 (3552)] INFO : Not reporting error (queue exceeded maximum length): undefined method `size' for false:FalseClass
+[04/02/10 16:13:45 (3552)] INFO : Not reporting error (queue exceeded maximum length): undefined method `size' for false:FalseClass
+[04/02/10 16:52:45 (3552)] INFO : Not reporting error (queue exceeded maximum length): undefined method `size' for false:FalseClass
+[04/02/10 16:52:46 (3552)] INFO : Not reporting error (queue exceeded maximum length): undefined method `size' for false:FalseClass
+[04/03/10 09:05:13 (2360)] INFO : New Relic RPM Agent Initialized: pid = 2360
+[04/03/10 09:05:13 (2360)] INFO : Agent Log is found in D:/thyro/workspaces/accounting-esitrack/log/newrelic_agent.3000.log
+[04/03/10 09:05:13 (2360)] INFO : Runtime environment: Mongrel
+[04/03/10 09:05:13 (2360)] INFO : Transaction tracing is enabled in the agent
+[04/03/10 11:57:46 (2360)] INFO : Not reporting error (queue exceeded maximum length): undefined method `size' for false:FalseClass
+[04/03/10 12:00:16 (2360)] INFO : Not reporting error (queue exceeded maximum length): undefined method `size' for false:FalseClass
+[04/03/10 12:00:17 (2360)] INFO : Not reporting error (queue exceeded maximum length): undefined method `size' for false:FalseClass
+[04/03/10 12:01:58 (2360)] INFO : Not reporting error (queue exceeded maximum length): Mysql::Error: You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near ')' at line 1: SELECT * FROM `accounting_mutations` WHERE (type='Receivable' and month(updated_at) between 1 and 3 and year(updated_at)=2010 and vendor_customer_id =) 
+[04/03/10 12:45:21 (2360)] INFO : Not reporting error (queue exceeded maximum length): undefined method `size' for false:FalseClass
+[04/03/10 12:45:22 (2360)] INFO : Not reporting error (queue exceeded maximum length): undefined method `size' for false:FalseClass
+[04/03/10 12:48:55 (2360)] INFO : Not reporting error (queue exceeded maximum length): Mysql::Error: You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near ')' at line 1: SELECT * FROM `accounting_mutations` WHERE (type='Receivable' and month(updated_at) between 1 and 3 and year(updated_at)=2010 and vendor_customer_id =) 
+[04/03/10 12:59:09 (2360)] INFO : Not reporting error (queue exceeded maximum length): undefined method `size' for false:FalseClass
+[04/03/10 12:59:11 (2360)] INFO : Not reporting error (queue exceeded maximum length): undefined method `size' for false:FalseClass
+[04/05/10 09:50:50 (3996)] INFO : New Relic RPM Agent Initialized: pid = 3996
+[04/05/10 09:50:50 (3996)] INFO : Agent Log is found in D:/thyro/workspaces/accounting-esitrack/log/newrelic_agent.3000.log
+[04/05/10 09:50:50 (3996)] INFO : Runtime environment: Mongrel
+[04/05/10 09:50:50 (3996)] INFO : Transaction tracing is enabled in the agent
+[04/06/10 09:16:44 (704)] INFO : New Relic RPM Agent Initialized: pid = 704
+[04/06/10 09:16:44 (704)] INFO : Agent Log is found in D:/thyro/workspaces/accounting-esitrack/log/newrelic_agent.3000.log
+[04/06/10 09:16:44 (704)] INFO : Runtime environment: Mongrel
+[04/06/10 09:16:44 (704)] INFO : Transaction tracing is enabled in the agent
+[04/06/10 10:54:46 (1364)] INFO : New Relic RPM Agent Initialized: pid = 1364
+[04/06/10 10:54:46 (1364)] INFO : Agent Log is found in D:/thyro/workspaces/accounting-esitrack/log/newrelic_agent.3000.log
+[04/06/10 10:54:46 (1364)] INFO : Runtime environment: Mongrel
+[04/06/10 10:54:46 (1364)] INFO : Transaction tracing is enabled in the agent
+[04/06/10 14:19:36 (264)] INFO : New Relic RPM Agent Initialized: pid = 264
+[04/06/10 14:19:36 (264)] INFO : Agent Log is found in D:/thyro/workspaces/accounting-esitrack/log/newrelic_agent.3000.log
+[04/06/10 14:19:36 (264)] INFO : Runtime environment: Mongrel
+[04/06/10 14:19:36 (264)] INFO : Transaction tracing is enabled in the agent
+[04/06/10 17:09:10 (264)] INFO : Not reporting error (queue exceeded maximum length): You have a nil object when you didn't expect it!
+The error occurred while evaluating nil.<
+[04/07/10 09:26:08 (3388)] INFO : New Relic RPM Agent Initialized: pid = 3388
+[04/07/10 09:26:08 (3388)] INFO : Agent Log is found in D:/thyro/workspaces/accounting-esitrack/log/newrelic_agent.3000.log
+[04/07/10 09:26:08 (3388)] INFO : Runtime environment: Mongrel
+[04/07/10 09:26:08 (3388)] INFO : Transaction tracing is enabled in the agent
+[04/07/10 12:57:26 (3556)] INFO : New Relic RPM Agent Initialized: pid = 3556
+[04/07/10 12:57:26 (3556)] INFO : Agent Log is found in D:/thyro/workspaces/accounting-esitrack/log/newrelic_agent.3000.log
+[04/07/10 12:57:26 (3556)] INFO : Runtime environment: Mongrel
+[04/07/10 12:57:26 (3556)] INFO : Transaction tracing is enabled in the agent
+[04/07/10 13:03:28 (3772)] INFO : New Relic RPM Agent Initialized: pid = 3772
+[04/07/10 13:03:28 (3772)] INFO : Agent Log is found in D:/thyro/workspaces/accounting-esitrack/log/newrelic_agent.3000.log
+[04/07/10 13:03:28 (3772)] INFO : Runtime environment: Mongrel
+[04/07/10 13:03:28 (3772)] INFO : Transaction tracing is enabled in the agent
+[04/07/10 13:58:27 (1580)] INFO : New Relic RPM Agent Initialized: pid = 1580
+[04/07/10 13:58:27 (1580)] INFO : Agent Log is found in D:/thyro/workspaces/accounting-esitrack/log/newrelic_agent.3000.log
+[04/07/10 13:58:27 (1580)] INFO : Runtime environment: Mongrel
+[04/07/10 13:58:27 (1580)] INFO : Transaction tracing is enabled in the agent
+[04/23/10 09:09:13 (26301)] INFO : New Relic RPM Agent Initialized: pid = 26301
+[04/23/10 09:09:13 (26301)] INFO : Agent Log is found in /home/hasan/workspaces/accounting-esitrack/log/newrelic_agent.3000.log
+[04/23/10 09:09:13 (26301)] INFO : Runtime environment: Mongrel
+[04/23/10 09:09:13 (26301)] INFO : Transaction tracing is enabled in the agent
+[05/07/10 09:30:39 (13758)] INFO : New Relic RPM Agent Initialized: pid = 13758
+[05/07/10 09:30:39 (13758)] INFO : Agent Log is found in /home/hasan/workspaces/accounting-esitrack/log/newrelic_agent.3000.log
+[05/07/10 09:30:39 (13758)] INFO : Runtime environment: Mongrel
+[05/07/10 09:30:39 (13758)] INFO : Transaction tracing is enabled in the agent
+[05/07/10 10:21:24 (11046)] INFO : New Relic RPM Agent Initialized: pid = 11046
+[05/07/10 10:21:24 (11046)] INFO : Agent Log is found in /home/coder/workspaces/accounting-esitrack/log/newrelic_agent.3000.log
+[05/07/10 10:21:24 (11046)] INFO : Runtime environment: Mongrel
+[05/07/10 10:21:24 (11046)] INFO : Transaction tracing is enabled in the agent
+[05/07/10 14:23:09 (11046)] INFO : Not reporting error (queue exceeded maximum length): User.roles doesn't return an Array of Symbols ([#<Role id: 7, title: "Inventory", created_at: "2010-04-27 04:51:00", updated_at: "2010-04-27 04:51:00">])
+[05/07/10 14:28:31 (11046)] INFO : Not reporting error (queue exceeded maximum length): User.roles doesn't return an Array of Symbols ([#<Role id: 7, title: "Inventory", created_at: "2010-04-27 04:51:00", updated_at: "2010-04-27 04:51:00">])
+[05/07/10 14:29:20 (11046)] INFO : Not reporting error (queue exceeded maximum length): User.roles doesn't return an Array of Symbols ([#<Role id: 7, title: "Inventory", created_at: "2010-04-27 04:51:00", updated_at: "2010-04-27 04:51:00">])
+[05/07/10 14:54:27 (11046)] INFO : Not reporting error (queue exceeded maximum length): Couldn't find Role with ID=11
+[05/07/10 15:04:02 (11046)] INFO : Not reporting error (queue exceeded maximum length): /home/coder/workspaces/accounting-esitrack/app/controllers/accounting/accounts_controller.rb:10: syntax error, unexpected tSYMBEG
+    :delete_account. :knowing_errors ] => 'Inventory | Administrator'
+                      ^
+[05/07/10 16:54:53 (11046)] INFO : Not reporting error (queue exceeded maximum length): User.roles doesn't return an Array of Symbols ([#<Role id: 7, title: "Inventory", created_at: "2010-04-27 04:51:00", updated_at: "2010-04-27 04:51:00">])
+[05/07/10 16:55:35 (11046)] INFO : Not reporting error (queue exceeded maximum length): User.roles doesn't return an Array of Symbols ([#<Role id: 7, title: "inventory", created_at: "2010-04-27 04:51:00", updated_at: "2010-04-27 04:51:00">])
+[05/07/10 16:57:39 (11046)] INFO : Not reporting error (queue exceeded maximum length): User.roles doesn't return an Array of Symbols ([#<Role id: 7, title: "inventory", created_at: "2010-04-27 04:51:00", updated_at: "2010-04-27 04:51:00">])
+[05/07/10 16:58:07 (11046)] INFO : Not reporting error (queue exceeded maximum length): User.roles doesn't return an Array of Symbols ([#<Role id: 7, title: "inventory", created_at: "2010-04-27 04:51:00", updated_at: "2010-04-27 04:51:00">])
+[05/07/10 16:59:23 (11046)] INFO : Not reporting error (queue exceeded maximum length): User.roles doesn't return an Array of Symbols ([#<Role id: 7, title: "inventory", created_at: "2010-04-27 04:51:00", updated_at: "2010-04-27 04:51:00">])
+[05/07/10 17:00:41 (11046)] INFO : Not reporting error (queue exceeded maximum length): User.roles doesn't return an Array of Symbols ([#<Role id: 7, title: "inventory", created_at: "2010-04-27 04:51:00", updated_at: "2010-04-27 04:51:00">])
+[05/07/10 17:01:23 (11046)] INFO : Not reporting error (queue exceeded maximum length): User.roles doesn't return an Array of Symbols ([#<Role id: 7, title: "inventory", created_at: "2010-04-27 04:51:00", updated_at: "2010-04-27 04:51:00">])
+[05/07/10 17:04:43 (11046)] INFO : Not reporting error (queue exceeded maximum length): User.roles doesn't return an Array of Symbols ([#<Role id: 7, title: "inventory", created_at: "2010-04-27 04:51:00", updated_at: "2010-04-27 04:51:00">])
+[05/07/10 17:06:14 (11046)] INFO : Not reporting error (queue exceeded maximum length): User.roles doesn't return an Array of Symbols ([#<Role id: 7, title: "inventory", created_at: "2010-04-27 04:51:00", updated_at: "2010-04-27 04:51:00">])
+[05/07/10 17:06:38 (11046)] INFO : Not reporting error (queue exceeded maximum length): User.roles doesn't return an Array of Symbols ([#<Role id: 1, title: "Administrator", created_at: "2008-11-12 04:00:49", updated_at: "2008-11-12 04:00:49">])
+[05/07/10 17:09:20 (11046)] INFO : Not reporting error (queue exceeded maximum length): wrong number of arguments (0 for 1)
+[05/07/10 17:09:42 (11046)] INFO : Not reporting error (queue exceeded maximum length): User.roles doesn't return an Array of Symbols ([#<Role id: 1, title: "Administrator", created_at: "2008-11-12 04:00:49", updated_at: "2008-11-12 04:00:49">])
+[05/07/10 17:42:13 (11046)] INFO : Not reporting error (queue exceeded maximum length): undefined method `is_inventory?' for #<ActionView::Base:0xb5233c90>
+[05/07/10 17:44:14 (11046)] INFO : Not reporting error (queue exceeded maximum length): undefined method `is_inventory?' for #<ActionView::Base:0xb520aa98>
+[05/07/10 17:45:01 (11046)] INFO : Not reporting error (queue exceeded maximum length): undefined method `is_inventory?' for #<ActionView::Base:0xb517b08c>
+[05/10/10 09:25:56 (4473)] INFO : New Relic RPM Agent Initialized: pid = 4473
+[05/10/10 09:25:56 (4473)] INFO : Agent Log is found in /home/coder/workspaces/accounting-esitrack/log/newrelic_agent.3000.log
+[05/10/10 09:25:56 (4473)] INFO : Runtime environment: Mongrel
+[05/10/10 09:25:56 (4473)] INFO : Transaction tracing is enabled in the agent
+[05/10/10 09:34:57 (6725)] INFO : New Relic RPM Agent Initialized: pid = 6725
+[05/10/10 09:34:57 (6725)] INFO : Agent Log is found in /home/coder/workspaces/accounting-esitrack/log/newrelic_agent.3000.log
+[05/10/10 09:34:57 (6725)] INFO : Runtime environment: Mongrel
+[05/10/10 09:34:57 (6725)] INFO : Transaction tracing is enabled in the agent
+[05/10/10 09:36:25 (6734)] INFO : New Relic RPM Agent Initialized: pid = 6734
+[05/10/10 09:36:25 (6734)] INFO : Agent Log is found in /home/coder/workspaces/accounting-esitrack/log/newrelic_agent.3000.log
+[05/10/10 09:36:25 (6734)] INFO : Runtime environment: Mongrel
+[05/10/10 09:36:25 (6734)] INFO : Transaction tracing is enabled in the agent
+[05/10/10 09:37:29 (6743)] INFO : New Relic RPM Agent Initialized: pid = 6743
+[05/10/10 09:37:29 (6743)] INFO : Agent Log is found in /home/coder/workspaces/accounting-esitrack/log/newrelic_agent.3000.log
+[05/10/10 09:37:29 (6743)] INFO : Runtime environment: Mongrel
+[05/10/10 09:37:29 (6743)] INFO : Transaction tracing is enabled in the agent
+[05/10/10 10:04:19 (6743)] INFO : Not reporting error (queue exceeded maximum length): compile error
+/home/coder/workspaces/accounting-esitrack/app/views/layouts/_initialize_menu.rhtml:24: syntax error, unexpected ';'
+...ainder","CashFlow","LogOut"] ; @output_buffer.concat "\n  "
+                              ^
+[05/10/10 10:04:21 (6743)] INFO : Not reporting error (queue exceeded maximum length): compile error
+/home/coder/workspaces/accounting-esitrack/app/views/layouts/_initialize_menu.rhtml:24: syntax error, unexpected ';'
+...ainder","CashFlow","LogOut"] ; @output_buffer.concat "\n  "
+                              ^
+[05/10/10 10:16:38 (6743)] INFO : Not reporting error (queue exceeded maximum length): compile error
+/home/coder/workspaces/accounting-esitrack/app/views/layouts/_initialize_menu.rhtml:29: syntax error, unexpected tIVAR, expecting kWHEN
+;  case deskstop_menu.nil? ; @output_buffer.concat "\n  "
+                                           ^
+/home/coder/workspaces/accounting-esitrack/app/views/layouts/_initialize_menu.rhtml:30: syntax error, unexpected kWHEN, expecting kEND
+;  when current_user.roles.first.titl...
+       ^
+/home/coder/workspaces/accounting-esitrack/app/views/layouts/_initialize_menu.rhtml:31: syntax error, unexpected ':', expecting kEND
+...ainder","CashFlow","LogOut"] : ["DataMaster","Transaksi","La...
+                              ^
+/home/coder/workspaces/accounting-esitrack/app/views/layouts/_initialize_menu.rhtml:127: syntax error, unexpected kENSURE, expecting $end
+[05/10/10 10:17:04 (6743)] INFO : Not reporting error (queue exceeded maximum length): compile error
+/home/coder/workspaces/accounting-esitrack/app/views/layouts/_initialize_menu.rhtml:29: syntax error, unexpected tIVAR, expecting kWHEN
+;  case current_user.roles.first.title ; @output_buffer.concat "\n  "
+                                                       ^
+/home/coder/workspaces/accounting-esitrack/app/views/layouts/_initialize_menu.rhtml:30: syntax error, unexpected kWHEN, expecting kEND
+;  when "Administrator" ; @output_buffer.concat "\n      "
+       ^
+/home/coder/workspaces/accounting-esitrack/app/views/layouts/_initialize_menu.rhtml:31: syntax error, unexpected ':', expecting kEND
+...ainder","CashFlow","LogOut"] : ["DataMaster","Transaksi","La...
+                              ^
+/home/coder/workspaces/accounting-esitrack/app/views/layouts/_initialize_menu.rhtml:127: syntax error, unexpected kENSURE, expecting $end
+[05/10/10 10:17:06 (6743)] INFO : Not reporting error (queue exceeded maximum length): compile error
+/home/coder/workspaces/accounting-esitrack/app/views/layouts/_initialize_menu.rhtml:29: syntax error, unexpected tIVAR, expecting kWHEN
+;  case current_user.roles.first.title ; @output_buffer.concat "\n  "
+                                                       ^
+/home/coder/workspaces/accounting-esitrack/app/views/layouts/_initialize_menu.rhtml:30: syntax error, unexpected kWHEN, expecting kEND
+;  when "Administrator" ; @output_buffer.concat "\n      "
+       ^
+/home/coder/workspaces/accounting-esitrack/app/views/layouts/_initialize_menu.rhtml:31: syntax error, unexpected ':', expecting kEND
+...ainder","CashFlow","LogOut"] : ["DataMaster","Transaksi","La...
+                              ^
+/home/coder/workspaces/accounting-esitrack/app/views/layouts/_initialize_menu.rhtml:127: syntax error, unexpected kENSURE, expecting $end
+[05/10/10 10:25:14 (6743)] INFO : Not reporting error (queue exceeded maximum length): undefined local variable or method `auto_complete_for_contra_account_code' for Accounting::PurchaseBalancesController:Class
+[05/10/10 10:26:26 (6743)] INFO : Not reporting error (queue exceeded maximum length): undefined local variable or method `auto_complete_for_contra_account_code' for Accounting::PurchaseBalancesController:Class
+[05/10/10 10:28:13 (6743)] INFO : Not reporting error (queue exceeded maximum length): undefined local variable or method `auto_complete_for_contra_account_code' for Accounting::PurchaseBalancesController:Class
+[05/10/10 10:44:57 (6743)] INFO : Not reporting error (queue exceeded maximum length): undefined method `if_permitted_to' for #<ActionView::Base:0xb5db044c>
+[05/10/10 10:54:41 (6743)] INFO : Not reporting error (queue exceeded maximum length): compile error
+/home/coder/workspaces/accounting-esitrack/app/views/layouts/_initialize_menu.rhtml:29: syntax error, unexpected tIVAR, expecting kWHEN
+;  case current_user.roles.first.title ; @output_buffer.concat "\n  "
+                                                       ^
+/home/coder/workspaces/accounting-esitrack/app/views/layouts/_initialize_menu.rhtml:30: syntax error, unexpected kWHEN, expecting kEND
+;  when "Administrator" ; @output_buffer.concat "\n      "
+       ^
+/home/coder/workspaces/accounting-esitrack/app/views/layouts/_initialize_menu.rhtml:128: syntax error, unexpected kENSURE, expecting $end
+[05/10/10 12:03:06 (9367)] INFO : New Relic RPM Agent Initialized: pid = 9367
+[05/10/10 12:03:06 (9367)] INFO : Agent Log is found in /home/coder/workspaces/accounting-esitrack/log/newrelic_agent.3000.log
+[05/10/10 12:03:06 (9367)] INFO : Runtime environment: Mongrel
+[05/10/10 12:03:06 (9367)] INFO : Transaction tracing is enabled in the agent
+[05/11/10 10:05:09 (19637)] INFO : New Relic RPM Agent Initialized: pid = 19637
+[05/11/10 10:05:09 (19637)] INFO : Agent Log is found in /home/coder/workspaces/accounting-esitrack/log/newrelic_agent.3000.log
+[05/11/10 10:05:09 (19637)] INFO : Runtime environment: Mongrel
+[05/11/10 10:05:09 (19637)] INFO : Transaction tracing is enabled in the agent
+[08/09/10 10:11:32 (4316)] INFO : New Relic RPM Agent Initialized: pid = 4316
+[08/09/10 10:11:32 (4316)] INFO : Agent Log is found in /home/coder/trunk/log/newrelic_agent.3000.log
+[08/09/10 10:11:32 (4316)] INFO : Runtime environment: Mongrel
+[08/09/10 10:11:32 (4316)] INFO : Transaction tracing is enabled in the agent
+[08/09/10 16:48:11 (4647)] INFO : New Relic RPM Agent Initialized: pid = 4647
+[08/09/10 16:48:11 (4647)] INFO : Agent Log is found in /home/coder/trunk/log/newrelic_agent.3000.log
+[08/09/10 16:48:11 (4647)] INFO : Runtime environment: Mongrel
+[08/09/10 16:48:11 (4647)] INFO : Transaction tracing is enabled in the agent
+[08/09/10 16:48:39 (4655)] INFO : New Relic RPM Agent Initialized: pid = 4655
+[08/09/10 16:48:39 (4655)] INFO : Agent Log is found in /home/coder/trunk/log/newrelic_agent.3000.log
+[08/09/10 16:48:39 (4655)] INFO : Runtime environment: Mongrel
+[08/09/10 16:48:39 (4655)] INFO : Transaction tracing is enabled in the agent
+[08/09/10 17:09:03 (4774)] INFO : New Relic RPM Agent Initialized: pid = 4774
+[08/09/10 17:09:03 (4774)] INFO : Agent Log is found in /home/coder/trunk/log/newrelic_agent.3000.log
+[08/09/10 17:09:03 (4774)] INFO : Runtime environment: Mongrel
+[08/09/10 17:09:03 (4774)] INFO : Transaction tracing is enabled in the agent
+[08/09/10 17:09:38 (4786)] INFO : New Relic RPM Agent Initialized: pid = 4786
+[08/09/10 17:09:38 (4786)] INFO : Agent Log is found in /home/coder/trunk/log/newrelic_agent.3000.log
+[08/09/10 17:09:38 (4786)] INFO : Runtime environment: Mongrel
+[08/09/10 17:09:38 (4786)] INFO : Transaction tracing is enabled in the agent
+[08/10/10 09:25:08 (2670)] INFO : New Relic RPM Agent Initialized: pid = 2670
+[08/10/10 09:25:08 (2670)] INFO : Agent Log is found in /home/coder/trunk/log/newrelic_agent.3000.log
+[08/10/10 09:25:08 (2670)] INFO : Runtime environment: Mongrel
+[08/10/10 09:25:08 (2670)] INFO : Transaction tracing is enabled in the agent
+[08/10/10 09:40:04 (2820)] INFO : New Relic RPM Agent Initialized: pid = 2820
+[08/10/10 09:40:04 (2820)] INFO : Agent Log is found in /home/coder/trunk/log/newrelic_agent.3000.log
+[08/10/10 09:40:04 (2820)] INFO : Runtime environment: Mongrel
+[08/10/10 09:40:04 (2820)] INFO : Transaction tracing is enabled in the agent
+[08/10/10 10:51:10 (3628)] INFO : New Relic RPM Agent Initialized: pid = 3628
+[08/10/10 10:51:10 (3628)] INFO : Agent Log is found in /home/coder/trunk/log/newrelic_agent.3000.log
+[08/10/10 10:51:10 (3628)] INFO : Runtime environment: Mongrel
+[08/10/10 10:51:10 (3628)] INFO : Transaction tracing is enabled in the agent
+[08/19/10 02:15:55 (3313)] INFO : New Relic RPM Agent Initialized: pid = 3313
+[08/19/10 02:15:55 (3313)] INFO : Agent Log is found in /home/coder/trunk/log/newrelic_agent.3000.log
+[08/19/10 02:15:55 (3313)] INFO : Runtime environment: Mongrel
+[08/19/10 02:15:55 (3313)] INFO : Transaction tracing is enabled in the agent
+[08/19/10 03:52:49 (3313)] INFO : Not reporting error (queue exceeded maximum length): Mysql::Error: You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near ')' at line 1: SELECT * FROM `accounting_sale_balances` WHERE (month(invoice_date) between 1 and 7 and year(invoice_date) = 2010 and customer_id = ) 
+[08/19/10 09:44:17 (3313)] INFO : Not reporting error (queue exceeded maximum length): Mysql::Error: You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near ')' at line 1: SELECT * FROM `accounting_sale_balances` WHERE (month(invoice_date) = 08 and year(invoice_date)=2010  and customer_id = ) 
+[08/19/10 09:44:48 (3313)] INFO : Not reporting error (queue exceeded maximum length): You have a nil object when you didn't expect it!
+The error occurred while evaluating nil.name
+[08/19/10 09:53:49 (3313)] INFO : Not reporting error (queue exceeded maximum length): No route matches "/images/help/cash_balances/konf_hapus.png" with {:method=>:get}
+[08/19/10 09:53:50 (3313)] INFO : Not reporting error (queue exceeded maximum length): No route matches "/images/help/cash_balances/konf_export_pdf.png" with {:method=>:get}
+[08/19/10 09:53:51 (3313)] INFO : Not reporting error (queue exceeded maximum length): No route matches "/images/help/cash_balances/konf_export_xls.png" with {:method=>:get}
+[09/02/10 12:51:33 (7560)] INFO : New Relic RPM Agent Initialized: pid = 7560
+[09/02/10 12:51:33 (7560)] INFO : Agent Log is found in /home/coder/ascendpoints_esitrack-accounting/trunk/log/newrelic_agent.3000.log
+[09/02/10 12:51:33 (7560)] INFO : Runtime environment: Mongrel
+[09/02/10 12:51:33 (7560)] INFO : Transaction tracing is enabled in the agent
+[04/08/11 09:21:15 (2188)] INFO : New Relic RPM Agent Initialized: pid = 2188
+[04/08/11 09:21:15 (2188)] INFO : Agent Log is found in /home/coder/Documents/workspace/ascendpoints_esitrack-accounting/trunk/log/newrelic_agent.3000.log
+[04/08/11 09:21:15 (2188)] INFO : Runtime environment: Mongrel
+[04/08/11 09:21:15 (2188)] INFO : Transaction tracing is enabled in the agent
+[04/29/11 10:58:04 (4805)] INFO : New Relic RPM Agent Initialized: pid = 4805
+[04/29/11 10:58:04 (4805)] INFO : Agent Log is found in /home/coder/Documents/workspace/ascendpoints_esitrack-accounting/trunk/log/newrelic_agent.3000.log
+[04/29/11 10:58:04 (4805)] INFO : Runtime environment: Mongrel
+[04/29/11 10:58:04 (4805)] INFO : Transaction tracing is enabled in the agent
+[05/02/11 11:44:38 (4550)] INFO : New Relic RPM Agent Initialized: pid = 4550
+[05/02/11 11:44:38 (4550)] INFO : Agent Log is found in /home/coder/Documents/workspace/ascendpoints_esitrack-accounting/trunk/log/newrelic_agent.3000.log
+[05/02/11 11:44:38 (4550)] INFO : Runtime environment: Mongrel
+[05/02/11 11:44:38 (4550)] INFO : Transaction tracing is enabled in the agent
+[05/02/11 12:17:37 (4550)] INFO : Not reporting error (queue exceeded maximum length): compile error
+/home/coder/Documents/workspace/ascendpoints_esitrack-accounting/trunk/app/views/accounting/general_ledgers/index.rhtml:43: odd number list for Hash
+...rs_path({@selected_account.id},:pdf),:date => @date, :class ...
+                              ^
+[05/02/11 12:17:59 (4550)] INFO : Not reporting error (queue exceeded maximum length): undefined method `has_key?' for :pdf:Symbol
+[05/02/11 12:22:44 (4550)] INFO : Not reporting error (queue exceeded maximum length): You have a nil object when you didn't expect it!
+The error occurred while evaluating nil.code
+[05/02/11 12:23:17 (4550)] INFO : Not reporting error (queue exceeded maximum length): You have a nil object when you didn't expect it!
+The error occurred while evaluating nil.code
+[05/02/11 17:05:32 (4550)] INFO : Not reporting error (queue exceeded maximum length): ActionController::InvalidAuthenticityToken
+[05/02/11 17:05:41 (4550)] INFO : Not reporting error (queue exceeded maximum length): ActionController::InvalidAuthenticityToken
+[05/02/11 17:06:35 (4550)] INFO : Not reporting error (queue exceeded maximum length): ActionController::InvalidAuthenticityToken
+[05/02/11 17:06:37 (4550)] INFO : Not reporting error (queue exceeded maximum length): ActionController::InvalidAuthenticityToken
+[05/02/11 17:06:43 (4550)] INFO : Not reporting error (queue exceeded maximum length): Couldn't find AccountingPurchaseBalance with ID=
+[05/02/11 17:07:13 (4550)] INFO : Not reporting error (queue exceeded maximum length): ActionController::InvalidAuthenticityToken
+[05/03/11 12:57:34 (4733)] INFO : New Relic RPM Agent Initialized: pid = 4733
+[05/03/11 12:57:34 (4733)] INFO : Agent Log is found in /home/coder/Documents/workspace/ascendpoints_esitrack-accounting/trunk/log/newrelic_agent.3000.log
+[05/03/11 12:57:34 (4733)] INFO : Runtime environment: Mongrel
+[05/03/11 12:57:34 (4733)] INFO : Transaction tracing is enabled in the agent
+[05/03/11 15:33:29 (6254)] INFO : New Relic RPM Agent Initialized: pid = 6254
+[05/03/11 15:33:29 (6254)] INFO : Agent Log is found in /home/coder/Documents/workspace/ascendpoints_esitrack-accounting/trunk/log/newrelic_agent.3000.log
+[05/03/11 15:33:29 (6254)] INFO : Runtime environment: Mongrel
+[05/03/11 15:33:29 (6254)] INFO : Transaction tracing is enabled in the agent
+[05/03/11 15:34:28 (6271)] INFO : New Relic RPM Agent Initialized: pid = 6271
+[05/03/11 15:34:28 (6271)] INFO : Agent Log is found in /home/coder/Documents/workspace/ascendpoints_esitrack-accounting/trunk/log/newrelic_agent.3000.log
+[05/03/11 15:34:28 (6271)] INFO : Runtime environment: Mongrel
+[05/03/11 15:34:28 (6271)] INFO : Transaction tracing is enabled in the agent
+[05/03/11 15:47:57 (6473)] INFO : New Relic RPM Agent Initialized: pid = 6473
+[05/03/11 15:47:57 (6473)] INFO : Agent Log is found in /home/coder/Documents/workspace/ascendpoints_esitrack-accounting/trunk/log/newrelic_agent.3000.log
+[05/03/11 15:47:57 (6473)] INFO : Runtime environment: Mongrel
+[05/03/11 15:47:57 (6473)] INFO : Transaction tracing is enabled in the agent
+[05/03/11 16:20:24 (6804)] INFO : New Relic RPM Agent Initialized: pid = 6804
+[05/03/11 16:20:24 (6804)] INFO : Agent Log is found in /home/coder/Documents/workspace/ascendpoints_esitrack-accounting/trunk/log/newrelic_agent.3000.log
+[05/03/11 16:20:24 (6804)] INFO : Runtime environment: Mongrel
+[05/03/11 16:20:24 (6804)] INFO : Transaction tracing is enabled in the agent
+[05/03/11 17:19:17 (7209)] INFO : New Relic RPM Agent Initialized: pid = 7209
+[05/03/11 17:19:17 (7209)] INFO : Agent Log is found in /home/coder/Documents/workspace/ascendpoints_esitrack-accounting/trunk/log/newrelic_agent.3000.log
+[05/03/11 17:19:17 (7209)] INFO : Runtime environment: Mongrel
+[05/03/11 17:19:17 (7209)] INFO : Transaction tracing is enabled in the agent
+[05/04/11 15:31:43 (6433)] INFO : New Relic RPM Agent Initialized: pid = 6433
+[05/04/11 15:31:43 (6433)] INFO : Agent Log is found in /home/coder/Documents/workspace/ascendpoints_esitrack-accounting/trunk/log/newrelic_agent.3000.log
+[05/04/11 15:31:43 (6433)] INFO : Runtime environment: Mongrel
+[05/04/11 15:31:43 (6433)] INFO : Transaction tracing is enabled in the agent
+[05/04/11 15:39:33 (6538)] INFO : New Relic RPM Agent Initialized: pid = 6538
+[05/04/11 15:39:33 (6538)] INFO : Agent Log is found in /home/coder/Documents/workspace/ascendpoints_esitrack-accounting/trunk/log/newrelic_agent.3000.log
+[05/04/11 15:39:33 (6538)] INFO : Runtime environment: Mongrel
+[05/04/11 15:39:33 (6538)] INFO : Transaction tracing is enabled in the agent
+[05/04/11 16:01:50 (6795)] INFO : New Relic RPM Agent Initialized: pid = 6795
+[05/04/11 16:01:50 (6795)] INFO : Agent Log is found in /home/coder/Documents/workspace/ascendpoints_esitrack-accounting/trunk/log/newrelic_agent.3000.log
+[05/04/11 16:01:50 (6795)] INFO : Runtime environment: Mongrel
+[05/04/11 16:01:50 (6795)] INFO : Transaction tracing is enabled in the agent
+[05/09/11 11:17:45 (4812)] INFO : New Relic RPM Agent Initialized: pid = 4812
+[05/09/11 11:17:45 (4812)] INFO : Agent Log is found in /home/coder/Documents/workspace/ascendpoints_esitrack-accounting/trunk/log/newrelic_agent.3000.log
+[05/09/11 11:17:45 (4812)] INFO : Runtime environment: Mongrel
+[05/09/11 11:17:45 (4812)] INFO : Transaction tracing is enabled in the agent
+[05/09/11 11:27:04 (4812)] ERROR : Caught exception in trace_method_execution footer. Metric name = View/accounting/cost_evaluations/show_period_accounts/Rendering, exception = unbalanced entry/exit: View/accounting/cost_evaluations/show_period_accounts/Rendering != ActiveRecord/AccountingFixedAssetDetail/find
+[05/09/11 11:27:04 (4812)] ERROR : /home/coder/Documents/workspace/ascendpoints_esitrack-accounting/trunk/vendor/plugins/newrelic_rpm/lib/newrelic/agent/transaction_sampler.rb:234:in `trace_exit'
+/home/coder/Documents/workspace/ascendpoints_esitrack-accounting/trunk/vendor/plugins/newrelic_rpm/lib/newrelic/agent/transaction_sampler.rb:87:in `notice_pop_scope'
+/home/coder/Documents/workspace/ascendpoints_esitrack-accounting/trunk/vendor/plugins/newrelic_rpm/lib/newrelic/agent/transaction_sampler.rb:194:in `with_builder'
+/home/coder/Documents/workspace/ascendpoints_esitrack-accounting/trunk/vendor/plugins/newrelic_rpm/lib/newrelic/agent/transaction_sampler.rb:86:in `notice_pop_scope'
+/home/coder/Documents/workspace/ascendpoints_esitrack-accounting/trunk/vendor/plugins/newrelic_rpm/lib/newrelic/agent/stats_engine.rb:95:in `pop_scope'
+/home/coder/Documents/workspace/ascendpoints_esitrack-accounting/trunk/vendor/plugins/newrelic_rpm/lib/newrelic/agent/stats_engine.rb:94:in `each'
+/home/coder/Documents/workspace/ascendpoints_esitrack-accounting/trunk/vendor/plugins/newrelic_rpm/lib/newrelic/agent/stats_engine.rb:94:in `pop_scope'
+/home/coder/Documents/workspace/ascendpoints_esitrack-accounting/trunk/vendor/plugins/newrelic_rpm/lib/newrelic/agent/method_tracer.rb:46:in `trace_method_execution'
+/home/coder/Documents/workspace/ascendpoints_esitrack-accounting/trunk/vendor/plugins/newrelic_rpm/lib/newrelic/agent/method_tracer.rb:117:in `render'
+/home/coder/.rvm/gems/ruby-1.8.7-p330@rails2/gems/actionpack-2.3.3/lib/action_controller/base.rb:991:in `render_to_string'
+/home/coder/Documents/workspace/ascendpoints_esitrack-accounting/trunk/app/controllers/application_controller.rb:97:in `render_to_pdf'
+/home/coder/Documents/workspace/ascendpoints_esitrack-accounting/trunk/app/controllers/accounting/cost_evaluations_controller.rb:65:in `show_period_accounts'
+/home/coder/.rvm/gems/ruby-1.8.7-p330@rails2/gems/actionpack-2.3.3/lib/action_controller/mime_responds.rb:135:in `call'
+/home/coder/.rvm/gems/ruby-1.8.7-p330@rails2/gems/actionpack-2.3.3/lib/action_controller/mime_responds.rb:135:in `custom'
+/home/coder/.rvm/gems/ruby-1.8.7-p330@rails2/gems/actionpack-2.3.3/lib/action_controller/mime_responds.rb:179:in `call'
+/home/coder/.rvm/gems/ruby-1.8.7-p330@rails2/gems/actionpack-2.3.3/lib/action_controller/mime_responds.rb:179:in `respond'
+/home/coder/.rvm/gems/ruby-1.8.7-p330@rails2/gems/actionpack-2.3.3/lib/action_controller/mime_responds.rb:173:in `each'
+/home/coder/.rvm/gems/ruby-1.8.7-p330@rails2/gems/actionpack-2.3.3/lib/action_controller/mime_responds.rb:173:in `respond'
+/home/coder/.rvm/gems/ruby-1.8.7-p330@rails2/gems/actionpack-2.3.3/lib/action_controller/mime_responds.rb:107:in `respond_to'
+/home/coder/Documents/workspace/ascendpoints_esitrack-accounting/trunk/app/controllers/accounting/cost_evaluations_controller.rb:56:in `show_period_accounts'
+/home/coder/.rvm/gems/ruby-1.8.7-p330@rails2/gems/actionpack-2.3.3/lib/action_controller/base.rb:1327:in `send'
+/home/coder/.rvm/gems/ruby-1.8.7-p330@rails2/gems/actionpack-2.3.3/lib/action_controller/base.rb:1327:in `perform_action_without_filters'
+/home/coder/.rvm/gems/ruby-1.8.7-p330@rails2/gems/actionpack-2.3.3/lib/action_controller/filters.rb:617:in `call_filters'
+/home/coder/.rvm/gems/ruby-1.8.7-p330@rails2/gems/actionpack-2.3.3/lib/action_controller/filters.rb:610:in `perform_action_without_benchmark'
+/home/coder/.rvm/gems/ruby-1.8.7-p330@rails2/gems/actionpack-2.3.3/lib/action_controller/benchmarking.rb:68:in `perform_action_without_rescue'
+/home/coder/.rvm/gems/ruby-1.8.7-p330@rails2/gems/activesupport-2.3.3/lib/active_support/core_ext/benchmark.rb:17:in `ms'
+/home/coder/.rvm/rubies/ruby-1.8.7-p330/lib/ruby/1.8/benchmark.rb:308:in `realtime'
+/home/coder/.rvm/gems/ruby-1.8.7-p330@rails2/gems/activesupport-2.3.3/lib/active_support/core_ext/benchmark.rb:17:in `ms'
+/home/coder/.rvm/gems/ruby-1.8.7-p330@rails2/gems/actionpack-2.3.3/lib/action_controller/benchmarking.rb:68:in `perform_action_without_rescue'
+/home/coder/.rvm/gems/ruby-1.8.7-p330@rails2/gems/actionpack-2.3.3/lib/action_controller/rescue.rb:160:in `perform_action_without_flash'
+/home/coder/.rvm/gems/ruby-1.8.7-p330@rails2/gems/actionpack-2.3.3/lib/action_controller/flash.rb:146:in `perform_action_without_newrelic_trace'
+/home/coder/Documents/workspace/ascendpoints_esitrack-accounting/trunk/vendor/plugins/newrelic_rpm/lib/newrelic/agent/instrumentation/action_controller.rb:63:in `perform_action'
+/home/coder/Documents/workspace/ascendpoints_esitrack-accounting/trunk/vendor/plugins/newrelic_rpm/lib/newrelic/agent/method_tracer.rb:38:in `trace_method_execution'
+/home/coder/Documents/workspace/ascendpoints_esitrack-accounting/trunk/vendor/plugins/newrelic_rpm/lib/newrelic/agent/instrumentation/action_controller.rb:52:in `perform_action'
+/home/coder/Documents/workspace/ascendpoints_esitrack-accounting/trunk/vendor/plugins/newrelic_rpm/lib/newrelic/agent/method_tracer.rb:38:in `trace_method_execution'
+/home/coder/Documents/workspace/ascendpoints_esitrack-accounting/trunk/vendor/plugins/newrelic_rpm/lib/newrelic/agent/instrumentation/action_controller.rb:46:in `perform_action'
+/home/coder/.rvm/gems/ruby-1.8.7-p330@rails2/gems/actionpack-2.3.3/lib/action_controller/base.rb:527:in `send'
+/home/coder/.rvm/gems/ruby-1.8.7-p330@rails2/gems/actionpack-2.3.3/lib/action_controller/base.rb:527:in `process_without_filters'
+/home/coder/.rvm/gems/ruby-1.8.7-p330@rails2/gems/actionpack-2.3.3/lib/action_controller/filters.rb:606:in `process'
+/home/coder/.rvm/gems/ruby-1.8.7-p330@rails2/gems/actionpack-2.3.3/lib/action_controller/base.rb:391:in `process'
+/home/coder/.rvm/gems/ruby-1.8.7-p330@rails2/gems/actionpack-2.3.3/lib/action_controller/base.rb:386:in `call'
+/home/coder/.rvm/gems/ruby-1.8.7-p330@rails2/gems/actionpack-2.3.3/lib/action_controller/routing/route_set.rb:434:in `call'
+/home/coder/.rvm/gems/ruby-1.8.7-p330@rails2/gems/actionpack-2.3.3/lib/action_controller/dispatcher.rb:88:in `dispatch'
+/home/coder/.rvm/gems/ruby-1.8.7-p330@rails2/gems/actionpack-2.3.3/lib/action_controller/dispatcher.rb:111:in `_call'
+/home/coder/.rvm/gems/ruby-1.8.7-p330@rails2/gems/actionpack-2.3.3/lib/action_controller/dispatcher.rb:82:in `initialize'
+/home/coder/.rvm/gems/ruby-1.8.7-p330@rails2/gems/activerecord-2.3.3/lib/active_record/query_cache.rb:29:in `call'
+/home/coder/.rvm/gems/ruby-1.8.7-p330@rails2/gems/activerecord-2.3.3/lib/active_record/query_cache.rb:29:in `call'
+/home/coder/.rvm/gems/ruby-1.8.7-p330@rails2/gems/activerecord-2.3.3/lib/active_record/connection_adapters/abstract/query_cache.rb:34:in `cache'
+/home/coder/.rvm/gems/ruby-1.8.7-p330@rails2/gems/activerecord-2.3.3/lib/active_record/query_cache.rb:9:in `cache'
+/home/coder/.rvm/gems/ruby-1.8.7-p330@rails2/gems/activerecord-2.3.3/lib/active_record/query_cache.rb:28:in `call'
+/home/coder/.rvm/gems/ruby-1.8.7-p330@rails2/gems/activerecord-2.3.3/lib/active_record/connection_adapters/abstract/connection_pool.rb:361:in `call'
+/home/coder/.rvm/gems/ruby-1.8.7-p330@rails2/gems/rack-1.0.1/lib/rack/head.rb:9:in `call'
+/home/coder/.rvm/gems/ruby-1.8.7-p330@rails2/gems/rack-1.0.1/lib/rack/methodoverride.rb:24:in `call'
+/home/coder/.rvm/gems/ruby-1.8.7-p330@rails2/gems/actionpack-2.3.3/lib/action_controller/params_parser.rb:15:in `call'
+/home/coder/.rvm/gems/ruby-1.8.7-p330@rails2/gems/actionpack-2.3.3/lib/action_controller/session/cookie_store.rb:93:in `call'
+/home/coder/.rvm/gems/ruby-1.8.7-p330@rails2/gems/actionpack-2.3.3/lib/action_controller/reloader.rb:29:in `call'
+/home/coder/.rvm/gems/ruby-1.8.7-p330@rails2/gems/actionpack-2.3.3/lib/action_controller/failsafe.rb:26:in `call'
+/home/coder/.rvm/gems/ruby-1.8.7-p330@rails2/gems/rack-1.0.1/lib/rack/lock.rb:11:in `call'
+/home/coder/.rvm/gems/ruby-1.8.7-p330@rails2/gems/rack-1.0.1/lib/rack/lock.rb:11:in `synchronize'
+/home/coder/.rvm/gems/ruby-1.8.7-p330@rails2/gems/rack-1.0.1/lib/rack/lock.rb:11:in `call'
+/home/coder/.rvm/gems/ruby-1.8.7-p330@rails2/gems/actionpack-2.3.3/lib/action_controller/dispatcher.rb:106:in `call'
+/home/coder/.rvm/gems/ruby-1.8.7-p330@rails2/gems/actionpack-2.3.3/lib/action_controller/cgi_process.rb:44:in `dispatch_cgi'
+/home/coder/.rvm/gems/ruby-1.8.7-p330@rails2/gems/actionpack-2.3.3/lib/action_controller/dispatcher.rb:102:in `dispatch_cgi'
+/home/coder/.rvm/gems/ruby-1.8.7-p330@rails2/gems/actionpack-2.3.3/lib/action_controller/dispatcher.rb:28:in `dispatch_without_newrelic'
+/home/coder/Documents/workspace/ascendpoints_esitrack-accounting/trunk/vendor/plugins/newrelic_rpm/lib/newrelic/agent/instrumentation/dispatcher.rb:41:in `dispatch'
+/home/coder/.rvm/gems/ruby-1.8.7-p330@rails2/gems/mongrel-1.1.5/bin/../lib/mongrel/rails.rb:76:in `process'
+/home/coder/.rvm/gems/ruby-1.8.7-p330@rails2/gems/mongrel-1.1.5/bin/../lib/mongrel/rails.rb:74:in `synchronize'
+/home/coder/.rvm/gems/ruby-1.8.7-p330@rails2/gems/mongrel-1.1.5/bin/../lib/mongrel/rails.rb:74:in `process'
+/home/coder/.rvm/gems/ruby-1.8.7-p330@rails2/gems/mongrel-1.1.5/bin/../lib/mongrel.rb:159:in `process_client'
+/home/coder/.rvm/gems/ruby-1.8.7-p330@rails2/gems/mongrel-1.1.5/bin/../lib/mongrel.rb:158:in `each'
+/home/coder/.rvm/gems/ruby-1.8.7-p330@rails2/gems/mongrel-1.1.5/bin/../lib/mongrel.rb:158:in `process_client'
+/home/coder/.rvm/gems/ruby-1.8.7-p330@rails2/gems/mongrel-1.1.5/bin/../lib/mongrel.rb:285:in `run'
+/home/coder/.rvm/gems/ruby-1.8.7-p330@rails2/gems/mongrel-1.1.5/bin/../lib/mongrel.rb:285:in `initialize'
+/home/coder/.rvm/gems/ruby-1.8.7-p330@rails2/gems/mongrel-1.1.5/bin/../lib/mongrel.rb:285:in `new'
+/home/coder/.rvm/gems/ruby-1.8.7-p330@rails2/gems/mongrel-1.1.5/bin/../lib/mongrel.rb:285:in `run'
+/home/coder/.rvm/gems/ruby-1.8.7-p330@rails2/gems/mongrel-1.1.5/bin/../lib/mongrel.rb:268:in `initialize'
+/home/coder/.rvm/gems/ruby-1.8.7-p330@rails2/gems/mongrel-1.1.5/bin/../lib/mongrel.rb:268:in `new'
+/home/coder/.rvm/gems/ruby-1.8.7-p330@rails2/gems/mongrel-1.1.5/bin/../lib/mongrel.rb:268:in `run'
+/home/coder/.rvm/gems/ruby-1.8.7-p330@rails2/gems/mongrel-1.1.5/bin/../lib/mongrel/configurator.rb:282:in `run'
+/home/coder/.rvm/gems/ruby-1.8.7-p330@rails2/gems/mongrel-1.1.5/bin/../lib/mongrel/configurator.rb:281:in `each'
+/home/coder/.rvm/gems/ruby-1.8.7-p330@rails2/gems/mongrel-1.1.5/bin/../lib/mongrel/configurator.rb:281:in `run'
+/home/coder/.rvm/gems/ruby-1.8.7-p330@rails2/gems/mongrel-1.1.5/bin/mongrel_rails:128:in `run'
+/home/coder/.rvm/gems/ruby-1.8.7-p330@rails2/gems/mongrel-1.1.5/bin/../lib/mongrel/command.rb:212:in `run'
+/home/coder/.rvm/gems/ruby-1.8.7-p330@rails2/gems/mongrel-1.1.5/bin/mongrel_rails:281
+/home/coder/.rvm/gems/ruby-1.8.7-p330@rails2/bin/mongrel_rails:19:in `load'
+/home/coder/.rvm/gems/ruby-1.8.7-p330@rails2/bin/mongrel_rails:19
+[05/09/11 11:27:04 (4812)] ERROR : Caught exception in trace_method_execution footer. Metric name = Controller/accounting/cost_evaluations/show_period_accounts, exception = unbalanced entry/exit: Controller/accounting/cost_evaluations/show_period_accounts != ActiveRecord/AccountingFixedAssetDetail/find
+[05/09/11 11:27:04 (4812)] ERROR : /home/coder/Documents/workspace/ascendpoints_esitrack-accounting/trunk/vendor/plugins/newrelic_rpm/lib/newrelic/agent/transaction_sampler.rb:234:in `trace_exit'
+/home/coder/Documents/workspace/ascendpoints_esitrack-accounting/trunk/vendor/plugins/newrelic_rpm/lib/newrelic/agent/transaction_sampler.rb:87:in `notice_pop_scope'
+/home/coder/Documents/workspace/ascendpoints_esitrack-accounting/trunk/vendor/plugins/newrelic_rpm/lib/newrelic/agent/transaction_sampler.rb:194:in `with_builder'
+/home/coder/Documents/workspace/ascendpoints_esitrack-accounting/trunk/vendor/plugins/newrelic_rpm/lib/newrelic/agent/transaction_sampler.rb:86:in `notice_pop_scope'
+/home/coder/Documents/workspace/ascendpoints_esitrack-accounting/trunk/vendor/plugins/newrelic_rpm/lib/newrelic/agent/stats_engine.rb:95:in `pop_scope'
+/home/coder/Documents/workspace/ascendpoints_esitrack-accounting/trunk/vendor/plugins/newrelic_rpm/lib/newrelic/agent/stats_engine.rb:94:in `each'
+/home/coder/Documents/workspace/ascendpoints_esitrack-accounting/trunk/vendor/plugins/newrelic_rpm/lib/newrelic/agent/stats_engine.rb:94:in `pop_scope'
+/home/coder/Documents/workspace/ascendpoints_esitrack-accounting/trunk/vendor/plugins/newrelic_rpm/lib/newrelic/agent/method_tracer.rb:46:in `trace_method_execution'
+/home/coder/Documents/workspace/ascendpoints_esitrack-accounting/trunk/vendor/plugins/newrelic_rpm/lib/newrelic/agent/instrumentation/action_controller.rb:52:in `perform_action'
+/home/coder/Documents/workspace/ascendpoints_esitrack-accounting/trunk/vendor/plugins/newrelic_rpm/lib/newrelic/agent/method_tracer.rb:38:in `trace_method_execution'
+/home/coder/Documents/workspace/ascendpoints_esitrack-accounting/trunk/vendor/plugins/newrelic_rpm/lib/newrelic/agent/instrumentation/action_controller.rb:46:in `perform_action'
+/home/coder/.rvm/gems/ruby-1.8.7-p330@rails2/gems/actionpack-2.3.3/lib/action_controller/base.rb:527:in `send'
+/home/coder/.rvm/gems/ruby-1.8.7-p330@rails2/gems/actionpack-2.3.3/lib/action_controller/base.rb:527:in `process_without_filters'
+/home/coder/.rvm/gems/ruby-1.8.7-p330@rails2/gems/actionpack-2.3.3/lib/action_controller/filters.rb:606:in `process'
+/home/coder/.rvm/gems/ruby-1.8.7-p330@rails2/gems/actionpack-2.3.3/lib/action_controller/base.rb:391:in `process'
+/home/coder/.rvm/gems/ruby-1.8.7-p330@rails2/gems/actionpack-2.3.3/lib/action_controller/base.rb:386:in `call'
+/home/coder/.rvm/gems/ruby-1.8.7-p330@rails2/gems/actionpack-2.3.3/lib/action_controller/routing/route_set.rb:434:in `call'
+/home/coder/.rvm/gems/ruby-1.8.7-p330@rails2/gems/actionpack-2.3.3/lib/action_controller/dispatcher.rb:88:in `dispatch'
+/home/coder/.rvm/gems/ruby-1.8.7-p330@rails2/gems/actionpack-2.3.3/lib/action_controller/dispatcher.rb:111:in `_call'
+/home/coder/.rvm/gems/ruby-1.8.7-p330@rails2/gems/actionpack-2.3.3/lib/action_controller/dispatcher.rb:82:in `initialize'
+/home/coder/.rvm/gems/ruby-1.8.7-p330@rails2/gems/activerecord-2.3.3/lib/active_record/query_cache.rb:29:in `call'
+/home/coder/.rvm/gems/ruby-1.8.7-p330@rails2/gems/activerecord-2.3.3/lib/active_record/query_cache.rb:29:in `call'
+/home/coder/.rvm/gems/ruby-1.8.7-p330@rails2/gems/activerecord-2.3.3/lib/active_record/connection_adapters/abstract/query_cache.rb:34:in `cache'
+/home/coder/.rvm/gems/ruby-1.8.7-p330@rails2/gems/activerecord-2.3.3/lib/active_record/query_cache.rb:9:in `cache'
+/home/coder/.rvm/gems/ruby-1.8.7-p330@rails2/gems/activerecord-2.3.3/lib/active_record/query_cache.rb:28:in `call'
+/home/coder/.rvm/gems/ruby-1.8.7-p330@rails2/gems/activerecord-2.3.3/lib/active_record/connection_adapters/abstract/connection_pool.rb:361:in `call'
+/home/coder/.rvm/gems/ruby-1.8.7-p330@rails2/gems/rack-1.0.1/lib/rack/head.rb:9:in `call'
+/home/coder/.rvm/gems/ruby-1.8.7-p330@rails2/gems/rack-1.0.1/lib/rack/methodoverride.rb:24:in `call'
+/home/coder/.rvm/gems/ruby-1.8.7-p330@rails2/gems/actionpack-2.3.3/lib/action_controller/params_parser.rb:15:in `call'
+/home/coder/.rvm/gems/ruby-1.8.7-p330@rails2/gems/actionpack-2.3.3/lib/action_controller/session/cookie_store.rb:93:in `call'
+/home/coder/.rvm/gems/ruby-1.8.7-p330@rails2/gems/actionpack-2.3.3/lib/action_controller/reloader.rb:29:in `call'
+/home/coder/.rvm/gems/ruby-1.8.7-p330@rails2/gems/actionpack-2.3.3/lib/action_controller/failsafe.rb:26:in `call'
+/home/coder/.rvm/gems/ruby-1.8.7-p330@rails2/gems/rack-1.0.1/lib/rack/lock.rb:11:in `call'
+/home/coder/.rvm/gems/ruby-1.8.7-p330@rails2/gems/rack-1.0.1/lib/rack/lock.rb:11:in `synchronize'
+/home/coder/.rvm/gems/ruby-1.8.7-p330@rails2/gems/rack-1.0.1/lib/rack/lock.rb:11:in `call'
+/home/coder/.rvm/gems/ruby-1.8.7-p330@rails2/gems/actionpack-2.3.3/lib/action_controller/dispatcher.rb:106:in `call'
+/home/coder/.rvm/gems/ruby-1.8.7-p330@rails2/gems/actionpack-2.3.3/lib/action_controller/cgi_process.rb:44:in `dispatch_cgi'
+/home/coder/.rvm/gems/ruby-1.8.7-p330@rails2/gems/actionpack-2.3.3/lib/action_controller/dispatcher.rb:102:in `dispatch_cgi'
+/home/coder/.rvm/gems/ruby-1.8.7-p330@rails2/gems/actionpack-2.3.3/lib/action_controller/dispatcher.rb:28:in `dispatch_without_newrelic'
+/home/coder/Documents/workspace/ascendpoints_esitrack-accounting/trunk/vendor/plugins/newrelic_rpm/lib/newrelic/agent/instrumentation/dispatcher.rb:41:in `dispatch'
+/home/coder/.rvm/gems/ruby-1.8.7-p330@rails2/gems/mongrel-1.1.5/bin/../lib/mongrel/rails.rb:76:in `process'
+/home/coder/.rvm/gems/ruby-1.8.7-p330@rails2/gems/mongrel-1.1.5/bin/../lib/mongrel/rails.rb:74:in `synchronize'
+/home/coder/.rvm/gems/ruby-1.8.7-p330@rails2/gems/mongrel-1.1.5/bin/../lib/mongrel/rails.rb:74:in `process'
+/home/coder/.rvm/gems/ruby-1.8.7-p330@rails2/gems/mongrel-1.1.5/bin/../lib/mongrel.rb:159:in `process_client'
+/home/coder/.rvm/gems/ruby-1.8.7-p330@rails2/gems/mongrel-1.1.5/bin/../lib/mongrel.rb:158:in `each'
+/home/coder/.rvm/gems/ruby-1.8.7-p330@rails2/gems/mongrel-1.1.5/bin/../lib/mongrel.rb:158:in `process_client'
+/home/coder/.rvm/gems/ruby-1.8.7-p330@rails2/gems/mongrel-1.1.5/bin/../lib/mongrel.rb:285:in `run'
+/home/coder/.rvm/gems/ruby-1.8.7-p330@rails2/gems/mongrel-1.1.5/bin/../lib/mongrel.rb:285:in `initialize'
+/home/coder/.rvm/gems/ruby-1.8.7-p330@rails2/gems/mongrel-1.1.5/bin/../lib/mongrel.rb:285:in `new'
+/home/coder/.rvm/gems/ruby-1.8.7-p330@rails2/gems/mongrel-1.1.5/bin/../lib/mongrel.rb:285:in `run'
+/home/coder/.rvm/gems/ruby-1.8.7-p330@rails2/gems/mongrel-1.1.5/bin/../lib/mongrel.rb:268:in `initialize'
+/home/coder/.rvm/gems/ruby-1.8.7-p330@rails2/gems/mongrel-1.1.5/bin/../lib/mongrel.rb:268:in `new'
+/home/coder/.rvm/gems/ruby-1.8.7-p330@rails2/gems/mongrel-1.1.5/bin/../lib/mongrel.rb:268:in `run'
+/home/coder/.rvm/gems/ruby-1.8.7-p330@rails2/gems/mongrel-1.1.5/bin/../lib/mongrel/configurator.rb:282:in `run'
+/home/coder/.rvm/gems/ruby-1.8.7-p330@rails2/gems/mongrel-1.1.5/bin/../lib/mongrel/configurator.rb:281:in `each'
+/home/coder/.rvm/gems/ruby-1.8.7-p330@rails2/gems/mongrel-1.1.5/bin/../lib/mongrel/configurator.rb:281:in `run'
+/home/coder/.rvm/gems/ruby-1.8.7-p330@rails2/gems/mongrel-1.1.5/bin/mongrel_rails:128:in `run'
+/home/coder/.rvm/gems/ruby-1.8.7-p330@rails2/gems/mongrel-1.1.5/bin/../lib/mongrel/command.rb:212:in `run'
+/home/coder/.rvm/gems/ruby-1.8.7-p330@rails2/gems/mongrel-1.1.5/bin/mongrel_rails:281
+/home/coder/.rvm/gems/ruby-1.8.7-p330@rails2/bin/mongrel_rails:19:in `load'
+/home/coder/.rvm/gems/ruby-1.8.7-p330@rails2/bin/mongrel_rails:19
+[05/09/11 12:18:14 (5753)] INFO : New Relic RPM Agent Initialized: pid = 5753
+[05/09/11 12:18:14 (5753)] INFO : Agent Log is found in /home/coder/Documents/workspace/ascendpoints_esitrack-accounting/trunk/log/newrelic_agent.3000.log
+[05/09/11 12:18:14 (5753)] INFO : Runtime environment: Mongrel
+[05/09/11 12:18:14 (5753)] INFO : Transaction tracing is enabled in the agent
+[05/09/11 13:11:24 (6621)] INFO : New Relic RPM Agent Initialized: pid = 6621
+[05/09/11 13:11:24 (6621)] INFO : Agent Log is found in /home/coder/Documents/workspace/ascendpoints_esitrack-accounting/trunk/log/newrelic_agent.3000.log
+[05/09/11 13:11:24 (6621)] INFO : Runtime environment: Mongrel
+[05/09/11 13:11:24 (6621)] INFO : Transaction tracing is enabled in the agent
+[05/09/11 13:14:41 (6649)] INFO : New Relic RPM Agent Initialized: pid = 6649
+[05/09/11 13:14:41 (6649)] INFO : Agent Log is found in /home/coder/Documents/workspace/ascendpoints_esitrack-accounting/trunk/log/newrelic_agent.3000.log
+[05/09/11 13:14:41 (6649)] INFO : Runtime environment: Mongrel
+[05/09/11 13:14:41 (6649)] INFO : Transaction tracing is enabled in the agent
+[05/09/11 13:16:10 (6658)] INFO : New Relic RPM Agent Initialized: pid = 6658
+[05/09/11 13:16:10 (6658)] INFO : Agent Log is found in /home/coder/Documents/workspace/ascendpoints_esitrack-accounting/trunk/log/newrelic_agent.3000.log
+[05/09/11 13:16:10 (6658)] INFO : Runtime environment: Mongrel
+[05/09/11 13:16:10 (6658)] INFO : Transaction tracing is enabled in the agent
+[05/09/11 13:22:30 (6703)] INFO : New Relic RPM Agent Initialized: pid = 6703
+[05/09/11 13:22:30 (6703)] INFO : Agent Log is found in /home/coder/Documents/workspace/ascendpoints_esitrack-accounting/trunk/log/newrelic_agent.3000.log
+[05/09/11 13:22:30 (6703)] INFO : Runtime environment: Mongrel
+[05/09/11 13:22:30 (6703)] INFO : Transaction tracing is enabled in the agent
+[05/09/11 14:03:08 (6978)] INFO : New Relic RPM Agent Initialized: pid = 6978
+[05/09/11 14:03:08 (6978)] INFO : Agent Log is found in /home/coder/Documents/workspace/ascendpoints_esitrack-accounting/trunk/log/newrelic_agent.3000.log
+[05/09/11 14:03:08 (6978)] INFO : Runtime environment: Mongrel
+[05/09/11 14:03:08 (6978)] INFO : Transaction tracing is enabled in the agent
+[05/20/11 09:44:07 (2695)] INFO : New Relic RPM Agent Initialized: pid = 2695
+[05/20/11 09:44:07 (2695)] INFO : Agent Log is found in /home/coder/Documents/workspace/ascendpoints_esitrack-accounting/trunk/log/newrelic_agent.3000.log
+[05/20/11 09:44:07 (2695)] INFO : Runtime environment: Mongrel
+[05/20/11 09:44:07 (2695)] INFO : Transaction tracing is enabled in the agent
+[05/20/11 17:14:07 (8738)] INFO : New Relic RPM Agent Initialized: pid = 8738
+[05/20/11 17:14:07 (8738)] INFO : Agent Log is found in /home/coder/Documents/workspace/ascendpoints_esitrack-accounting/trunk/log/newrelic_agent.3000.log
+[05/20/11 17:14:07 (8738)] INFO : Runtime environment: Mongrel
+[05/20/11 17:14:07 (8738)] INFO : Transaction tracing is enabled in the agent
+[06/06/11 10:16:54 (4818)] INFO : New Relic RPM Agent Initialized: pid = 4818
+[06/06/11 10:16:54 (4818)] INFO : Agent Log is found in /home/coder/Documents/workspace/ascendpoints_esitrack-accounting/trunk/log/newrelic_agent.3000.log
+[06/06/11 10:16:54 (4818)] INFO : Runtime environment: Mongrel
+[06/06/11 10:16:54 (4818)] INFO : Transaction tracing is enabled in the agent
+[07/06/11 15:18:02 (9441)] INFO : New Relic RPM Agent Initialized: pid = 9441
+[07/06/11 15:18:02 (9441)] INFO : Agent Log is found in /home/coder/Documents/workspace/ascendpoints_esitrack-accounting/trunk/log/newrelic_agent.3000.log
+[07/06/11 15:18:02 (9441)] INFO : Runtime environment: Mongrel
+[07/06/11 15:18:02 (9441)] INFO : Transaction tracing is enabled in the agent
+[07/06/11 16:17:07 (9441)] INFO : Not reporting error (queue exceeded maximum length): index 60633 out of string
+[07/06/11 16:17:18 (9441)] INFO : Not reporting error (queue exceeded maximum length): index 60633 out of string
+[07/06/11 16:17:54 (9441)] INFO : Not reporting error (queue exceeded maximum length): index 60633 out of string
+[07/06/11 16:19:12 (9441)] INFO : Not reporting error (queue exceeded maximum length): Symbol as array index
+[07/06/11 16:20:20 (9441)] INFO : Not reporting error (queue exceeded maximum length): Could not find instance variable for sale or object did not respond to updated_at
+[07/06/11 16:23:03 (9441)] INFO : Not reporting error (queue exceeded maximum length): Symbol as array index
+[07/06/11 16:23:17 (9441)] INFO : Not reporting error (queue exceeded maximum length): Symbol as array index
+[07/06/11 16:24:49 (9441)] INFO : Not reporting error (queue exceeded maximum length): Symbol as array index
+[07/06/11 16:25:05 (9441)] INFO : Not reporting error (queue exceeded maximum length): Symbol as array index
+[07/06/11 16:26:10 (9441)] INFO : Not reporting error (queue exceeded maximum length): You have a nil object when you didn't expect it!
+You might have expected an instance of ActiveRecord::Base.
+The error occurred while evaluating nil.[]=
+[07/06/11 16:26:23 (9441)] INFO : Not reporting error (queue exceeded maximum length): undefined method `[]=' for 0:Fixnum
+[07/06/11 16:28:11 (9441)] INFO : Not reporting error (queue exceeded maximum length): You have a nil object when you didn't expect it!
+You might have expected an instance of ActiveRecord::Base.
+The error occurred while evaluating nil.[]=
+[07/06/11 16:28:27 (9441)] INFO : Not reporting error (queue exceeded maximum length): You have a nil object when you didn't expect it!
+The error occurred while evaluating nil.account_id
+[07/06/11 16:33:00 (9441)] INFO : Not reporting error (queue exceeded maximum length): You have a nil object when you didn't expect it!
+The error occurred while evaluating nil.account_id
+[07/06/11 16:33:24 (9441)] INFO : Not reporting error (queue exceeded maximum length): You have a nil object when you didn't expect it!
+The error occurred while evaluating nil.account_id
+[07/06/11 17:04:39 (9441)] INFO : Not reporting error (queue exceeded maximum length): wrong number of arguments (1 for 3)
+[07/06/11 17:07:47 (9441)] INFO : Not reporting error (queue exceeded maximum length): You have a nil object when you didn't expect it!
+The error occurred while evaluating nil.values
+[07/06/11 17:10:20 (9441)] INFO : Not reporting error (queue exceeded maximum length): You have a nil object when you didn't expect it!
+The error occurred while evaluating nil.values
+[07/06/11 17:11:38 (9441)] INFO : Not reporting error (queue exceeded maximum length): You have a nil object when you didn't expect it!
+The error occurred while evaluating nil.values
+[07/06/11 17:31:34 (9441)] INFO : Not reporting error (queue exceeded maximum length): You have a nil object when you didn't expect it!
+The error occurred while evaluating nil.values
+[07/06/11 17:36:04 (9441)] INFO : Not reporting error (queue exceeded maximum length): You have a nil object when you didn't expect it!
+The error occurred while evaluating nil.values
+[07/06/11 17:37:46 (9441)] INFO : Not reporting error (queue exceeded maximum length): You have a nil object when you didn't expect it!
+The error occurred while evaluating nil.values
+[07/06/11 17:39:19 (9441)] INFO : Not reporting error (queue exceeded maximum length): You have a nil object when you didn't expect it!
+The error occurred while evaluating nil.values
+[07/06/11 17:42:31 (9441)] INFO : Not reporting error (queue exceeded maximum length): You have a nil object when you didn't expect it!
+The error occurred while evaluating nil.values
+[07/06/11 17:43:58 (9441)] INFO : Not reporting error (queue exceeded maximum length): You have a nil object when you didn't expect it!
+The error occurred while evaluating nil.values
+[07/06/11 17:49:16 (9441)] INFO : Not reporting error (queue exceeded maximum length): unknown attribute: total_value
+[07/06/11 17:51:21 (9441)] INFO : Not reporting error (queue exceeded maximum length): unknown attribute: total_value
+[07/06/11 17:51:52 (9441)] INFO : Not reporting error (queue exceeded maximum length): unknown attribute: total_value
+[07/06/11 17:52:38 (9441)] INFO : Not reporting error (queue exceeded maximum length): unknown attribute: total_value
+[07/07/11 09:28:15 (3246)] INFO : New Relic RPM Agent Initialized: pid = 3246
+[07/07/11 09:28:15 (3246)] INFO : Agent Log is found in /home/coder/Documents/workspace/ascendpoints_esitrack-accounting/trunk/log/newrelic_agent.3000.log
+[07/07/11 09:28:15 (3246)] INFO : Runtime environment: Mongrel
+[07/07/11 09:28:15 (3246)] INFO : Transaction tracing is enabled in the agent
+[07/07/11 10:32:39 (3246)] INFO : Not reporting error (queue exceeded maximum length): Couldn't find AccountingJournalValue without an ID
+[07/07/11 10:34:29 (3246)] INFO : Not reporting error (queue exceeded maximum length): Couldn't find AccountingJournalValue without an ID
+[07/07/11 10:35:15 (3246)] INFO : Not reporting error (queue exceeded maximum length): Couldn't find AccountingJournalValue without an ID
+[07/07/11 10:35:28 (3246)] INFO : Not reporting error (queue exceeded maximum length): Couldn't find AccountingJournalValue without an ID
+[07/07/11 10:36:03 (3246)] INFO : Not reporting error (queue exceeded maximum length): Couldn't find AccountingJournalValue without an ID
+[07/07/11 10:36:55 (3246)] INFO : Not reporting error (queue exceeded maximum length): Couldn't find AccountingJournalValue without an ID
+[07/07/11 10:38:17 (3246)] INFO : Not reporting error (queue exceeded maximum length): Couldn't find AccountingJournalValue without an ID
+[07/07/11 10:39:36 (3246)] INFO : Not reporting error (queue exceeded maximum length): Couldn't find AccountingJournalValue without an ID
+[07/07/11 10:40:59 (3246)] INFO : Not reporting error (queue exceeded maximum length): Couldn't find AccountingJournalValue without an ID
+[07/07/11 10:51:15 (3246)] INFO : Not reporting error (queue exceeded maximum length): Couldn't find AccountingJournalValue with ID=18 AND (`accounting_journal_values`.journal_id = 14)
+[07/07/11 17:10:57 (10127)] INFO : New Relic RPM Agent Initialized: pid = 10127
+[07/07/11 17:10:57 (10127)] INFO : Agent Log is found in /home/coder/Documents/workspace/ascendpoints_esitrack-accounting/trunk/log/newrelic_agent.3000.log
+[07/07/11 17:10:57 (10127)] INFO : Runtime environment: Mongrel
+[07/07/11 17:10:57 (10127)] INFO : Transaction tracing is enabled in the agent
+[07/27/11 14:16:27 (3954)] INFO : New Relic RPM Agent Initialized: pid = 3954
+[07/27/11 14:16:27 (3954)] INFO : Agent Log is found in /home/coder/Documents/workspace/ascendpoints_esitrack-accounting/trunk/log/newrelic_agent.3000.log
+[07/27/11 14:16:27 (3954)] INFO : Runtime environment: Mongrel
+[07/27/11 14:16:27 (3954)] INFO : Transaction tracing is enabled in the agent
+[07/27/11 14:31:41 (4196)] INFO : New Relic RPM Agent Initialized: pid = 4196
+[07/27/11 14:31:41 (4196)] INFO : Agent Log is found in /home/coder/Documents/workspace/ascendpoints_esitrack-accounting/trunk/log/newrelic_agent.3000.log
+[07/27/11 14:31:41 (4196)] INFO : Runtime environment: Mongrel
+[07/27/11 14:31:41 (4196)] INFO : Transaction tracing is enabled in the agent
+[08/04/11 14:24:10 (12936)] INFO : New Relic RPM Agent Initialized: pid = 12936
+[08/04/11 14:24:10 (12936)] INFO : Agent Log is found in /home/coder/Documents/workspace/ascendpoints_esitrack-accounting/trunk/log/newrelic_agent.3000.log
+[08/04/11 14:24:10 (12936)] INFO : Runtime environment: Mongrel
+[08/04/11 14:24:10 (12936)] INFO : Transaction tracing is enabled in the agent
+[03/28/12 09:46:21 (4589)] INFO : New Relic RPM Agent Initialized: pid = 4589
+[03/28/12 09:46:21 (4589)] INFO : Agent Log is found in /home/coder/Documents/workspace/ascendpoints_esitrack-accounting/trunk/log/newrelic_agent.3000.log
+[03/28/12 09:46:21 (4589)] INFO : Runtime environment: Mongrel
+[03/28/12 09:46:21 (4589)] INFO : Transaction tracing is enabled in the agent
+[03/28/12 10:13:52 (5873)] INFO : New Relic RPM Agent Initialized: pid = 5873
+[03/28/12 10:13:52 (5873)] INFO : Agent Log is found in /home/coder/Documents/workspace/ascendpoints_esitrack-accounting/trunk/log/newrelic_agent.3000.log
+[03/28/12 10:13:52 (5873)] INFO : Runtime environment: Mongrel
+[03/28/12 10:13:52 (5873)] INFO : Transaction tracing is enabled in the agent
+[03/28/12 17:46:56 (5873)] INFO : Not reporting error (queue exceeded maximum length): undefined local variable or method `params' for #<Class:0xb5915310>
+[03/28/12 17:47:52 (5873)] INFO : Not reporting error (queue exceeded maximum length): undefined local variable or method `current_user' for #<Class:0xb58a7d10>
+[03/29/12 09:20:31 (3069)] INFO : New Relic RPM Agent Initialized: pid = 3069
+[03/29/12 09:20:31 (3069)] INFO : Agent Log is found in /home/coder/Documents/workspace/ascendpoints_esitrack-accounting/trunk/log/newrelic_agent.3000.log
+[03/29/12 09:20:31 (3069)] INFO : Runtime environment: Mongrel
+[03/29/12 09:20:31 (3069)] INFO : Transaction tracing is enabled in the agent
+[03/29/12 16:24:16 (3069)] INFO : Not reporting error (queue exceeded maximum length): Mysql::Error: You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near ') )' at line 1: SELECT * FROM `items` WHERE (id in (2,,) ) 
+[03/29/12 16:24:33 (3069)] INFO : Not reporting error (queue exceeded maximum length): Mysql::Error: You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near ') )' at line 1: SELECT * FROM `items` WHERE (id in (2,,) ) 
+[03/29/12 16:30:40 (3069)] INFO : Not reporting error (queue exceeded maximum length): Mysql::Error: You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near ') )' at line 1: SELECT * FROM `items` WHERE (id in (2,,) ) 
+[03/29/12 16:32:53 (3069)] INFO : Not reporting error (queue exceeded maximum length): You have a nil object when you didn't expect it!
+You might have expected an instance of ActiveRecord::Base.
+The error occurred while evaluating nil.[]
+[03/29/12 16:33:46 (3069)] INFO : Not reporting error (queue exceeded maximum length): Mysql::Error: You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near ') )' at line 1: SELECT * FROM `items` WHERE (id in (2,,) ) 
+[03/29/12 16:34:39 (3069)] INFO : Not reporting error (queue exceeded maximum length): You have a nil object when you didn't expect it!
+You might have expected an instance of ActiveRecord::Base.
+The error occurred while evaluating nil.[]
+[03/29/12 16:35:22 (3069)] INFO : Not reporting error (queue exceeded maximum length): You have a nil object when you didn't expect it!
+You might have expected an instance of ActiveRecord::Base.
+The error occurred while evaluating nil.[]
+[03/29/12 16:40:51 (3069)] INFO : Not reporting error (queue exceeded maximum length): Mysql::Error: You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near ') )' at line 1: SELECT * FROM `items` WHERE (id in (2,,) ) 
+[03/29/12 16:41:32 (3069)] INFO : Not reporting error (queue exceeded maximum length): Mysql::Error: You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near ') )' at line 1: SELECT * FROM `items` WHERE (id in (2,,) ) 
+[03/29/12 16:42:14 (3069)] INFO : Not reporting error (queue exceeded maximum length): wrong number of arguments (2 for 1)
+[03/29/12 16:42:30 (3069)] INFO : Not reporting error (queue exceeded maximum length): can't convert String into Integer
+[03/29/12 16:43:13 (3069)] INFO : Not reporting error (queue exceeded maximum length): undefined method `uniq' for "2,,":String
+[03/29/12 16:44:36 (3069)] INFO : Not reporting error (queue exceeded maximum length): undefined method `join' for "2,,":String
+[03/29/12 16:45:08 (3069)] INFO : Not reporting error (queue exceeded maximum length): Mysql::Error: You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near ') )' at line 1: SELECT * FROM `items` WHERE (id in (2,,) ) 
+[03/29/12 16:45:32 (3069)] INFO : Not reporting error (queue exceeded maximum length): undefined method `name' for nil:NilClass
+[03/29/12 16:46:53 (3069)] INFO : Not reporting error (queue exceeded maximum length): undefined method `name' for nil:NilClass
+[03/29/12 16:47:20 (3069)] INFO : Not reporting error (queue exceeded maximum length): undefined method `name' for nil:NilClass
+[03/29/12 16:47:46 (3069)] INFO : Not reporting error (queue exceeded maximum length): undefined method `name' for nil:NilClass
+[03/29/12 16:48:28 (3069)] INFO : Not reporting error (queue exceeded maximum length): undefined method `<<' for true:TrueClass
+[03/29/12 16:48:50 (3069)] INFO : Not reporting error (queue exceeded maximum length): undefined method `name' for nil:NilClass
+[03/29/12 16:49:13 (3069)] INFO : Not reporting error (queue exceeded maximum length): undefined method `name' for nil:NilClass
+[03/29/12 16:52:51 (3069)] INFO : Not reporting error (queue exceeded maximum length): undefined method `name' for nil:NilClass
+[03/29/12 16:53:32 (3069)] INFO : Not reporting error (queue exceeded maximum length): undefined method `name' for nil:NilClass
+[03/29/12 16:54:20 (3069)] INFO : Not reporting error (queue exceeded maximum length): Mysql::Error: You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near ') )' at line 1: SELECT * FROM `items` WHERE (id in (2,,) ) 
+[03/30/12 09:27:32 (3442)] INFO : New Relic RPM Agent Initialized: pid = 3442
+[03/30/12 09:27:32 (3442)] INFO : Agent Log is found in /home/coder/Documents/workspace/ascendpoints_esitrack-accounting/trunk/log/newrelic_agent.3000.log
+[03/30/12 09:27:32 (3442)] INFO : Runtime environment: Mongrel
+[03/30/12 09:27:32 (3442)] INFO : Transaction tracing is enabled in the agent

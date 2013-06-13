@@ -1,0 +1,80 @@
+<%= render :partial => "shared/filter_transaction_period", :locals => {:title => "Filter Bulan Transaksi", :consolidation_option => false} %>
+<br />
+
+<% form_tag(:action => :adjust_account) do %>
+  <table>
+    <tr>
+      <td>
+        <%= hidden_field_tag "adjustment[month]", @date ? @date[:month].to_i : current_month.to_i %>
+        <%= hidden_field_tag "adjustment[year]", @date ? @date[:year].to_i : current_year.to_i %>
+      </td>
+      <td><%= submit_tag "Adjust Account", :class => "btn-submit" %></td>
+    </tr>
+  </table>
+<% end  %>
+<br/>
+
+<table id="t1" class="main_table" cellpadding="0" cellspacing="0" width="1050">
+  <tr>
+    <th style="text-align:center; padding:5px 0px;">
+      TANGGAL
+    </th>
+    <th style="width:80px;text-align:center;padding:5px 0px;">
+      NO. BUKTI
+    </th>
+    <th style="width:300px;text-align:center;padding:5px 0px;">
+      KETERANGAN
+    </th>
+    <th style="width:300px;text-align:center;padding:5px 0px;">
+      ACCOUNT
+    </th>
+    <th style="width:180px;text-align:center;padding:5px 0px;">
+      DEBIT
+    </th>
+    <th style="width:180px;text-align:center;padding:5px 0px;">
+      KREDIT
+    </th>
+    <th colspan="2"></th>
+  </tr>
+  <% total_debit = 0 %>
+  <% total_credit = 0 %>
+  <% if @adjustment_entries.size > 0 %>
+  <% @adjustment_entries.each do |adjustment_entry| %>
+    <% adjustment_entry.values.each_with_index do |values, i| %>
+      <tr class="grid_2">
+        <td><%= format_date(adjustment_entry.created_at) if i==0 %></td>
+        <td><%=h adjustment_entry.evidence if i==0 %></td>
+        <td><%=h adjustment_entry.description if i==0 %></td>
+        <td <%= "style='padding-left:30px;'" if !values.is_debit %>><%=h values.account.description %></td>
+        <td align="right"><%= format_currency(values.value) if values.is_debit %></td>
+        <td align="right"><%= format_currency(values.value) if !values.is_debit %></td>
+        <% values.is_debit ? total_debit += values.value : total_credit += values.value %>
+        <td><%= link_to_remote_redbox("Edit", {:url => "/accounting/adjustments/edit/#{adjustment_entry.id}"}, {:class => 'a_edit'}) if i==0 %></td>
+        <td><%= link_to("Hapus", accounting_adjustment_path(adjustment_entry), :confirm => "Anda yakin ?", :method => :delete, :class => 'a_delete') if i==0 %></td>
+      </tr>
+    <% end %>
+  <% end %>
+  <tr class="grid_2">
+    <td colspan="4" style="text-align:right;"><b>TOTAL</b></td>
+    <td style="text-align:right;"><b><%= format_currency(total_debit) %></b></td>
+    <td style="text-align:right;"><b><%= format_currency(total_credit) %></b></td>
+    <td colspan="2"></td>
+  </tr>
+  <% else %>
+  <tr class="grid_2">
+    <td colspan="8" align="center">Tidak Ada Data</td>
+  </tr>
+  <% end %>
+</table>
+
+<table width="1050;" class='main_table' cellpadding='0' cellspacing='0'>
+  <tr class="grid_footer">
+    <td valign="center">
+      <% if is_admin? %>
+        <%= link_to_remote_redbox("Input Transaksi", {:url => {:action => :new}}, {:class => "a_add"}) %><span class="blue_split">&nbsp;</span>
+      <% end %>
+      <%= link_to "Export PDF", formatted_accounting_adjustments_path(:pdf), :class => "a_pdf" %><span class="blue_split">&nbsp;</span>
+      <%= link_to "Export EXCEL", formatted_accounting_adjustments_path(:xls), :class => "a_xls" %>
+    </td>
+  </tr>
+</table>

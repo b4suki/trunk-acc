@@ -1,0 +1,5 @@
+<ul class="autocomplete_list" >
+  <% for prototype_item in @prototype_items -%>
+  <li id="<%= prototype_item.id %>" style="width: 350;" class="autocomplete_item" onclick="load_prototype_item_details(<%= prototype_item.id %>);"><%=h prototype_item.name %></li>
+  <% end -%>
+</ul>

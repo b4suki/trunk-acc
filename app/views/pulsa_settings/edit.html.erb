@@ -1,0 +1,16 @@
+<%= popup_title "Edit Setting Pulsa " %>
+
+<div id="RB_body" style="width: 300px;">
+  <%= javascript_include_tag :defaults %>
+  <% form_for @setting do |f| %>
+    <p>
+      Setting <br/>
+      <%= text_field_with_auto_complete :item, :name,{:value => @setting.item.name}, :skip_style => true, :indicator => "indicator-item-name" -%>
+      <%= f.hidden_field :item_id,:id => 'item_name_id' %>
+    </p>
+
+    <p>
+      <%= submit_tag "Create" %>
+    </p>
+  <% end %>
+</div>

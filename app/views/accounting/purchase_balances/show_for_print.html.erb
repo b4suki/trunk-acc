@@ -1,0 +1,81 @@
+<div style="float: right;">
+  <table border="0">
+    <tr>
+      <td><%= render :partial => "shared/updatable_print_content", :locals => {:id => "label-no", :content => "No"} %></td>
+      <td>: <%= @purchase_balance.invoice_number %></td>
+    </tr>
+    <tr>
+      <td><%= render :partial => "shared/updatable_print_content", :locals => {:id => "label-date", :content => "Date"} %></td>
+      <td>: <%= format_date(@purchase_balance.created_at) %></td>
+    </tr>
+  </table>
+</div>
+<div style="clear: both;"></div>
+<div style="border-bottom: solid black 2px; width: 600px; text-align: center;">
+  <%= render :partial => "shared/updatable_print_content", :locals => {:id => "purchase-order-title", :content => "PURCHASE ORDER"} %>
+</div>
+<p><strong><%= render :partial => "shared/updatable_print_content", :locals => {:id => "label-to", :content => "To"} %> : </strong><br />
+<%= @purchase_balance.vendor.name %>
+</p><br /><br /><br />
+
+<table border="1" cellspacing="0" cellpadding="3" width="600">
+  <tr>
+    <th style="text-align:center;" rowspan="2"><%= render :partial => "shared/updatable_print_content", :locals => {:id => "label-detail-NO", :content => "NO"} %></th>
+    <th style="text-align:center;" rowspan="2"><%= render :partial => "shared/updatable_print_content", :locals => {:id => "label-nama-komponen", :content => "NAMA KOMPONEN"} %></th>
+    <th style="text-align:center;" rowspan="2"><%= render :partial => "shared/updatable_print_content", :locals => {:id => "label-qty", :content => "QTY"} %></th>
+    <th style="text-align:center;" rowspan="2"><%= render :partial => "shared/updatable_print_content", :locals => {:id => "label-units", :content => "Unit (s)"} %></th>
+    <th style="text-align:center;" rowspan="1"><%= render :partial => "shared/updatable_print_content", :locals => {:id => "label-unit-price", :content => "Unit Price"} %></th>
+    <th style="text-align:center;" rowspan="1"><%= render :partial => "shared/updatable_print_content", :locals => {:id => "label-detail-total", :content => "Total"} %></th>
+  </tr>
+  <tr>
+    <th style="text-align:center;"><%= @purchase_balance.currency.name %></th>
+    <th style="text-align:center;"><%= @purchase_balance.currency.name %></th>
+  </tr>
+  <% total = 0 %>
+  <% @purchase_balance.accounting_purchase_balance_details.each_with_index do |detail, i| %>
+    <tr>
+      <td><%= i+1 %></td>
+      <td><%= detail.product_name %></td>
+      <td style="text-align:center;"><%= detail.qty %></td>
+      <td><%= detail.item.unit.name rescue nil%></td>
+      <td style="text-align:right;"><%= format_currency(detail.price) %></td>
+      <td style="text-align:right;"><%= format_currency(detail.subtotal) %></td>
+      <% total += detail.subtotal %>
+    </tr>
+  <% end %>
+  <tr>
+    <td colspan="4">&nbsp;</td>
+    <td><%= render :partial => "shared/updatable_print_content", :locals => {:id => "label-total", :content => "TOTAL"} %></td>
+    <td style="text-align:right;"><%= format_currency(total) %></td>
+  </tr>
+</table>
+<br /><br />
+<table border="0" width="600">
+    <tr>
+      <td style="width: 150px;"><%= render :partial => "shared/updatable_print_content", :locals => {:id => "label-term-of-payment", :content => "Term of Payment"} %></td>
+      <td>: <%= @purchase_balance.accounting_terms_of_payment.name rescue nil %></td>
+    </tr>
+    <tr>
+      <td><%= render :partial => "shared/updatable_print_content", :locals => {:id => "label-delivery-address", :content => "Delivery Address"} %></td>
+      <td>: <%= render :partial => "shared/updatable_print_content", :locals => {:id => "vendor-delivery-address", :content => @purchase_balance.vendor.address} %></td>
+    </tr>
+    <tr>
+      <td><%= render :partial => "shared/updatable_print_content", :locals => {:id => "label-currency", :content => "Currency"} %></td>
+      <td>: <%= @purchase_balance.currency.name %></td>
+    </tr>
+</table>
+<br /><br />
+<div style="text-align: center; width: 215px; float: left;">
+  <p>
+    <%= render :partial => "shared/updatable_print_content", :locals => {:id => "label-purchasing", :content => "Purchasing,"} %><br /><br /><br /><br /><br /><br /><br />
+    <%= render :partial => "shared/updatable_print_content", :locals => {:id => "signatory-1", :content => "Dianty Soberlin"} %>
+  </p>
+</div>
+<div style="text-align: center; width: 215px; float: right;">
+  <p>
+    <%= render :partial => "shared/updatable_print_content", :locals => {:id => "label-acknowledged-by", :content => "Acknowledged by,"} %><br /><br /><br /><br /><br /><br /><br />
+    <%= render :partial => "shared/updatable_print_content", :locals => {:id => "signatory-2", :content => "Akhmad Bafaqih"} %>
+  </p>
+</div>
+<div style="clear: both;"></div>
+<br /><br />

@@ -1,0 +1,56 @@
+<h3>DAFTAR AKTIVA TETAP</h3>
+<h3>Bulan <%= selected_month %>  Tahun <%= selected_year %> </h3>
+
+<table border="1" id="t1" class="main_table" cellpadding="0" cellspacing="0" width="100%" >
+<tr class="grid_1">
+    <th rowspan="2" style="width:40px;text-align:center; padding:5px 0px;">
+      No 
+      <%#= render :partial => "option_date", :locals => {:result => @result, :date => @date }%>
+    </th>
+    <th rowspan="2" style="width:200px;text-align:center;padding:5px 0px;">
+      Tanggal Perolehan
+      <%#= render :partial => "option_evidence", :locals => {:result => @result, :date => @date}%>
+    </th>
+    <th rowspan="2" style="width:400px;text-align:center;padding:5px 0px;">
+      Nama Aktiva Tetap 
+      <%#= render :partial => "option_description", :locals => {:result => @result, :date => @date}%>
+    </th>
+    <th rowspan="2" style="width:180px;text-align:center;padding:5px 0px;">
+      Nilai Perolehan
+      <%#= render :partial => "option_job", :locals => {:result => @result, :date => @date}%>
+    </th>
+    <th rowspan="2" style="width:180px;text-align:center;padding:5px 0px;">
+      Nilai Sisa
+      <%#= render :partial => "option_account", :locals => {:result => @result, :date => @date}%>
+    </th>
+    <th rowspan="2" style="width:40px;text-align:center;padding:5px 0px;">
+      Umur Ekonomis (Thn)
+      <%#= render :partial => "option_debit", :locals => {:result => @result, :date => @date}%>
+    </th>  
+    <th rowspan="1" colspan="4" style="text-align:center;padding:5px 0px;">
+      Saldo Aktiva Tetap
+      <%#= render :partial => "option_credit", :locals => {:result => @result, :date => @date}%> 
+    </th>
+    <th rowspan="1" colspan="4" style="text-align:center;padding:5px 0px;">
+      Akum Penyusutan
+      <%#= render :partial => "option_credit", :locals => {:result => @result, :date => @date}%> 
+    </th>
+    <th rowspan="2" style="width:180px;text-align:center;padding:5px 0px;">
+      Nilai Buku
+      <%#= render :partial => "option_credit", :locals => {:result => @result, :date => @date}%> 
+    </th>
+  </tr>
+  <tr class="grid_1">
+    <th style=width:50px;text-align:center>Saldo Per 31 <%= month_names_before($month.to_i - 1).downcase %></th>
+    <th style=width:50px;text-align:center>Penambahan</th>
+    <th style=width:50px;text-align:center>Pengurangan</th>    
+    <th style=width:50px;text-align:center>Saldo Per 31 <%= month_names($month).downcase %></th>
+    <th style=width:50px;text-align:center>Saldo Per 31 <%= month_names_before($month.to_i - 1).downcase%></th>
+    <th style=width:50px;text-align:center>Penambahan</th>
+    <th style=width:50px;text-align:center>Pengurangan</th>
+    <th style=width:50px;text-align:center>Saldo Per 31 <%= month_names($month).downcase %></th>
+  </tr>
+
+
+ <%= render :partial => "content_adjustment_entries", :locals => {:accounts => @accounts, :date => @date}%>    
+</table>   

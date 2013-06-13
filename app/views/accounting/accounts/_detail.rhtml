@@ -1,0 +1,12 @@
+<td style="text-align:center;"> <%= acc.code_a %></td>
+<td style="text-align:center;">  <%= acc.code_b %></td>
+<td style="text-align:center;">  <%= acc.code_c %></td>
+<td style="text-align:center;">  <%= acc.code_d %></td>
+<td style="text-align:center;">  <%= acc.code_e %></td>
+<td><div style="width:<%= level.to_i*25%>px;height:20px;float:left;"></div><%= acc.description %></td>
+<td><%= acc.notes %></td>
+<td style="text-align:left;">
+  <%= link_to_remote "Tambah", :url => {:action => :new_sub_account, :id => acc.id, :level => level.to_i + 1}, :html => {:class => 'a_add'} %> |
+  <%= link_to_remote "Edit", :url => {:action => :edit_account, :id => acc.id, :level => level}, :html => {:class => 'a_edit'}  %>
+  <%= "  | #{link_to_remote "Hapus", :url => {:action => :delete_account, :id => acc.id, :level => level}, :confirm => "Kamu Yakin Akan Menghapus data '#{acc.description}'?", :html => {:class => 'a_delete'}}" if acc.children.empty?  %>        
+</td>

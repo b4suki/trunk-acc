@@ -1,0 +1,13 @@
+<%=  popup_title "Edit Transaksi Penjualan" %>
+<div style="max-height:410px; overflow:auto;">
+<div id="RB_body" style="width: 700px;">
+  <% form_for(:sale_balance, @sale_balance, :url => accounting_sale_balance_path(@sale_balance), :html=> {:method=>'put'})  do |f| %>
+   <%= f.error_messages %>
+   <%#= render :partial => 'form_edit_sale', :locals => { :f => f, :sale_balance => @sale_balance } %>
+   <%= render :partial => 'form', :locals => { :f => f, :sale_balance => @sale_balance } %>
+   <p>
+    <%= f.submit "Update" %>
+   </p>
+  <% end %>
+</div>
+</div>

@@ -1,0 +1,9 @@
+<h1>Editing reconciliation detail</h1>
+
+<% form_for(:reconciliation_detail, @reconciliation_detail, :url => accounting_reconciliation_detail_path(@reconciliation_detail), :html=> {:method=>'put'})  do |f| %>
+  <%= f.error_messages %>
+  <%= render :partial => 'form', :locals => {:f => f} %>
+  <p>
+    <%= f.submit "Update" %> | <%= link_to 'Back', accounting_reconciliation_details_path %>
+  </p>
+<% end %>

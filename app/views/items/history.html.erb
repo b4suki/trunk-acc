@@ -1,0 +1,130 @@
+<div id="search">
+  <% form_tag(:action => :history) do %>
+    <table width="235" class="search_table" cellpadding="5" cellspacing="0">
+      <tr><th colspan="2">Filter Bulan Transaksi</th></tr>
+      <tr><td>Bulan</td><td>&nbsp;&nbsp;<%= select_month(default_filter_month, :use_month_names => indonesian_month_names ) %></td></tr>
+      <tr><td>Tahun</td><td>&nbsp;&nbsp;<%= select_year(default_filter_year, :start_year => 2000, :end_year => 2030) %></td></tr>
+      <tr>
+        <td>Item &nbsp;<span id="indicator-tipe" style="display:none;"><%= image_tag "ajax-loader.gif" %></span></td>
+        <td>&nbsp;&nbsp;<%= text_field_with_auto_complete :item, :name, { :size => 15} , :skip_style => true, :indicator => "indicator-tipe" -%>
+          <%= hidden_field :item,:id, :id => 'item_name_id' %>
+        </td>
+      </tr>
+      <tr><td colspan="2" align="right"><%= submit_tag "Proses", :class => "btn-submit" %></td></tr>
+    </table>
+  <% end %>
+</div>
+<div>
+  &nbsp;&nbsp;Keterangan : <strong style="color:#666666;">*</strong> Pembelian  , <strong style="color:blue;">*</strong> Penjualan , <strong style="color:red;">*</strong> Pengambilan
+</div>
+<div class="div_top_btn">
+  <%= link_to("Kembali", accounting_sale_balances_path,{:class => "a_top_btn"})  %>
+</div>
+<table id="data" class="main_table" cellpadding="0" cellspacing="0" width="1000px">
+    <% if !@history_items.nil? %>
+    <% @history_items.each_with_index do |history, index|   %>
+      <thead>
+        <tr class="grid_1">
+          <th><%= index + 1 %></th>
+          <th><%= history.item.name %></th>
+          <th colspan="1" align="left"></th>
+          <th align="left">Stock Awal : </th>
+          <th style="text-align: center"><%= history.last_stock%></th>
+          <th align="left"></th>
+          <th align="left"></th>
+          <th align="left"></th>
+          <th align="left"></th>
+          <th align="left"><%= format_currency history.value%></th>
+        </tr>
+        <tr class="grid_1">
+          <th>Date</th>
+          <th>Barang Masuk</th>
+          <th>Barang Keluar</th>
+          <th>Pengambilan</th>
+          <th>Sisa</th>
+          <th>Harga Satuan</th>
+          <th>Pembelian</th>
+          <th>Penjualan</th>
+          <th>Pengambilan</th>
+          <th>Saldo</th>
+        </tr>
+        <% stock , pendapatan , sale, purchase, min, qty_out, qty_in, qty_min, price_sale, price_purchase, price_min = history.last_stock, history.value , 0, 0, 0, 0, 0, 0, 0, 0, 0 %>
+        <%@data[history.item.name].each do |info|  %>
+          <tr  class=<%= cycle("grid_2","grid_3") %>>
+            <td><%=  info[:date]%></td>
+            <td align="center" style="color: <%= 'blue'  if info[:sale] == true %>"><%=  info[:sale] == false ? info[:qty]  : "-"%></td>
+            <td align="center" style="color: <%= 'blue'  if info[:sale] == true %>"><%=  info[:sale] == true ? info[:qty] : "-"%></td>
+            <td align="center" style="color: <%= 'red'  if info[:minus] == true %>"><%=  info[:minus] == true ? info[:qty] : "-"%></td>
+            <td align="center"><%=  info[:sale] == true || info[:minus] == true ? stock -= info[:qty]  : stock += info[:qty]%></td>
+            <td align="center"><%=  info[:price]%></td>
+            <td align="right"><%=  info[:sale] == false ? (format_currency info[:price]*info[:qty]) :  "-"%></td>
+            <td align="right" style="color: <%= 'blue'  if info[:sale] == true %>"><%=  info[:sale] == true ? (format_currency info[:price]*info[:qty]) : "-"%></td>
+            <td align="right" style="color: <%= 'red'  if info[:minus] == true %>"><%=  info[:minus] == true ? (format_currency info[:price]*info[:qty]) : "-"%></td>
+            <%  if info[:sale] == true
+              pendapatan += info[:price] * info[:qty]
+              sale += info[:price] * info[:qty]
+              qty_out += info[:qty]
+              price_sale +=info[:price]
+            else if info[:sale] == false
+                pendapatan -= info[:price] * info[:qty]
+                purchase += info[:price] * info[:qty]
+                qty_in += info[:qty]
+                price_purchase +=info[:price]
+              else if info[:minus] == true
+                  pendapatan -= info[:price] * info[:qty]
+                  min += info[:price] * info[:qty]
+                  qty_min += info[:qty]
+                  price_min +=info[:price]
+                end
+              end
+            end
+          %>
+            <td align="right" ><%=  format_currency(pendapatan)%></td>
+          </tr>
+        <% end %>
+        <tr class="grid_1">
+          <th >Total</th>
+          <th style="text-align: center"><%= qty_in %></th>
+          <th style="text-align: center"><%= qty_out %></th>
+          <th style="text-align: center"><%= qty_min  %></th>
+          <th style="text-align: center"><%=  stock%></th>
+          <th style="text-align: center">&nbsp;</th>
+          <th style="text-align: right"><%= format_currency purchase %></th>
+          <th style="text-align: right"><%= format_currency sale %></th>
+          <th style="text-align: right"><%= format_currency min %></th>
+          <th style="text-align: right"><%= format_currency pendapatan  %> </th>
+        </tr>
+      </thead>
+      <tr class=<%= cycle("grid_2","grid_3") %>>
+        <td colspan="10"></td>
+      </tr>
+    <% end %>
+  <% else %>
+    <tr class="grid_1">
+      <th>Date</th>
+      <th>Barang Masuk</th>
+      <th>Barang Keluar</th>
+      <th>Pengambilan</th>
+      <th>Sisa</th>
+      <th>Harga Satuan</th>
+      <th>Pembelian</th>
+      <th>Penjualan</th>
+      <th>Pengambilan</th>
+      <th>Saldo</th>
+    </tr>
+    <tr class="grid_2">
+      <td align="center" colspan="10>">Tidak Ada Data</td>
+    </tr>
+  <% end %>
+</table>
+<table class="table_footer" cellpadding="0" cellspacing="0" width="1000px">
+  <tr class="grid_footer">
+    <td colspan="10" valign="center">
+      <%= link_to "Export PDF", history_items_path(:format => :pdf, :date => @date, :item_id => @data.id), :class => "a_pdf" %><span class="blue_split">&nbsp;</span>
+      <%= link_to "Export EXCEL", history_items_path(:format => :xls, :date => @date), :class => "a_xls" %><span class="blue_split">&nbsp;</span>
+    </td>
+    <td colspan="2">
+      <%= will_paginate @history_items if !@history_items.nil? %>
+    </td>
+  </tr>
+</table>

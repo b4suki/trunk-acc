@@ -1,0 +1,8 @@
+<table width="200" cellspacing="0" cellpadding="0" class="sum_table">
+  <tbody>
+    <tr><th>Judul</th><td align="left" class="grid_2_sum">&nbsp;<%= @mail.message.subject %></td></tr>
+    <tr><th>Pesan</th><td align="left" class="grid_2_sum">&nbsp;<%= @mail.message.body %></td></tr>
+    <tr><th>Pengirim</th><td align="left" class="grid_2_sum">&nbsp;<%= @mail.message.sender.login %></td></tr>
+  </tbody>
+</table>
+<%= link_to "Kotak Surat" , :action => :inbox%> | <%= link_to "Balas", :action => :replay_message , :id => @mail %>

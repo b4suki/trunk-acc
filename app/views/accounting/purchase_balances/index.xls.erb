@@ -1,0 +1,79 @@
+<table border="1" id="t1" class="main_table" cellpadding="3" cellspacing="0" width="100%">
+  <tr class="grid_1">
+    <td colspan="<%= view_header("debit").size + view_header("credit").size %>"><h3><%= @title %></h3></td>
+  </tr>
+  <tr class="grid_1">
+    <td colspan="<%= view_header("debit").size + view_header("credit").size %>"><h3><h3>Bulan <%= selected_month %>  Tahun <%= selected_year %> </h3></h3></td>
+  </tr>
+</table>
+<br/><br/>
+
+<br/><br/>
+<table border="1" id="t1" class="main_table" cellpadding="3" cellspacing="0" width="100%">
+  <thead>
+      <tr class="grid_1">
+        <th rowspan="2" style="width:10px">No</th>
+        <th rowspan="2" style="width:25px">No Po Keluar</th>
+        <th colspan="2" rowspan="1" style="text-align:center;">Invoice</th>
+        <th rowspan="2">Vendor</th>
+        <th rowspan="2">Keterangan</th>
+        <th rowspan="2">Job No</th>
+        <th rowspan="2">Sub Total</th>
+        <th rowspan="2">PPN</th>
+        <th rowspan="2">Biaya Kirim</th>
+        <th rowspan="2">Discount</th>
+        <th rowspan="2">Total Pembelian</th>
+        <th rowspan="2">Mata Uang</th>
+        <th rowspan="2">Kurs</th>
+        <th style="text-align:center;" rowspan="1" colspan="<%= @debit %>">Debit</th>
+        <th style="text-align:center;" rowspan="1" colspan="<%= @credit %>">Kredit</th>
+      </tr>
+      <tr class="grid_1">
+        <th style="text-align:center;">No</th>
+        <th style="text-align:center;">Tanggal</th>
+        <%= view_header_purchase("debit") %>
+        <%= view_header_purchase("credit") %>
+      </tr>
+    </thead>
+    <% @purchase_balances.each_with_index do |purchase_balance, i| %>
+      <tr class=<%= cycle("grid_2","grid_3") %>>
+        <td><%= i + 1 %></td>
+        <td align="right"><%=h purchase_balance.po_out %></td>
+        <td> <%=h purchase_balance.invoice_number%></td>
+        <td><%=h format_date(purchase_balance.invoice_date)%></td>
+        <td><%=h purchase_balance.vendor.name rescue nil %></td>
+        <td><%=h purchase_balance.description%></td>
+        <td align="center"><%=h purchase_balance.job_id %></td>
+        <td align="right"><%= format_currency(purchase_balance.subtotal) %></td>
+        <% set_total_field_for purchase_balance, :subtotal %>
+        <td align="right"><%= format_currency(purchase_balance.ppn_value) %></td>
+        <% set_total_field_for purchase_balance, :ppn_value %>
+        <td align="right"><%= format_currency(purchase_balance.shipping_cost) %></td>
+        <% set_total_field_for purchase_balance, :shipping_cost %>
+        <td align="right"><%= format_currency(purchase_balance.discount) %> </td>
+        <% set_total_field_for purchase_balance, :discount %>
+        <td align="right"><%= format_currency(purchase_balance.transaction_value) %></td>
+        <% set_total_field_for purchase_balance, :transaction_value %>
+        <td><%= purchase_balance.currency.name rescue nil %></td>
+        <td><%= purchase_balance.kurs rescue nil %></td>
+        <%= table_values_debet_credit_purchase(purchase_balance.id,"debit") %>
+        <%= table_values_debet_credit_purchase(purchase_balance.id,"credit") %>
+      </tr>
+    <% end %>
+
+    <% if @purchase_balances.size >=1 %>
+      <tr class="grid_2"><th colspan="7">Total</th>
+        <th style="text-align:right;"><%= format_currency(show_total_for :subtotal) %> </th>
+        <th style="text-align:right;"><%= format_currency(show_total_for :ppn_value) %> </th>
+        <th style="text-align:right;"><%= format_currency(show_total_for :shipping_cost) %> </th>
+        <th style="text-align:right;"><%= format_currency(show_total_for :discount) %> </th>
+        <th style="text-align:right;"><%= format_currency(show_total_for :transaction_value) %></th>
+        <th>&nbsp;</th>
+        <th>&nbsp;</th>
+        <%= sum_debet_credit_purchase(@purchase_balances, "debit")%>
+        <%= sum_debet_credit_purchase(@purchase_balances, "credit")%>
+      </tr>
+    <% else %>
+      <tr class="grid_2"><td style="text-align: center;" colspan="<%=14+@credit+@debit%>">Tidak Ada Data</td></tr>
+    <% end %>
+</table>

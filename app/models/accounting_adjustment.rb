@@ -1,0 +1,2 @@
+class AccountingAdjustment < AccountingJournal
+end

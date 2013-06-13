@@ -1,0 +1,15 @@
+# Read about fixtures at http://ar.rubyonrails.org/classes/Fixtures.html
+
+one:
+  evidence: MyString
+  description: MyText
+  account_id: 1
+  contra_account_id: 1
+  type: MyString
+
+two:
+  evidence: MyString
+  description: MyText
+  account_id: 1
+  contra_account_id: 1
+  type: MyString

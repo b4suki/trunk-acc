@@ -1,0 +1,20 @@
+<table cellspacing="0" cellpadding="0" width="100%">
+<tr>
+  <th width="30%">Name</th>
+  <th width="50%">Description</th>
+  <th width="20%">Date</th>
+  <th width="10%">Active</th>
+</tr>
+<% remainders = Remainder.find(:all, :conditions => ["MONTH(updated_at) = MONTH(current_date) and YEAR(updated_at) =  YEAR(current_date)"], :limit => 5)%>  
+   <% remainders.each_with_index do |remainder, count| %>
+  <tr>                                        
+    <td><%= remainder.task_name %></td>
+    <td><%= remainder.description%></td>
+    <td><%= remainder.task_date%></td>
+    <td><%= check_box_tag "remainder", "alert_date", remainder.alert_date.nil? ? false : true, :disabled => true%></td>
+  </tr> 
+
+  <% check_remainder_on(remainder.task_name, remainder.task_date, remainder.alert_date.nil? ? false : true)%>
+<% end %>    
+</table>
+

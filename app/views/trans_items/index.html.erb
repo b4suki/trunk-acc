@@ -1,0 +1,118 @@
+<script>
+  jQuery(document).ready(function(){
+    jQuery("#data").fixedHeader({width: 1000,height: 400});
+  })
+</script>
+
+<div id="search">
+  <% form_tag(:action => :index) do %>
+    <table width="235" class="search_table" cellpadding="5" cellspacing="0">
+      <tr><th colspan="2">Filter Bulan Transaksi</th></tr>
+      <tr><td>Bulan</td><td>&nbsp;&nbsp;<%= select_month(default_filter_month, :use_month_names => indonesian_month_names ) %></td></tr>
+      <tr><td>Tahun</td><td>&nbsp;&nbsp;<%= select_year(default_filter_year, :start_year => 2000, :end_year => 2030) %></td></tr>
+      <tr><td>Status</td><td>&nbsp;&nbsp;<%= select :status, :items, options_for_stat, {:size => 15, :include_blank => 'All', :selected => $stat.nil? ? "" : $stat} %> </td></tr>
+
+      <tr><td colspan="2" align="right"><%= submit_tag "Proses", :class => "btn-submit" %></td></tr>
+    </table>
+  <% end %>
+</div>
+
+<table id="data" class="main_table" cellpadding="0" cellspacing="0" width="1000px">
+  <thead>
+    <tr class="grid_1">
+      <th>No</th>
+      <th>User</th>
+      <th>Item</th>
+      <th>Qty</th>
+      <th>Received</th>
+      <th>Status</th>
+      <th>Deskripsi</th>
+      <th>Tanggal Pembuatan</th>
+      <th>&nbsp;</th>
+      <th>&nbsp;</th>
+      <th>&nbsp;</th>
+    </tr>
+  </thead>
+
+  <div class="div_top_btn">
+    <%= link_to("Kembali",items_path,{:class => "a_top_btn"}) %>
+  </div>
+  <div class="clear_right"></div>
+
+  <% unless @trans_items.empty? %>
+    <% total_qty = 0 %>
+    <% @trans_items.each_with_index do |trans_item, index| %>
+
+      <tr class=<%= cycle("grid_2","grid_3") %>>
+        <% dis = false %>
+        <% dis = trans_item.status == "request" || trans_item.status == "readyorder"? false : true %>
+        <td><%=h index + 1 %></td>
+        <td><%=h trans_item.user.login %></td>
+        <td><%=h trans_item.item.name rescue nil %></td>
+        <td align="right"><%=h trans_item.qty %></td>
+        <% total_qty += trans_item.qty %>
+        <td align="right"><%=h trans_item.status == "5"? trans_item.received : "-" %></td>
+
+        <td id="status-<%=trans_item.id%>"><%= trans_item.status.nil? ? "" : trans_item.trans_item_status.name rescue nil %></td>
+        <td><%=h trans_item.description %></td>
+        <td align="center"><%= format_date(trans_item.created_at) %></td>
+        <td align="center"><%=  check_box_tag "approve-purchase-#{trans_item.id}", trans_item.id, trans_item.status == "request"? false:true,
+            {:onclick =>  remote_function(
+              :url => { :action => :update_status }, :with => "'id='+this.value"), :disabled => dis}  %>
+        </td>
+        <td><%= link_to_remote_redbox "Edit", {:url => "/trans_items/edit/#{trans_item.id}"}, {:class => "a_edit"} %></td>
+        <td><%= link_to "Hapus", {:action => :destroy_item, :id => trans_item.id, :month => $month, :year => $year, :status => $stat}, :confirm => "Apakah anda yakin akan menghapus data ini ?", :html => {:method => :delete}, :class => "a_delete" %></td>
+      </tr>
+    <% end %>
+    <tr class="grid_1">
+      <td colspan="3">TOTAL</td>
+      <td align="right"><%= total_qty %></td>
+      <td colspan="7">&nbsp;</td>
+    </tr>
+  <% else %>
+    <tr class="grid_2"><td align="center" colspan="10">TIDAK ADA DATA</td></tr>
+  <% end %>
+</table>
+
+
+<table class="table_footer" cellpadding="0" cellspacing="0" width="1000px">
+  <tr class="grid_footer">
+    <td colspan="8" valign="center">
+      <%= link_to "Export Purchase Request", trans_items_path(:format => :pdf, :report => 'request'), :class => "a_pdf" %><span class="blue_split">&nbsp;</span>
+      <%= link_to "Penerimaan dan Pemasukkan", trans_items_path(:format => :pdf, :report => 'terima'), :class => "a_pdf" %>
+    <td align="center"><div style="float: right;">&nbsp;</div></td>
+    <td colspan="2" align="center"><div style="float: right;">&nbsp;</div></td>
+    </td>
+    <td colspan="2">&nbsp;</td>
+  </tr>
+</table>
+
+<br />
+
+<table cellspacing="0" cellpadding="0" width="200" class="sum_table">
+  <tr class="grid_1">
+    <th>
+      Item
+    </th>
+    <th>
+      Stock Awal
+    </th>
+    <th>
+      Penambahan
+    </th>
+    <th>
+      Pengambilan
+    </th>
+    <th>
+      Sisa
+    </th>
+  </tr>
+  <tbody>
+    <% @items.each do |item| %>
+      <tr class=<%= cycle("grid_2","grid_3") %>>
+          <th><%= item.name  %></th>
+        <%=  get_first_stock(item, @date) %>
+      </tr>
+    <% end %>
+  </tbody>
+</table>

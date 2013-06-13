@@ -1,0 +1,9 @@
+<% form_tag(:action => "compose_message")do %>
+  <p>Kepada:</p>
+  <p><%= text_field_tag "message[to]"  %></p>
+  <p>Judul</p>
+  <p><%= text_field_tag "message[subject]"  %></p>
+  <p>Pesan</p>
+  <p><%= text_area_tag "message[body]"  %></p>
+  <p><%= submit_tag "Kirim"%> | <%= link_to "Kotak Surat" , :action => :inbox %></p>
+<% end %>

@@ -1,0 +1,49 @@
+<div style="float:left;margin: 5px 20px 5px 5px;">
+  <%= hidden_field_tag "from", params[:from] %>
+  <table class="search_table" cellpadding="5" cellspacing="0">
+    <tr>
+      <td>No Bukti</td>
+      <td> : </td>
+      <td align="right">
+        <%= f.text_field :evidence %>
+      </td>
+    </tr>
+    <tr>
+      <td>Tanggal Pembayaran</td>
+      <td> : </td>
+      <td>
+        <%= f.date_splicer :updated_at, :default_to_now => true %>
+      </td>
+    </tr>
+    <tr>
+      <td>Transfer Bank</td>
+      <td> : </td>
+      <td align=""><%=select(:transfer,:sale_debit_credit_id, account_bank) %> </td>
+    </tr>
+    <tr>
+      <td>Pembayaran</td>
+      <td> : </td>
+      <td align="right">
+        <%= text_field_tag :payed, @receivable.payed_value ,:style => "text-align: right;", :onkeyup => "$('receivable_payed_value').value = this.value ;ppn_piutang(#{@ppn_keluaran_rate_value});" %>
+      </td>
+    </tr>
+    <tr>
+      <td>Kena Pajak</td>
+      <td> : </td>
+      <td ><%= check_box_tag :tax_able,nil,!@ppn.nil? ? true : false , :onchange =>"ppn_piutang(#{@ppn_keluaran_rate_value});" %></td>
+    </tr>
+    <tr>
+      <td>PPN(<%= "#{@ppn_keluaran_rate_value*100}%" %>)</td>
+      <td> : </td>
+      <td  align="right"><%=  text_field(:ppn, :value ,:value => !@ppn.nil? ? @ppn.value :  0 ,:style =>'text-align:right;', :readonly => true, :size => 18) %></td>
+    </tr>
+    <tr>
+      <td>Pembayaran</td>
+      <td> : </td>
+      <td align="right">
+        <%= f.text_field :payed_value, :value => @receivable.payed_value + ppn = !@ppn.nil? ? @ppn.value :  0 , :style => "text-align: right;", :readonly => true%>
+      </td>
+    </tr>
+  </table>
+</div>
+<br/>

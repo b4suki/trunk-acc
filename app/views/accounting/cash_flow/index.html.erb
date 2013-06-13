@@ -1,0 +1,36 @@
+<%= render :partial => "shared/filter_transaction_period", :locals => {:title => "Filter Bulan Transaksi"} %>
+<br />
+
+<div class="div_top_btn">
+  <%= link_to("Pengaturan account untuk cash flow", accounting_cash_flow_debit_credits_path,{:class => "a_top_btn"}) %>
+</div>
+
+<table cellpadding="0" cellspacing="0" width="700" class="main_table" >
+  <% total_saldo = 0 %>
+  <% tmp = display_cash_flow(@operating_activity, @date) %>
+  <%= tmp[0] %>
+  <% total_saldo += tmp[1] %>
+  <% tmp = display_cash_flow(@investing_activity, @date) %>
+  <%= tmp[0] %>
+  <% total_saldo += tmp[1] %>
+  <% tmp = display_cash_flow(@financing_activity, @date) %>
+  <%= tmp[0] %>
+  <% total_saldo += tmp[1] %>
+
+<%#*<tr class='grid_2'>%>
+<%#*<td>&nbsp;</td>%>
+<%#*<td><b>Kenaikan bersih kas dan setara kas</b></td>%>
+<%#*<td>&nbsp;</td>%>
+<%#*<td align="right"><b><%= format_currency(total_saldo) % ></b></td>%>
+<%#*</tr>%>
+
+  <tr class='grid_footer'>
+    <td colspan="4" valign="center">
+      <%= link_to "Export PDF", {:controller => 'accounting/cash_flow',:url => '/accounting/cash_flow',
+        :actions => :index, :format => 'pdf' ,
+      },:class => "a_pdf" %><span class="blue_split">&nbsp;</span>
+      <%= link_to "Export EXCEL",{:controller => 'accounting/cash_flow', :url => '/accounting/cash_flow',
+        :action => :index, :format => 'xls'},:class => "a_xls" %>
+    </td>
+  </tr>
+</table>

@@ -1,0 +1,12 @@
+<%= popup_title "Edit Hak Akses" %>
+
+<div id="RB_body" style="width: 500px;">
+<% form_for(:role, @role, :url => admin_manage_role_path(@role), :html=> {:method=>'put'})  do |f| %>
+  <%= f.error_messages %>
+  <%= render :partial => 'form', :locals => { :f => f } %>
+  <br/><br/>
+  <p>
+    <%= f.submit "Update" %>
+  </p>
+<% end %>
+</div>

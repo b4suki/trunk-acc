@@ -1,0 +1,5 @@
+<% form_tag(:action => "replay_message", :id => @mail)do %>
+  <p><%= text_area_tag "message[body]"  %></p>
+  <p><%= submit_tag "Kirim"%></p>
+<% end %>
+<%= link_to "Kotak Surat" , :action => :inbox%>

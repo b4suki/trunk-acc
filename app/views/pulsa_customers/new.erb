@@ -1,0 +1,54 @@
+<%= popup_title "Tambah Pengguna Alat " %>
+
+<div id="RB_body" style="width: 300px;">
+  <%#= javascript_include_tag :defaults %>
+  <% form_for(@pulsa_customer) do |f| %>
+    <%= f.error_messages %>
+    <p>
+      Tanggal Install <br/>
+      <%= f.date_splicer :date_install, :default_to_now => true %>
+    </p>
+    <p>
+      Pelanggan <br/>
+      <%= text_field_with_auto_complete :customer, :name, :skip_style => true, :indicator => "indicator-customer-name" -%>
+      <%= f.hidden_field :customer_id, :id => 'customer_name_id' %>
+    </p>
+    <p>
+      SN <br/>
+      <%= f.text_field :sn, :live => false %>
+    </p>
+    <p>
+      SimCard <br/>
+      <%= f.text_field :simcard, :live => false %>
+    </p>
+    <p>
+      Mobil <br/>
+      <%= text_field_with_auto_complete :car, :name, :skip_style => true, :indicator => "indicator-car-name" -%>
+      <%= f.hidden_field :car_id, :id => 'car_name_id' %>
+    </p>
+    <p>
+      Nopol <br/>
+      <%= f.text_field :nopol, :live => false %>
+    </p>
+    <p>
+     Masa Aktif <br/>
+      <%= f.date_splicer :aktif, :default_to_now => true %>
+    </p>
+    <p>
+     Paket <br/>
+     <%= f.text_field :package, :value => '0'  %>
+    </p>
+    <p>
+     Layanan <br/>
+      <%= f.text_field :service  %>
+    </p>
+    <p>
+     Angsuran <br/>
+      <%= f.text_field :installment %>
+    </p>
+
+    <p>
+      <%= f.submit "Create" %>
+    </p>
+  <% end %>
+</div>

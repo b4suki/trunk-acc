@@ -1,0 +1,52 @@
+<script>
+  jQuery(document).ready(function(){
+    jQuery("#data").fixedHeader({width: 1000,height: 400});
+  })
+</script>
+
+<div id="search">
+  <% form_tag(:action => :index) do %>
+    <table width="220" class="search_table" cellpadding="5" cellspacing="0" style="margin: 8px 6px;">
+      <tr><th>Cari</th><th><%= text_field_tag "search", "" %></th></tr>
+      <tr><th colspan="2" align="right"><%= submit_tag "Proses", :class => "btn-submit" %></th></tr>
+    </table>
+  <% end %>
+</div>
+
+<table id="data" class="main_table" cellpadding="0" cellspacing="0" width="1000px">
+  <thead>
+    <tr class="grid_1">
+      <th>No</th>
+      <th><%= link_to "Nama Layanan", :action => :index, :sort => "name" %></th>
+      <th><%= link_to "Harga", :action => :index, :sort => "price" %></th>
+      <th colspan="2">&nbsp;</th>
+    </tr>
+  </thead>
+
+  <% unless @services.empty? %>
+    <% @services.each_with_index do |service, i| %>
+      <tr class=<%= cycle("grid_2","grid_3") %>>
+        <td><%= i+1 %></td>
+        <td><%=h service.name %></td>
+        <td align="right"><%= format_currency(service.price) %></td>
+        <td><%= link_to_remote_redbox('Edit', {:url => "/services/edit/#{service.id}"}, {:class => "a_edit"}) %></td>
+        <td><%= link_to 'Hapus', service, :confirm => "Anda yakin akan menghapus layanan '#{h service.name}' ?", :method => :delete, :class => "a_delete" %></td>
+      </tr>
+    <% end %>
+  <% else %>
+    <tr class="grid_2"><td align="center" colspan="5">TIDAK ADA DATA</td></tr>
+  <% end %>
+</table>
+
+<table class="table_footer" cellpadding="0" cellspacing="0" width="1000px">
+  <tr class="grid_footer">
+    <td valign="center">
+      <%= link_to_remote_redbox("Tambah Layanan", {:url => new_service_path}, {:class => "a_add"}) %><span class="blue_split">&nbsp;</span>
+      <%= link_to "Export PDF", services_path(:format => :pdf, :report => "list"), :class => "a_pdf" %><span class="blue_split">&nbsp;</span>
+      <%= link_to "Export EXCEL", formatted_services_path(:xls), :class => "a_xls" %><span class="blue_split">&nbsp;</span>
+    </td>
+    <td>
+      <%= will_paginate @services %>
+    </td>
+  </tr>
+</table>

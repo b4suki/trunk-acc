@@ -1,0 +1,302 @@
+Script started on Tue 26 Jan 2010 02:39:12 PM WIT
+]0;dhendy@server: ~/workspace/new/TPMI/ndet/new_esitrack/trunkdhendy@server:~/workspace/new/TPMI/ndet/new_esitrack/trunk$ ryt\[K[K[Kuby script/generate  con[K[K[Kmodel item
+      exists  app/models/
+      exists  test/unit/
+      exists  test/fixtures/
+      create  app/models/item.rb
+      create  test/unit/item_test.rb
+      create  test/fixtures/items.yml
+      exists  db/migrate
+      create  db/migrate/20100126074006_create_items.rb
+]0;dhendy@server: ~/workspace/new/TPMI/ndet/new_esitrack/trunkdhendy@server:~/workspace/new/TPMI/ndet/new_esitrack/trunk$ ruby script/generate  model item[1P item[1P item[1P item[C[C[C[1P item[C[C[1P item[Cc item[C[Co item[C[C[Cn itemt itemr itema item[1P itemo iteml iteml iteme itemr item[C[C[C[C[Cs
+/home/dhendy/.gem/ruby/1.8/gems/activesupport-2.2.2/lib/active_support/core_ext/module/introspection.rb:73: [BUG] Segmentation fault
+ruby 1.8.6 (2007-09-24) [i486-linux]
+
+Aborted
+]0;dhendy@server: ~/workspace/new/TPMI/ndet/new_esitrack/trunkdhendy@server:~/workspace/new/TPMI/ndet/new_esitrack/trunk$ ruby script/generate  controller items
+      exists  app/controllers/
+      exists  app/helpers/
+      create  app/views/items
+      exists  test/functional/
+      create  app/controllers/items_controller.rb
+      create  test/functional/items_controller_test.rb
+      create  app/helpers/items_helper.rb
+]0;dhendy@server: ~/workspace/new/TPMI/ndet/new_esitrack/trunkdhendy@server:~/workspace/new/TPMI/ndet/new_esitrack/trunk$ ruby script/generate  controller items[C[6Pmodel item[A[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[Cls -l[K
+[K[A[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[Ccd workspace/php/funnniestjokester_newrepo/[A[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[9Psudo init 0
+[K[A[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[5Ptartxudo mount -n -o remoount,rw / [A[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[Ctartx[K
+[K[A[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[Cudo init 0[K[K[K[K[K[K[K[K[K[K[Kmongrel_rails start
+** Starting Mongrel listening at 0.0.0.0:3000
+** Starting Rails with development environment...
+** [NewRelic] New Relic RPM Agent Initialized: pid = 10364
+** [NewRelic] Agent Log is found in /home/dhendy/workspace/new/TPMI/ndet/new_esitrack/trunk/log/newrelic_agent.3000.log
+** [NewRelic] NewRelic Agent (Developer Mode) enabled.
+** [NewRelic] To view performance information, go to http://localhost/newrelic
+** Rails loaded.
+** Loading any Rails specific GemPlugins
+** Signals ready.  TERM => stop.  USR2 => restart.  INT => stop (no restart).
+** Rails signals registered.  HUP => reload (without restart).  It might not work well.
+** Mongrel 1.1.5 available at 0.0.0.0:3000
+** Use CTRL-C to stop.
+** INT signal received.
+]0;dhendy@server: ~/workspace/new/TPMI/ndet/new_esitrack/trunkdhendy@server:~/workspace/new/TPMI/ndet/new_esitrack/trunk$ rake db:migrate
+/usr/lib/ruby/1.8/date.rb:1066: [BUG] Segmentation fault
+ruby 1.8.6 (2007-09-24) [i486-linux]
+
+Aborted
+]0;dhendy@server: ~/workspace/new/TPMI/ndet/new_esitrack/trunkdhendy@server:~/workspace/new/TPMI/ndet/new_esitrack/trunk$ rake db:migrate
+(in /home/dhendy/workspace/new/TPMI/ndet/new_esitrack/trunk)
+==  CreateItems: migrating ====================================================
+-- create_table(:items)
+   -> 0.0327s
+==  CreateItems: migrated (0.0330s) ===========================================
+
+]0;dhendy@server: ~/workspace/new/TPMI/ndet/new_esitrack/trunkdhendy@server:~/workspace/new/TPMI/ndet/new_esitrack/trunk$ rake db:migratemongrel_rails startruby script/generate  controller items[A[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[1Pmongrel_rails start
+[K[A[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C
+** Starting Mongrel listening at 0.0.0.0:3000
+** Starting Rails with development environment...
+** [NewRelic] New Relic RPM Agent Initialized: pid = 10441
+** [NewRelic] Agent Log is found in /home/dhendy/workspace/new/TPMI/ndet/new_esitrack/trunk/log/newrelic_agent.3000.log
+** [NewRelic] NewRelic Agent (Developer Mode) enabled.
+** [NewRelic] To view performance information, go to http://localhost/newrelic
+** Rails loaded.
+** Loading any Rails specific GemPlugins
+** Signals ready.  TERM => stop.  USR2 => restart.  INT => stop (no restart).
+** Rails signals registered.  HUP => reload (without restart).  It might not work well.
+** Mongrel 1.1.5 available at 0.0.0.0:3000
+** Use CTRL-C to stop.
+/home/dhendy/workspace/new/TPMI/ndet/new_esitrack/trunk/vendor/plugins/newrelic_rpm/lib/newrelic/agent/transaction_sampler.rb:67: [BUG] Segmentation fault
+ruby 1.8.6 (2007-09-24) [i486-linux]
+
+Aborted
+]0;dhendy@server: ~/workspace/new/TPMI/ndet/new_esitrack/trunkdhendy@server:~/workspace/new/TPMI/ndet/new_esitrack/trunk$ mongrel_rails start
+** Starting Mongrel listening at 0.0.0.0:3000
+** Starting Rails with development environment...
+** [NewRelic] New Relic RPM Agent Initialized: pid = 10453
+** [NewRelic] Agent Log is found in /home/dhendy/workspace/new/TPMI/ndet/new_esitrack/trunk/log/newrelic_agent.3000.log
+** [NewRelic] NewRelic Agent (Developer Mode) enabled.
+** [NewRelic] To view performance information, go to http://localhost/newrelic
+** Rails loaded.
+** Loading any Rails specific GemPlugins
+** Signals ready.  TERM => stop.  USR2 => restart.  INT => stop (no restart).
+** Rails signals registered.  HUP => reload (without restart).  It might not work well.
+** Mongrel 1.1.5 available at 0.0.0.0:3000
+** Use CTRL-C to stop.
+/usr/lib/ruby/1.8/uri/common.rb:289: [BUG] Segmentation fault
+ruby 1.8.6 (2007-09-24) [i486-linux]
+
+Aborted
+]0;dhendy@server: ~/workspace/new/TPMI/ndet/new_esitrack/trunkdhendy@server:~/workspace/new/TPMI/ndet/new_esitrack/trunk$ mongrel_rails start
+** Starting Mongrel listening at 0.0.0.0:3000
+** Starting Rails with development environment...
+*** glibc detected *** /usr/bin/ruby1.8: free(): invalid next size (normal): 0x0878a0b8 ***
+======= Backtrace: =========
+/lib/libc.so.6[0xb7d6dc37]
+/lib/libc.so.6(cfree+0x89)[0xb7d6f8f9]
+/usr/lib/libruby1.8.so.1.8[0xb7ef74d7]
+/usr/lib/libruby1.8.so.1.8(rb_newobj+0x58)[0xb7ef78a8]
+/usr/lib/libruby1.8.so.1.8[0xb7f47307]
+/usr/lib/libruby1.8.so.1.8(rb_str_dup+0x2d)[0xb7f4a37d]
+/usr/lib/libruby1.8.so.1.8(rb_find_file_ext+0x154)[0xb7ef4d54]
+/usr/lib/libruby1.8.so.1.8(rb_require_safe+0x1fa)[0xb7eee6ca]
+/usr/lib/libruby1.8.so.1.8(rb_f_require+0x29)[0xb7eeeab9]
+/usr/lib/libruby1.8.so.1.8[0xb7ed87f2]
+/usr/lib/libruby1.8.so.1.8[0xb7ee0f1d]
+/usr/lib/libruby1.8.so.1.8[0xb7ee11d8]
+/usr/lib/libruby1.8.so.1.8[0xb7ee731b]
+/usr/lib/libruby1.8.so.1.8[0xb7ee9f5f]
+/usr/lib/libruby1.8.so.1.8[0xb7ee0e52]
+/usr/lib/libruby1.8.so.1.8[0xb7ee11d8]
+/usr/lib/libruby1.8.so.1.8[0xb7ee731b]
+/usr/lib/libruby1.8.so.1.8(rb_load+0x512)[0xb7eee3f2]
+/usr/lib/libruby1.8.so.1.8(rb_require_safe+0x466)[0xb7eee936]
+/usr/lib/libruby1.8.so.1.8(rb_f_require+0x29)[0xb7eeeab9]
+/usr/lib/libruby1.8.so.1.8[0xb7ed87f2]
+/usr/lib/libruby1.8.so.1.8[0xb7ee0f1d]
+/usr/lib/libruby1.8.so.1.8[0xb7ee11d8]
+/usr/lib/libruby1.8.so.1.8[0xb7ee731b]
+/usr/lib/libruby1.8.so.1.8[0xb7ee9f5f]
+/usr/lib/libruby1.8.so.1.8[0xb7ee0e52]
+/usr/lib/libruby1.8.so.1.8[0xb7ee11d8]
+/usr/lib/libruby1.8.so.1.8[0xb7ee731b]
+/usr/lib/libruby1.8.so.1.8(rb_load+0x512)[0xb7eee3f2]
+/usr/lib/libruby1.8.so.1.8(rb_require_safe+0x466)[0xb7eee936]
+/usr/lib/libruby1.8.so.1.8(rb_f_require+0x29)[0xb7eeeab9]
+/usr/lib/libruby1.8.so.1.8[0xb7ed87f2]
+/usr/lib/libruby1.8.so.1.8[0xb7ee0f1d]
+/usr/lib/libruby1.8.so.1.8[0xb7ee11d8]
+/usr/lib/libruby1.8.so.1.8[0xb7ee731b]
+/usr/lib/libruby1.8.so.1.8[0xb7ee9f5f]
+/usr/lib/libruby1.8.so.1.8[0xb7ee0e52]
+/usr/lib/libruby1.8.so.1.8[0xb7ee11d8]
+/usr/lib/libruby1.8.so.1.8[0xb7ee731b]
+/usr/lib/libruby1.8.so.1.8(rb_load+0x512)[0xb7eee3f2]
+/usr/lib/libruby1.8.so.1.8(rb_require_safe+0x466)[0xb7eee936]
+/usr/lib/libruby1.8.so.1.8(rb_f_require+0x29)[0xb7eeeab9]
+/usr/lib/libruby1.8.so.1.8[0xb7ed87f2]
+/usr/lib/libruby1.8.so.1.8[0xb7ee0f1d]
+/usr/lib/libruby1.8.so.1.8[0xb7ee11d8]
+/usr/lib/libruby1.8.so.1.8[0xb7ee731b]
+/usr/lib/libruby1.8.so.1.8[0xb7ee9f5f]
+/usr/lib/libruby1.8.so.1.8[0xb7ee0e52]
+/usr/lib/libruby1.8.so.1.8[0xb7ee11d8]
+/usr/lib/libruby1.8.so.1.8[0xb7ee731b]
+/usr/lib/libruby1.8.so.1.8(rb_load+0x512)[0xb7eee3f2]
+/usr/lib/libruby1.8.so.1.8(rb_require_safe+0x466)[0xb7eee936]
+/usr/lib/libruby1.8.so.1.8(rb_f_require+0x29)[0xb7eeeab9]
+/usr/lib/libruby1.8.so.1.8[0xb7ed87f2]
+/usr/lib/libruby1.8.so.1.8[0xb7ee0f1d]
+/usr/lib/libruby1.8.so.1.8[0xb7ee11d8]
+/usr/lib/libruby1.8.so.1.8[0xb7ee731b]
+/usr/lib/libruby1.8.so.1.8[0xb7ee9f5f]
+/usr/lib/libruby1.8.so.1.8[0xb7ee0e52]
+/usr/lib/libruby1.8.so.1.8[0xb7ee11d8]
+/usr/lib/libruby1.8.so.1.8[0xb7ee731b]
+/usr/lib/libruby1.8.so.1.8(rb_load+0x512)[0xb7eee3f2]
+/usr/lib/libruby1.8.so.1.8(rb_require_safe+0x466)[0xb7eee936]
+======= Memory map: ========
+08048000-08049000 r-xp 00000000 08:05 1658601    /usr/bin/ruby1.8
+08049000-0804a000 rw-p 00000000 08:05 1658601    /usr/bin/ruby1.8
+0804a000-08b66000 rw-p 0804a000 00:00 0          [heap]
+b7300000-b7321000 rw-p b7300000 00:00 0 
+b7321000-b7400000 ---p b7321000 00:00 0 
+b7428000-b7432000 r-xp 00000000 08:05 4784147    /lib/libgcc_s.so.1
+b7432000-b7433000 rw-p 0000a000 08:05 4784147    /lib/libgcc_s.so.1
+b7449000-b77e4000 rw-p b7449000 00:00 0 
+b77e4000-b77f8000 r-xp 00000000 08:05 1657246    /usr/lib/libz.so.1.2.3.3
+b77f8000-b77f9000 rw-p 00013000 08:05 1657246    /usr/lib/libz.so.1.2.3.3
+b7805000-b780e000 r-xp 00000000 08:05 1697655    /usr/lib/ruby/1.8/i486-linux/bigdecimal.so
+b780e000-b780f000 rw-p 00009000 08:05 1697655    /usr/lib/ruby/1.8/i486-linux/bigdecimal.so
+b780f000-b7819000 r-xp 00000000 08:05 1698228    /usr/lib/ruby/1.8/i486-linux/socket.so
+b7819000-b781a000 rw-p 00009000 08:05 1698228    /usr/lib/ruby/1.8/i486-linux/socket.so
+b781b000-b7853000 r-xp 00000000 08:05 1697669    /usr/lib/ruby/1.8/i486-linux/nkf.so
+b7853000-b7856000 rw-p 00037000 08:05 1697669    /usr/lib/ruby/1.8/i486-linux/nkf.so
+b7856000-b7857000 rw-p b7856000 00:00 0 
+b7857000-b7859000 r-xp 00000000 08:05 1697664    /usr/lib/ruby/1.8/i486-linux/enumerator.so
+b7859000-b785a000 rw-p 00001000 08:05 1697664    /usr/lib/ruby/1.8/i486-linux/enumerator.so
+b785a000-b7861000 r--s 00000000 08:05 1654889    /usr/lib/gconv/gconv-modules.cache
+b7861000-b7864000 r-xp 00000000 08:05 1697667    /usr/lib/ruby/1.8/i486-linux/iconv.so
+b7864000-b7865000 rw-p 00002000 08:05 1697667    /usr/lib/ruby/1.8/i486-linux/iconv.so
+b7865000-b7b83000 rw-p b7865000 00:00 0 
+b7b83000-b7b8c000 r-xp 00000000 08:05 4786513    /lib/libnss_files-2.7.so
+b7b8c000-b7b8e000 rw-p 00008000 08:05 4786513    /lib/libnss_files-2.7.so
+b7b8e000-b7ba1000 r-xp 00000000 08:05 4786510    /lib/libnsl-2.7.so
+b7ba1000-b7ba3000 rw-p 00012000 08:05 4786510    /lib/libnsl-2.7.so
+b7ba3000-b7ba5000 rw-p b7ba3000 00:00 0 
+b7ba5000-b7bab000 r-xp 00000000 08:05 4786511    /lib/libnss_compat-2.7.so
+b7bab000-b7bad000 rw-p 00005000 08:05 4786511    /lib/libnss_compat-2.7.so
+b7bae000-b7bb0000 rw-p b7bae000 00:00 0 
+b7bb0000-b7bb8000 r-xp 00000000 08:05 1698234    /usr/lib/ruby/1.8/i486-linux/zlib.so
+b7bb8000-b7bb9000 rw-p 00007000 08:05 1698234    /usr/lib/ruby/1.8/i486-linux/zlib.so
+b7bb9000-b7bbc000 r-xp 00000000 08:05 4948614    /usr/lib/ruby/gems/1.8/gems/fastthread-1.0.7/lib/fastthread.so
+b7bbc000-b7bbd000 rw-p 00002000 08:05 4948614    /usr/lib/ruby/gems/1.8/gems/fastthread-1.0.7/lib/fastthread.so
+b7bbd000-b7bc2000 r-xp 00000000 08:05 2099176    /usr/lib/ruby/gems/1.8/gems/mongrel-1.1.5/lib/http11.so
+b7bc2000-b7bc3000 rw-p 00004000 08:05 2099176    /usr/lib/ruby/gems/1.8/gems/mongrel-1.1.5/lib/http11.so
+b7bc3000-b7c62000 rw-p b7bc3000 00:00 0 
+b7c62000-b7c7b000 r-xp 00000000 08:05 1698231    /usr/lib/ruby/1.8/i486-linux/syck.so
+b7c7b000-b7c7c000 rw-p 00019000 08:05 1698231    /usr/lib/ruby/1.8/i486-linux/syck.so
+b7c7c000-b7d06000 rw-p b7c7c000 00:00 0 
+b7d06000-b7e39000 r-xp 00000000 08:05 4786504    /lib/libc-2.7.so
+b7e39000-b7e3a000 r--p 00133000 08:05 4786504    /lib/libc-2.7.so
+b7e3a000-b7e3c000 rw-p 00134000 08:05 4786504    /lib/libc-2.7.so
+b7e3c000-b7e3f000 rw-p b7e3c000 00:00 0 
+b7e3f000-b7e62000 r-xp 00000000 08:05 4786508    /lib/libm-2.7.so
+b7e62000-b7e64000 rw-p 00022000 08:05 4786508    /lib/libm-2.7.so
+b7e64000-b7e6d000 r-xp 00000000 08:05 4786506    /lib/libcrypt-2.7.so
+b7e6d000-b7e6f000 rw-p 00008000 08:05 4786506    /lib/libcrypt-2.7.so
+b7e6f000-b7e96000 rw-p b7e6f000 00:00 0 
+b7e96000-b7e98000 r-xp 00000000 08:05 4786507    /lib/libdl-2.7.so
+b7e98000-b7e9a000 rw-p 00001000 08:05 4786507    /lib/libdl-2.7.so
+b7e9a000-b7e9b000 rw-p b7e9a000 00:00 0 
+b7e9b000-b7eae000 r-xp 00000000 08:05 4786518    /lib/libpthread-2.7.so
+b7eae000-b7eb0000 rw-p 00013000 08:05 4786518    /lib/libpthread-2.7.so
+b7eb0000-b7eb2000 rw-p b7eb0000 00:00 0 
+b7eb2000-b7f70000 r-xp 00000000 08:05 1658599    /usr/lib/libruby1.8.so.1.8.6
+b7f70000-b7f72000 rw-p 000be000 08:05 1658599    /usr/lib/libruby1.8.so.1.8.6
+b7f72000-b7f82000 rw-p b7f72000 00:00 0 
+b7f82000-b7f8a000 r-xp 00000000 08:05 4786515    /lib/libnss_nis-2.7.so
+b7f8a000-b7f8c000 rw-p 00007000 08:05 4786515    /lib/libnss_nis-2.7.so
+b7f8c000-b7f8e000 r-xp 00000000 08:05 1697665    /usr/lib/ruby/1.8/i486-linux/etc.so
+b7f8e000-b7f8f000 rw-p 00001000 08:05 1697665    /usr/lib/ruby/1.8/i486-linux/etc.so
+b7f8f000-b7f93000 r-xp 00000000 08:05 1698229    /usr/lib/ruby/1.8/i486-linux/stringio.so
+b7f93000-b7f94000 rw-p 00003000 08:05 1698229    /usr/lib/ruby/1.8/i486-linux/stringio.so
+b7f94000-b7f97000 r-xp 00000000 08:05 1698233    /usr/lib/ruby/1.8/i486-linux/thread.so
+b7f97000-b7f98000 rw-p 00002000 08:05 1698233    /usr/lib/ruby/1.8/i486-linux/thread.so
+b7f98000-b7f9a000 rw-p b7f98000 00:00 0 
+b7f9a000-b7f9b000 r-xp b7f9a000 00:00 0          [vdso]
+b7f9b000-b7fb5000 r-xp 00000000 08:05 4784197    /lib/ld-2.7.so
+b7fb5000-b7fb7000 rw-p 00019000 08:05 4784197    /lib/ld-2.7.so
+bfab9000-bfadf000 rw-p bffda000 00:00 0          [stack]
+Aborted
+]0;dhendy@server: ~/workspace/new/TPMI/ndet/new_esitrack/trunkdhendy@server:~/workspace/new/TPMI/ndet/new_esitrack/trunk$ mongrel_rails start
+** Starting Mongrel listening at 0.0.0.0:3000
+** Starting Rails with development environment...
+** [NewRelic] New Relic RPM Agent Initialized: pid = 10463
+** [NewRelic] Agent Log is found in /home/dhendy/workspace/new/TPMI/ndet/new_esitrack/trunk/log/newrelic_agent.3000.log
+** [NewRelic] NewRelic Agent (Developer Mode) enabled.
+** [NewRelic] To view performance information, go to http://localhost/newrelic
+** Rails loaded.
+** Loading any Rails specific GemPlugins
+** Signals ready.  TERM => stop.  USR2 => restart.  INT => stop (no restart).
+** Rails signals registered.  HUP => reload (without restart).  It might not work well.
+** Mongrel 1.1.5 available at 0.0.0.0:3000
+** Use CTRL-C to stop.
+/home/dhendy/workspace/new/TPMI/ndet/new_esitrack/trunk/vendor/plugins/newrelic_rpm/lib/newrelic/agent/stats_engine.rb:201: [BUG] Segmentation fault
+ruby 1.8.6 (2007-09-24) [i486-linux]
+
+Aborted
+]0;dhendy@server: ~/workspace/new/TPMI/ndet/new_esitrack/trunkdhendy@server:~/workspace/new/TPMI/ndet/new_esitrack/trunk$ clear
+[H[2J]0;dhendy@server: ~/workspace/new/TPMI/ndet/new_esitrack/trunkdhendy@server:~/workspace/new/TPMI/ndet/new_esitrack/trunk$ clearmongrel_rails start
+** Starting Mongrel listening at 0.0.0.0:3000
+** Starting Rails with development environment...
+** [NewRelic] New Relic RPM Agent Initialized: pid = 10473
+** [NewRelic] Agent Log is found in /home/dhendy/workspace/new/TPMI/ndet/new_esitrack/trunk/log/newrelic_agent.3000.log
+** [NewRelic] NewRelic Agent (Developer Mode) enabled.
+** [NewRelic] To view performance information, go to http://localhost/newrelic
+** Rails loaded.
+** Loading any Rails specific GemPlugins
+** Signals ready.  TERM => stop.  USR2 => restart.  INT => stop (no restart).
+** Rails signals registered.  HUP => reload (without restart).  It might not work well.
+** Mongrel 1.1.5 available at 0.0.0.0:3000
+** Use CTRL-C to stop.
+** INT signal received.
+]0;dhendy@server: ~/workspace/new/TPMI/ndet/new_esitrack/trunkdhendy@server:~/workspace/new/TPMI/ndet/new_esitrack/trunk$ mongrel_rails start
+** Starting Mongrel listening at 0.0.0.0:3000
+** Starting Rails with development environment...
+** [NewRelic] New Relic RPM Agent Initialized: pid = 10481
+** [NewRelic] Agent Log is found in /home/dhendy/workspace/new/TPMI/ndet/new_esitrack/trunk/log/newrelic_agent.3000.log
+** [NewRelic] NewRelic Agent (Developer Mode) enabled.
+** [NewRelic] To view performance information, go to http://localhost/newrelic
+/home/dhendy/.gem/ruby/1.8/gems/activesupport-2.2.2/lib/active_support/core_ext/module/introspection.rb:73: [BUG] Segmentation fault
+ruby 1.8.6 (2007-09-24) [i486-linux]
+
+Aborted
+]0;dhendy@server: ~/workspace/new/TPMI/ndet/new_esitrack/trunkdhendy@server:~/workspace/new/TPMI/ndet/new_esitrack/trunk$ mongrel_rails start
+** Starting Mongrel listening at 0.0.0.0:3000
+** Starting Rails with development environment...
+** [NewRelic] New Relic RPM Agent Initialized: pid = 10485
+** [NewRelic] Agent Log is found in /home/dhendy/workspace/new/TPMI/ndet/new_esitrack/trunk/log/newrelic_agent.3000.log
+** [NewRelic] NewRelic Agent (Developer Mode) enabled.
+** [NewRelic] To view performance information, go to http://localhost/newrelic
+** Rails loaded.
+** Loading any Rails specific GemPlugins
+** Signals ready.  TERM => stop.  USR2 => restart.  INT => stop (no restart).
+** Rails signals registered.  HUP => reload (without restart).  It might not work well.
+** Mongrel 1.1.5 available at 0.0.0.0:3000
+** Use CTRL-C to stop.
+** INT signal received.
+]0;dhendy@server: ~/workspace/new/TPMI/ndet/new_esitrack/trunkdhendy@server:~/workspace/new/TPMI/ndet/new_esitrack/trunk$ ruby script/geen[K[Knerate  migrate[Kion create_units
+      exists  db/migrate
+      create  db/migrate/20100126080605_create_units.rb
+]0;dhendy@server: ~/workspace/new/TPMI/ndet/new_esitrack/trunkdhendy@server:~/workspace/new/TPMI/ndet/new_esitrack/trunk$ ruby script/generate  migration create_units[K[K[K[K[Ktypes
+      exists  db/migrate
+      create  db/migrate/20100126080619_create_types.rb
+]0;dhendy@server: ~/workspace/new/TPMI/ndet/new_esitrack/trunkdhendy@server:~/workspace/new/TPMI/ndet/new_esitrack/trunk$ ruby script/generate  migration create_types[K[K[K[K[K[K[K[K[K[K[K[Ktrans_items
+/usr/lib/ruby/gems/1.8/specifications/xml-simple-1.0.11.gemspec:27: [BUG] Segmentation fault
+ruby 1.8.6 (2007-09-24) [i486-linux]
+
+Aborted
+]0;dhendy@server: ~/workspace/new/TPMI/ndet/new_esitrack/trunkdhendy@server:~/workspace/new/TPMI/ndet/new_esitrack/trunk$ ruby script/generate  migration trans_items
+      exists  db/migrate
+      create  db/migrate/20100126080636_trans_items.rb
+]0;dhendy@server: ~/workspace/new/TPMI/ndet/new_esitrack/trunkdhendy@server:~/workspace/new/TPMI/ndet/new_esitrack/trunk$ ra[K[Kscript/generate migr ation add_column_uu[K[Kunits_id_to_items
+/usr/lib/ruby/gems/1.8/gems/activerecord-2.2.2/lib/ac

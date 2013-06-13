@@ -1,0 +1,55 @@
+
+<table class="main_table" cellpadding="0" cellspacing="0" width="400px">
+  <tr>
+    <th>Nama</th>
+    <th>Pilihan</th>
+  </tr>
+  <% unless @roles.empty? %>
+    <% @roles.each do |role|%>
+      <tr class=<%= cycle("grid_2","grid_3") %>>
+        <td><%= role.title %></td>
+        <td style="text-align:right;">
+          <%= link_to_remote_redbox "Set Hak Akses",{:url => set_rule_admin_manage_roles_path(:id => role.id)}, :class => "a_akses " %> |
+          <%= link_to_remote_redbox "Edit", {:url => "manage_roles/edit/#{role.id}"}, :class => "a_edit"  %> |
+          <%= link_to 'Hapus', admin_manage_role_path(role), :confirm => "Apakah anda yakin akan menghapus data '#{role.title}' ?", :method => :delete, :class => "a_delete" %>
+        </td>
+      </tr>
+    <% end %>
+  <% else %>
+      <tr><td>Data Kosong</td></tr>    
+  <% end %>
+  <tr class="grid_footer">
+    <td colspan="2" valign="right"> 
+      <%= link_to_remote_redbox("Buat Hak Akses", {:url => new_admin_manage_role_path}, {:class => "a_add"}) %>
+      <%#= link_to_remote_redbox("Buat Modul", {:url => new_modul_admin_manage_roles_path}, {:class => "a_add"}) %>
+    </td>
+  </tr>   
+</table>
+<br />
+<!--
+<%# unless @moduls.empty? %>
+  <%#*<h2>DAFTAR MODUL DAN AKSI</h2>%>
+   <%# @moduls.each do |modul|%>
+    <%#*<table class="main_table" cellpadding="0" cellspacing="0" width="600px">%>
+      <%#*<tr>%>
+        <%#*<th width="350"><%= modul.name %></th>%>
+        <%#*<th width="250" style="text-align:right;">%>  
+          <%#= link_to_remote_redbox("Buat Aksi", {:url => new_action_admin_manage_roles_path(:id => modul.id)}, {:class => "a_add"}) %><span style="margin:0px;" class="blue_split">&nbsp;</span>
+          <%#= link_to_remote_redbox "Ubah", {:url => "manage_roles/edit_modul/#{modul.id}"}, :class => "a_edit"  %> <span style="margin:0px;" class="blue_split">&nbsp;</span>
+          <%#= link_to 'Hapus', delete_modul_admin_manage_roles_path(:id => modul.id), :confirm => "Apakah anda yakin akan menghapus data '#{modul.name}' ?", :class => "a_delete" %>
+        <%#*</th>%>
+      <%#*</tr>%>
+      <%# modul.actions.each do |act|%>
+        <%#*<tr class=<%= cycle("grid_2","grid_3") %>>%>
+          <%#*<td><%= act.name %>%>
+          <%#*</td>%>
+          <%#*<td style="text-align:right;">%>
+            <%#= link_to_remote_redbox "Ubah", {:url => "manage_roles/edit_action/#{act.id}"}, :class => "a_edit"  %> |
+            <%#= link_to 'Hapus', delete_action_admin_manage_roles_path(:id => act.id), :confirm => "Apakah anda yakin akan menghapus data '#{act.name}' ?", :class => "a_delete" %>
+          <%#*</td>%>
+        <%#*</tr>%>
+      <%# end %>
+    <%#*</table>%>
+  <%# end %>
+<%# end %>
+-->

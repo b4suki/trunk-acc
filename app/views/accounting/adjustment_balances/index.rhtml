@@ -1,0 +1,68 @@
+<div id="search">
+  <table class="search_table" cellpadding="2" cellspacing="0" width="200">
+   <% form_tag(:action => :index) do %>         
+      <tr><th colspan="2">Filter Adjustment Entries</th></tr>
+      <tr><td>Bulan</td><td><%= select_month(default_filter_month, :use_month_names => indonesian_month_names ) %></td></tr> <br/>
+      <tr><td>Tahun</td><td><%= select_year(default_filter_year, :start_year => 2000, :end_year => 2030) %></td></tr>
+    <tr><td colspan="2" align="right"><%= submit_tag "Proses", :class => "btn-submit" %></td></tr>  
+  </table>
+</div>
+<%end%>
+
+<div class="div_top_btn">
+
+</div>
+<div class="clear_right"></div>
+<table id="t1" class="main_table" cellpadding="0" cellspacing="0">
+<tr class="grid_1">
+    <th  style="width:40px;text-align:center; padding:5px 0px;">
+      No 
+      <%#= render :partial => "option_date", :locals => {:result => @result, :date => @date }%>
+    </th>
+    <th  style="width:100px;text-align:center;padding:5px 0px;">
+      Tanggal
+      <%#= render :partial => "option_evidence", :locals => {:result => @result, :date => @date}%>
+    </th>
+    <th style="width:80px;text-align:center;padding:5px 0px;">
+      No Bukti
+      <%#= render :partial => "option_description", :locals => {:result => @result, :date => @date}%>
+    </th>
+    <th  style="width:500px;text-align:center;padding:5px 0px;">
+      Keterangan
+      <%#= render :partial => "option_job", :locals => {:result => @result, :date => @date}%>
+    </th>
+    <th  style="width:180px;text-align:center;padding:5px 0px;">
+      No Job
+      <%#= render :partial => "option_account", :locals => {:result => @result, :date => @date}%>
+    </th>
+    <th  style="width:40px;text-align:center;padding:5px 0px;">
+      No Rek
+      <%#= render :partial => "option_debit", :locals => {:result => @result, :date => @date}%>
+    </th>      
+    <th  style="width:40px;text-align:center;padding:5px 0px;">
+      Debit
+      <%#= render :partial => "option_debit", :locals => {:result => @result, :date => @date}%>
+    </th>  
+    <th  style="width:40px;text-align:center;padding:5px 0px;">
+      Credit
+      <%#= render :partial => "option_debit", :locals => {:result => @result, :date => @date}%>
+    </th>   
+    <th  colspan="2" style="width:40px;text-align:center;padding:5px 0px;">
+      Option
+      <%#= render :partial => "option_debit", :locals => {:result => @result, :date => @date}%>
+    </th> 
+  </tr>
+
+ <%= render :partial => "content_adjustment_balances", :locals => {:results => @results, :date => @date}%>  
+  <tr class="grid_footer">
+    <td colspan="13" valign="center">
+      <%= link_to_remote_redbox("Input Transaksi", {:url => {:action => :new}}, {:class => "a_add"}) %><span class="blue_split">&nbsp;</span>
+      <%= link_to "Export PDF", formatted_accounting_adjustment_balances_path(:pdf), :class => "a_pdf" %><span class="blue_split">&nbsp;</span>
+      <%= link_to "Export EXCEL", formatted_accounting_adjustment_balances_path(:xls), :class => "a_xls" %>
+    <%#*</td>%>
+    <%#*<td colspan="2">%>
+      <%#= render(:partial => "shared/paginate", :locals => {:collection => @purchase_balances }) -%>
+    </td>
+  </tr>
+</table>   
+

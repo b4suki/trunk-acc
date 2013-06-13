@@ -1,0 +1,13 @@
+<div id="autocomplete_item" style="z-index:10;" class="autocomplete_item">
+  <div id="RB_body" style="width: 100px;height:50px;">
+      <p>  
+        Nama Produk <span id="indicator-account-code" style="display:none;"><%= image_tag "ajax-loader.gif" %></span><br />  
+        <%= text_field_with_auto_complete :item, :name, { :size => 30, :value => @sale_balance.nil? || @sale_balance.item.nil? ? "" : @sale_balance.item.name }, :skip_style => true, :indicator => "indicator-account-code" -%>  
+      </p>
+        <%= hidden_field :item_id,"", :id => 'item_name_id' %> 
+        <%= link_to_function "Pilih", "{$('accounting_sale_balance_detail_product_id_#{index}').value = $('item_name_id').value;
+                                    $('accounting_sale_balance_detail_product_name_#{index}').value = $('item_name').value;  
+                                    $(this).up('.autocomplete_item').remove();}" %> 
+        <%= link_to_function "Batal","$('autocomplete_item').hide()" %>
+  </div>
+</div>

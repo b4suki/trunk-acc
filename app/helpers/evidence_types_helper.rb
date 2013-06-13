@@ -1,0 +1,2 @@
+module EvidenceTypesHelper
+end

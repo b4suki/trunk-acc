@@ -1,0 +1,18 @@
+  <div style="float: left;margin: 0px 20px 5px 5px;">
+    Kode Rekening <br />
+    <%= text_field_with_auto_complete :account, :code, { :size => 30, :value => @adjustment_account.nil? || @adjustment_account.accounting_account.nil? ? "" : @adjustment_account.accounting_account.code.to_s+"   "+@adjustment_account.accounting_account.description.to_s }, :skip_style => true -%>
+    <%= f.hidden_field :account_id, :id => 'account_code_id' %> <br />    
+    Tipe
+    <%= select(:combo,:value,options_for_type,{:selected => find_combo_type(@adjustment_account.id)})%>         
+    <script type="text/javascript">                               
+      var validate = new LiveValidation('account_code');    
+      validate.add(Validate.Presence );
+  
+      var test = new Array();
+      <% validate_account.each_with_index  do |x,i|%>
+        test[<%=i%>]='<%= x %>';
+        <%end%>
+        var validate_combo = new LiveValidation('account_code');    
+        validate_combo.add(Validate.Inclusion,{ within: test});
+    </script>         
+  </div>

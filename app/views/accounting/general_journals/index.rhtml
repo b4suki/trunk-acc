@@ -1,0 +1,83 @@
+<div id="search">
+<% form_tag(:action => :index) do %>
+<table width="200" class="search_table" cellpadding="5" cellspacing="0">
+  <tr><th colspan="2">Filter Bulan Transaksi</th></tr>
+  <tr><td>Bulan</td><td>&nbsp;&nbsp;<%= select_month(default_filter_month, :use_month_names => indonesian_month_names ) %></td></tr>
+  <tr><td>Tahun</td><td>&nbsp;&nbsp;<%= select_year(default_filter_year, :start_year => 2000, :end_year => 2030) %></td></tr>
+  <tr><td colspan="2" align="right"><%= submit_tag "Proses", :class => "btn-submit" %></td></tr>
+</table>
+<% end %>
+</div>
+<br />
+
+<% form_tag(:action => :post_trial_balance) do %>
+<table>
+  <tr>
+    <td>
+      <%= hidden_field_tag "trial_balance[month]", @date ? @date[:month].to_i : current_month.to_i %>
+      <%= hidden_field_tag "trial_balance[year]", @date ? @date[:year].to_i : current_year.to_i %>
+    </td>
+    <td><%= submit_tag "Post Trial Balance", :class => "btn-submit" %></td>
+    <td>&nbsp;&nbsp;Keterangan : <strong style="color:green;">*</strong> Bank  , <strong style="color:magenta;">*</strong> Kas,
+             <strong style="color:blue;">*</strong> Penjualan,  <strong style="color:red;">*</strong> Pembelian,  <strong style="color:maroon;">*</strong> Manual Journal
+    </td>
+  </tr>
+</table>
+<% end  %>
+<br/>
+<table id="t1" class="main_table" cellpadding="0" cellspacing="0" width="1050" border="0px">
+  <tr>
+    <th style="width:130px;text-align:center; padding:5px 0px;">
+      TANGGAL       
+      <%= render :partial => "option_date", :locals => {:result => @result, :date => @date }%>
+    </th>
+    <th style="width:130px;text-align:center;padding:5px 0px;">
+      NO. BUKTI 
+      <%= render :partial => "option_evidence", :locals => {:result => @result, :date => @date}%>
+    </th>
+    <th style="width:270px;text-align:center;padding:5px 0px;">
+      KETERANGAN 
+      <%#= render :partial => "option_description", :locals => {:result => @result, :date => @date}%>
+    </th>
+    <th style="width:130px;text-align:center;padding:5px 0px;">
+      NO. JOB 
+      <%= render :partial => "option_job", :locals => {:result => @result, :date => @date}%>
+    </th>
+    <th style="width:130px;text-align:center;padding:5px 0px;">
+      NO. REK
+      <%= render :partial => "option_account", :locals => {:result => @result, :date => @date}%>
+    </th>
+    <th style="width:130px;text-align:center;padding:5px 0px;">
+      DEBIT 
+    </th>
+    <th style="width:130px;text-align:center;padding:5px 0px;">
+      KREDIT
+    </th>
+  </tr>
+</table>
+
+<div id="data_table_container">
+<table class="main_table" cellpadding="0" cellspacing="0"  id="target_journal" width="1050">  
+  <% account_select = {:select => false, :value => params[:value]}%>
+  <% debit_select = false %>
+  <% credit_select = false %>
+  <%= render :partial => "content_general_journal", :locals => {:result => @result, :date => @date, :account => account_select, :debit => debit_select, :credit => credit_select, :report => false }%>      
+</table>
+</div>
+<table width="1050;" class='main_table' cellpadding='0' cellspacing='0'>
+  <tr class="grid_footer">
+    <td width="950" colspan="0" valign="center">
+      <%= link_to "Export PDF", formatted_accounting_general_journals_path(:pdf), :class => "a_pdf" %><span class="blue_split">&nbsp;</span>
+      <%= link_to "Export EXCEL", formatted_accounting_general_journals_path(:xls), :class => "a_xls" %>
+    </td>   
+    <td colspan="5" style="text-align:right;">TOTAL</td>
+    <td id = "total-debit" style="text-align:right;"><%#=  format_currency($TOTAL_DEBIT) %></td>
+    <td id = "total-credit" style="text-align:right;"><%#= format_currency($TOTAL_CREDIT) %></td>
+  </tr>
+</table>
+
+<script>
+   $("total-debit").innerHTML = $('total-debit-tmp').innerHTML;   
+   $("total-credit").innerHTML = $('total-credit-tmp').innerHTML;  
+</script>
+

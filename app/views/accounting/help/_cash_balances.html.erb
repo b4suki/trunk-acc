@@ -1,0 +1,90 @@
+
+<% $help_path_images = "/images/help/cash_balances/" %>
+<% $global_images = "/images/help/global_help/" %>
+<p>
+    &bull;Tambah Transaksi Kas untuk menambah daftar Transaksi Kas. Untuk menggunakan fungsi ini tekan tombol
+    <img src="<%= concat_help_images($global_images, 'input_transaksi.png') %>" alt="Input Transaksi" />,
+    maka pada layar akan muncul form tambah. Tambah transaksi dapat digunakan hanya jika account kas sudah ditentukan.
+</p>
+<div style="width:100%; text-align:center;">
+    <img style="width:80%; height:80%;" src="<%= concat_help_images($help_path_images, 'form.png') %>" alt="form_input" />
+</div>
+<div style="text-align:center; font-weight:bold;">&bull; Gambar Form Tampilan Tambah Data Transaksi Kas</div>
+<p>
+    Isikan inputan Tanggal Transaksi, Kode Rekening, No Bukti, Jenis Buku Kas, Jumlah dan
+    Keterangan pada kotak isian. Perhatikan pada isian jenis buku kas, jika anda memilih buku kas keluar,
+    maka Kode Rekening yang diisi akan otomatis menjadi contra account pada posisi debit. Sebaliknya, jika
+    anda memilih buku kas masuk, maka Kode Rekening yang diisi akan otomatis menjadi contra account pada posisi credit.
+    Kemudian klik tombol
+    <img style="width:10%; height:10%;" src="<%= concat_help_images($global_images, 'simpan.png') %>" alt="simpan" />
+    untuk mengeksekusi penambahan data Transaksi Kas baru. Selanjutnya pada layar akan muncul informasi “Transaksi Kas
+    berhasil dibuat”.
+    Untuk membatalkan tambah Transaksi Kas dan kembali ke menu sebelumnya maka tekan link <b>Batal</b>.
+    Perlu diperhatikan isian Kode Rekening, Jenis Buku Kas dan Jumlah harus diisi.
+</p>
+
+<p> Edit Transaksi Kas untuk merubah atau menambahkan keterangan tambahan data Transaksi Kas. Untuk menggunakan fungsi
+    ini tekan tombol yang sejajar dengan data
+    yang akan diedit, maka pada layar akan muncul form Edit Transaksi Kas
+</p>
+<div style="width:100%; text-align:center;">
+    <img style="width:80%; height:80%;" src="<%= concat_help_images($help_path_images, 'edit_kas.png') %>" alt="edit_kas" />
+</div>
+    <div style="text-align:center; font-weight:bold;">&bull; Gambar Form Edit Data Transaksi Kas</div>   
+<p>
+    Isikan inputan baru pada kotak inputan Transaksi Kas yang akan diubah.
+    Kemudian klik tombol untuk mengeksekusi perubahan data baru. Selanjutnya pada layar akan muncul informasi “Transaksi
+    Kas berhasil diupdate”.
+    Untuk membatalkan edit Transaksi Kas dan kembali ke menu sebelumnya maka tekan link Batal.
+</p>
+
+<p>
+    Hapus Transaksi Kas untuk menghapus data Transaksi Kas.
+    Untuk menggunakan fungsi ini tekan tombol <img style="width:10%; height:10%;" src="<%= concat_help_images($global_images, 'hapus.png') %>" alt="hapus" /> yang sejajar dengan data yang akan dihapus,
+    maka pada layar akan muncul form Konfirmasi Penghapusan Transaksi Kas
+<div style="width:100%; text-align:center;">
+    <img style="width:40%; height:40%;" src="<%= concat_help_images($help_path_images, 'konf_hapus.png') %>" alt="konf_hapus" />
+</div>
+<p>
+Klik tombol “OK” jika Anda setuju untuk melakukan penghapusan data. Selanjutnya pada layar akan muncul informasi
+“Transaksi Kas berhasil dihapus”.
+Klik Tombol “Cancel” jika Anda ingin membatalkan penghapusan data.
+</p>
+
+<p>
+    Export PDF untuk mengexport laporan ke dalam bentuk file pdf. Tekan tombol
+    <img style="width:10%; height:10%;" src="<%= concat_help_images($global_images, 'export_pdf.png') %>" alt="export_pdf" />
+    maka akan keluar tampilan konfirmasi    
+</p>
+<div style="text-align:center;">
+<img style="width:30%; height:30%;" src="<%= concat_help_images($help_path_images, 'konf_export_pdf.png') %>" alt="konfirmasi_export_pdf" />
+</div>
+
+   <div style="width:100%; text-align:center;"> Gambar Memilih Folder Tempat Membuka File</div>
+
+    Pilih “Open“ lalu klik tombol “OK“.
+    Maka akan muncul laporan dalam bentuk Dokumen Pdf
+<div style="width:100%; text-align:center;">
+    <img style="width:70%; height:70%;" src="<%= concat_help_images($help_path_images, 'pdf_view.png') %>" alt="export_pdf_view" />
+</div>
+</p>
+
+
+ <div style="width:100%; text-align:center;"> Gambar Laporan Data Transaksi Kas dalam Format PDF</div>
+
+
+<p>
+    Export Excel untuk mengexport laporan ke dalam bentuk Ms Excel.
+    Tekan tombol <img style="width:10%; height:10%;" src="<%= concat_help_images($global_images, 'export_excell.png') %>" alt="export_excell" />
+    maka akan keluar tampilan konfirmasi
+    <img style="width:20%; height:20%;" src="<%= concat_help_images($help_path_images, 'konf_export_xls.png') %>" alt="excell_view" />
+</p>
+
+<p>
+    Gambar Memilih Folder Tempat Membuka File
+    Pilih “Open With Microsoft Office Excel (Default)“ lalu klik tombol “OK“.
+    Maka akan muncul laporan dalam bentuk Ms Excel
+<div style="width:100%; text-align:center;">
+    <img style="width:80%; height:80%;" src="<%= concat_help_images($help_path_images, 'excell_view.png') %>" alt="konf_export_excell" />
+</div>
+</p>

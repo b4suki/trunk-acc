@@ -1,0 +1,38 @@
+<h1>Listing bank_reconciliations</h1>
+<br/>
+<table border="1">
+  <tr><th>Catatan Perusahaan</th><th>Catatan Bank</th></tr>
+  <tr><td valign="top">
+      <table>
+        <tr><td><b>Saldo</b></td><td>Rp. xxxx</td></tr>
+        <tr><td colspan="2"><b>Bertambah</b><td></tr>
+        <%  @reconciliation_company_debits.each do |company_debit| %>
+          <tr><td>&nbsp;&nbsp;&nbsp;<%= company_debit.name %></td><td></td><tr>
+        <% end %>
+        <tr><td colspan="2"><b>Berkurang</b><td></tr>
+        <%  @reconciliation_company_credits.each do |company_credit| %>
+          <tr><td>&nbsp;&nbsp;&nbsp; ><%= company_credit.name %></td><td></td></tr>
+        <% end %>
+      </table>
+    </td>
+    <td valign="top">
+        <table>
+          <b>Saldo</b> Rp. xxxxxxx<br/>
+          <tr><td colspan="2"><b>Bertambah</b><td></tr>
+          <%  @reconciliation_bank_debits.each do |bank_debit| %>
+            <tr><td>&nbsp;&nbsp;&nbsp;<%= bank_debit.name %></td><td></td></tr>
+          <% end %>
+          <tr><td colspan="2"><b>Berkurang</b><td></tr>
+          <%  @reconciliation_bank_credits.each do |bank_credit| %>
+            <tr><td>&nbsp;&nbsp;&nbsp;<%= bank_debit.name %></td><td></td></tr>
+          <% end %>
+        </table>
+      
+      </td></tr>
+  
+</table>
+
+
+<br />
+
+<%= link_to 'New bank_reconciliations', new_accounting_bank_reconciliation_path %>

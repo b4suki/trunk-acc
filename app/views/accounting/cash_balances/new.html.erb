@@ -1,0 +1,10 @@
+<%=  popup_title "Input Transaksi Kas" %>
+
+<div id="RB_body" style="width: 500px;">
+<% form_for(:cash_balance, @cash_balance, :url => {:action => 'create'}, :html => {:class => "validated"})  do |f| %>
+  <%= f.error_messages %>
+  <%= render :partial => 'form', :locals => { :f => f } %>
+  <div style="clear: both;"></div>
+  <%= f.submit "Simpan" %>
+<% end %>
+</div>

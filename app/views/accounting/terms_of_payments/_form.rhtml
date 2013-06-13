@@ -1,0 +1,9 @@
+<div style="float: left;margin: 0px 20px 5px 5px;">
+    Nama Pembayaran <br />
+    <%= f.text_field(:name, :size => 24)%><br />
+    Waktu Pembayaran <span style='color:red;'>(Hari)</span> <br />
+    <%= f.text_field :days, :size => 4 %><br />
+    Deskripsi <br />
+    <%= f.text_area(:description, :rows => 5, :cols => 27)%><br />     
+</div>
+<div style="clear: both;"></div>

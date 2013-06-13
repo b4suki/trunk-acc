@@ -1,0 +1,19 @@
+<h1>Listing No Rekening AJE</h1> <br />
+
+<table>
+  <th>No</th>
+  <th>Account No</th>
+  <th>Description</th>
+<% @adjustment_accounts.each_with_index do |adjustment_account, i| %>
+  <tr>
+    <td><%= i+1 %></td>    
+    <td><%= adjustment_account.accounting_account.code %></td>    
+    <td><%= adjustment_account.accounting_account.description %></td>    
+    <td><%= link_to_remote_redbox("Edit", :url => "/adjustment_accounts/edit/#{adjustment_account.id}")  %></td>
+    <td><%= link_to 'Destroy', adjustment_account, :confirm => 'Are you sure?', :method => :delete %></td>
+  </tr>
+<% end %>
+<%= link_to_remote_redbox("Input Data Adjustment", :url => {:action => :new})  %>
+</table>
+<br />
+

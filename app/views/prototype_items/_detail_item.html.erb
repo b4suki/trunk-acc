@@ -1,0 +1,14 @@
+<tr class="detail_item grid_2">
+  <td>
+    <label><%= multi_text_field_with_auto_complete :detail_product, :name, index, { :size => 27 }, :skip_style => true, :indicator => "indicator-product-name-#{index}" -%>
+      <%= hidden_field_tag "product_id_#{index}", "", :id => "detail_product_name_#{index}_id" %>
+      <span id="indicator-product-name-<%=index%>" style="display:none;"><%= image_tag "ajax-loader.gif" %></span>
+    </label>
+  </td>
+  <td>
+    <%= text_field_tag "detail_qty_#{index}","",:value => 0, :size => 3 ,:style => 'text-align:right;' %>
+  </td>
+  <td>&nbsp;
+    <%= link_to_function "", "$(this).up('.detail_item').remove();setIndex(-1,'count');", :class => 'a_delete' %>
+  </td>
+</tr>

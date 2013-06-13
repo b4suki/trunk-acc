@@ -1,0 +1,49 @@
+<div id="search">
+  <% form_tag(:action => :index) do %>
+    <table width="200" class="search_table" cellpadding="5" cellspacing="0">
+      <tr><th colspan="2">Filter Bulan Transaksi</th></tr>
+      <tr><td>Bulan</td><td><%= select_month(default_filter_month, :use_month_names => indonesian_month_names ) %></td></tr>
+      <tr><td>Tahun</td><td><%= select_year(default_filter_year, :start_year => 2000, :end_year => 2030) %></td></tr>
+      <tr><td colspan="2" align="right"><%= submit_tag "Proses", :class => "btn-submit" %></td></tr>
+    </table>
+  <% end %>
+</div>
+<br />
+<table class="main_table" cellpadding="0" cellspacing="0" width="1050">
+  <tr class="grid_2">
+    <th>Account Pajak Masukan : <%= !@tax.empty? ?  ("#{@ppn_masukan.code}  #{@ppn_masukan.description}") : "Belum di Tentukan" rescue nil%></th>
+    <th>Account Pajak Keluaran : <%= !@tax.empty? ? ("#{@ppn_keluaran.code}  #{@ppn_keluaran.description}"): "Belum di Tentukan" rescue nil%></th>
+  </tr>
+</table>
+<br />
+<table class="main_table" cellpadding="0" cellspacing="0" width="1050">
+  <tr>
+    <th align="center">Tanggal</th>
+    <th align="center">Account</th>
+    <th align="center">Keterangan</th>
+    <th align="center">Debit</th>
+    <th align="center">Kredit</th>
+    <th align="center">Saldo</th>
+  </tr>
+  <% if  !@tax.empty? %>
+  <%= create_tax_report(@result, @ppn_masukan, @ppn_keluaran, @date)%>
+  <%end%>
+</table>
+<table width="1050px;" class='main_table' cellpadding='0' cellspacing='0'>
+  <tr class="grid_footer">
+    <td colspan="14" valign="center">
+      <%= link_to "Export PDF", formatted_accounting_tax_reports_path(:pdf), :class => "a_pdf" %><span class="blue_split">&nbsp;</span>
+      <%= link_to "Export EXCEL", formatted_accounting_tax_reports_path(:xls), :class => "a_xls" %>
+    </td>
+  </tr>
+</table>
+<br/>
+<div style="float: left;margin: 5px 10px 5px 3px;">
+  <table width="200" cellspacing="0" cellpadding="0" class="sum_table">
+    <tbody>
+     <%= get_total_tax() %>
+     <%=%>
+     <%#= accumulate_taxes() rescue nil%>
+    </tbody>
+  </table>
+</div>

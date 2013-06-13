@@ -1,0 +1,22 @@
+<div style="float: left;margin: 0px 20px 5px 5px;">
+  Kode Rekening <br />
+  <%= text_field_with_auto_complete :account, :code, { :size => 30, :value => @tax.nil? || @tax.account.nil? ? "" : @tax.account.code.to_s+"   "+@tax.account.description.to_s }, :skip_style => true -%>
+  <script type="text/javascript">
+    var validate = new LiveValidation('account_code');
+    validate.add(Validate.Presence );
+  </script>
+  <%= f.hidden_field :account_id, :id => 'account_code_id' %> <br />
+  <script type="text/javascript">
+    var accounts = new Array();
+<% validate_account.each_with_index  do |x,i|%>
+    accounts[<%=i%>]='<%= x %>';
+<%end%>
+  var validate = new LiveValidation('account_code');
+  validate.add(Validate.Inclusion,{ within: accounts});
+  </script>
+  Description <br />
+  <%= f.text_field(:description)%><br />
+  Rate(%) <br />
+  <%= f.text_field(:rate)%><br />
+  <%= f.hidden_field :account_type, :value => @tax.account_type.nil? ? params[:account_type] : @tax.account_type %>
+</div>

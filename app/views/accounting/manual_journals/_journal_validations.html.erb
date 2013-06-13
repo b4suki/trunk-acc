@@ -1,0 +1,27 @@
+<div id="validation_script">
+  <script type="text/javascript">
+    (function($){
+      var accounts = new Array();
+  <% validate_account.each_with_index  do |x,i|%>
+        accounts[<%=i%>]='<%= x %>';
+  <% end %>
+ 
+      $('.txt_debit').each(function(){
+        var validate = new LiveValidation($(this).attr('name'));
+        validate.add(Validate.Inclusion,{ within: accounts});
+      })
+      $('.txt_credit').each(function(){
+        var validate = new LiveValidation($(this).attr('name'));
+        validate.add(Validate.Inclusion,{ within: accounts});
+      })
+      $('.value_debit').each(function(){
+        var validate = new LiveValidation($(this).attr('name'));
+        validate.add(Validate.Numericality);
+      })
+      $('.value_credit').each(function(){
+        var validate = new LiveValidation($(this).attr('name'));
+        validate.add(Validate.Numericality);
+      })
+    })(jQuery);
+  </script>
+</div>

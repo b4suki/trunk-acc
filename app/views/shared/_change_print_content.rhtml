@@ -1,0 +1,5 @@
+<% form_remote_tag(:url => {:action => :update_print_content, :id => id}, :html => {:id => id}) do %>
+    <%= text_field_tag "content", content %>
+    <%= submit_tag "Ubah" %>
+    <%= link_to_remote "Batal", :url => {:action => :update_print_content, :id => id, :content => content} %>
+<% end %>

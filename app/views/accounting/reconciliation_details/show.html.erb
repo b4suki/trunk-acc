@@ -1,0 +1,28 @@
+<p>
+  <b>Name:</b>
+  <%=h @reconciliation_detail.name %>
+</p>
+
+<p>
+  <b>Debit:</b>
+  <%=h @reconciliation_detail.debit %>
+</p>
+
+<p>
+  <b>Credit:</b>
+  <%=h @reconciliation_detail.credit %>
+</p>
+
+<p>
+  <b>Company:</b>
+  <%=h @reconciliation_detail.company %>
+</p>
+
+<p>
+  <b>Bank:</b>
+  <%=h @reconciliation_detail.bank %>
+</p>
+
+
+<%= link_to 'Edit', edit_accounting_reconciliation_detail_path(@reconciliation_detail) %> |
+<%= link_to 'Back', accounting_reconciliation_details_path %>

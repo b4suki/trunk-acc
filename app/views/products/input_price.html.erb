@@ -1,0 +1,19 @@
+<%=  popup_title "Input Price" %>
+
+<div id="RB_body" style="width: 300px;">
+  <% form_tag :action => :save_price do %>
+  <div style="float:left ">
+  <p>
+    Price : <br />
+    <%= text_field :item_detail, :price, :size => 20, :value => '0' %>
+    <%= submit_tag "Save" %>   <br />
+    <%= hidden_field :item_detail, :item_id, :value => @item_detail.item_id %>
+    <%= hidden_field :item_detail, :qty, :value => @item_detail.qty %>
+    <%= hidden_field :item_detail, :purchasing_date, :value => @item_detail.purchasing_date %>
+    <%= hidden_field :product, :product_id, :value => @product_id %>
+    <br />
+  </p>
+  </div>
+
+  <% end %>
+</div>

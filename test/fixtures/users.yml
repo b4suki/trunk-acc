@@ -1,0 +1,48 @@
+1:
+  id: 1
+  login: admin
+  email: admin@example.com
+  crypted_password: 0fe58654f17c58104c7b290e30c648655f629015 #admin
+  salt: 7e3041ebc2fc05a40c60028e2c4901a81035d3cd
+  created_at: 2008-11-27 03:10:53
+  updated_at: 2008-12-03 04:16:31
+2:
+  id: 2
+  login: kasir
+  email: kasir@example.com
+  crypted_password: beb22ee8d30c2f7b1a5649e0b5394831fabfa8fc #kasir
+  salt: 7e3041ebc2fc05a40c60028e2c4901a81035d3cd
+  created_at: 2008-12-01 03:10:53
+  updated_at: 2008-12-03 04:15:45
+3:
+  id: 4
+  login: accounting
+  email: acc@yahoo.com
+  crypted_password: 02a060bf1c08463fff646199ea8a049fa8a371d5 #accounting
+  salt: b4594390b1c5c14ab23215af5f08462e133e87e2
+  created_at: 2008-12-03 03:15:17
+  updated_at: 2008-12-03 03:51:15
+4:
+  id: 5
+  login: direktur
+  email: direktur@example.com
+  crypted_password: 49587f28f78bf1bf159352184e0e06648876186d #direktur
+  salt: bfffe4f8f4bb957cb936436c40cd4122f3f9a4be
+  created_at: 2008-12-03 04:17:17
+  updated_at: 2008-12-03 04:17:17
+5:
+  id: 6
+  login: staff it
+  email: staff_it@example.com
+  crypted_password: 4b5fae14200d3f61f2c1a441a89b8232a1b8cd37 #staffit
+  salt: 9ee0f285450496b0e64d25d0fadc3b15f3126b09
+  created_at: 2008-12-03 04:18:04
+  updated_at: 2008-12-03 04:18:04
+6:
+  id: 7
+  login: dirut
+  email: dirut@example.com
+  crypted_password: 56824f0292b68990a49fb9049f12c5e9226043de #dirut
+  salt: 02dbe90081de1a65d176d69eea14a090f45c403b
+  created_at: 2008-12-03 04:18:52
+  updated_at: 2008-12-03 04:18:52

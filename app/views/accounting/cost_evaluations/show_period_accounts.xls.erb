@@ -1,0 +1,46 @@
+<h3><%= @title %></h3>
+<h3>Periode <%= @periode %></h3>
+
+<br/>
+<table id="t1" class="main_table" cellpadding="0" cellspacing="0" border ='1px'>
+    <tr class="grid_1" align="center">
+      <th width ='15px'">
+        No
+      </th>
+      <th width='50px' >
+        No Rek
+      </th>
+      <th width='100px'>
+        Description
+      </th>
+      <% if !@date_years.nil? %>
+        <% @date_years.each do |year| %>
+          <th width = '50px'>
+            <%= year %>
+          </th>
+        <% end %>
+      <% end %>
+      <th width='100px'>
+        Total
+      </th>
+    </tr>
+    <% @cost_evaluations.each_with_index do |eval,i| %>
+      <tr class=<%= cycle("grid_2","grid_3") %>>
+        <% if eval.id.to_i != 12 && eval.id.to_i != 60%>
+          <td width='10px' ><%= i + 1 %></td>
+          <td width='50px'><%= eval.code %> </td>
+          <td width='100px'><%= eval.description%></td>
+          <% if !@date_years.nil? %>
+            <% @date_years.each do |year| %>
+              <td width = '50px'   align="right">
+                <%= year_value_accounts(eval.id,year ) %>
+              </td>
+            <% end %>
+            <td width='100px'  align="right">
+              <%=  format_currency $total_account[eval.id.to_s] %>
+            </td>
+          <% end %>
+        <% end %>
+      </tr>
+    <% end %>
+  </table>

@@ -1,0 +1,196 @@
+# Logfile created on Fri May 14 11:21:18 +0700 2010 by logger.rb/22285
+[05/14/10 11:21:18 (7823)] INFO : New Relic RPM Agent Initialized: pid = 7823
+[05/14/10 11:21:18 (7823)] INFO : Agent Log is found in /home/coder/workspaces/accounting-esitrack/log/newrelic_agent.4000.log
+[05/14/10 11:21:18 (7823)] INFO : Runtime environment: Mongrel
+[05/14/10 11:21:18 (7823)] INFO : Transaction tracing is enabled in the agent
+[04/06/11 14:01:38 (10381)] INFO : New Relic RPM Agent Initialized: pid = 10381
+[04/06/11 14:01:38 (10381)] INFO : Agent Log is found in /home/coder/Documents/workspace/ascendpoints_esitrack-accounting/trunk/log/newrelic_agent.4000.log
+[04/06/11 14:01:38 (10381)] INFO : Runtime environment: Mongrel
+[04/06/11 14:01:38 (10381)] INFO : Transaction tracing is enabled in the agent
+[04/06/11 14:42:32 (11365)] INFO : New Relic RPM Agent Initialized: pid = 11365
+[04/06/11 14:42:32 (11365)] INFO : Agent Log is found in /home/coder/Documents/workspace/ascendpoints_esitrack-accounting/trunk/log/newrelic_agent.4000.log
+[04/06/11 14:42:32 (11365)] INFO : Runtime environment: Mongrel
+[04/06/11 14:42:32 (11365)] INFO : Transaction tracing is enabled in the agent
+[04/07/11 09:51:40 (4713)] INFO : New Relic RPM Agent Initialized: pid = 4713
+[04/07/11 09:51:40 (4713)] INFO : Agent Log is found in /home/coder/Documents/workspace/ascendpoints_esitrack-accounting/trunk/log/newrelic_agent.4000.log
+[04/07/11 09:51:40 (4713)] INFO : Runtime environment: Mongrel
+[04/07/11 09:51:40 (4713)] INFO : Transaction tracing is enabled in the agent
+[04/07/11 11:02:16 (6281)] INFO : New Relic RPM Agent Initialized: pid = 6281
+[04/07/11 11:02:16 (6281)] INFO : Agent Log is found in /home/coder/Documents/workspace/ascendpoints_esitrack-accounting/trunk/log/newrelic_agent.4000.log
+[04/07/11 11:02:16 (6281)] INFO : Runtime environment: Mongrel
+[04/07/11 11:02:16 (6281)] INFO : Transaction tracing is enabled in the agent
+[04/07/11 11:14:20 (6524)] INFO : New Relic RPM Agent Initialized: pid = 6524
+[04/07/11 11:14:20 (6524)] INFO : Agent Log is found in /home/coder/Documents/workspace/ascendpoints_esitrack-accounting/trunk/log/newrelic_agent.4000.log
+[04/07/11 11:14:20 (6524)] INFO : Runtime environment: Mongrel
+[04/07/11 11:14:20 (6524)] INFO : Transaction tracing is enabled in the agent
+[04/07/11 12:41:19 (8128)] INFO : New Relic RPM Agent Initialized: pid = 8128
+[04/07/11 12:41:19 (8128)] INFO : Agent Log is found in /home/coder/Documents/workspace/ascendpoints_esitrack-accounting/trunk/log/newrelic_agent.4000.log
+[04/07/11 12:41:19 (8128)] INFO : Runtime environment: Mongrel
+[04/07/11 12:41:19 (8128)] INFO : Transaction tracing is enabled in the agent
+[04/07/11 16:38:31 (11208)] INFO : New Relic RPM Agent Initialized: pid = 11208
+[04/07/11 16:38:31 (11208)] INFO : Agent Log is found in /home/coder/Documents/workspace/ascendpoints_esitrack-accounting/trunk/log/newrelic_agent.4000.log
+[04/07/11 16:38:31 (11208)] INFO : Runtime environment: Mongrel
+[04/07/11 16:38:31 (11208)] INFO : Transaction tracing is enabled in the agent
+[04/11/11 09:40:20 (2296)] INFO : New Relic RPM Agent Initialized: pid = 2296
+[04/11/11 09:40:20 (2296)] INFO : Agent Log is found in /home/coder/Documents/workspace/ascendpoints_esitrack-accounting/trunk/log/newrelic_agent.4000.log
+[04/11/11 09:40:20 (2296)] INFO : Runtime environment: Mongrel
+[04/11/11 09:40:20 (2296)] INFO : Transaction tracing is enabled in the agent
+[04/11/11 14:27:06 (9457)] INFO : New Relic RPM Agent Initialized: pid = 9457
+[04/11/11 14:27:06 (9457)] INFO : Agent Log is found in /home/coder/Documents/workspace/ascendpoints_esitrack-accounting/trunk/log/newrelic_agent.4000.log
+[04/11/11 14:27:06 (9457)] INFO : Runtime environment: Mongrel
+[04/11/11 14:27:06 (9457)] INFO : Transaction tracing is enabled in the agent
+[04/12/11 09:19:00 (2048)] INFO : New Relic RPM Agent Initialized: pid = 2048
+[04/12/11 09:19:00 (2048)] INFO : Agent Log is found in /home/coder/Documents/workspace/ascendpoints_esitrack-accounting/trunk/log/newrelic_agent.4000.log
+[04/12/11 09:19:00 (2048)] INFO : Runtime environment: Mongrel
+[04/12/11 09:19:00 (2048)] INFO : Transaction tracing is enabled in the agent
+[04/12/11 14:07:55 (2812)] INFO : New Relic RPM Agent Initialized: pid = 2812
+[04/12/11 14:07:55 (2812)] INFO : Agent Log is found in /home/coder/Documents/workspace/ascendpoints_esitrack-accounting/trunk/log/newrelic_agent.4000.log
+[04/12/11 14:07:55 (2812)] INFO : Runtime environment: Mongrel
+[04/12/11 14:07:55 (2812)] INFO : Transaction tracing is enabled in the agent
+[04/12/11 16:03:36 (2503)] INFO : New Relic RPM Agent Initialized: pid = 2503
+[04/12/11 16:03:36 (2503)] INFO : Agent Log is found in /home/coder/Documents/workspace/ascendpoints_esitrack-accounting/trunk/log/newrelic_agent.4000.log
+[04/12/11 16:03:36 (2503)] INFO : Runtime environment: Mongrel
+[04/12/11 16:03:36 (2503)] INFO : Transaction tracing is enabled in the agent
+[04/13/11 09:36:46 (2240)] INFO : New Relic RPM Agent Initialized: pid = 2240
+[04/13/11 09:36:46 (2240)] INFO : Agent Log is found in /home/coder/Documents/workspace/ascendpoints_esitrack-accounting/trunk/log/newrelic_agent.4000.log
+[04/13/11 09:36:46 (2240)] INFO : Runtime environment: Mongrel
+[04/13/11 09:36:46 (2240)] INFO : Transaction tracing is enabled in the agent
+[04/13/11 14:53:55 (3710)] INFO : New Relic RPM Agent Initialized: pid = 3710
+[04/13/11 14:53:55 (3710)] INFO : Agent Log is found in /home/coder/Documents/workspace/ascendpoints_esitrack-accounting/trunk/log/newrelic_agent.4000.log
+[04/13/11 14:53:55 (3710)] INFO : Runtime environment: Mongrel
+[04/13/11 14:53:55 (3710)] INFO : Transaction tracing is enabled in the agent
+[04/14/11 09:30:33 (2347)] INFO : New Relic RPM Agent Initialized: pid = 2347
+[04/14/11 09:30:33 (2347)] INFO : Agent Log is found in /home/coder/Documents/workspace/ascendpoints_esitrack-accounting/trunk/log/newrelic_agent.4000.log
+[04/14/11 09:30:33 (2347)] INFO : Runtime environment: Mongrel
+[04/14/11 09:30:33 (2347)] INFO : Transaction tracing is enabled in the agent
+[04/15/11 09:32:54 (2142)] INFO : New Relic RPM Agent Initialized: pid = 2142
+[04/15/11 09:32:54 (2142)] INFO : Agent Log is found in /home/coder/Documents/workspace/ascendpoints_esitrack-accounting/trunk/log/newrelic_agent.4000.log
+[04/15/11 09:32:54 (2142)] INFO : Runtime environment: Mongrel
+[04/15/11 09:32:54 (2142)] INFO : Transaction tracing is enabled in the agent
+[04/18/11 09:23:31 (2374)] INFO : New Relic RPM Agent Initialized: pid = 2374
+[04/18/11 09:23:31 (2374)] INFO : Agent Log is found in /home/coder/Documents/workspace/ascendpoints_esitrack-accounting/trunk/log/newrelic_agent.4000.log
+[04/18/11 09:23:31 (2374)] INFO : Runtime environment: Mongrel
+[04/18/11 09:23:31 (2374)] INFO : Transaction tracing is enabled in the agent
+[04/18/11 10:21:27 (3211)] INFO : New Relic RPM Agent Initialized: pid = 3211
+[04/18/11 10:21:27 (3211)] INFO : Agent Log is found in /home/coder/Documents/workspace/ascendpoints_esitrack-accounting/trunk/log/newrelic_agent.4000.log
+[04/18/11 10:21:27 (3211)] INFO : Runtime environment: Mongrel
+[04/18/11 10:21:27 (3211)] INFO : Transaction tracing is enabled in the agent
+[04/18/11 12:56:45 (4949)] INFO : New Relic RPM Agent Initialized: pid = 4949
+[04/18/11 12:56:45 (4949)] INFO : Agent Log is found in /home/coder/Documents/workspace/ascendpoints_esitrack-accounting/trunk/log/newrelic_agent.4000.log
+[04/18/11 12:56:45 (4949)] INFO : Runtime environment: Mongrel
+[04/18/11 12:56:45 (4949)] INFO : Transaction tracing is enabled in the agent
+[04/18/11 16:39:08 (7179)] INFO : New Relic RPM Agent Initialized: pid = 7179
+[04/18/11 16:39:08 (7179)] INFO : Agent Log is found in /home/coder/Documents/workspace/ascendpoints_esitrack-accounting/trunk/log/newrelic_agent.4000.log
+[04/18/11 16:39:08 (7179)] INFO : Runtime environment: Mongrel
+[04/18/11 16:39:08 (7179)] INFO : Transaction tracing is enabled in the agent
+[04/19/11 09:23:54 (2293)] INFO : New Relic RPM Agent Initialized: pid = 2293
+[04/19/11 09:23:54 (2293)] INFO : Agent Log is found in /home/coder/Documents/workspace/ascendpoints_esitrack-accounting/trunk/log/newrelic_agent.4000.log
+[04/19/11 09:23:54 (2293)] INFO : Runtime environment: Mongrel
+[04/19/11 09:23:54 (2293)] INFO : Transaction tracing is enabled in the agent
+[04/22/11 11:11:32 (2158)] INFO : New Relic RPM Agent Initialized: pid = 2158
+[04/22/11 11:11:32 (2158)] INFO : Agent Log is found in /home/coder/Documents/workspace/ascendpoints_esitrack-accounting/trunk/log/newrelic_agent.4000.log
+[04/22/11 11:11:32 (2158)] INFO : Runtime environment: Mongrel
+[04/22/11 11:11:32 (2158)] INFO : Transaction tracing is enabled in the agent
+[04/25/11 09:28:58 (2505)] INFO : New Relic RPM Agent Initialized: pid = 2505
+[04/25/11 09:28:58 (2505)] INFO : Agent Log is found in /home/coder/Documents/workspace/ascendpoints_esitrack-accounting/trunk/log/newrelic_agent.4000.log
+[04/25/11 09:28:58 (2505)] INFO : Runtime environment: Mongrel
+[04/25/11 09:28:58 (2505)] INFO : Transaction tracing is enabled in the agent
+[04/25/11 11:17:53 (4862)] INFO : New Relic RPM Agent Initialized: pid = 4862
+[04/25/11 11:17:53 (4862)] INFO : Agent Log is found in /home/coder/Documents/workspace/ascendpoints_esitrack-accounting/trunk/log/newrelic_agent.4000.log
+[04/25/11 11:17:53 (4862)] INFO : Runtime environment: Mongrel
+[04/25/11 11:17:53 (4862)] INFO : Transaction tracing is enabled in the agent
+[04/27/11 15:47:48 (2450)] INFO : New Relic RPM Agent Initialized: pid = 2450
+[04/27/11 15:47:48 (2450)] INFO : Agent Log is found in /home/coder/Documents/workspace/ascendpoints_esitrack-accounting/trunk/log/newrelic_agent.4000.log
+[04/27/11 15:47:48 (2450)] INFO : Runtime environment: Mongrel
+[04/27/11 15:47:48 (2450)] INFO : Transaction tracing is enabled in the agent
+[04/27/11 16:36:23 (3037)] INFO : New Relic RPM Agent Initialized: pid = 3037
+[04/27/11 16:36:23 (3037)] INFO : Agent Log is found in /home/coder/Documents/workspace/ascendpoints_esitrack-accounting/trunk/log/newrelic_agent.4000.log
+[04/27/11 16:36:23 (3037)] INFO : Runtime environment: Mongrel
+[04/27/11 16:36:23 (3037)] INFO : Transaction tracing is enabled in the agent
+[04/28/11 09:28:21 (2306)] INFO : New Relic RPM Agent Initialized: pid = 2306
+[04/28/11 09:28:21 (2306)] INFO : Agent Log is found in /home/coder/Documents/workspace/ascendpoints_esitrack-accounting/trunk/log/newrelic_agent.4000.log
+[04/28/11 09:28:21 (2306)] INFO : Runtime environment: Mongrel
+[04/28/11 09:28:21 (2306)] INFO : Transaction tracing is enabled in the agent
+[04/28/11 12:04:54 (4550)] INFO : New Relic RPM Agent Initialized: pid = 4550
+[04/28/11 12:04:54 (4550)] INFO : Agent Log is found in /home/coder/Documents/workspace/ascendpoints_esitrack-accounting/trunk/log/newrelic_agent.4000.log
+[04/28/11 12:04:54 (4550)] INFO : Runtime environment: Mongrel
+[04/28/11 12:04:54 (4550)] INFO : Transaction tracing is enabled in the agent
+[04/28/11 14:26:09 (2848)] INFO : New Relic RPM Agent Initialized: pid = 2848
+[04/28/11 14:26:09 (2848)] INFO : Agent Log is found in /home/coder/Documents/workspace/ascendpoints_esitrack-accounting/trunk/log/newrelic_agent.4000.log
+[04/28/11 14:26:09 (2848)] INFO : Runtime environment: Mongrel
+[04/28/11 14:26:09 (2848)] INFO : Transaction tracing is enabled in the agent
+[04/28/11 15:03:40 (3289)] INFO : New Relic RPM Agent Initialized: pid = 3289
+[04/28/11 15:03:40 (3289)] INFO : Agent Log is found in /home/coder/Documents/workspace/ascendpoints_esitrack-accounting/trunk/log/newrelic_agent.4000.log
+[04/28/11 15:03:40 (3289)] INFO : Runtime environment: Mongrel
+[04/28/11 15:03:40 (3289)] INFO : Transaction tracing is enabled in the agent
+[04/28/11 15:52:50 (4243)] INFO : New Relic RPM Agent Initialized: pid = 4243
+[04/28/11 15:52:50 (4243)] INFO : Agent Log is found in /home/coder/Documents/workspace/ascendpoints_esitrack-accounting/trunk/log/newrelic_agent.4000.log
+[04/28/11 15:52:50 (4243)] INFO : Runtime environment: Mongrel
+[04/28/11 15:52:50 (4243)] INFO : Transaction tracing is enabled in the agent
+[04/28/11 17:19:23 (4243)] INFO : Not reporting error (queue exceeded maximum length): You have a nil object when you didn't expect it!
+You might have expected an instance of ActiveRecord::Base.
+The error occurred while evaluating nil.[]
+[04/28/11 17:20:14 (4243)] INFO : Not reporting error (queue exceeded maximum length): undefined method `[]' for false:FalseClass
+[04/28/11 17:21:22 (4243)] INFO : Not reporting error (queue exceeded maximum length): You have a nil object when you didn't expect it!
+You might have expected an instance of ActiveRecord::Base.
+The error occurred while evaluating nil.[]
+[04/29/11 09:21:42 (2279)] INFO : New Relic RPM Agent Initialized: pid = 2279
+[04/29/11 09:21:42 (2279)] INFO : Agent Log is found in /home/coder/Documents/workspace/ascendpoints_esitrack-accounting/trunk/log/newrelic_agent.4000.log
+[04/29/11 09:21:42 (2279)] INFO : Runtime environment: Mongrel
+[04/29/11 09:21:42 (2279)] INFO : Transaction tracing is enabled in the agent
+[04/29/11 10:25:56 (4267)] INFO : New Relic RPM Agent Initialized: pid = 4267
+[04/29/11 10:25:56 (4267)] INFO : Agent Log is found in /home/coder/Documents/workspace/ascendpoints_esitrack-accounting/trunk/log/newrelic_agent.4000.log
+[04/29/11 10:25:56 (4267)] INFO : Runtime environment: Mongrel
+[04/29/11 10:25:56 (4267)] INFO : Transaction tracing is enabled in the agent
+[04/29/11 10:58:36 (4809)] INFO : New Relic RPM Agent Initialized: pid = 4809
+[04/29/11 10:58:36 (4809)] INFO : Agent Log is found in /home/coder/Documents/workspace/ascendpoints_esitrack-accounting/trunk/log/newrelic_agent.4000.log
+[04/29/11 10:58:36 (4809)] INFO : Runtime environment: Mongrel
+[04/29/11 10:58:36 (4809)] INFO : Transaction tracing is enabled in the agent
+[04/29/11 15:24:12 (11205)] INFO : New Relic RPM Agent Initialized: pid = 11205
+[04/29/11 15:24:12 (11205)] INFO : Agent Log is found in /home/coder/Documents/workspace/ascendpoints_esitrack-accounting/trunk/log/newrelic_agent.4000.log
+[04/29/11 15:24:12 (11205)] INFO : Runtime environment: Mongrel
+[04/29/11 15:24:12 (11205)] INFO : Transaction tracing is enabled in the agent
+[04/29/11 16:21:00 (12240)] INFO : New Relic RPM Agent Initialized: pid = 12240
+[04/29/11 16:21:00 (12240)] INFO : Agent Log is found in /home/coder/Documents/workspace/ascendpoints_esitrack-accounting/trunk/log/newrelic_agent.4000.log
+[04/29/11 16:21:00 (12240)] INFO : Runtime environment: Mongrel
+[04/29/11 16:21:00 (12240)] INFO : Transaction tracing is enabled in the agent
+[07/20/11 10:24:23 (4534)] INFO : New Relic RPM Agent Initialized: pid = 4534
+[07/20/11 10:24:23 (4534)] INFO : Agent Log is found in /home/coder/Documents/workspace/ascendpoints_esitrack-accounting/trunk/log/newrelic_agent.4000.log
+[07/20/11 10:24:23 (4534)] INFO : Runtime environment: Mongrel
+[07/20/11 10:24:23 (4534)] INFO : Transaction tracing is enabled in the agent
+[07/21/11 13:04:10 (5382)] INFO : New Relic RPM Agent Initialized: pid = 5382
+[07/21/11 13:04:10 (5382)] INFO : Agent Log is found in /home/coder/Documents/workspace/ascendpoints_esitrack-accounting/trunk/log/newrelic_agent.4000.log
+[07/21/11 13:04:10 (5382)] INFO : Runtime environment: Mongrel
+[07/21/11 13:04:10 (5382)] INFO : Transaction tracing is enabled in the agent
+[07/25/11 17:20:23 (10359)] INFO : New Relic RPM Agent Initialized: pid = 10359
+[07/25/11 17:20:23 (10359)] INFO : Agent Log is found in /home/coder/Documents/workspace/ascendpoints_esitrack-accounting/trunk/log/newrelic_agent.4000.log
+[07/25/11 17:20:23 (10359)] INFO : Runtime environment: Mongrel
+[07/25/11 17:20:23 (10359)] INFO : Transaction tracing is enabled in the agent
+[08/03/11 15:37:54 (8888)] INFO : New Relic RPM Agent Initialized: pid = 8888
+[08/03/11 15:37:54 (8888)] INFO : Agent Log is found in /home/coder/Documents/workspace/ascendpoints_esitrack-accounting/trunk/log/newrelic_agent.4000.log
+[08/03/11 15:37:54 (8888)] INFO : Runtime environment: Mongrel
+[08/03/11 15:37:54 (8888)] INFO : Transaction tracing is enabled in the agent
+[08/08/11 09:19:39 (4638)] INFO : New Relic RPM Agent Initialized: pid = 4638
+[08/08/11 09:19:39 (4638)] INFO : Agent Log is found in /home/coder/Documents/workspace/ascendpoints_esitrack-accounting/trunk/log/newrelic_agent.4000.log
+[08/08/11 09:19:39 (4638)] INFO : Runtime environment: Mongrel
+[08/08/11 09:19:39 (4638)] INFO : Transaction tracing is enabled in the agent
+[08/24/11 12:12:35 (7765)] INFO : New Relic RPM Agent Initialized: pid = 7765
+[08/24/11 12:12:35 (7765)] INFO : Agent Log is found in /home/coder/Documents/workspace/ascendpoints_esitrack-accounting/trunk/log/newrelic_agent.4000.log
+[08/24/11 12:12:35 (7765)] INFO : Runtime environment: Mongrel
+[08/24/11 12:12:35 (7765)] INFO : Transaction tracing is enabled in the agent
+[08/25/11 09:21:57 (4240)] INFO : New Relic RPM Agent Initialized: pid = 4240
+[08/25/11 09:21:57 (4240)] INFO : Agent Log is found in /home/coder/Documents/workspace/ascendpoints_esitrack-accounting/trunk/log/newrelic_agent.4000.log
+[08/25/11 09:21:57 (4240)] INFO : Runtime environment: Mongrel
+[08/25/11 09:21:57 (4240)] INFO : Transaction tracing is enabled in the agent
+[08/25/11 12:20:31 (7180)] INFO : New Relic RPM Agent Initialized: pid = 7180
+[08/25/11 12:20:31 (7180)] INFO : Agent Log is found in /home/coder/Documents/workspace/ascendpoints_esitrack-accounting/trunk/log/newrelic_agent.4000.log
+[08/25/11 12:20:31 (7180)] INFO : Runtime environment: Mongrel
+[08/25/11 12:20:31 (7180)] INFO : Transaction tracing is enabled in the agent
+[11/25/11 15:21:06 (10479)] INFO : New Relic RPM Agent Initialized: pid = 10479
+[11/25/11 15:21:06 (10479)] INFO : Agent Log is found in /home/coder/Documents/workspace/ascendpoints_esitrack-accounting/trunk/log/newrelic_agent.4000.log
+[11/25/11 15:21:06 (10479)] INFO : Runtime environment: Mongrel
+[11/25/11 15:21:06 (10479)] INFO : Transaction tracing is enabled in the agent
+[04/02/12 09:27:34 (2526)] INFO : New Relic RPM Agent Initialized: pid = 2526
+[04/02/12 09:27:34 (2526)] INFO : Agent Log is found in /home/coder/Documents/workspace/ascendpoints_esitrack-accounting/trunk/log/newrelic_agent.4000.log
+[04/02/12 09:27:34 (2526)] INFO : Runtime environment: Mongrel
+[04/02/12 09:27:34 (2526)] INFO : Transaction tracing is enabled in the agent

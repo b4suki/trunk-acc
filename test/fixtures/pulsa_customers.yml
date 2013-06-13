@@ -1,0 +1,23 @@
+# Read about fixtures at http://ar.rubyonrails.org/classes/Fixtures.html
+
+one:
+  date_install: 2011-01-31
+  customer_id: 1
+  item_id: 1
+  simcard: MyString
+  sn: MyString
+  nopol: MyString
+  mobil_id: 1
+  saldo: 1.5
+  aktif: MyString
+
+two:
+  date_install: 2011-01-31
+  customer_id: 1
+  item_id: 1
+  simcard: MyString
+  sn: MyString
+  nopol: MyString
+  mobil_id: 1
+  saldo: 1.5
+  aktif: MyString

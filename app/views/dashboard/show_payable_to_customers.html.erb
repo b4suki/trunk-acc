@@ -1,0 +1,27 @@
+<div id="search">
+  <table class="search_table" cellpadding="2" cellspacing="0" width="200">
+    <tr><th colspan="2">Utang ke Customer</th></tr>
+    <tr><td>Bulan</td><td><%= Time.now().strftime('%B')%></td></tr> <br/>
+    <tr><td>Tahun</td><td><%= Time.now().strftime('%Y') %></td></tr>
+  </table>
+</div>
+<table id="t1" class="main_table" cellpadding="0" cellspacing="0" width="400px;">
+  <tr class="grid_1">
+    <th>No</th>
+    <th>Nama Customer</th>
+    <th>Jumlah Utang</th>
+  </tr>
+  <% if @customer_payables and @customer_payables.length > 0 %>
+    <% @customer_payables.each_with_index do |customer_payable, count| %>
+      <% if customer_payable.sum_of_payable.to_i > 0 %>
+        <tr class=<%= cycle("grid_2","grid_3") %>>
+          <td align="right"><%= count + 1%></td>
+          <td align="center"><%= customer_payable.customer.name rescue nil %></td>
+          <td align="right"><%= customer_payable.sum_of_payable %></td>
+        </tr>
+      <% end %>
+    <% end %>
+  <% else %>
+    <tr class='grid_2'><td colspan="3" style="text-align:center;">Tidak ada Data</td></tr>
+  <%end%>
+</table>

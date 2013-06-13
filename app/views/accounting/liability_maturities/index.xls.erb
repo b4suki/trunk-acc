@@ -1,0 +1,53 @@
+<h3><%= @title %></h3>
+<h3>Bulan <%= selected_month %>  Tahun <%= selected_year %> </h3>
+<br />
+<br />
+<table width="100%" cellspacing="0" border="1" cellpadding="0">
+  <tr class="grid_1">
+    <th>No</th>
+    <th>Tanggal Invoice</th>
+    <th>Tanggal Jatuh Tempo</th>
+    <th>Nama Perusahaan</th>
+    <th>Total Transaksi</th>
+    <th>Telah Dibayar</th>
+    <th>Sisa Utang</th>
+  </tr>
+  <% total = 0 %>
+  <% total_paid = 0 %>
+  <% unless @liabilities.empty? %>
+    <% total_transaction_value = 0 %>
+    <% total = 0 %>
+    <% total_paid = 0 %>
+    <% @liabilities.each_with_index do |liability,  nomor| %>
+      <tr class=<%= cycle("grid_2","grid_3") %>>
+        <td style="text-align:center;"><%= nomor + 1%></td>
+        <td style="text-align:center;"><%= format_date(liability.created_at)%></td>
+        <td style="text-align:center;"><%= format_date(liability.maturity_date) if liability.maturity_date %></td>
+        <td><%= liability.vendor.nil? ? "" : liability.vendor.name%></td>
+        <td><%= liability.currency.name %></td>
+        <td style="text-align:right;"><%= format_currency(liability.transaction_value) %></td>
+        <td style="text-align:right;"><%= format_currency(liability.paid) %></td>
+        <td style="text-align:right;"><%= format_currency(liability.amount_account_receivable) %></td>
+        <% unless true %>
+          <td style="text-align:center;"><%= link_to_remote_redbox("Pembayaran",{:url => "/accounting/purchase_balances/do_payment/#{liability.id}?from=m"},{:class => "a_pay"})  %>
+          <% end %>
+        </td>
+        <% total_transaction_value += liability.transaction_value %>
+        <% total += liability.amount_account_receivable %>
+        <% total_paid += liability.paid %>
+      <% end %>
+    </tr>
+    <tr class="grid_2">
+      <th colspan="5" style="text-align:right;">Total</th>
+      <th style="text-align:right;"><%= format_currency(total_transaction_value) %></th>
+      <th style="text-align:right;"><%= format_currency(total_paid) %></th>
+      <th style="text-align:right;"><%= format_currency(total) %></th>
+      <% unless true %>
+        <th>&nbsp;</th>
+      <% end %>
+    </tr>
+  <% else %>
+    <tr class='grid_2'><th colspan="<%= true ? "7" : "8" %>" style="text-align:center;">Tidak ada data</th></tr>
+  <% end %>
+<%#= render :partial => "list", :locals => {:liabilities => @liabilities, :total => total, :total_paid => total_paid, :report => true} %>
+</table>

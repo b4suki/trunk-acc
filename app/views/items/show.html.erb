@@ -1,0 +1,66 @@
+<div id="search">
+  <% form_tag( "#{@item.id}" , :method => :get) do %>
+    <table width="235" class="search_table" cellpadding="5" cellspacing="0">
+      <tr><th colspan="2">Filter Bulan Transaksi</th></tr>
+      <tr><td>Bulan</td><td>&nbsp;&nbsp;<%= select_month(default_filter_month, :use_month_names => indonesian_month_names ) %></td></tr>
+      <tr><td>Tahun</td><td>&nbsp;&nbsp;<%= select_year(default_filter_year, :start_year => 2000, :end_year => 2030) %></td></tr>
+      <tr><td colspan="2" align="right"><%= submit_tag "Proses", :class => "btn-submit" %></td></tr>
+    </table>
+  <% end %>
+</div>
+
+<table cellspacing="0" cellpadding="0" width="500" class="sum_table">
+  <tr class="grid_1">
+    <th>
+      Tanggal
+    </th>
+    <th>
+      Item
+    </th>
+    <th>
+      Penambahan
+    </th>
+    <th>
+      Pengambilan
+    </th>
+    <th>
+      Sisa
+    </th>
+    <th>
+      Status
+    </th>
+  </tr>
+  <tbody>
+  <div class="div_top_btn">
+    <%= link_to("Kembali",items_path,{:class => "a_top_btn"}) %>
+  </div>
+  <div class="clear_right"></div>
+  <tr class=<%= cycle("grid_2","grid_3") %>>
+    <th colspan="3">Stock Awal</th>
+    <th>&nbsp;</th>
+    <%#*<th><%= @history_item ? saldo = @history_item.last_stock  : 0 % ></th>%>
+    <th><%= saldo = @history_item ? @history_item.last_stock : 0 %></th>
+    <th>&nbsp;</th>
+  </tr>
+  <% @items_trans.each do |trans_item| %>
+    <tr class=<%= cycle("grid_2","grid_3") %>>
+      <% trans_item.item.stock if trans_item.item %>
+      <th><%= trans_item.created_at.strftime("%d/%m/%y") %></th>
+      <th><%= trans_item.item.name if trans_item.item %></th>
+      <th><%= trans_item.is_addition == true ? trans_item.qty : "&nbsp;" %></th>
+      <th><%= trans_item.is_addition == false ? trans_item.qty : "&nbsp;" %></th>
+      <%  trans_item.is_addition == true ? saldo += trans_item.qty.to_i :  saldo -= trans_item.qty.to_i %>
+      <th><%= saldo  %></th>
+      <th><%= trans_item.status.nil? ? "" : trans_item.trans_item_status.name rescue nil %></th>
+    </tr>
+  <% end %>
+    <tr class="grid_1">
+      <th>Total</th>
+      <th><%=  @history_item ? @history_item.last_stock : 0 %></th>
+      <th><%=  @items_trans.collect { |trans_item| trans_item.is_addition == true ? trans_item.qty : 0}.sum  %></th>
+      <th><%=  @items_trans.collect { |trans_item| trans_item.is_addition == false ? trans_item.qty : 0}.sum  %></th>
+      <th><%= saldo %></th>
+      <th>&nbsp;</th>
+    </tr>
+</tbody>
+</table>

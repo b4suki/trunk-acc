@@ -1,0 +1,45 @@
+<%#*<div id=judul><h2 align="center">List Debit Credit</h2>%>
+<table class="main_table" cellpadding="0" cellspacing="0" width="600">
+<tr><th colspan="6">Daftar Jenis Pembayaran</th></tr>
+  <tr class="grid_1">
+    <td style="width :40px; text-align :center;">No</td>
+    <td style="width :150px; text-align :center;">Nama Pembayaran</td>
+    <td style="width :100px; text-align :center;">Waktu Pembayaran</td>
+    <td style="width :210px; text-align :center;">Keterangan</td>   
+    <td>&nbsp;</td>
+    <td>&nbsp;</td>
+  </tr>
+  
+<div class="div_top_btn">
+<%= link_to("Kembali",accounting_purchase_balances_path,{:class => "a_top_btn"}) %>
+</div>
+<div class="clear_right"></div>
+<%#= link_to_remote_redbox("Input tipe Debet Credit", :url => {:action => :new})  %>
+<% i = 1%>
+<% if @terms_of_payments.size > 0  %>
+<% for terms_of_payment in @terms_of_payments %>
+  <tr class=<%= cycle("grid_2","grid_3") %>> 
+    <td style="width :40px;"><%=i%></td>
+    <td style="width :150px;"><%=h terms_of_payment.name %></td>
+    <td style="width :100px;"><%=h terms_of_payment.days %>&nbsp; Hari</td>
+    <td style="width :210px;"><%=h terms_of_payment.description %></td>
+    <td><%= link_to_remote_redbox("Edit",{:url => "/accounting/terms_of_payments/edit/#{terms_of_payment.id}"},{:class => "a_edit"})  %></td>
+    <td><%= link_to 'Hapus', accounting_terms_of_payment_path(terms_of_payment), :confirm => "Apakah anda yakin '#{terms_of_payment.description}' akan dihapus?", :method => :delete , :class => "a_delete"%></td>
+    <% i= i+1 %>
+  </tr>
+<% end %>
+<% else %>
+  <td colspan="6" style="text-align:center; font-weight:bold;">Tidak Ada Data<td>
+<% end %>
+
+<tr class="grid_footer">
+    <td colspan="4" valign="center">       
+      <%= link_to_remote_redbox("Input Jenis Pembayaran", {:url => {:action => :new}}, {:class => "a_add"}) %><span class="blue_split">&nbsp;</span>     
+    </td>
+    <td colspan="2">      
+    </td>
+  </tr>
+</table>
+<br />
+
+

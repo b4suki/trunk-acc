@@ -1,0 +1,73 @@
+<%=  popup_title "Tambah Barang" %>
+
+<div id="RB_body" style="width: 400px;">
+
+  <% form_for(@item) do |f| %>
+    <%= f.error_messages %>
+      <%= f.hidden_field :completed %>
+
+    <p>
+      Kode Barang<br />
+      <%= f.text_field :item_code %>
+    </p>
+    <p>
+      Nama Barang:<br />
+      <%= f.text_field :name, :size => 30 %>
+    </p>
+
+    <p>
+      Tipe<span id="indicator-tipe" style="display:none;"><%= image_tag "ajax-loader.gif" %></span><br />
+      <%= text_field_with_auto_complete :type, :name, { :size => 30}, :skip_style => true, :indicator => "indicator-tipe" -%>
+      <%= f.hidden_field :type_id ,:id => 'type_name_id'%>
+    </p>
+
+    <p>
+    <div>
+      Satuan<span id="indicator-unit" style="display:none;"><%= image_tag "ajax-loader.gif" %></span><br />
+      <%= text_field_with_auto_complete :unit, :name, { :size => 15}, :skip_style => true, :indicator => "indicator-unit" -%>
+      <%#*Jumlah Satuan <%= f.text_field :code_pcs, :value => 1, :size => 1 % >%>
+    </div>
+      
+      <%= f.hidden_field :unit_id ,:id => 'unit_name_id'%> 
+    </p>
+    <%= f.hidden_field :alias, :value => "" %>
+    <p>
+      Jumlah awal<br />
+      <%= f.text_field :stock %>
+    </p>
+    <p>
+      Price<br />
+      <%= f.text_field :price%>
+    </p>
+  <%#*<p>%>
+  <%#*Metode Inventory<br />%>
+  <%#= f.select :inventory_method, options_for_select(inventory_method_options) %>
+  <%#*</p>%>
+    <p>
+      Keterangan<br />
+      <%= f.text_area :description, :column => 15, :rows => 4, :live => false %>
+    </p>
+    <p>
+      Aktif<br />
+      <%= check_box_tag "active", true, true %>
+    </p>
+    <p>
+      <%= f.submit "Simpan" %>
+    </p>
+  <% end %>
+</div>
+
+<script type="text/javascript" >
+  var type = new Array();
+  var unit = new Array();
+<% validate_type_item.each_with_index  do |x,i|%>
+    type[<%=i%>]='<%= x %>';
+<% end %>
+<% validate_unit_item.each_with_index do |x,i| %>
+    unit[<%=i%>]='<%= x %>';
+<% end %>
+  var tipe = new LiveValidation('type_name');
+  var units = new LiveValidation('unit_name');
+  tipe.add( Validate.Inclusion, {within: type});
+  units.add( Validate.Inclusion, {within: unit});
+</script>

@@ -1,0 +1,51 @@
+<div style="overflow-y: auto; overflow-x: hidden; height: 350px; width: 1000px;">
+<table border="1" class="main_table" cellpadding="0" cellspacing="0" width="100%">
+  <tr>
+    <th>Tanggal</th>
+    <th>BKK</th>
+    <th>BKM</th>
+    <th>No. Cek/Giro</th>
+    <th>Keterangan</th>
+    <th>Debit</th>
+    <th>Kredit</th>
+    <th>Saldo</th>
+  </tr>
+
+  <%= bank_balance_saldo_row_report %>
+  <% if @bank_balances.size == 0 %>
+    <tr class="grid_2"><td colspan="11">&nbsp;Tidak Ada Data</td></tr>
+  <% else %>
+    <% @one_month_ago_cash_balance %>
+    <% for bank_balance in @bank_balances %>
+      <tr class=<%= cycle("grid_2","grid_3") %>>
+        <td><%=h format_date(bank_balance[:created_at]) %></td>
+        <td><%=h format_digit(bank_balance[:bkk]) %></td>
+        <td><%=h format_digit(bank_balance[:bkm]) %></td>
+        <td><%=h bank_balance[:cg_gb_no] %></td>
+        <td><%=h bank_balance[:description] %></td>
+        <td align='right'><%= format_currency(bank_balance[:transaction_value]) if bank_balance[:debit] == true %></td>
+        <td align='right'><%= format_currency(bank_balance[:transaction_value]) if bank_balance[:debit] != true %></td>
+        <% bank_balance[:debit] == true  ? @first_saldo += bank_balance[:transaction_value] : @first_saldo -= bank_balance[:transaction_value] %>
+        <td align="right"><%= format_currency(@first_saldo) %></td>
+      </tr>
+    <% end %>
+    <tr class="grid_2">
+      <td colspan="5" align='right'><b>Total</b></td>
+      <td align='right'><b><%= format_currency(@bank_balances.collect { |s| s[:debit] == true ? s[:transaction_value]: 0}.sum) %></b></td>
+      <td align='right'><b><%= format_currency(@bank_balances.collect { |s| s[:debit] != true ? s[:transaction_value]: 0}.sum) %></b></td>
+      <td>&nbsp;</td>
+    </tr>
+  <% end %>
+</table>
+</div>
+
+<br/>
+<div style="float: left;margin: 5px 10px 5px 3px;">
+<table border="1" width="200" cellspacing="0" cellpadding="0" class="sum_table">
+    <tr align="left"><th>Total Debit</th><td align="right" class="grid_2_sum"><%= format_currency(@bank_balances.collect { |s| s[:debit] == true ? s[:transaction_value]: 0}.sum) %><%= space(3) %></td></tr>
+    <tr align="left"><th>Total Kredit</th><td align="right" class="grid_2_sum"><%= format_currency(@bank_balances.collect { |s| s[:debit] != true ? s[:transaction_value]: 0}.sum) %><%= space(3) %></td></tr>
+    <tr align="left"><th>Sisa Kas</th><td align="right" class="grid_2_sum"><%= format_currency(@first_saldo) %><%= space(3) %></td></tr>
+<%=  saldo_bank_row_report(@saldo_bank)%>
+</table>
+</div>
+

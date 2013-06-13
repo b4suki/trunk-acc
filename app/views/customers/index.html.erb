@@ -1,0 +1,51 @@
+<script>
+  jQuery(document).ready(function(){
+     jQuery("#data").fixedHeader({width: 1000,height: 400});
+  })
+</script>
+
+<table id="data" class="main_table" cellpadding="0" cellspacing="0" width="1000px">
+<thead>  
+  <tr class="grid_1">
+    <th>Nama <%= filtered_header(@customers, 'name') %></th>
+    <th>Rek <%= filtered_header(@customers, 'rek_no') %></th>
+    <th>NPWP <%= filtered_header(@customers, 'npwp') %></th>
+    <th>Keterangan <%= filtered_header(@customers, 'description') %></th>
+    <th>Alamat <%= filtered_header(@customers, 'address') %></th>
+    <th>Telp <%= filtered_header(@customers, 'phone') %></th>
+    <th>Fax <%= filtered_header(@customers, 'fax') %></th>
+    <th>Kontak <%= filtered_header(@customers, 'contact') %></th>
+    <th><%= filter_button %></th>
+    <th>&nbsp;</th>
+  </tr>
+</thead>  
+  <% for customer in @customers %>
+  <tr class=<%= cycle("grid_2","grid_3") %>>
+    <td><%=h customer.name %></td>
+    <td><%=h customer.nil? ? "" : customer.rek_no %></td>
+    <td><%=h customer.nil? ? "" : customer.npwp %></td>
+    <td><%=h customer.description %></td>
+    <td><%=h customer.address %></td>
+    <td><%=h customer.phone %></td>
+    <td><%=h customer.fax %></td>
+    <td><%=h customer.contact %></td>
+    <td><%= link_to_remote_redbox("Edit", {:url => "/customers/edit/#{customer.id}"}, {:class => "a_edit"})  %></td>
+    <td><%= link_to 'Hapus', customer, :confirm => "Apakah anda yakin akan menghapus data '#{customer.name}' ?", :method => :delete, :class => "a_delete" %></td>
+  </tr>
+  <% end %>
+</table>
+
+
+<table class="table_footer" cellpadding="0" cellspacing="0" width="1000px">
+  <tr class="grid_footer">
+    <td colspan="8" valign="center">
+      <%= link_to_remote_redbox("Tambah Pelanggan", {:url => new_customer_path}, {:class => "a_add"}) %><span class="blue_split">&nbsp;</span>
+      <%= link_to "Export PDF", formatted_customers_path(:pdf), :class => "a_pdf" %><span class="blue_split">&nbsp;</span>
+      <%= link_to "Export EXCEL", formatted_customers_path(:xls), :class => "a_xls" %>
+    </td>
+    <td colspan="2">
+        &nbsp;
+      <%#= render(:partial => "shared/paginate", :locals => {:collection => @customers }) -%>
+    </td>
+  </tr>
+</table>

@@ -1,0 +1,34 @@
+<%=  popup_title "Transper all#{ ' Piutang' if @receivables}" %>
+<div style="max-height:410px; overflow:auto;">
+  <div id="RB_body" style="width: 780px;">
+    <% form_tag(:action => 'save_transfer_all') do %>
+      <table class="search_table" cellpadding="5" cellspacing="0" style="padding: 1px 5px;">
+        <tr>
+          <td>No Date Transfer</td>
+          <td> : </td>
+          <td align="">
+            <% @paid = AccountingSaleDebitCreditValue.new %>
+            <%= date_splicer :paid, :updated_at, default_to_now = true %>
+          </td>
+        </tr>
+        <tr>
+          <td>Bank</td>
+          <td> : </td>
+          <td align="">
+            <%= select(:account,:sale_debit_credit_id, account_bank_transfer ) %>
+          </td>
+        </tr>
+      </table>
+      <br/>
+      <% @sale_balances.each do |sale| %>
+        <%= transfer_all_list(sale) if check_account_cash_all(sale.id) == true %>
+      <% end if @sale_balances %>
+
+      <% @receivables.each do |receivable| %>
+        <%= transfer_all_list_piutang(receivable) if check_receivable_all(receivable.id) == false %>
+      <% end if @receivables %>
+      <div style="clear:both;"></div>
+      <%= submit_tag "Transfer" %>
+    <% end %>
+  </div>
+</div>

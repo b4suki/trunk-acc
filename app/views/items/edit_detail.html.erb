@@ -1,0 +1,12 @@
+<%=  popup_title "Edit Detail Item" %>
+<div id="RB_body" style="width: 300px;">
+  <% form_for(@item_detail, :url => update_detail_item_path(@item_detail.id)) do |f| %>
+    <p>
+      Harga<br/>
+      <%= f.text_field :price %><br/>
+    </p>
+    <p>
+      <%= f.submit "Update" %>
+    </p>
+  <% end %>
+</div>

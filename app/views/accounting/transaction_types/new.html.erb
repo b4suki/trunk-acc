@@ -1,0 +1,26 @@
+<%= popup_title "Jenis Pembayaran Baru" %>
+
+<div id="RB_body" style="width: 300px;">
+<% form_for(:transaction_type, @transaction_type, :url => {:action => 'create'}) do |f| %>
+  <%= f.error_messages %>
+  <p>
+    <%= f.label :name %><br />
+    <%= f.text_field :name %>
+  </p>
+  <p>
+    <%= f.label :description %><br />
+    <%= f.text_area :description, :cols =>34, :rows =>5 %>
+  </p>
+  <%#*<p>%>
+    <%#= f.label :order % ><br />
+    <%#= f.text_field :order %>
+  <%#*</p>%>
+  <p>
+    <%= f.label :group %><br />
+    <%= f.text_field :group %>
+  </p>
+  <p>
+    <%= f.submit "Create" %>
+  </p>
+<% end %>
+</div>

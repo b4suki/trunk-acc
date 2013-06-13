@@ -1,0 +1,27 @@
+<h2 align="center">REKAPITULASI LAPORAN PENERIMAAN DAN PENGELUARAN BARANG</h2><br /><br />
+Tanggal  : <%= selected_month %> - <%= selected_year %><br />
+
+<table width="700px" border="1">
+  <tr>
+    <th>No</th>
+    <th>Barang yang dikehendaki</th>
+    <th>Stock Akhir</th>
+    <th>Masuk</th>
+    <th>Keluar</th>
+    <th>Sisa</th>
+    <th>Satuan</th>
+    <th>Keterangan</th>
+
+  </tr>
+  <tr>
+  <% unless @items.empty? %>
+    <% @items.each_with_index do |item, index| %>
+     <th><%= index + 1  %></th>
+     <th><%= item.name  %></th>
+        <%=  get_first_stock(item, @date) %>
+     <th><%= item.unit.name  %></th>
+     <th><%= item.description %></th>
+      </tr>
+    <% end %>
+  <% end %>
+</table>

@@ -1,0 +1,50 @@
+<div id=judul><h2>DAFTAR TRANSAKSI PEMBELIAN</h2></div>
+<table class="main_table" cellpadding="0" cellspacing="0" width="800">
+<tr class="grid_1">
+    <td rowspan="2">No</td>
+    <td rowspan="2">No Po Out</td>
+    <td rowspan="2">SURAT JLN</td>
+    <td colspan="2">INVOICE NO</td>   
+    <td rowspan="2">CUSTOMER </td>
+    <td rowspan="2">URAIAN PEKERJAAN </td>
+    <td rowspan="2">JOB NO. </td>
+    <td rowspan="2">SUBTOTAL</td>
+    <td rowspan="2">DISCOUNT </td>
+    <td rowspan="2">TOTAL PENJUALAN </td>        
+    <td rowspan="1" colspan="<%= @credit  %>">Credit</td>    
+    <td rowspan="1" colspan="<%= @debit  %>">Debit</td>    
+  </tr>
+<tr class="grid_1">    
+<td>Number</td>
+  <td>Date</td>
+  <%= view_header_purchase("credit")%>       
+  <%= view_header_purchase("debit")%>
+</tr>
+    
+<tr class=<%= cycle("grid_2","grid_3") %>>
+<% @purchase_balances.each_with_index do |purchase_balance, i|%>
+    
+      <td><%=i+1 %></td>
+      <td><%=h purchase_balance.po_out %></td>
+      <td><%=h purchase_balance.travel_pass %></td>
+      <td><%=h purchase_balance.invoice_number %></td>
+      <td><%=h format_date(purchase_balance.invoice_date) %></td>
+      <td><%=h purchase_balance.vendor ? purchase_balance.vendor.name : ""  %></td>
+      <td><%=h purchase_balance.description %></td>  
+      <td><%=" " %></td>  
+      <td><%=h format_currency(purchase_balance.subtotal) %></td>
+      <td><%=h format_currency(purchase_balance.discount) %></td> 
+      <td><%=h format_currency(purchase_balance.transaction_value) %></td>   
+      <%= table_values_debet_credit(purchase_balance.id,"credit") %>      
+      <%= table_values_debet_credit(purchase_balance.id,"debit") %>     
+<% end %> 
+</tr>
+    <tr>
+    <th colspan="8">Total</th>   
+    <th><%= format_currency(accumulate_sale_subtotal) %></th>
+    <th><%= format_currency(accumulate_sale_discount) %></th>
+    <th><%= format_currency(accumulate_sales) %></th>
+    <%= sum_debet_credit("credit")%>
+    <%= sum_debet_credit("debit")%>
+    </tr>
+</table>

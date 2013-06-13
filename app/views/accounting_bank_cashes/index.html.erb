@@ -1,0 +1,29 @@
+<table class="main_table" cellpadding="0" cellspacing="0" width="400">
+  <tr><th colspan="4">Daftar Kas Bank</th></tr>
+  <tr class="grid_1">
+    <td style="width :100px; text-align :center;">No Rekening</td>
+    <td style="width :200px; text-align :center;">Keterangan</td>
+    <td>&nbsp;</td>
+    <td>&nbsp;</td>
+  </tr>
+  <div class="div_top_btn">
+    <%= link_to("Kembali", accounting_bank_balances_path,{:class => "a_top_btn"}) %>
+  </div>
+  <div class="clear_right"></div>
+  <% @accounting_bank_cashes.each do |bank_cash| %>
+    <tr class=<%= cycle("grid_2","grid_3") %>>
+      <td style="width :100px;"><%=h bank_cash.accounting_account.code %></td>
+      <td style="width :200px;"><%=h bank_cash.description %></td>
+      <td><%= link_to_remote_redbox("Edit",{:url => "accounting_bank_cashes/edit/#{bank_cash.id}"},{:class => "a_edit"})  %></td>
+      <td><%= link_to 'Hapus', accounting_bank_cash_path(bank_cash), :confirm => "Apakah anda yakin '#{bank_cash.description}' akan dihapus?", :method => :delete , :class => "a_delete"%></td>
+    </tr>
+  <% end %>
+  <tr class="grid_footer">
+    <td colspan="4" valign="center">
+      <%= link_to_remote_redbox("Input Tipe Kas Bank", {:url => {:action => :new}}, {:class => "a_add"}) %>
+    </td>
+    <td colspan="2">
+    </td>
+  </tr>
+</table>
+<br />

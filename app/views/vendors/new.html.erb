@@ -1,0 +1,13 @@
+<%=  popup_title "Tambah Data Vendor" %>
+
+<div id="RB_body" style="width: 400px;">
+<% form_for(:vendor, @vendor, :url => {:action => 'create'})  do |f| %>
+  <%= f.error_messages %>
+  <%= render :partial => 'form', :locals => { :f => f, :a => nil } %>
+  <br />
+  <p>
+    <br />
+    <%= f.submit "Simpan" %>
+  </p>
+<% end %>
+</div>

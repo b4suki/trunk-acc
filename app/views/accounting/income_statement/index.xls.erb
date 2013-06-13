@@ -1,0 +1,50 @@
+<h3><%= @title %></h3>
+<h3>Bulan <%= selected_month %>  Tahun <%= selected_year %> </h3>
+<br />
+
+<table cellpadding="0" cellspacing="0" width="700" class="main_table" >
+  <tr class='grid_1'>
+    <td colspan="4" valign="top">REVENUES</td>
+  </tr>
+  <%= display_income_statement_revenues(@date)%>
+  <tr class='grid_1'>
+    <td colspan="4">HPP</td>
+  </tr>
+  <%= display_hpp_pembelian(@date) %>
+  <tr class='grid_1'>
+    <td colspan="4">EXPENSES</td>
+  </tr>
+  <%= display_expenses(@date) %>
+  <tr class='grid_3'>
+    <td colspan="3">INCOME / LOSSES BEFORE TAX </td>
+    <% $PROFIT_LOSS = $TOTAL_SALES -=  $TOTAL_EXPENSES %>
+    <td style="text-align:right; border-top:1px solid #000;border-bottom:4px double #000;"><%= format_currency($PROFIT_LOSS) %></td>
+  </tr>
+  <% if $PROFIT_LOSS > 0 %>
+    <tr class='grid_1'>
+      <td colspan="4">TAX</td>
+    </tr>
+    <tr class="grid_2">
+      <td>&nbsp;</td>
+      <td colspan="2">Utang pajak</td>
+      <% if $TOTAL_SALES <= 4800000000 %>
+        <% tax_payable = $PROFIT_LOSS * 0.125 %>
+      <% elsif $TOTAL_SALES > 4800000000 && $TOTAL_SALES < 50000000000 %>
+        <% tax_payable  = ((4.8/$TOTAL_SALES)*$PROFIT_LOSS) * 0.125 %>
+        <% tax_payable += ((($TOTAL_SALES - 4800000000.0)/$TOTAL_SALES)*$PROFIT_LOSS) * 0.25 %>
+      <% end %>
+      <td align="right"><%= format_currency(tax_payable) %></td>
+    </tr>
+    <tr class="grid_3">
+      <td>&nbsp;</td>
+      <td colspan="2">Kredit pajak</td>
+      <% tax_credit = TaxCredit.one_month_tax_credit_amount($month, $year) %>
+      <td align="right"><%= format_currency(tax_credit) %></td>
+    </tr>
+    <tr class="grid_3">
+      <td>&nbsp;</td>
+      <td colspan="2">Total</td>
+      <td align="right"><%= format_currency(tax_payable - tax_credit) %></td>
+    </tr>
+  <% end %>
+</table>

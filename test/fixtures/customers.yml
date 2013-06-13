@@ -1,0 +1,53 @@
+--- 
+customers_001: 
+  name: gdsgsh
+  updated_at: 2008-11-26 03:36:49
+  contact: hfhdh56
+  id: "1"
+  description: hsfhsfh
+  fax: rr5
+  phone: fdhre5646
+  address: shshs
+  created_at: 2008-11-26 03:36:49
+customers_002: 
+  name: vnhjgdhfdjh
+  updated_at: 2008-11-27 07:44:38
+  contact: jfgjfgjfgjy6765
+  id: "2"
+  description: |
+    jgdjdgjdgj nnnnnnnnnnn
+
+  fax: "624646"
+  phone: "45325245"
+  address: djdgjsdgj gfsgs 454543 kkkkkkkkkkkkkkkkkkkk
+  created_at: 2008-11-26 08:51:33
+customers_003: 
+  name: dgdsgs
+  updated_at: 2008-11-27 07:57:47
+  contact: ""
+  id: "3"
+  description: gchgcdfgdxfx
+  fax: "587575"
+  phone: "5346436"
+  address: ""
+  created_at: 2008-11-27 07:49:53
+customers_004: 
+  name: ffdf
+  updated_at: 2008-11-27 07:50:28
+  contact: ""
+  id: "4"
+  description: ""
+  fax: "46747"
+  phone: "5876585"
+  address: ""
+  created_at: 2008-11-27 07:50:28
+customers_005: 
+  name: tftdrdr
+  updated_at: 2008-11-27 07:50:44
+  contact: ""
+  id: "5"
+  description: ""
+  fax: "76868"
+  phone: "467474"
+  address: ""
+  created_at: 2008-11-27 07:50:44

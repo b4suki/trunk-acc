@@ -1,0 +1,100 @@
+<h1>Daftar Detail Rekonsiliasi</h1>
+
+<table>
+  <tr>
+    <th>Sumber Transaksi</th>
+    <th>Jenis Transaksi</th>
+    <th>Rincian</th>
+  </tr>
+
+
+    <tr>
+      <td><b>Bank</b></td>
+      <td>&nbsp;</td>
+      <td>&nbsp;</td>
+      <td>&nbsp;</td>
+      <td>&nbsp;</td>
+    </tr>
+    <tr>
+      <td>&nbsp;</td>
+      <td><b>Bertambah</b></td>
+      <td>&nbsp;</td>
+      <td>&nbsp;</td>
+      <td>&nbsp;</td>
+    </tr>
+    
+    <% @reconciliation_bank_debits.each do |bank_debit| %>
+      <tr>
+        <td>&nbsp;</td>
+        <td></td>
+        <td><%= bank_debit.name %></td>
+        <td><%= link_to 'Edit', edit_accounting_reconciliation_detail_path(bank_debit) %></td>
+        <td><%= link_to 'Destroy', accounting_reconciliation_detail_path(bank_debit), :confirm => 'Are you sure?', :method => :delete %></td>
+      </tr>
+    <% end %>
+
+    <tr>
+      <td>&nbsp;</td>
+      <td><b>Berkurang</b></td>
+      <td>&nbsp;</td>
+      <td>&nbsp;</td>
+      <td>&nbsp;</td>
+    </tr>
+    
+    <% @reconciliation_bank_credits.each do |bank_credit| %>
+      <tr>
+        <td>&nbsp;</td>
+        <td></td>
+        <td><%= bank_credit.name %></td>
+        <td><%= link_to 'Edit', edit_accounting_reconciliation_detail_path(bank_credit) %></td>
+        <td><%= link_to 'Destroy', accounting_reconciliation_detail_path(bank_credit), :confirm => 'Are you sure?', :method => :delete %></td>
+      </tr>
+    <% end %>
+
+    <tr>
+      <td><b>Perusahaan</b></td>
+      <td>&nbsp;</td>
+      <td>&nbsp;</td>
+      <td>&nbsp;</td>
+      <td>&nbsp;</td>
+    </tr>
+    <tr>
+      <td>&nbsp;</td>
+      <td><b>Bertambah</b></td>
+      <td>&nbsp;</td>
+      <td>&nbsp;</td>
+      <td>&nbsp;</td>
+    </tr>
+    <% @reconciliation_company_debits.each do |company_debit| %>
+      <tr>
+        <td>&nbsp;</td>
+        <td></td>
+        <td><%= company_debit.name %></td>
+        <td><%= link_to 'Edit', edit_accounting_reconciliation_detail_path(company_debit) %></td>
+        <td><%= link_to 'Destroy', accounting_reconciliation_detail_path(company_debit), :confirm => 'Are you sure?', :method => :delete %></td>
+      </tr>
+    <% end %>
+    
+    <tr>
+      <td>&nbsp;</td>
+      <td><b>Berkurang</b></td>
+      <td>&nbsp;</td>
+      <td>&nbsp;</td>
+      <td>&nbsp;</td>
+    </tr>
+    
+    <% @reconciliation_company_credits.each do |company_credit| %>
+      <tr>
+        <td>&nbsp;</td>
+        <td>&nbsp;</td>
+        <td><%= company_credit.name %></td>
+        <td><%= link_to 'Edit', edit_accounting_reconciliation_detail_path(company_credit) %></td>
+        <td><%= link_to 'Destroy', accounting_reconciliation_detail_path(company_credit), :confirm => 'Are you sure?', :method => :delete %></td>
+      </tr>
+    <% end %>
+
+</table>
+
+<br />
+
+<%= link_to 'New reconciliation_detail', new_accounting_reconciliation_detail_path %>

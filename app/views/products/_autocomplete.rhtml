@@ -1,0 +1,5 @@
+<ul class="autocomplete_list" >
+  <% for type in @types -%>
+     <li id="<%= type.id %>" style="width: 350;" class="autocomplete_item"><%="#{type.name}"%></li>
+  <% end -%>
+</ul>

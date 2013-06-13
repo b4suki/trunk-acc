@@ -1,0 +1,6 @@
+<span id="option_job">
+  <%= select("journal","job_id",option_select_job_filter(result),{:selected => $SELECTED_JOB == "all" ? $SELECTED_JOB : $SELECTED_JOB.to_i}, 
+    {:onchange => remote_function(
+                  :url => {:action => 'filter_job'}, 
+                  :with => "'value='+this.value+'&type=job&month='+#{date[:month]}+'&year='+#{date[:year]}")})%>
+</span>

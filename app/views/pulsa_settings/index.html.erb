@@ -1,0 +1,45 @@
+<script type="text/javascript">
+  jQuery(function($){
+    if(typeof($.fn.fixedHeader)=='function'){
+      $("#data").fixedHeader({width: 1000,height: 400});
+    }
+  })
+</script>
+<br/>
+<br/>
+<br/>
+<div class="div_top_btn">
+  <%=  link_to("Kembali",pulsa_customers_path, {:class => "a_top_btn"})  %>
+</div>
+<div style="clear: both"></div>
+<table id="data" class="main_table" cellpadding="0" cellspacing="0" width="500px">
+  <thead>
+    <tr class="grid_1">
+      <th>No</th>
+      <th>Voucher</th>
+      <th>Pulsa</th>
+      <th>&nbsp;</th>
+    </tr>
+  </thead>
+  <% @settings.each_with_index do |pulsa,index| %>
+    <tr class=<%= cycle("grid_2","grid_3") %>>
+      <td><%= index + 1 %></td>
+      <td><%= pulsa.item.name %></td>
+      <td><%= pulsa.item.item_code %></td>
+      <td><%= link_to 'Hapus', pulsa, :confirm => "Apakah anda yakin akan menghapus data '#{pulsa.item.name}' ?", :method => :delete, :class => "a_delete" %></td>
+    </tr>
+  <% end %>
+</table>
+
+<table class="table_footer" cellpadding="0" cellspacing="0" width="500px">
+  <tr class="grid_footer">
+    <td colspan="8" valign="center">
+      <%= link_to_remote_redbox("Tambah",
+        {:url => new_pulsa_setting_path},
+        {:class => "a_add"}) %>
+    </td>
+    <td colspan="2">
+      <%= will_paginate @settings %>
+    </td>
+  </tr>
+</table>

@@ -1,0 +1,40 @@
+<td colspan="<%=14%>">
+  <table class="main_table" cellpadding="0" cellspacing="0" width="500px">
+  </table>
+  <br/>
+  <br/>
+
+  <table class="main_table" cellpadding="0" cellspacing="0" width="500px">
+    <tr class="grid_1">
+      <th colspan="3" align="center"><div id="payment_remain_<%= "#{pulsa_customer.id}"  %>"><%= "Daftar Angsuran (#{pulsa_customer.package}x Angsuran) - Sisa Pembayaran : #{payment_remain.payment_count}" %></div></th>
+    </tr>
+    <% total = 0 %>
+    <tr class="grid_1">
+      <th>Tanggal Pembayaran</th>
+      <th>Angsuran</th>
+      <th>Status</th>
+    </tr>
+    <% payment_details.each do |payment| %>
+      <% p payment.payment_status %>
+      <tr class="grid_2">
+        <td><%= payment.payment_date.strftime('%d %b %Y') %></td>
+        <td style="text-transform:capitalize "><%= pulsa_customer.installment %></td>
+        <td align="right">
+          <div id="payment_status_<%= "#{payment.id}" %>">
+            <% if payment.payment_status == false %>
+              <%= link_to_remote "#{payment.payment_status}", :url => {:action => :update_payment_status, :id => payment.id} %>
+            <% else %>
+              <%= payment.payment_status %>
+            <% end %>
+          </div>
+        </td>
+  <%# total += detail.pulsa %>
+      </tr>
+    <% end %>
+<%#*<tr class="grid_footer">%>
+<%#*<th colspan="2" align="right"><%= "Total Pulsa "  % > </th>%>
+<%#*<th style="text-align: right !important;"><%= format_currency(total) % ></th>%>
+<%#*</tr>%>
+  </table>
+  <br/>
+  <br/>

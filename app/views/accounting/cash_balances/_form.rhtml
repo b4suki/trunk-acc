@@ -1,0 +1,50 @@
+<div style="float:left;margin: 5px 20px 5px 5px;">
+  Tanggal Transaksi<br />
+  <%= f.date_splicer :created_at, :default_to_now => true %><br />
+  <%= check_box_tag "transaction_link", 1, false, :onclick => "link_to_transaction(this.checked==true);" %>
+  Hubungkan dengan transaksi penjualan/pembelian <span id="transaction-link-indicator" style="display:none;"><%= image_tag "ajax-loader.gif" %></span><br />
+  <span id="transaction-link-type" style="display: none;">
+    Jenis Transaksi 
+    <%= select_tag "transaction_link_type", options_for_select([["Penjualan", "sale"],["Pembelian", "purchase"]]), {:onchange => remote_function(
+        :url =>{:controller => "accounting/cash_balances", :action => :prepare_show_transaction_type},
+        :with =>"'type='+this.value")}  %><br />
+    <div id="invoice-input">
+      No Invoice Penjualan
+      <%= text_field_with_auto_complete :invoice, :sale %><br/>
+      <%= hidden_field_tag :sale_id, nil, :id => "sale_id_from_invoice" %><br/>
+    </div>
+  </span><br />
+  <div class="to_remove">
+    Kode Rekening <span id="indicator-account-code" style="display:none;"><%= image_tag "ajax-loader.gif" %></span><br />
+    <%= text_field_with_auto_complete :account, :code, { :size => 30, :value => selected_cash_account(@cash_balance) }, :skip_style => true, :indicator => "indicator-account-code" -%>
+    <%= f.hidden_field :account_id, :id => "account_code_id", :value => selected_cash_account_id(@cash_balance) %>
+    <br />
+    No. Bukti<br />
+    <%= f.text_field :evidence %>
+    <br />
+<%#*No. Job<br />%>
+<%#= f.text_field :job_id, :size => 8 %>
+<%#*<br/>%>
+    Jenis Buku Kas<br />
+    <%= select_tag "cash_balance[cash_book]", options_for_select([["Buku Kas Masuk", "bkm"], ["Buku Kas Keluar", "bkk"]], selected_cash_type(@cash_balance)) %>
+    <br />
+  </div>
+</div>
+<div style="float:left;margin: 5px 5px 5px 5px;">
+  Jumlah<br />
+  <%= f.text_field :transaction_value, :value => @cash_balance.transaction_value == 0 || @cash_balance.transaction_value == 0.0 ? "" : @cash_balance.transaction_value %><br />
+  Keterangan<br />
+  <%= f.text_area :description, :cols => 26, :rows => 10 %>
+</div>
+<br/>
+
+<script type="text/javascript">
+  var accounts = new Array();
+<% validate_account.each_with_index  do |x, i| %>
+    accounts[<%=i%>]='<%= x %>';
+<% end %>
+            
+  var val_account_code = new LiveValidation('account_code');
+  val_account_code.add(Validate.Inclusion,{ within: accounts});
+  val_account_code.add(Validate.Presence)
+</script>

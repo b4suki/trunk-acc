@@ -1,0 +1,68 @@
+<p>
+  <b>Invoice number:</b>
+  <%=h @sale_balance.invoice_number %>
+</p>
+
+<p>
+  <b>Invoice date:</b>
+  <%=h @sale_balance.invoice_date %>
+</p>
+
+<p>
+  <b>Customer:</b>
+  <%=h @sale_balance.customer_id %>
+</p>
+
+<p>
+  <b>Job description:</b>
+  <%=h @sale_balance.job_description %>
+</p>
+
+<p>
+  <b>Job:</b>
+  <%=h @sale_balance.job_id %>
+</p>
+
+<p>
+  <b>Subtotal:</b>
+  <%=h @sale_balance.subtotal %>
+</p>
+
+<p>
+  <b>Discount:</b>
+  <%=h @sale_balance.discount %>
+</p>
+
+<p>
+  <b>Total sale:</b>
+  <%=h @sale_balance.transaction_value %>
+</p>
+
+<p>
+  <b>Sale debit kredit:</b>
+  <%=h @sale_balance.sale_debit_credit_id %>
+</p>
+
+<p>
+  <b>Total subtotal:</b>
+  <%=h @sale_balance.total_subtotal %>
+</p>
+
+<p>
+  <b>Final total sale:</b>
+  <%=h @sale_balance.final_total_sale %>
+</p>
+
+<p>
+  <b>Total discount:</b>
+  <%=h @sale_balance.total_discount %>
+</p>
+
+<p>
+  <b>Account:</b>
+  <%=h @sale_balance.account_id %>
+</p>
+
+
+<%= link_to 'Edit', edit_accounting_sale_balance_path(@sale_balance) %> |
+<%= link_to 'Back', accounting_sale_balances_path %>

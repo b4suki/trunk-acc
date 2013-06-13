@@ -1,0 +1,67 @@
+<%=  popup_title "Edit Barang" %>
+<script>
+  load_prototype_item_details=function(id){
+<%= remote_function(:url => {:action => "get_prototype_item_details"}, :with => "'prototype_item_id='+id") %>
+  };
+  clear_new_item_details=function(){
+    jQuery('#accounting_sale_balance_detail .detail_item.grid_2').remove();
+  };
+  recalc_qty_item_details=function(){
+    jQuery(function($){
+      var productStock=parseInt($('#product_quantity').val())||1;
+      $('.detail_qty_item').each(function(){
+        $(this).val((parseInt($(this).parents('tr:eq(0)').find('.prototype_detail_qty_item').val())||1)*productStock);
+      });
+    });
+  };
+</script>
+
+<div id="RB_body" style="width: 650px;">
+
+  <% form_for(@product) do |f| %>
+    <%= f.error_messages %>
+    <%= hidden_field_tag "count", @index %>
+    <div style="float:left ">
+      <p>
+        Nama Barang:<br/>
+        <%= text_field :prototype_item, :name, :value => @prototype_item.item.name, :size => 30, :skip_style => true %>
+        <%= f.hidden_field :prototype_item_id , :value => @prototype_item.id %>
+        <%= f.hidden_field :item_id , :value => @prototype_item.item_id %>
+      </p>
+      <p>
+        Jumlah awal | <%= link_to_function "Auto qty", "recalc_qty_item_details();" %><br />
+        <%= f.text_field :quantity, :value => 1 %>
+      </p>
+    </div>
+    <div style="float:left;margin-left: 20px; ">
+      <p>
+        Keterangan<br />
+        <%= f.text_area :discription, :column => 15, :rows => 4, :live => false %>
+      </p>
+    </div>
+    <div style="clear:both "></div>
+    <br/>
+    <br/>
+    <table id="accounting_sale_balance_detail" class="main_table" width="100%">
+      <tr>
+        <th>Nama Item</th>
+        <th>Part per Item</th>
+        <th>Qty</th>
+      </tr>
+      <%= render :partial => "detail_item_2", :locals => {:prototype_item => @prototype_item , :product => @product} %>
+    </table>
+    <br/>
+    <div style="float:left ">
+      <p>
+        Aktif<br />
+        <%= check_box_tag "active", true, true %>
+      </p>
+    </div>
+    <div style="clear:both "></div>
+    <br/>
+    <br/>
+    <p>
+      <%= f.submit "Update" %>
+    </p>
+  <% end %>
+</div>

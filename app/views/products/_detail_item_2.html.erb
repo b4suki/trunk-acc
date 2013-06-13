@@ -1,0 +1,22 @@
+<% prototype_item.prototype_item_details.each_with_index do |prototype_item_detail, index| %>
+  <tr class="detail_item grid_2">
+    <td>
+      <label><%=h prototype_item_detail.item.name %>
+        <%= hidden_field_tag "product_id_#{index}", prototype_item_detail.item_id, :id => "detail_product_name_#{index}_id" %>
+      </label>
+    </td>
+    <td>
+      <%=h prototype_item_detail.quantity %>
+      <%=hidden_field_tag "product_stock", prototype_item_detail.quantity %>
+    </td>
+    <td>
+      <%= hidden_field_tag "prototype_item_detail_qty_#{index}", prototype_item_detail.quantity, :class => "prototype_detail_qty_item" %>
+      <%= text_field_tag "detail_qty_#{index}","", :value => prototype_item_detail.quantity, :size => 3 ,:style => 'text-align:right;', :class => "detail_qty_item" %>
+    </td>
+    <!--
+    <td>&nbsp;
+      <%= link_to_function "", "$(this).up('.detail_item').remove();setIndex(-1,'count');", :class => 'a_delete' %>
+    </td>
+    -->
+  </tr>
+<% end %>

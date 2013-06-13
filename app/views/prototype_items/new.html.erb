@@ -1,0 +1,65 @@
+<%=  popup_title "Tambah Barang" %>
+<div id="RB_body" style="width: 400px;">
+
+  <% form_for(@product) do |f| %>
+    <%= f.error_messages %>
+    <%= hidden_field_tag "count", @index %>
+    <p>
+      Nama Barang:<span id="indicator-tipe" style="display:none;"><%= image_tag "ajax-loader.gif" %></span><br />
+      <%= text_field_with_auto_complete :item, :name, { :size => 30}, :skip_style => true, :indicator => "indicator-tipe" -%>
+      <%= f.hidden_field :item_id ,:id => 'item_name_id'%>
+    </p>
+    <p>
+      Keterangan<br />
+      <%= f.text_area :description, :column => 15, :rows => 4, :live => false %>
+    </p>
+    <br/>
+    <br/>
+    <table id="accounting_sale_balance_detail" class="main_table" width="390">
+      <tr>
+        <th>Nama Item</th>
+        <th>Qty</th>
+        <th>&nbsp;</th>
+      </tr>
+      <tr class="detail_item grid_2"></tr>
+
+      <tr id="detail_item" class="grid_footer">
+        <td colspan="3">
+          <div>
+            <span id="link-add-indicator" style="float:left;display:none;">
+              <%= image_tag "ajax-loader.gif" %>&nbsp;
+            </span>
+            <span id="link-add-read" style="float:left;display:none;">
+              Tambah Barang ...
+            </span>
+            <span id="link_add" style="float:left;">
+              <%= render :partial => "add_new_link", :locals => {:index => @index}%>
+            </span>
+          </div>
+        </td>
+      </tr>
+    </table>
+    <br/>
+    <br/>
+    <p>
+      Aktif<br />
+      <%= check_box_tag "active", true, true %>
+    </p>
+    <br/>
+    <br/>
+    <p>
+      <%= f.submit "Simpan" %>
+    </p>
+
+
+  <% end %>
+</div>
+
+<script type="text/javascript" >
+  var type = new Array();
+<% validate_type_item.each_with_index  do |x,i|%>
+    type[<%=i%>]='<%= x %>';
+<% end %>
+  var tipe = new LiveValidation('type_name');
+  tipe.add( Validate.Inclusion, {within: type});
+</script>

@@ -1,0 +1,115 @@
+<div id="search"> 
+  <% form_tag(:action => :index) do %>
+    <table class="search_table" cellpadding="2" cellspacing="0" width="200">
+      <tr><th colspan="2">Filter Bulan Pembelian</th></tr>
+      <tr><td>Bulan</td><td><%= select_month(default_filter_month, :use_month_names => indonesian_month_names ) %></td></tr> <br/>
+      <tr><td>Tahun</td><td><%= select_year(default_filter_year, :start_year => 2000, :end_year => 2030) %></td></tr>
+      <tr><td colspan="2" align="right"><%= submit_tag "Proses", :class => "btn-submit" %></td></tr>
+    </table>
+  <% end %>
+</div>
+
+<div class="div_top_btn">
+  <%= link_to("Input Jenis Pembayaran", accounting_terms_of_payments_path,{:class => "a_top_btn"}) %>
+  <%= link_to("Input Tipe Debit Kredit", accounting_purchase_debit_credits_path,{:class => "a_top_btn"}) %>
+</div>
+<div class="clear_right"></div>
+
+<div class="wrap_table_data">
+  <table id="data" class="main_table" cellpadding="0" cellspacing="0" width="1000px">
+    <thead>
+      <tr class="grid_1">
+        <th rowspan="2">No</th>
+        <th rowspan="2">No Po Keluar</th>
+        <th colspan="2" style="text-align:center;">Invoice</th>
+        <th rowspan="2">Vendor</th>
+        <th rowspan="2">Keterangan</th>
+        <th rowspan="2">Job No</th>
+        <th rowspan="2">Biaya Kirim</th>
+        <th rowspan="2">Sub Total</th>
+        <th rowspan="2">Discount</th>
+        <th rowspan="2">PPN</th>
+        <th rowspan="2">Total Pembelian</th>
+        <th rowspan="2">Mata Uang</th>
+        <th rowspan="2">Kurs</th>
+        <th style="text-align:center;" colspan="<%= @debit %>">Debit</th>
+        <th style="text-align:center;" colspan="<%= @credit %>">Kredit</th>
+        <th style="text-align:center;" rowspan="2" colspan="5">&nbsp;</th>
+      </tr>
+      <tr class="grid_1">
+        <th style="text-align:center;">No</th>
+        <th style="text-align:center;">Tanggal</th>
+        <%= view_header_purchase("debit") rescue nil%>
+        <%= view_header_purchase("credit") rescue nil%>
+        <%#= view_header_purchase("credit") if "account_id ==2"rescue nil%>
+      </tr>
+    </thead>
+    <% @purchase_balances.each_with_index do |purchase_balance, i| %>
+      <tr class=<%= cycle("grid_2","grid_3") %>>
+        <td><%= i + 1 %></td>
+        <td align="right"><%=h purchase_balance.po_out %></td>
+        <td> <%=h purchase_balance.invoice_number%></td>
+        <td><%=h format_date(purchase_balance.invoice_date)%></td>
+        <td><%=h purchase_balance.vendor.name rescue nil %></td>
+        <td><%=h purchase_balance.description%></td>
+        <td align="center"><%=h purchase_balance.job_id %></td>
+        <td align="right"><%= format_currency(purchase_balance.shipping_cost) %></td>
+        <% set_total_field_for purchase_balance, :shipping_cost %>
+        <td align="right"><%= format_currency(purchase_balance.subtotal) %></td>
+        <% set_total_field_for purchase_balance, :subtotal %>
+        <td align="right"><%= format_currency(purchase_balance.discount) %> </td>
+        <% set_total_field_for purchase_balance, :discount %>
+        <td align="right"><%= format_currency(purchase_balance.ppn_value) %></td>
+        <% set_total_field_for purchase_balance, :ppn_value %>
+        <td align="right"><%= format_currency(purchase_balance.transaction_value) %></td>
+        <% set_total_field_for purchase_balance, :transaction_value %>
+        <td><%= purchase_balance.currency.name rescue nil %></td>
+        <td><%= purchase_balance.kurs rescue nil %></td>
+        <%= table_values_debet_credit_purchase(purchase_balance.id,"debit") %>
+        <%= table_values_debet_credit_purchase(purchase_balance.id,"credit") %>
+        <td><%= link_to_remote_redbox("Edit",{:url => "/accounting/purchase_balances/edit/#{purchase_balance.id}"},{:class => "a_edit"}) %></td>
+        <td><%= link_to 'Hapus', accounting_purchase_balance_path(purchase_balance), :confirm => "Apakah anda yakin akan menghapus data '#{purchase_balance.description}' ?", :method => :delete, :class => "a_delete"%></td>
+        <td><%= link_to 'Cetak', "#", :class => "a_print", :onclick => "window.open('http://#{request.env["HTTP_HOST"]}/accounting/purchase_balances/show_for_print/#{purchase_balance.id}', 'Print Transaksi Pembelian', 'resizable=no,toolbar=no,menubar=no,location=no');" %></td>
+        <td><%= purchase_balance.amount_account_receivable > 0 ? link_to_remote_redbox("Pembayaran",{:url => "/accounting/purchase_balances/do_payment/#{purchase_balance.id}?from=p"},{:class => "a_pay"}) : "Lunas"  %></td>
+        <td id="show-hide-payment-record-<%=purchase_balance.id%>"><%= render :partial => "payment_record_trigger", :locals => {:show => true, :purchase => purchase_balance} %></td>
+      </tr>
+      <tr class="grid_3" id="payment-record-<%=purchase_balance.id%>"></tr>
+    <% end %>
+
+    <% if @purchase_balances.size >=1 %>
+      <tr class="grid_2"><th colspan="7">Total</th>
+        <th style="text-align:right;"><%= format_currency(show_total_for :shipping_cost) %> </th>
+        <th style="text-align:right;"><%= format_currency(show_total_for :subtotal) %> </th>
+        <th style="text-align:right;"><%= format_currency(show_total_for :discount) %> </th>
+        <th style="text-align:right;"><%= format_currency(show_total_for :ppn_value) %> </th>
+        <th style="text-align:right;"><%= format_currency(show_total_for :transaction_value) %></th>
+        <th colspan="2">&nbsp;</th>
+        <%= sum_debet_credit_purchase(@purchase_balances, "debit")%>
+        <%= sum_debet_credit_purchase(@purchase_balances, "credit")%>
+        <th colspan="5">&nbsp;</th>
+      </tr>
+    <% else %>
+      <tr class="grid_2"><td style="text-align: center;" colspan="<%=19+@credit+@debit%>">Tidak Ada Data</td></tr>
+    <% end %>
+  </table>
+</div>
+
+<table id="data" class="main_table" cellpadding="0" cellspacing="0" width="1000px;">
+  <tr class="grid_footer">
+    <td valign="center">
+      <% if @can_input %>
+        <%= link_to_remote_redbox("Input Transaksi", {:url => {:action => :new}}, {:class => "a_add"}) %>
+      <% else %>
+        <%= link_to("Lengkapi Tipe Debit Kredit", accounting_purchase_debit_credits_path) %>
+      <% end %>
+      <span class="blue_split">&nbsp;</span>
+      <%= link_to "Export PDF", formatted_accounting_purchase_balances_path(:pdf), :class => "a_pdf" %><span class="blue_split">&nbsp;</span>
+      <%= link_to "Export EXCEL", formatted_accounting_purchase_balances_path(:xls), :class => "a_xls" %>
+    </td>
+    <td><%= will_paginate @purchase_balances %></td>
+    <td align="right">
+      <%= link_to_remote_redbox("Bantuan",{:url => {:action => :purchase_help}},{:class => "a_help", :title => "Bantuan"})  %>
+    </td>
+  </tr>
+</table>
+<br />

@@ -1,0 +1,39 @@
+<h2 align="center">REKAPITULASI LAPORAN PENERIMAAN DAN PENGELUARAN BARANG</h2><br /><br />
+Tanggal  : <%= selected_month %> - <%= selected_year %><br />
+
+<table width="700px" border="1">
+  <tr>
+    <th rowspan="2">No</th>
+    <th rowspan="2">Barang yang dikehendaki</th>
+    <th rowspan="2">Stock Akhir <%#= previous_current_month(@date) %></th>
+    <th rowspan="2">Masuk</th>
+    <th rowspan="1" colspan="<%= @group.size %>">Jumlah Barang</th>
+    <th rowspan="2">Sisa</th>
+    <th rowspan="2">Satuan</th>
+    <th rowspan="2">Keterangan</th>
+
+  </tr>
+  <tr>
+    <% @group.each do |grup| %>
+      <th><%= grup.role.title %></th>
+    <% end %>
+  </tr>
+  <% unless @items.empty? %>
+    <% @items.each_with_index do |item, index| %>
+      <tr>
+        <% sum_out = TransItem.sum(:qty, :conditions => ["trans_items.status = ? and trans_items.item_id = ?", 1,item.id])%>
+        <% sum_item = item.trans_items.sum(:received, :conditions =>['trans_items.status =?', 5]) %>
+        <td><%= index + 1%></td>
+        <td><%= item.name %></td>
+        <td align="right"><%= (item.stock + sum_out) - sum_item%></td>
+        <td align="right"><%= sum_item.nil? ? "0" : sum_item %></td>
+        <%  @group.each do |grup| %>
+          <td align="right"><%= TransItem.sum(:qty, :conditions => ["trans_items.status = ? and role_id =? and trans_items.item_id=?", 1, grup.role_id,item.id])%></td>
+        <% end %>
+        <td align="right"><%= item.stock%></td>
+        <td align="center"><%= item.unit.code %></td>
+        <td><%= %></td>
+      </tr>
+    <% end %>
+  <% end %>
+</table>
